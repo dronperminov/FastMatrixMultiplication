@@ -85,6 +85,7 @@ def main():
 
         if os.path.exists(output_path):
             print(f'Skip lifting scheme "{input_path}" (already lifted)')
+            continue
 
         start_time = time.time()
         scheme = Scheme.load(input_path)
