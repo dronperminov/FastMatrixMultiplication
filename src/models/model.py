@@ -1,17 +1,19 @@
 import json
+import re
 from collections import defaultdict
-from itertools import combinations, permutations
-from typing import Dict, List, Set, Tuple
+from itertools import permutations
+from typing import Dict, List, Tuple, Union
 
 from src.utils.algebra import get_rank
-from src.utils.utils import parse_value, pretty_matrix
+from src.utils.utils import flatten, parse_value, pretty_matrix
 
 
 class Model:
-    def __init__(self, n: int, m: int, u: List[List[bool]], v: List[List[bool]], w: List[List[bool]]) -> None:
+    def __init__(self, n: int, m: int, u: List[List[Union[bool, int]]], v: List[List[Union[bool, int]]], w: List[List[Union[bool, int]]], z2: bool = True) -> None:
         self.n = n
         self.m = m
         self.nn = self.n * self.n
+        self.z2 = z2
 
         self.u = u
         self.v = v
@@ -48,45 +50,49 @@ class Model:
             v = [[parse_value(data["v"][index][i], literal2value) for i in range(n * n)] for index in range(m)]
             w = [[parse_value(data["w"][index][i], literal2value) for i in range(n * n)] for index in range(m)]
 
-        return Model(n=n, m=m, u=u, v=v, w=w)
+        return Model(n=n, m=m, u=u, v=v, w=w, z2=True)
 
     @classmethod
-    def from_exp(cls, path: str) -> "Model":
+    def from_exp(cls, path: str, z2: bool = True) -> "Model":
         n = 3
         m = 23
 
         with open(path, encoding="utf-8") as f:
-            lines = f.read().strip().replace("-", "+").replace("(+", "(").replace(" ", "").splitlines()
+            lines = f.read().strip().replace("(a", "(+a").replace("(b", "(+b").replace("(c", "(+c").replace(" ", "").splitlines()
 
         assert len(lines) == m
 
-        u = [[False for _ in range(n * n)] for _ in range(m)]
-        v = [[False for _ in range(n * n)] for _ in range(m)]
-        w = [[False for _ in range(n * n)] for _ in range(m)]
+        u = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
+        v = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
+        w = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
 
-        for index in range(m):
-            alpha, beta, gamma = [v[1:-1].split("+") for v in lines[index].split("*")]
+        sign2value = {"+": 1, "-": -1}
 
-            for a, i, j in alpha:
-                u[index][(int(i) - 1) * n + int(j) - 1] = True
+        for index, line in enumerate(lines):
+            alpha, beta, gamma = [re.findall(r"[-+][abc]\d\d", v[1:-1]) for v in lines[index].split("*")]
 
-            for b, i, j in beta:
-                v[index][(int(i) - 1) * n + int(j) - 1] = True
+            for sign, a, i, j in alpha:
+                u[index][(int(i) - 1) * n + int(j) - 1] = True if z2 else sign2value[sign]
 
-            for c, i, j in gamma:
-                w[index][(int(i) - 1) * n + int(j) - 1] = True
+            for sign, b, i, j in beta:
+                v[index][(int(i) - 1) * n + int(j) - 1] = True if z2 else sign2value[sign]
 
-        return Model(n=n, m=m, u=u, v=v, w=w)
+            for sign, c, i, j in gamma:
+                w[index][(int(i) - 1) * n + int(j) - 1] = True if z2 else sign2value[sign]
+
+        return Model(n=n, m=m, u=u, v=v, w=w, z2=z2)
 
     @classmethod
     def load(cls, path: str) -> "Model":
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
 
-        u = [[value != 0 for value in row] for row in data["u"]]
-        v = [[value != 0 for value in row] for row in data["v"]]
-        w = [[value != 0 for value in row] for row in data["w"]]
-        model = Model(n=data["n"], m=data["m"], u=u, v=v, w=w)
+        z2 = data.get("z2", True)
+        value_type = bool if z2 else int
+        u = [[value_type(value) for value in row] for row in data["u"]]
+        v = [[value_type(value) for value in row] for row in data["v"]]
+        w = [[value_type(value) for value in row] for row in data["w"]]
+        model = Model(n=data["n"], m=data["m"], u=u, v=v, w=w, z2=z2)
         return model
 
     def save(self, path: str) -> None:
@@ -109,6 +115,12 @@ class Model:
             f.write("{\n")
             f.write(f'    "n": {self.n},\n')
             f.write(f'    "m": {self.m},\n')
+            f.write(f'    "z2": {"true" if self.z2 else "false"},\n')
+            f.write(f'    "type": "base",\n')
+            f.write(f'    "multiplications": [{"".join(multiplications)}\n')
+            f.write(f'    ],\n')
+            f.write(f'    "elements": [{"".join(elements)}\n')
+            f.write(f'    ],\n')
             f.write(f'    {u},\n')
             f.write(f'    {v},\n')
             f.write(f'    {w},\n')
@@ -119,11 +131,7 @@ class Model:
             f.write(f'    "complexity": {self.complexity()},\n')
             f.write(f'    "u_ones": {u_ones},\n')
             f.write(f'    "v_ones": {v_ones},\n')
-            f.write(f'    "w_ones": {w_ones},\n')
-            f.write(f'    "multiplications": [{"".join(multiplications)}\n')
-            f.write(f'    ],\n')
-            f.write(f'    "elements": [{"".join(elements)}\n')
-            f.write(f'    ]\n')
+            f.write(f'    "w_ones": {w_ones}\n')
             f.write("}\n")
 
     def show(self, matrices: bool = False, invariants: bool = True, params: bool = True) -> None:
@@ -169,10 +177,8 @@ class Model:
                         self.sort_multiplications()
 
                         if self.__check_ordering():
-                            # self.__show_ordering()
                             return
 
-        # self.__show_ordering()
         assert self.__check_ordering()
 
     def transpose(self) -> None:
@@ -204,9 +210,9 @@ class Model:
         self.w = [[self.w[index][j_map.get(i, i) * self.n + j] for i in range(self.n) for j in range(self.n)] for index in range(self.m)]
 
     def sort_cycle_shift(self) -> None:
-        uvw = self.__flatten(self.u + self.v + self.w)
-        wuv = self.__flatten(self.w + self.u + self.v)
-        vwu = self.__flatten(self.v + self.w + self.u)
+        uvw = flatten(self.u + self.v + self.w)
+        wuv = flatten(self.w + self.u + self.v)
+        vwu = flatten(self.v + self.w + self.u)
 
         if wuv <= uvw and wuv <= vwu:
             self.u, self.v, self.w = self.w, self.u, self.v
@@ -219,17 +225,6 @@ class Model:
         self.u = [self.u[index] for index in indices]
         self.v = [self.v[index] for index in indices]
         self.w = [self.w[index] for index in indices]
-
-    def addition_statistics(self) -> dict:
-        u_indices = [{i for i in range(self.nn) if self.u[index][i]} for index in range(self.m)]
-        v_indices = [{i for i in range(self.nn) if self.v[index][i]} for index in range(self.m)]
-        w_indices = [{index for index in range(self.m) if self.w[index][i]} for i in range(self.nn)]
-
-        return {
-            "u": self.__addition_analytics(u_indices),
-            "v": self.__addition_analytics(v_indices),
-            "w": self.__addition_analytics(w_indices)
-        }
 
     def get_multiplications(self) -> List[str]:
         return [self.__get_multiplication(index) for index in range(self.m)]
@@ -272,7 +267,7 @@ class Model:
                     term_power = sum([i2 == j1, i1 == k2, j2 == k1])
 
                     for index in range(self.m):
-                        terms[term_power] += int(self.u[index][i] and self.v[index][j] and self.w[index][k])
+                        terms[term_power] += int(bool(self.u[index][i]) and bool(self.v[index][j]) and bool(self.w[index][k]))
 
         coefficients = [f'{self.__pc(terms[rank])}{self.__pp("t", rank)}' for rank in range(3, -1, -1)]
         return f'{" + ".join(coefficients)} ({sum(terms)})'
@@ -284,14 +279,14 @@ class Model:
             for j in range(self.nn):
                 for k in range(self.nn):
                     for index in range(self.m):
-                        terms += int(self.u[index][i] and self.v[index][j] and self.w[index][k])
+                        terms += int(bool(self.u[index][i]) and bool(self.v[index][j]) and bool(self.w[index][k]))
 
         return terms
 
     def ones(self) -> Tuple[int, int, int]:
-        u_ones = sum(self.__flatten(self.u))
-        v_ones = sum(self.__flatten(self.v))
-        w_ones = sum(self.__flatten(self.w))
+        u_ones = sum(bool(value) for row in self.u for value in row)
+        v_ones = sum(bool(value) for row in self.v for value in row)
+        w_ones = sum(bool(value) for row in self.w for value in row)
         return u_ones, v_ones, w_ones
 
     def complexity(self) -> int:
@@ -299,19 +294,20 @@ class Model:
         return u_ones + v_ones + w_ones - self.m * 2 - self.nn
 
     def column_ones(self) -> Tuple[List[int], List[int], List[int]]:
-        u_ones = [sum(self.u[index][i] for index in range(self.m)) for i in range(self.nn)]
-        v_ones = [sum(self.v[index][i] for index in range(self.m)) for i in range(self.nn)]
-        w_ones = [sum(self.w[index][i] for index in range(self.m)) for i in range(self.nn)]
+        u_ones = [sum(bool(self.u[index][i]) for index in range(self.m)) for i in range(self.nn)]
+        v_ones = [sum(bool(self.v[index][i]) for index in range(self.m)) for i in range(self.nn)]
+        w_ones = [sum(bool(self.w[index][i]) for index in range(self.m)) for i in range(self.nn)]
         return u_ones, v_ones, w_ones
 
     def __get_multiplication(self, index: int) -> str:
-        alpha = " ⊕ ".join([f"a{i + 1}{j + 1}" for i in range(self.n) for j in range(self.n) if self.u[index][i * self.n + j]])
-        beta = " ⊕ ".join([f"b{i + 1}{j + 1}" for i in range(self.n) for j in range(self.n) if self.v[index][i * self.n + j]])
-        return f"m{index + 1} = ({alpha}) ∧ ({beta})"
+        product = "∧" if self.z2 else "*"
+        alpha = self.__get_addition([(self.u[index][i * self.n + j], f"a{i + 1}{j + 1}") for i in range(self.n) for j in range(self.n)])
+        beta = self.__get_addition([(self.v[index][i * self.n + j], f"b{i + 1}{j + 1}") for i in range(self.n) for j in range(self.n)])
+        return f"m{index + 1} = ({alpha}) {product} ({beta})"
 
     def __get_element(self, i: int, j: int) -> str:
         element_expression = self.__get_element_expression(i, j)
-        element = " ⊕ ".join([f"m{index + 1}" for index in range(self.m) if self.w[index][j * self.n + i]])
+        element = self.__get_addition([(self.w[index][j * self.n + i], f"m{index + 1}") for index in range(self.m)])
         return f"c{i + 1}{j + 1} = {element_expression} = {element}"
 
     def __get_element_expression(self, ci: int, cj: int) -> str:
@@ -323,16 +319,33 @@ class Model:
 
             for i in range(self.nn):
                 for j in range(self.nn):
-                    used_element[i][j] ^= self.u[index][i] and self.v[index][j]
+                    used_element[i][j] += self.u[index][i] * self.v[index][j]
 
         elements = []
+        product = "∧" if self.z2 else "*"
 
         for i in range(self.nn):
             for j in range(self.nn):
-                if used_element[i][j]:
-                    elements.append(f"a{i // self.n + 1}{i % self.n + 1} ∧ b{j // self.n + 1}{j % self.n + 1}")
+                elements.append((used_element[i][j] % 2, f"a{i // self.n + 1}{i % self.n + 1} {product} b{j // self.n + 1}{j % self.n + 1}"))
 
-        return " ⊕ ".join(elements)
+        return self.__get_addition(elements)
+
+    def __get_addition(self, values: List[Tuple[Union[bool, int], str]]) -> str:
+        if self.z2:
+            return " ⊕ ".join(name for value, name in values if value)
+
+        addition = []
+
+        for (value, name) in values:
+            if not value:
+                continue
+
+            if not addition:
+                addition.append(name if value == 1 else f"-{name}")
+            else:
+                addition.append(f"+ {name}" if value == 1 else f"- {name}")
+
+        return " ".join(addition)
 
     def __validate(self) -> None:
         for i in range(self.nn):
@@ -343,10 +356,13 @@ class Model:
     def __validate_equation(self, i: int, j: int, k: int) -> bool:
         i1, i2, j1, j2, k1, k2 = i // self.n, i % self.n, j // self.n, j % self.n, k // self.n, k % self.n
         target = (i2 == j1) and (i1 == k2) and (j2 == k1)
-        equation = False
+        equation = 0
 
         for index in range(self.m):
-            equation ^= self.u[index][i] and self.v[index][j] and self.w[index][k]
+            equation += int(self.u[index][i]) * int(self.v[index][j]) * int(self.w[index][k])
+
+        if self.z2:
+            equation %= 2
 
         return equation == target
 
@@ -369,16 +385,13 @@ class Model:
 
         return str(count)
 
-    def __flatten(self, matrix: List[List[bool]]) -> List[int]:
-        return [value for row in matrix for value in row]
-
-    def __get_row(self, matrix: List[List[bool]], index: int, row: int) -> List[int]:
+    def __get_row(self, matrix: List[List[bool]], index: int, row: int) -> List[Union[bool, int]]:
         return [matrix[index][row * self.n + j] for j in range(self.n)]
 
-    def __get_column(self, matrix: List[List[bool]], index: int, column: int) -> List[int]:
+    def __get_column(self, matrix: List[List[bool]], index: int, column: int) -> List[Union[bool, int]]:
         return [matrix[index][i * self.n + column] for i in range(self.n)]
 
-    def __get_order(self, index: int) -> List[int]:
+    def __get_order(self, index: int) -> List[Union[int, bool]]:
         return self.u[index] + self.v[index]
 
     def __show_ordering(self) -> None:
@@ -435,9 +448,9 @@ class Model:
         return True
 
     def __check_cycle_shift_ordering(self) -> bool:
-        uvw = self.__flatten(self.u + self.v + self.w)
-        wuv = self.__flatten(self.w + self.u + self.v)
-        vwu = self.__flatten(self.v + self.w + self.u)
+        uvw = flatten(self.u + self.v + self.w)
+        wuv = flatten(self.w + self.u + self.v)
+        vwu = flatten(self.v + self.w + self.u)
         return uvw <= wuv and uvw <= vwu
 
     def __check_transpose_ordering(self) -> bool:
@@ -445,23 +458,6 @@ class Model:
         vt = [[self.v[index][j * self.n + i] for i in range(self.n) for j in range(self.n)] for index in range(self.m)]
         wt = [[self.w[index][j * self.n + i] for i in range(self.n) for j in range(self.n)] for index in range(self.m)]
 
-        uvw = self.__flatten(self.u + self.v + self.w)
-        vuw_t = self.__flatten(vt + ut + wt)
+        uvw = flatten(self.u + self.v + self.w)
+        vuw_t = flatten(vt + ut + wt)
         return uvw <= vuw_t
-
-    def __addition_analytics(self, addition_indices: List[Set[int]], max_size: int = 5) -> dict:
-        size2count = {size: defaultdict(int) for size in range(2, max_size + 1)}
-
-        for indices in addition_indices:
-            for size in range(2, max_size + 1):
-                for d in combinations(sorted(indices), r=size):
-                    size2count[size][tuple(d)] += 1
-
-        size2count = {size: {d: count for d, count in size2count[size].items() if count > 1} for size in range(2, max_size + 1)}
-        size2safe = {}
-
-        for size in range(2, max_size + 1):
-            d2safe = {d: (count - 1) * (size - 1) for d, count in size2count[size].items()}
-            size2safe[size] = list(dict(sorted(d2safe.items(), key=lambda item: -item[1])[:3]).values())
-
-        return {size: size2safe[size] for size in range(2, max_size + 1)}
