@@ -8,7 +8,7 @@ from src.utils.algebra import get_rank
 from src.utils.utils import flatten, parse_value, pretty_matrix
 
 
-class Model:
+class Scheme:
     def __init__(self, n: int, m: int, u: List[List[Union[bool, int]]], v: List[List[Union[bool, int]]], w: List[List[Union[bool, int]]], z2: bool = True) -> None:
         self.n = n
         self.m = m
@@ -25,7 +25,7 @@ class Model:
         self.__validate()
 
     @classmethod
-    def from_solution(cls, path: str) -> "Model":
+    def from_solution(cls, path: str) -> "Scheme":
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
 
@@ -50,10 +50,10 @@ class Model:
             v = [[parse_value(data["v"][index][i], literal2value) for i in range(n * n)] for index in range(m)]
             w = [[parse_value(data["w"][index][i], literal2value) for i in range(n * n)] for index in range(m)]
 
-        return Model(n=n, m=m, u=u, v=v, w=w, z2=True)
+        return Scheme(n=n, m=m, u=u, v=v, w=w, z2=True)
 
     @classmethod
-    def from_exp(cls, path: str, z2: bool = True) -> "Model":
+    def from_exp(cls, path: str, z2: bool = True) -> "Scheme":
         n = 3
         m = 23
 
@@ -80,10 +80,10 @@ class Model:
             for sign, c, i, j in gamma:
                 w[index][(int(i) - 1) * n + int(j) - 1] = True if z2 else sign2value[sign]
 
-        return Model(n=n, m=m, u=u, v=v, w=w, z2=z2)
+        return Scheme(n=n, m=m, u=u, v=v, w=w, z2=z2)
 
     @classmethod
-    def load(cls, path: str) -> "Model":
+    def load(cls, path: str) -> "Scheme":
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
 
@@ -92,8 +92,7 @@ class Model:
         u = [[value_type(value) for value in row] for row in data["u"]]
         v = [[value_type(value) for value in row] for row in data["v"]]
         w = [[value_type(value) for value in row] for row in data["w"]]
-        model = Model(n=data["n"], m=data["m"], u=u, v=v, w=w, z2=z2)
-        return model
+        return Scheme(n=data["n"], m=data["m"], u=u, v=v, w=w, z2=z2)
 
     def save(self, path: str) -> None:
         u = pretty_matrix(self.u, '"u":', "    ")

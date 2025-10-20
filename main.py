@@ -10,7 +10,7 @@ from typing import Dict, List, Optional, Tuple
 from src.brent_equations.brent_equations_base import BrentEquationsBase
 from src.brent_equations.brent_equations_cyclic import BrentEquationsCyclic
 from src.entities.cnf import ConjunctiveNormalForm
-from src.models.model import Model
+from src.entities.scheme import Scheme
 from src.utils.utils import pretty_time
 
 
@@ -56,28 +56,28 @@ def parse_solution(stdout: str, real_variables: List[int]) -> Tuple[Optional[boo
     return sat, literals
 
 
-def save_solution(task_path: str, solution: List[int], version: int, complexities: Dict[int, int], show_solution: bool, save_model: bool) -> None:
+def save_solution(task_path: str, solution: List[int], version: int, complexities: Dict[int, int], show_solution: bool, save_scheme: bool) -> None:
     solution_path = f"{task_path}{version:05d}_solution.json"
-    model_path = f"{task_path}{version:05d}_model.json"
+    scheme_path = f"{task_path}{version:05d}_scheme.json"
 
     with open(f"{task_path}.json", "r") as f:
-        model = json.load(f)
+        data = json.load(f)
 
-    model["sat"] = solution
+    data["sat"] = solution
 
     with open(solution_path, "w") as f:
-        json.dump(model, f, ensure_ascii=False, indent=2)
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
-    model = Model.from_solution(solution_path)
-    model.sort()
+    scheme = Scheme.from_solution(solution_path)
+    scheme.sort()
 
-    complexities[model.complexity()] += 1
+    complexities[scheme.complexity()] += 1
 
     if show_solution:
-        model.show()
+        scheme.show()
 
-    if save_model:
-        model.save(model_path)
+    if save_scheme:
+        scheme.save(scheme_path)
 
     sorted_complexities = {key: complexities[key] for key in sorted(complexities)}
     print(f"complexities: {sorted_complexities}")
@@ -117,14 +117,14 @@ def main():
     parser.add_argument("--max-time", help="maximum solvation time", type=int, default=0)
     parser.add_argument("--threads", help="threads of solver", type=int, default=4)
     parser.add_argument("--seed", help="solver random seed", type=int, default=0)
-    parser.add_argument("--exit-on-false", help="end run when get 'UNSATISFIABLE'", action='store_true', default=False)
+    parser.add_argument("--retry-on-unsat", help="don't stop when get 'UNSATISFIABLE'", action='store_true', default=False)
     args = parser.parse_args()
 
     show_solution = False
-    save_model = True
+    save_scheme = True
 
     if args.mode == "cyclic":
-        task_dir = f"tasks/n{args.n}_m{args.m}/{args.mode}_S{args.S}_T{args.T}_test"
+        task_dir = f"tasks/n{args.n}_m{args.m}/{args.mode}_S{args.S}_T{args.T}"
     else:
         task_dir = f"tasks/n{args.n}_m{args.m}/{args.mode}"
 
@@ -174,10 +174,10 @@ def main():
             print("\n=================================================================================================================================================")
 
             if sat:
-                save_solution(task_path=task_path, solution=solution, version=version, complexities=complexity2count, show_solution=True, save_model=True)
+                save_solution(task_path=task_path, solution=solution, version=version, complexities=complexity2count, show_solution=True, save_scheme=True)
                 break
 
-            if type(sat) is bool and args.exit_on_false:
+            if type(sat) is bool and not args.retry_on_unsat:
                 return
 
         while True:
@@ -192,10 +192,10 @@ def main():
             print(f"\n{sat} {version}: {pretty_time(elapsed_time)}, mean: {pretty_time(sum(times) / len(times))}, [{min(times):.3f}...{max(times):.3f}] ({' '.join(cmd)})")
 
             if sat:
-                save_solution(task_path=task_path, solution=solution, version=version, complexities=complexity2count, show_solution=show_solution, save_model=save_model)
+                save_solution(task_path=task_path, solution=solution, version=version, complexities=complexity2count, show_solution=show_solution, save_scheme=save_scheme)
                 continue
 
-            if type(sat) is bool and args.exit_on_false:
+            if type(sat) is bool and not args.retry_on_unsat:
                 return
 
             break

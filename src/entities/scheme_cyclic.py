@@ -1,11 +1,11 @@
 import json
 from typing import List
 
-from src.models.model import Model
+from src.entities.scheme import Scheme
 from src.utils.utils import parse_value, pretty_matrix
 
 
-class ModelCyclic(Model):
+class SchemeCyclic(Scheme):
     def __init__(self, n: int, m: int, a: List[List[int]], b: List[List[int]], c: List[List[int]], d: List[List[int]], z2: bool = True):
         self.rank_s = len(a)
         self.rank_t = len(b)
@@ -23,7 +23,7 @@ class ModelCyclic(Model):
         self.__validate()
 
     @classmethod
-    def from_solution(cls, path: str) -> "ModelCyclic":
+    def from_solution(cls, path: str) -> "SchemeCyclic":
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
 
@@ -36,7 +36,7 @@ class ModelCyclic(Model):
         b = [[parse_value(data["b"][index][i], literal2value) for i in range(n * n)] for index in range(rank_t)]
         c = [[parse_value(data["c"][index][i], literal2value) for i in range(n * n)] for index in range(rank_t)]
         d = [[parse_value(data["d"][index][i], literal2value) for i in range(n * n)] for index in range(rank_t)]
-        return ModelCyclic(n=n, m=m, a=a, b=b, c=c, d=d, z2=True)
+        return SchemeCyclic(n=n, m=m, a=a, b=b, c=c, d=d, z2=True)
 
     def show_matrices(self) -> None:
         print(pretty_matrix(self.a, "A"))
