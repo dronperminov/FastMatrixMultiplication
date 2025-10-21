@@ -9,6 +9,19 @@ from src.entities.scheme import Scheme
 from src.utils.utils import pretty_time
 
 
+def add_non_zero_constrains(model: CpModel, n: int, m: int, u: List[List[IntVar]], v: List[List[IntVar]], w: List[List[IntVar]]) -> None:
+    for index in range(m):
+        for i in range(n * n):
+            if type(u[index][i]) is IntVar:
+                model.add(u[index][i] != 0)
+
+            if type(v[index][i]) is IntVar:
+                model.add(v[index][i] != 0)
+
+            if type(w[index][i]) is IntVar:
+                model.add(w[index][i] != 0)
+
+
 def add_multiplication_constraints(model: CpModel, n: int, m: int, u: List[List[IntVar]], v: List[List[IntVar]], w: List[List[IntVar]]) -> List[List[List[List[IntVar]]]]:
     uvw = [[[[model.new_int_var(-1, 1, f'uvw{index}_{i}_{j}_{k}') for k in range(n * n)] for j in range(n * n)] for i in range(n * n)] for index in range(m)]
 
@@ -30,10 +43,20 @@ def add_equation_constraints(model: CpModel, n: int, m: int, uvw: List[List[List
                 model.Add(sum(uvw[index][i][j][k] for index in range(m)) == target)
 
 
-def add_sign_symmetry_constraints(model: CpModel, m: int, u: List[List[IntVar]], w: List[List[IntVar]]) -> None:
+def add_sign_symmetry_constraints(model: CpModel, n: int, m: int, u: List[List[IntVar]], w: List[List[IntVar]]) -> None:
+    u_abs = [[model.new_int_var(0, 1, f'|u{index}_{i}|') for i in range(n * n)] for index in range(m)]
+    w_abs = [[model.new_int_var(0, 1, f'|w{index}_{i}|') for i in range(n * n)] for index in range(m)]
+
     for index in range(m):
         model.add(u[index][0] >= 0)
+
+        for i in range(n * n):
+            model.add(-u[index][i] <= sum(u_abs[index][j] for j in range(i)))
+
         model.add(w[index][0] >= 0)
+
+        for i in range(n * n):
+            model.add(-w[index][i] <= sum(w_abs[index][j] for j in range(i)))
 
 
 def lift_scheme(scheme: Scheme, workers: int, max_time: int) -> Optional[Scheme]:
@@ -48,8 +71,9 @@ def lift_scheme(scheme: Scheme, workers: int, max_time: int) -> Optional[Scheme]
 
     uvw = add_multiplication_constraints(model, n=n, m=m, u=u, v=v, w=w)
 
+    add_non_zero_constrains(model=model, n=n, m=m, u=u, v=v, w=w)
     add_equation_constraints(model=model, n=n, m=m, uvw=uvw)
-    add_sign_symmetry_constraints(model=model, m=m, u=u, w=w)
+    add_sign_symmetry_constraints(model=model, n=n, m=m, u=u, w=w)
 
     solver = CpSolver()
     solver.parameters.num_search_workers = workers
