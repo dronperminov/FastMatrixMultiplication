@@ -124,6 +124,7 @@ def main():
     parser.add_argument("--seed", help="solver random seed", type=int, default=0)
     parser.add_argument("--retry-on-unsat", help="don't stop when get 'UNSATISFIABLE'", action='store_true', default=False)
     parser.add_argument("--show-scheme", help="show every found scheme", action='store_true', default=False)
+    parser.add_argument("--task-name", help="name of the task", type=str, default="task")
     args = parser.parse_args()
 
     save_scheme = True
@@ -133,7 +134,7 @@ def main():
     else:
         task_dir = f"tasks/n{args.n}_m{args.m}/{args.mode}"
 
-    task_path = f"{task_dir}/task"
+    task_path = f"{task_dir}/{args.task_name}"
     os.makedirs(task_dir, exist_ok=True)
 
     print(f"- task dir: {task_dir}")
