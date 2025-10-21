@@ -1,4 +1,5 @@
 import json
+import random
 import re
 from collections import defaultdict
 from itertools import permutations
@@ -15,9 +16,9 @@ class Scheme:
         self.nn = self.n * self.n
         self.z2 = z2
 
-        self.u = u
-        self.v = v
-        self.w = w
+        self.u = [[u[index][i] for i in range(self.nn)] for index in range(self.m)]
+        self.v = [[v[index][i] for i in range(self.nn)] for index in range(self.m)]
+        self.w = [[w[index][i] for i in range(self.nn)] for index in range(self.m)]
 
         assert len(u) == len(v) == len(w) == self.m
         assert len(u[0]) == len(v[0]) == len(w[0]) == self.nn
@@ -166,19 +167,21 @@ class Scheme:
         print(f"- complexity: {self.complexity()}")
 
     def sort(self) -> None:
-        for i1 in range(self.n):
-            for i2 in range(self.n):
-                for j1 in range(self.n):
-                    for j2 in range(self.n):
-                        self.swap_basis_rows(i1, i2)
-                        self.swap_basis_columns(j1, j2)
-                        self.sort_cycle_shift()
-                        self.sort_multiplications()
+        while not self.__check_ordering():
+            if random.random() < 0.5:
+                i1 = random.randint(0, self.n - 1)
+                i2 = random.randint(0, self.n - 1)
+                self.swap_basis_rows(i1, i2)
 
-                        if self.__check_ordering():
-                            return
+            if random.random() < 0.5:
+                j1 = random.randint(0, self.n - 1)
+                j2 = random.randint(0, self.n - 1)
+                self.swap_basis_columns(j1, j2)
 
-        assert self.__check_ordering()
+            if random.random() < 0.5:
+                self.cycle_shift()
+
+            self.sort_multiplications()
 
     def transpose(self) -> None:
         ut = [[self.u[index][j * self.n + i] for i in range(self.n) for j in range(self.n)] for index in range(self.m)]
@@ -298,6 +301,11 @@ class Scheme:
         w_ones = [sum(bool(self.w[index][i]) for index in range(self.m)) for i in range(self.nn)]
         return u_ones, v_ones, w_ones
 
+    def __hash__(self) -> int:
+        elements = "\n".join("\n".join(row) for row in self.get_elements())
+        multiplications = "\n".join(self.get_multiplications())
+        return hash(f"{elements}\n{multiplications}")
+
     def __get_multiplication(self, index: int) -> str:
         product = "∧" if self.z2 else "*"
         alpha = self.__get_addition([(self.u[index][i * self.n + j], f"a{i + 1}{j + 1}") for i in range(self.n) for j in range(self.n)])
@@ -335,14 +343,16 @@ class Scheme:
 
         addition = []
 
-        for (value, name) in values:
+        for value, name in values:
             if not value:
                 continue
 
+            coefficient = "" if abs(value) <= 1 else f"{abs(value)}"
+
             if not addition:
-                addition.append(name if value == 1 else f"-{name}")
+                addition.append(f"{coefficient}{name}" if value > 0 else f"-{coefficient}{name}")
             else:
-                addition.append(f"+ {name}" if value == 1 else f"- {name}")
+                addition.append(f"+ {coefficient}{name}" if value > 0 else f"- {coefficient}{name}")
 
         return " ".join(addition)
 

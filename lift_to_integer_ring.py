@@ -87,6 +87,7 @@ def lift_scheme(scheme: Scheme, workers: int, max_time: int) -> Optional[Scheme]
     u = [[solver.value(u[index][i]) for i in range(n * n)] for index in range(m)]
     v = [[solver.value(v[index][i]) for i in range(n * n)] for index in range(m)]
     w = [[solver.value(w[index][i]) for i in range(n * n)] for index in range(m)]
+
     return Scheme(n=n, m=m, u=u, v=v, w=w, z2=False)
 
 
@@ -99,29 +100,46 @@ def main():
     args = parser.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
+    filenames = sorted([filename for filename in os.listdir(args.input_dir) if filename.endswith("_scheme.json")])
 
-    for filename in sorted(os.listdir(args.input_dir)):
-        if not filename.endswith("_scheme.json"):
-            continue
+    lifted = 0
+    skipped = 0
+    unable = 0
+    total = len(filenames)
 
+    for filename in filenames:
         input_path = os.path.join(args.input_dir, filename)
         output_path = os.path.join(args.output_dir, filename)
 
         if os.path.exists(output_path):
-            print(f'Skip lifting scheme "{input_path}" (already lifted)')
+            skipped += 1
+            print(f'Skip lifting the scheme "{input_path}" (already lifted)')
+            continue
+
+        scheme = Scheme.load(input_path)
+        if not scheme.z2:
+            skipped += 1
+            print(f'Skip lifting the scheme "{input_path}" (already Z field)')
             continue
 
         start_time = time.time()
-        scheme = Scheme.load(input_path)
         scheme = lift_scheme(scheme=scheme, workers=args.workers, max_time=args.max_time)
         end_time = time.time()
 
         if not scheme:
-            print(f'Unable to lift scheme "{input_path}" ({pretty_time(end_time - start_time)})')
+            unable += 1
+            print(f'Unable to lift the scheme "{input_path}" ({pretty_time(end_time - start_time)})')
             continue
 
+        lifted += 1
+        scheme.sort()
         scheme.save(os.path.join(args.output_dir, filename))
-        print(f'Successfully lift scheme "{input_path}" ({pretty_time(end_time - start_time)})')
+        print(f'Successfully lift the scheme "{input_path}" ({pretty_time(end_time - start_time)})')
+
+    print(f"\nTotal schemes: {total}")
+    print(f"- Lifted: {lifted} schemes ({lifted / total:.2%})")
+    print(f"- Skipped: {skipped} schemes ({skipped / total:.2%})")
+    print(f"- Unable to lift: {unable} schemes ({unable / total:.2%})")
 
 
 if __name__ == '__main__':
