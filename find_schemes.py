@@ -11,6 +11,7 @@ from src.brent_equations.brent_equations_base import BrentEquationsBase
 from src.brent_equations.brent_equations_cyclic import BrentEquationsCyclic
 from src.entities.cnf import ConjunctiveNormalForm
 from src.entities.scheme import Scheme
+from src.entities.scheme_cyclic import SchemeCyclic
 from src.utils.utils import pretty_time
 
 
@@ -56,7 +57,7 @@ def parse_solution(stdout: str, real_variables: List[int]) -> Tuple[Optional[boo
     return sat, literals
 
 
-def save_solution(task_path: str, solution: List[int], version: int, complexities: Dict[int, int], show_solution: bool, save_scheme: bool) -> None:
+def save_solution(task_path: str, solution: List[int], version: int, complexities: Dict[int, int], show_scheme: bool, save_scheme: bool) -> None:
     solution_path = f"{task_path}{version:05d}_solution.json"
     scheme_path = f"{task_path}{version:05d}_scheme.json"
 
@@ -68,12 +69,16 @@ def save_solution(task_path: str, solution: List[int], version: int, complexitie
     with open(solution_path, "w") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    scheme = Scheme.from_solution(solution_path)
+    if data["algorithm"] == "cyclic":
+        scheme = SchemeCyclic.from_solution(solution_path)
+    else:
+        scheme = Scheme.from_solution(solution_path)
+
     scheme.sort()
 
     complexities[scheme.complexity()] += 1
 
-    if show_solution:
+    if show_scheme:
         scheme.show()
 
     if save_scheme:
@@ -118,9 +123,9 @@ def main():
     parser.add_argument("--threads", help="threads of solver", type=int, default=4)
     parser.add_argument("--seed", help="solver random seed", type=int, default=0)
     parser.add_argument("--retry-on-unsat", help="don't stop when get 'UNSATISFIABLE'", action='store_true', default=False)
+    parser.add_argument("--show-scheme", help="show every found scheme", action='store_true', default=False)
     args = parser.parse_args()
 
-    show_solution = False
     save_scheme = True
 
     if args.mode == "cyclic":
@@ -174,7 +179,7 @@ def main():
             print("\n=================================================================================================================================================")
 
             if sat:
-                save_solution(task_path=task_path, solution=solution, version=version, complexities=complexity2count, show_solution=True, save_scheme=True)
+                save_solution(task_path=task_path, solution=solution, version=version, complexities=complexity2count, show_scheme=True, save_scheme=True)
                 break
 
             if type(sat) is bool and not args.retry_on_unsat:
@@ -192,7 +197,7 @@ def main():
             print(f"\n{sat} {version}: {pretty_time(elapsed_time)}, mean: {pretty_time(sum(times) / len(times))}, [{min(times):.3f}...{max(times):.3f}] ({' '.join(cmd)})")
 
             if sat:
-                save_solution(task_path=task_path, solution=solution, version=version, complexities=complexity2count, show_solution=show_solution, save_scheme=save_scheme)
+                save_solution(task_path=task_path, solution=solution, version=version, complexities=complexity2count, show_scheme=args.show_scheme, save_scheme=save_scheme)
                 continue
 
             if type(sat) is bool and not args.retry_on_unsat:

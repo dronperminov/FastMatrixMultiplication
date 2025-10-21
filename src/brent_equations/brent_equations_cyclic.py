@@ -37,7 +37,7 @@ class BrentEquationsCyclic:
 
         with open(f"{path}.json", "w", encoding="utf-8") as f:
             json.dump({
-                "algorithm": "abcd",
+                "algorithm": "cyclic",
                 "n": self.n, "m": self.m, "s": self.rank_s, "t": self.rank_t,
                 "a": self.a, "b": self.b, "c": self.c, "d": self.d
             }, f, ensure_ascii=False, indent=2)
