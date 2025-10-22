@@ -54,32 +54,52 @@ class Scheme:
         return Scheme(n=n, m=m, u=u, v=v, w=w, z2=True)
 
     @classmethod
-    def from_exp(cls, path: str, z2: bool = True) -> "Scheme":
-        n = 3
-        m = 23
-
+    def from_exp(cls, path: str, z2: bool = True, n: int = 3) -> "Scheme":
         with open(path, encoding="utf-8") as f:
             lines = f.read().strip().replace("(a", "(+a").replace("(b", "(+b").replace("(c", "(+c").replace(" ", "").splitlines()
 
-        assert len(lines) == m
+        m = len(lines)
 
         u = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
         v = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
         w = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
 
-        sign2value = {"+": 1, "-": -1}
-
         for index, line in enumerate(lines):
-            alpha, beta, gamma = [re.findall(r"[-+][abc]\d\d", v[1:-1]) for v in lines[index].split("*")]
+            alpha, beta, gamma = [re.findall(r"[-+]\d?\*?[abc]\d\d", v[1:-1]) for v in re.findall(f"\(.*?\)", lines[index])]
 
-            for sign, a, i, j in alpha:
-                u[index][(int(i) - 1) * n + int(j) - 1] = True if z2 else sign2value[sign]
+            for alpha_i in alpha:
+                i, j, value = cls.__parse_exp_row(alpha_i, z2)
+                u[index][i * n + j] = value
 
-            for sign, b, i, j in beta:
-                v[index][(int(i) - 1) * n + int(j) - 1] = True if z2 else sign2value[sign]
+            for beta_i in beta:
+                i, j, value = cls.__parse_exp_row(beta_i, z2)
+                v[index][i * n + j] = value
 
-            for sign, c, i, j in gamma:
-                w[index][(int(i) - 1) * n + int(j) - 1] = True if z2 else sign2value[sign]
+            for gamma_i in gamma:
+                i, j, value = cls.__parse_exp_row(gamma_i, z2)
+                w[index][i * n + j] = value
+
+        return Scheme(n=n, m=m, u=u, v=v, w=w, z2=z2)
+
+    @classmethod
+    def from_m(cls, path: str, z2: bool = True) -> "Scheme":
+        with open(path, encoding="utf-8") as f:
+            text = f.read().replace("{", "[").replace("}", "]")
+
+        data = json.loads(text)
+        m = len(data)
+        n = len(data[0][0])
+
+        u = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
+        v = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
+        w = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
+
+        for index, row in enumerate(data):
+            for i in range(n):
+                for j in range(n):
+                    u[index][i * n + j] = abs(row[0][i][j]) % 2 != 0 if z2 else row[0][i][j]
+                    v[index][i * n + j] = abs(row[1][i][j]) % 2 != 0 if z2 else row[1][i][j]
+                    w[index][i * n + j] = abs(row[2][i][j]) % 2 != 0 if z2 else row[2][i][j]
 
         return Scheme(n=n, m=m, u=u, v=v, w=w, z2=z2)
 
@@ -210,6 +230,20 @@ class Scheme:
         j_map = {j1: j2, j2: j1}
         self.v = [[self.v[index][i * self.n + j_map.get(j, j)] for i in range(self.n) for j in range(self.n)] for index in range(self.m)]
         self.w = [[self.w[index][j_map.get(i, i) * self.n + j] for i in range(self.n) for j in range(self.n)] for index in range(self.m)]
+
+    def scale_multiplication(self, index: int, alpha: int, beta: int, gamma: int) -> None:
+        if self.z2:
+            raise ValueError(f"scale method is not allowen in Z2")
+
+        if alpha * beta * gamma != 1:
+            raise ValueError(f"alpha * beta * gamma != 1")
+
+        for i in range(self.nn):
+            self.u[index][i] *= alpha
+            self.v[index][i] *= beta
+            self.w[index][i] *= gamma
+
+        self.__validate()
 
     def sort_cycle_shift(self) -> None:
         uvw = flatten(self.u + self.v + self.w)
@@ -355,6 +389,18 @@ class Scheme:
                 addition.append(f"+ {coefficient}{name}" if value > 0 else f"- {coefficient}{name}")
 
         return " ".join(addition)
+
+    @staticmethod
+    def __parse_exp_row(element: str, z2: bool) -> Tuple[int, int, Union[bool, int]]:
+        if len(element) == 6:
+            sign, value, _, a, i, j = element
+        else:
+            sign, a, i, j = element
+            value = 1
+
+        sign2value = {"+": 1, "-": -1}
+
+        return int(i) - 1, int(j) - 1, abs(int(value)) % 2 != 0 if z2 else sign2value[sign] * int(value)
 
     def __validate(self) -> None:
         for i in range(self.nn):
