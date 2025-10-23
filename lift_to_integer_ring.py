@@ -10,18 +10,10 @@ from src.entities.solution_collector import SolutionCollector
 from src.utils.utils import pretty_time
 
 
-def get_even_values(max_coef: int) -> List[int]:
-    return [value for value in range(-max_coef, max_coef + 1) if abs(value) % 2 == 0]
-
-
-def get_odd_values(max_coef: int) -> List[int]:
-    return [value for value in range(-max_coef, max_coef + 1) if abs(value) % 2 == 1]
-
-
-def add_values_constrains(model: CpModel, scheme: Scheme, u: List[List[IntVar]], v: List[List[IntVar]], w: List[List[IntVar]], max_coef: int) -> None:
+def add_values_constrains(model: CpModel, scheme: Scheme, u: List[List[IntVar]], v: List[List[IntVar]], w: List[List[IntVar]], min_coef: int, max_coef: int) -> None:
     bool2values = {
-        True: get_even_values(max_coef=max_coef),
-        False: get_odd_values(max_coef=max_coef)
+        True: [value for value in range(min_coef, max_coef + 1) if abs(value) % 2 == 0],
+        False: [value for value in range(min_coef, max_coef + 1) if abs(value) % 2 == 1]
     }
 
     for index in range(scheme.m):
@@ -35,12 +27,18 @@ def add_values_constrains(model: CpModel, scheme: Scheme, u: List[List[IntVar]],
             for value in bool2values[scheme.w[index][i]]:
                 model.add(w[index][i] != value)
 
-            model.AddHint(u[index][i], int(scheme.u[index][i]))
-            model.AddHint(v[index][i], int(scheme.v[index][i]))
-            model.AddHint(w[index][i], int(scheme.w[index][i]))
 
+def add_equation_constraints(model: CpModel, scheme: Scheme, u: List[List[IntVar]], v: List[List[IntVar]], w: List[List[IntVar]], min_coef: int, max_coef: int) -> None:
+    max_prod2 = max(-min_coef, max_coef) ** 2
+    max_prod = max(-min_coef, max_coef) ** 3
 
-def add_equation_constraints(model: CpModel, scheme: Scheme, u: List[List[IntVar]], v: List[List[IntVar]], w: List[List[IntVar]], max_coef: int) -> None:
+    uv = [[[model.new_int_var(-max_prod2, max_prod2, f"uv_{index}_{i}_{j}") for j in range(scheme.nn)] for i in range(scheme.nn)] for index in range(scheme.m)]
+
+    for index in range(scheme.m):
+        for i in range(scheme.nn):
+            for j in range(scheme.nn):
+                model.AddMultiplicationEquality(uv[index][i][j], u[index][i], v[index][j])
+
     for i in range(scheme.nn):
         for j in range(scheme.nn):
             for k in range(scheme.nn):
@@ -50,18 +48,19 @@ def add_equation_constraints(model: CpModel, scheme: Scheme, u: List[List[IntVar
                 terms = []
 
                 for index in range(scheme.m):
-                    uvw = model.new_int_var(-max_coef ** 3, max_coef ** 3, f"uvw{index}_{i}_{j}_{k}")
-                    model.AddMultiplicationEquality(uvw, u[index][i], v[index][j], w[index][k])
-                    model.AddHint(uvw, int(scheme.u[index][i]) * int(scheme.v[index][j]) * int(scheme.w[index][k]))
+                    uvw = model.new_int_var(-max_prod, max_prod, f"uvw{index}_{i}_{j}_{k}")
+                    model.AddMultiplicationEquality(uvw, uv[index][i][j], w[index][k])
                     terms.append(uvw)
 
                 model.Add(sum(terms) == target)
 
 
-def add_sign_symmetry_constraints(model: CpModel, n: int, m: int, u: List[List[IntVar]], w: List[List[IntVar]], max_coef: int) -> None:
+def add_sign_symmetry_constraints(model: CpModel, n: int, m: int, u: List[List[IntVar]], w: List[List[IntVar]], min_coef: int, max_coef: int) -> None:
+    max_abs = max(-min_coef, max_coef)
+
     for index in range(m):
-        u_abs = [model.new_int_var(0, max_coef, f"|u_{index}_{i}|") for i in range(n * n)]
-        w_abs = [model.new_int_var(0, max_coef, f"|w_{index}_{i}|") for i in range(n * n)]
+        u_abs = [model.new_int_var(0, max_abs, f"|u_{index}_{i}|") for i in range(n * n)]
+        w_abs = [model.new_int_var(0, max_abs, f"|w_{index}_{i}|") for i in range(n * n)]
 
         for i in range(n * n):
             model.add_abs_equality(u_abs[i], u[index][i])
@@ -71,19 +70,19 @@ def add_sign_symmetry_constraints(model: CpModel, n: int, m: int, u: List[List[I
             model.add(-w[index][i] <= sum(w_abs[j] for j in range(i)))
 
 
-def lift_scheme(scheme: Scheme, max_time: int, max_coef: int, max_solutions: int) -> List[Scheme]:
+def lift_scheme(scheme: Scheme, max_time: int, min_coef: int, max_coef: int, max_solutions: int) -> List[Scheme]:
     n = scheme.n
     m = scheme.m
 
     model = CpModel()
 
-    u = [[model.new_int_var(-max_coef, max_coef, f'u{index}_{i}') for i in range(n * n)] for index in range(m)]
-    v = [[model.new_int_var(-max_coef, max_coef, f'v{index}_{i}') for i in range(n * n)] for index in range(m)]
-    w = [[model.new_int_var(-max_coef, max_coef, f'w{index}_{i}') for i in range(n * n)] for index in range(m)]
+    u = [[model.new_int_var(min_coef, max_coef, f'u{index}_{i}') for i in range(n * n)] for index in range(m)]
+    v = [[model.new_int_var(min_coef, max_coef, f'v{index}_{i}') for i in range(n * n)] for index in range(m)]
+    w = [[model.new_int_var(min_coef, max_coef, f'w{index}_{i}') for i in range(n * n)] for index in range(m)]
 
-    add_values_constrains(model=model, scheme=scheme, u=u, v=v, w=w, max_coef=max_coef)
-    add_equation_constraints(model=model, scheme=scheme, u=u, v=v, w=w, max_coef=max_coef)
-    add_sign_symmetry_constraints(model=model, n=n, m=m, u=u, w=w, max_coef=max_coef)
+    add_values_constrains(model=model, scheme=scheme, u=u, v=v, w=w, min_coef=min_coef, max_coef=max_coef)
+    add_equation_constraints(model=model, scheme=scheme, u=u, v=v, w=w, min_coef=min_coef, max_coef=max_coef)
+    add_sign_symmetry_constraints(model=model, n=n, m=m, u=u, w=w, min_coef=min_coef, max_coef=max_coef)
 
     solver = CpSolver()
 
@@ -101,14 +100,19 @@ def lift_scheme(scheme: Scheme, max_time: int, max_coef: int, max_solutions: int
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--input-dir", help="directory with z2 schemes", type=str, required=True)
+    parser.add_argument("-i", "--input-dir", help="directory with z2 schemes", type=str, default="tasks/n4_m47/base/basic")
     parser.add_argument("-o", "--output-dir", help="directory for save results", type=str, default="lifted")
     parser.add_argument("--max-time", help="maximum lifting time", type=int, default=0)
     parser.add_argument("--max-solutions", help="maximum number of lifted solutions", type=int, default=1)
+    parser.add_argument("--min-coef", help="maximum ring coefficient", type=int, default=-1)
     parser.add_argument("--max-coef", help="maximum ring coefficient", type=int, default=1)
     parser.add_argument("--sort-scheme", help="sort lifted scheme", action="store_true", default=False)
     parser.add_argument("-f", "--force", help="force retry lifting existed scheme", action="store_true", default=False)
     args = parser.parse_args()
+
+    if args.min_coef >= 0:
+        print(f"Min coef must be less than zero")
+        return
 
     if args.max_coef <= 0:
         print(f"Max coef must be greater than zero")
@@ -125,7 +129,7 @@ def main():
     print(f"- input directory: {args.input_dir}")
     print(f"- output directory: {args.output_dir}")
     print(f"- time limit: {args.max_time}")
-    print(f"- ring coefficients: {list(range(-args.max_coef, args.max_coef + 1))}")
+    print(f"- ring coefficients: {list(range(args.min_coef, args.max_coef + 1))}")
 
     lifted = 0
     skipped = 0
@@ -149,7 +153,7 @@ def main():
             continue
 
         start_time = time.time()
-        lifted_schemes = lift_scheme(scheme=scheme, max_time=args.max_time, max_coef=args.max_coef, max_solutions=args.max_solutions)
+        lifted_schemes = lift_scheme(scheme=scheme, max_time=args.max_time, min_coef=args.min_coef, max_coef=args.max_coef, max_solutions=args.max_solutions)
         end_time = time.time()
 
         if not lifted_schemes:
