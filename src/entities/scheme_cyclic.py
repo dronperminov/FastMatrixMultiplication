@@ -2,6 +2,7 @@ import json
 from typing import List
 
 from src.entities.scheme import Scheme
+from src.utils.algebra import get_inverse
 from src.utils.utils import parse_value, pretty_matrix
 
 
@@ -64,6 +65,7 @@ class SchemeCyclic(Scheme):
         u = pretty_matrix(self.u, '"u":', "    ")
         v = pretty_matrix(self.v, '"v":', "    ")
         w = pretty_matrix(self.w, '"w":', "    ")
+        ranks = pretty_matrix(self.ranks(), '"ranks":', "    ")
 
         multiplications = []
         for i, multiplication in enumerate(self.get_multiplications()):
@@ -96,12 +98,59 @@ class SchemeCyclic(Scheme):
             f.write(f'    "invariant_f": "{self.invariant_f()}",\n')
             f.write(f'    "invariant_g": "{self.invariant_g()}",\n')
             f.write(f'    "invariant_h": "{self.invariant_h()}",\n')
+            f.write(f'    "rank_pattern": "{self.invariant_rank_pattern()}",\n')
             f.write(f'    "weight": {self.weight()},\n'),
             f.write(f'    "complexity": {self.complexity()},\n')
+            f.write(f'    {ranks},\n')
             f.write(f'    "u_ones": {u_ones},\n')
             f.write(f'    "v_ones": {v_ones},\n')
             f.write(f'    "w_ones": {w_ones}\n')
             f.write("}\n")
+
+    def sort_cyclic(self) -> None:
+        while not self.__check_ordering():
+            self.sort_cyclic_cycle_shift()
+            self.sort_cyclic_multiplications()
+
+    def sort_cyclic_multiplications(self) -> None:
+        a_indices = sorted(range(self.rank_s), key=lambda index: self.a[index])
+        bcd_indices = sorted(range(self.rank_t), key=lambda index: self.b[index] + self.c[index] + self.d[index])
+
+        self.a = [self.a[index] for index in a_indices]
+        self.b = [self.b[index] for index in bcd_indices]
+        self.c = [self.c[index] for index in bcd_indices]
+        self.d = [self.d[index] for index in bcd_indices]
+
+        self.__update()
+        self.__validate()
+
+    def sort_cyclic_cycle_shift(self) -> None:
+        for index in range(self.rank_t):
+            bcd = self.b[index] + self.c[index] + self.d[index]
+            dbc = self.d[index] + self.b[index] + self.c[index]
+            cdb = self.c[index] + self.d[index] + self.b[index]
+
+            if dbc <= bcd and dbc <= cdb:
+                self.b[index], self.c[index], self.d[index] = self.d[index], self.b[index], self.c[index]
+            elif cdb <= bcd and cdb <= dbc:
+                self.b[index], self.c[index], self.d[index] = self.c[index], self.d[index], self.b[index]
+
+        self.__update()
+        self.__validate()
+
+    def sandwiching_cyclic(self, m: List[List[int]]) -> None:
+        m1 = get_inverse(m)
+
+        for index in range(self.rank_s):
+            self.a[index] = self._matmul(self.a[index], m, m1)
+
+        for index in range(self.rank_t):
+            self.b[index] = self._matmul(self.b[index], m, m1)
+            self.c[index] = self._matmul(self.c[index], m, m1)
+            self.d[index] = self._matmul(self.d[index], m, m1)
+
+        self.__update()
+        self.__validate()
 
     def __validate(self) -> None:
         for i in range(self.nn):
@@ -136,3 +185,28 @@ class SchemeCyclic(Scheme):
         self.u = self.a + self.b + self.c + self.d
         self.v = self.a + self.d + self.b + self.c
         self.w = self.a + self.c + self.d + self.b
+
+    def __check_ordering(self) -> bool:
+        return self.__check_multiplications_ordering() and self.__check_cycle_shift_ordering()
+
+    def __check_multiplications_ordering(self) -> bool:
+        for index in range(1, self.rank_s):
+            if self.a[index - 1] >= self.a[index]:
+                return False
+
+        for index in range(1, self.rank_t):
+            if self.b[index - 1] + self.c[index - 1] + self.d[index - 1] >= self.b[index] + self.c[index] + self.d[index]:
+                return False
+
+        return True
+
+    def __check_cycle_shift_ordering(self) -> bool:
+        for index in range(self.rank_t):
+            bcd = self.b[index] + self.c[index] + self.d[index]
+            dbc = self.d[index] + self.b[index] + self.c[index]
+            cdb = self.c[index] + self.d[index] + self.b[index]
+
+            if bcd > dbc or bcd > cdb:
+                return False
+
+        return True

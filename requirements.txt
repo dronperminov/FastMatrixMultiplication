@@ -1,1 +1,2 @@
 ortools
+numpy<2.0

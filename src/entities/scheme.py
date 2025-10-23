@@ -1,3 +1,4 @@
+import itertools
 import json
 import random
 import re
@@ -5,7 +6,9 @@ from collections import defaultdict
 from itertools import permutations
 from typing import Dict, List, Tuple, Union
 
-from src.utils.algebra import get_rank
+import numpy as np
+
+from src.utils.algebra import get_inverse, get_rank
 from src.utils.utils import flatten, parse_value, pretty_matrix
 
 
@@ -64,6 +67,8 @@ class Scheme:
         v = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
         w = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
 
+        sign2value = {"+": 1, "-": -1}
+
         for index, line in enumerate(lines):
             alpha, beta, gamma = [re.findall(r"[-+]\d?\*?[abc]\d\d", v[1:-1]) for v in re.findall(f"\(.*?\)", lines[index])]
 
@@ -80,6 +85,18 @@ class Scheme:
                 w[index][i * n + j] = value
 
         return Scheme(n=n, m=m, u=u, v=v, w=w, z2=z2)
+
+    @staticmethod
+    def __parse_exp_row(element: str, z2: bool) -> Tuple[int, int, Union[bool, int]]:
+        if len(element) == 6:
+            sign, value, _, a, i, j = element
+        else:
+            sign, a, i, j = element
+            value = 1
+
+        sign2value = {"+": 1, "-": -1}
+
+        return int(i) - 1, int(j) - 1, abs(int(value)) %2 != 0 if z2 else sign2value[sign] * int(value)
 
     @classmethod
     def from_m(cls, path: str, z2: bool = True) -> "Scheme":
@@ -119,6 +136,7 @@ class Scheme:
         u = pretty_matrix(self.u, '"u":', "    ")
         v = pretty_matrix(self.v, '"v":', "    ")
         w = pretty_matrix(self.w, '"w":', "    ")
+        ranks = pretty_matrix(self.ranks(), '"ranks":', "    ")
 
         multiplications = []
         for i, multiplication in enumerate(self.get_multiplications()):
@@ -147,8 +165,10 @@ class Scheme:
             f.write(f'    "invariant_f": "{self.invariant_f()}",\n')
             f.write(f'    "invariant_g": "{self.invariant_g()}",\n')
             f.write(f'    "invariant_h": "{self.invariant_h()}",\n')
+            f.write(f'    "rank_pattern": "{self.invariant_rank_pattern()}",\n')
             f.write(f'    "weight": {self.weight()},\n'),
             f.write(f'    "complexity": {self.complexity()},\n')
+            f.write(f'    {ranks},\n')
             f.write(f'    "u_ones": {u_ones},\n')
             f.write(f'    "v_ones": {v_ones},\n')
             f.write(f'    "w_ones": {w_ones}\n')
@@ -180,6 +200,7 @@ class Scheme:
         print(f"- f(x,y,z): {self.invariant_f()}")
         print(f"- g(w): {self.invariant_g()}")
         print(f"- h(t): {self.invariant_h()}")
+        print(f"- rank pattern: {self.invariant_rank_pattern()}")
 
     def show_params(self) -> None:
         print(f"- ones: {self.ones()}")
@@ -233,7 +254,7 @@ class Scheme:
 
     def scale_multiplication(self, index: int, alpha: int, beta: int, gamma: int) -> None:
         if self.z2:
-            raise ValueError(f"scale method is not allowen in Z2")
+            raise ValueError(f"scale method is not allowed in Z2")
 
         if alpha * beta * gamma != 1:
             raise ValueError(f"alpha * beta * gamma != 1")
@@ -244,6 +265,27 @@ class Scheme:
             self.w[index][i] *= gamma
 
         self.__validate()
+
+    def sandwiching(self, u: List[List[int]], v: List[List[int]], w: List[List[int]]) -> None:
+        for index in range(self.m):
+            self.u[index] = self._matmul(self.u[index], u, get_inverse(v))
+            self.v[index] = self._matmul(self.v[index], v, get_inverse(w))
+            self.w[index] = self._matmul(self.w[index], w, get_inverse(u))
+
+        self.__validate()
+
+    def _matmul(self, matrix: List[int], left: List[List[int]], right: List[List[int]]) -> List[int]:
+        matrix = [[int(matrix[i * self.n + j]) for j in range(self.n)] for i in range(self.n)]
+
+        result = [[sum(left[i][k] * matrix[k][j] for k in range(self.n)) for j in range(self.n)] for i in range(self.n)]
+        result = [[sum(result[i][k] * right[k][j] for k in range(self.n)) for j in range(self.n)] for i in range(self.n)]
+
+        if self.z2:
+            result = [abs(value) % 2 != 0 for row in result for value in row]
+        else:
+            result = [value for row in result for value in row]
+
+        return result
 
     def sort_cycle_shift(self) -> None:
         uvw = flatten(self.u + self.v + self.w)
@@ -257,6 +299,13 @@ class Scheme:
 
     def sort_multiplications(self) -> None:
         indices = sorted(range(self.m), key=lambda index: self.__get_order(index))
+
+        self.u = [self.u[index] for index in indices]
+        self.v = [self.v[index] for index in indices]
+        self.w = [self.w[index] for index in indices]
+
+    def sort_multiplications_by_ranks(self) -> None:
+        indices = sorted(range(self.m), key=lambda index: (self.__get_rank(self.u[index]), self.__get_rank(self.v[index]), self.__get_rank(self.w[index])))
 
         self.u = [self.u[index] for index in indices]
         self.v = [self.v[index] for index in indices]
@@ -308,6 +357,22 @@ class Scheme:
         coefficients = [f'{self.__pc(terms[rank])}{self.__pp("t", rank)}' for rank in range(3, -1, -1)]
         return f'{" + ".join(coefficients)} ({sum(terms)})'
 
+    def invariant_rank_pattern(self) -> str:
+        ranks = sorted(self.ranks())
+        if self.n > 3:
+            return str(hash(tuple(ranks)))
+
+        letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        ranks2letter = {rank: letters[i] for i, rank in enumerate(itertools.product(range(1, self.n + 1), repeat=self.n))}
+
+        pattern = "".join(ranks2letter[ranks] for ranks in ranks)
+        matches = [match.group() for match in re.finditer(r"(.)\1+|\w", pattern)]
+        return "".join(f'{len(match) if len(match) > 1 else ""}{match[0]}' for match in matches)
+
+    def ranks(self) -> List[Tuple[int, int, int]]:
+        pattern = [(self.__get_rank(self.u[index]), self.__get_rank(self.v[index]), self.__get_rank(self.w[index])) for index in range(self.m)]
+        return pattern
+
     def weight(self) -> int:
         terms = 0
 
@@ -352,22 +417,22 @@ class Scheme:
         return f"c{i + 1}{j + 1} = {element_expression} = {element}"
 
     def __get_element_expression(self, ci: int, cj: int) -> str:
-        used_element = [[False for _ in range(self.nn)] for _ in range(self.nn)]
+        used_element = [[0 for _ in range(self.nn)] for _ in range(self.nn)]
 
         for index in range(self.m):
-            if not self.w[index][cj * self.n + ci]:
-                continue
-
             for i in range(self.nn):
                 for j in range(self.nn):
-                    used_element[i][j] += self.u[index][i] * self.v[index][j]
+                    used_element[i][j] += self.u[index][i] * self.v[index][j] * self.w[index][cj * self.n + ci]
 
         elements = []
         product = "∧" if self.z2 else "*"
 
         for i in range(self.nn):
             for j in range(self.nn):
-                elements.append((used_element[i][j] % 2, f"a{i // self.n + 1}{i % self.n + 1} {product} b{j // self.n + 1}{j % self.n + 1}"))
+                if self.z2:
+                    used_element[i][j] = abs(used_element[i][j]) % 2
+
+                elements.append((used_element[i][j], f"a{i // self.n + 1}{i % self.n + 1} {product} b{j // self.n + 1}{j % self.n + 1}"))
 
         return self.__get_addition(elements)
 
@@ -389,18 +454,6 @@ class Scheme:
                 addition.append(f"+ {coefficient}{name}" if value > 0 else f"- {coefficient}{name}")
 
         return " ".join(addition)
-
-    @staticmethod
-    def __parse_exp_row(element: str, z2: bool) -> Tuple[int, int, Union[bool, int]]:
-        if len(element) == 6:
-            sign, value, _, a, i, j = element
-        else:
-            sign, a, i, j = element
-            value = 1
-
-        sign2value = {"+": 1, "-": -1}
-
-        return int(i) - 1, int(j) - 1, abs(int(value)) % 2 != 0 if z2 else sign2value[sign] * int(value)
 
     def __validate(self) -> None:
         for i in range(self.nn):

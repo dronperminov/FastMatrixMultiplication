@@ -13,7 +13,7 @@ def and_encoding(target: int, variables: List[int]) -> List[List[int]]:
     return clauses
 
 
-def xor_chain(x: List[int], variables: VariableStorage, k: int = 12) -> List[List[int]]:
+def xor_chain(x: List[int], variables: VariableStorage, k: int = 11) -> List[List[int]]:
     if len(x) <= k:
         return [["x", *x]]
 

@@ -1,4 +1,4 @@
-from typing import Dict, List, Union
+from typing import Dict, Iterable, List, Union
 
 
 def pretty_time(seconds: float) -> str:
@@ -21,8 +21,8 @@ def pretty_time(seconds: float) -> str:
     return f"{hours} hours {minutes} mins {seconds} sec"
 
 
-def pretty_matrix(matrix: List[List[bool]], name: str, indent: str = "") -> str:
-    rows = [f'{"," if i > 0 else ""}\n{indent}    {[int(value) for value in row]}' for i, row in enumerate(matrix)]
+def pretty_matrix(matrix: Iterable[Iterable], name: str, indent: str = "", value_format: str = "{0:d}") -> str:
+    rows = [f'{"," if i > 0 else ""}\n{indent}    [{", ".join(value_format.format(value) for value in row)}]' for i, row in enumerate(matrix)]
     return f'{name} [{"".join(rows)}\n{indent}]'
 
 
