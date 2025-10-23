@@ -267,10 +267,18 @@ class Scheme:
         self.__validate()
 
     def sandwiching(self, u: List[List[int]], v: List[List[int]], w: List[List[int]]) -> None:
+        u1 = get_inverse(u)
+        v1 = get_inverse(v)
+        w1 = get_inverse(w)
+
+        if all(value == 0 for value in flatten(u1)) or all(value == 0 for value in flatten(v1)) or all(value == 0 for value in flatten(w1)):
+            print("Invalid inverse matrix")
+            return
+
         for index in range(self.m):
-            self.u[index] = self._matmul(self.u[index], u, get_inverse(v))
-            self.v[index] = self._matmul(self.v[index], v, get_inverse(w))
-            self.w[index] = self._matmul(self.w[index], w, get_inverse(u))
+            self.u[index] = self._matmul(self.u[index], u, v1)
+            self.v[index] = self._matmul(self.v[index], v, w1)
+            self.w[index] = self._matmul(self.w[index], w, u1)
 
         self.__validate()
 
