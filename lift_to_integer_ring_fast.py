@@ -10,20 +10,16 @@ from src.entities.solution_collector import SolutionCollector
 from src.utils.utils import pretty_time
 
 
-def add_values_constrains(model: CpModel, scheme: Scheme, u: List[List[IntVar]], v: List[List[IntVar]], w: List[List[IntVar]]) -> None:
-    for index in range(scheme.m):
-        for i in range(scheme.n * scheme.n):
-            if type(u[index][i]) is IntVar:
-                model.add(u[index][i] != 0)
-
-            if type(v[index][i]) is IntVar:
-                model.add(v[index][i] != 0)
-
-            if type(w[index][i]) is IntVar:
-                model.add(w[index][i] != 0)
-
-
 def add_equation_constraints(model: CpModel, scheme: Scheme, u: List[List[IntVar]], v: List[List[IntVar]], w: List[List[IntVar]]) -> None:
+    uv = [[[0 for _ in range(scheme.nn)] for _ in range(scheme.nn)] for _ in range(scheme.m)]
+
+    for index in range(scheme.m):
+        for i in range(scheme.nn):
+            for j in range(scheme.nn):
+                if type(u[index][i]) is IntVar and type(v[index][j]) is IntVar:
+                    uv[index][i][j] = model.new_int_var(-1, 1, f"uv{index}_{i}_{j}")
+                    model.AddMultiplicationEquality(uv[index][i][j], u[index][i] * 2 - 1, v[index][j] * 2 - 1)
+
     for i in range(scheme.nn):
         for j in range(scheme.nn):
             for k in range(scheme.nn):
@@ -32,9 +28,9 @@ def add_equation_constraints(model: CpModel, scheme: Scheme, u: List[List[IntVar
                 terms = []
 
                 for index in range(scheme.m):
-                    if type(u[index][i]) is IntVar and type(v[index][j]) is IntVar and type(w[index][k]) is IntVar:
+                    if type(uv[index][i][j]) is IntVar and type(w[index][k]) is IntVar:
                         uvw = model.new_int_var(-1, 1, f"uvw{index}_{i}_{j}_{k}")
-                        model.AddMultiplicationEquality(uvw, u[index][i], v[index][j], w[index][k])
+                        model.AddMultiplicationEquality(uvw, uv[index][i][j], w[index][k] * 2 - 1)
                         terms.append(uvw)
 
                 model.Add(sum(terms) == target)
@@ -42,25 +38,24 @@ def add_equation_constraints(model: CpModel, scheme: Scheme, u: List[List[IntVar
 
 def add_sign_symmetry_constraints(model: CpModel, n: int, m: int, u: List[List[IntVar]], w: List[List[IntVar]]) -> None:
     for index in range(m):
+        u_value = [u[index][i] * 2 - 1 if type(u[index][i]) is IntVar else 0 for i in range(n * n)]
+        w_value = [w[index][i] * 2 - 1 if type(w[index][i]) is IntVar else 0 for i in range(n * n)]
+
         u_abs = [1 if type(u[index][i]) is IntVar else 0 for i in range(n * n)]
         w_abs = [1 if type(w[index][i]) is IntVar else 0 for i in range(n * n)]
 
         for i in range(n * n):
-            model.add_abs_equality(u_abs[i], u[index][i])
-            model.add_abs_equality(w_abs[i], w[index][i])
-
-            model.add(-u[index][i] <= sum(u_abs[j] for j in range(i)))
-            model.add(-w[index][i] <= sum(w_abs[j] for j in range(i)))
+            model.add(-u_value[i] <= sum(u_abs[j] for j in range(i)))
+            model.add(-w_value[i] <= sum(w_abs[j] for j in range(i)))
 
 
 def lift_scheme(scheme: Scheme, max_time: int, max_solutions: int) -> List[Scheme]:
     model = CpModel()
 
-    u = [[model.new_int_var(-1, 1, f'u{index}_{i}') if scheme.u[index][i] else 0 for i in range(scheme.nn)] for index in range(scheme.m)]
-    v = [[model.new_int_var(-1, 1, f'v{index}_{i}') if scheme.v[index][i] else 0 for i in range(scheme.nn)] for index in range(scheme.m)]
-    w = [[model.new_int_var(-1, 1, f'w{index}_{i}') if scheme.w[index][i] else 0 for i in range(scheme.nn)] for index in range(scheme.m)]
+    u = [[model.new_int_var(0, 1, f'u{index}_{i}') if scheme.u[index][i] else 0 for i in range(scheme.nn)] for index in range(scheme.m)]
+    v = [[model.new_int_var(0, 1, f'v{index}_{i}') if scheme.v[index][i] else 0 for i in range(scheme.nn)] for index in range(scheme.m)]
+    w = [[model.new_int_var(0, 1, f'w{index}_{i}') if scheme.w[index][i] else 0 for i in range(scheme.nn)] for index in range(scheme.m)]
 
-    add_values_constrains(model=model, scheme=scheme, u=u, v=v, w=w)
     add_equation_constraints(model=model, scheme=scheme, u=u, v=v, w=w)
     add_sign_symmetry_constraints(model=model, n=scheme.n, m=scheme.m, u=u, w=w)
 
@@ -75,7 +70,16 @@ def lift_scheme(scheme: Scheme, max_time: int, max_solutions: int) -> List[Schem
     if status != OPTIMAL and status != FEASIBLE:
         return []
 
-    return [Scheme(n=scheme.n, m=scheme.m, u=u, v=v, w=w, z2=False) for u, v, w in solution_collector.solutions]
+    schemes = []
+
+    for u_value, v_value, w_value in solution_collector.solutions:
+        u_solution = [[u_value[index][i] * 2 - 1 if scheme.u[index][i] else 0 for i in range(scheme.nn)] for index in range(scheme.m)]
+        v_solution = [[v_value[index][i] * 2 - 1 if scheme.v[index][i] else 0 for i in range(scheme.nn)] for index in range(scheme.m)]
+        w_solution = [[w_value[index][i] * 2 - 1 if scheme.w[index][i] else 0 for i in range(scheme.nn)] for index in range(scheme.m)]
+
+        schemes.append(Scheme(n=scheme.n, m=scheme.m, u=u_solution, v=v_solution, w=w_solution, z2=False))
+
+    return schemes
 
 
 def main():
