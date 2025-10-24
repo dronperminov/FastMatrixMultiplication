@@ -1,2 +1,3 @@
 ortools
 numpy<2.0
+z3-solver

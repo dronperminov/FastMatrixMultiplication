@@ -17,7 +17,7 @@ def get_rank(matrix: List[List[bool]]) -> int:
     if n == 3:
         return rank3x3(matrix)
 
-    return np.linalg.matrix_rank(matrix)
+    return int(np.linalg.matrix_rank(matrix))
 
 
 def rank2x2(matrix: List[List[int]]) -> int:
@@ -69,18 +69,18 @@ def det3x3(matrix: List[List[int]]) -> int:
     return a*e*i + b*f*g + c*d*h - c*e*g - b*d*i - a*f*h
 
 
-def get_inverse(matrix: List[List[int]]) -> List[List[int]]:
+def get_inverse(matrix: List[List[int]], z2: bool) -> List[List[int]]:
     if len(matrix) == 1:
-        return [[1 // matrix[0][0]]]
+        inverse = [[1 // matrix[0][0]]]
+    elif len(matrix) == 2:
+        inverse = inverse2x2(matrix)
+    elif len(matrix) == 3:
+        inverse = inverse3x3(matrix)
+    else:
+        inverse = np.linalg.inv(matrix)
 
-    if len(matrix) == 2:
-        return inverse2x2(matrix)
-
-    if len(matrix) == 3:
-        return inverse3x3(matrix)
-
-    inverse = np.linalg.inv(matrix)
-    return [[int(value) for value in row] for row in inverse]
+    inverse = [[abs(int(value)) % 2 if z2 else int(value) for value in row] for row in inverse]
+    return inverse
 
 
 def inverse3x3(matrix: List[List[int]]) -> List[List[int]]:
@@ -126,10 +126,10 @@ def get_invertible_matrices(n: int, ignore_permutations: bool, p: int = 2) -> Li
     return matrices
 
 
-def get_random_invertible_matrix(n: int, p: int = 2) -> List[List[int]]:
+def get_random_invertible_matrix(n: int, ignore_permutations: bool = True, p: int = 2) -> List[List[int]]:
     matrix = [[0 for _ in range(n)] for _ in range(n)]
 
-    while (get_det(matrix) + 1) % p == 1:
+    while (get_det(matrix) + 1) % p == 1 or ignore_permutations and __is_permutation_matrix(matrix):
         for i in range(n):
             for j in range(n):
                 matrix[i][j] = random.randint(0, p - 1)

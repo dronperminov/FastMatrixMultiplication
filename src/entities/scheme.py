@@ -57,7 +57,7 @@ class Scheme:
         return Scheme(n=n, m=m, u=u, v=v, w=w, z2=True)
 
     @classmethod
-    def from_exp(cls, path: str, z2: bool = True, n: int = 3) -> "Scheme":
+    def from_exp(cls, path: str, n: int, z2: bool = True) -> "Scheme":
         with open(path, encoding="utf-8") as f:
             lines = f.read().strip().replace("(a", "(+a").replace("(b", "(+b").replace("(c", "(+c").replace(" ", "").splitlines()
 
@@ -66,8 +66,6 @@ class Scheme:
         u = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
         v = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
         w = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
-
-        sign2value = {"+": 1, "-": -1}
 
         for index, line in enumerate(lines):
             alpha, beta, gamma = [re.findall(r"[-+]\d?\*?[abc]\d\d", v[1:-1]) for v in re.findall(f"\(.*?\)", lines[index])]
@@ -121,6 +119,46 @@ class Scheme:
         return Scheme(n=n, m=m, u=u, v=v, w=w, z2=z2)
 
     @classmethod
+    def from_plain_text(cls, path: str, n: int, m: int, z2: bool) -> "Scheme":
+        with open(path, encoding="utf-8") as f:
+            lines = f.read().strip().replace("(a", "(+a").replace("(b", "(+b").splitlines()
+
+        u = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
+        v = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
+        w = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
+
+        for line in lines:
+            match = re.match(r"^P(?P<index>\d\d)\s*:=\s*\((?P<a>[^)]+)\)\s*\*\s*\((?P<b>[^)]+)\)", line)
+            if match:
+                index = int(match.group("index")) - 1
+                a, b = match.group("a"), match.group("b")
+
+                for element in re.findall(r"[-+]\d?\*?[abc]\d\d", match.group("a")):
+                    i, j, value = cls.__parse_exp_row(element, z2)
+                    u[index][i * n + j] = value
+
+                for element in re.findall(r"[-+]\d?\*?[abc]\d\d", match.group("b")):
+                    i, j, value = cls.__parse_exp_row(element, z2)
+                    v[index][i * n + j] = value
+
+                continue
+
+            match = re.match(r"^c(?P<i>\d)(?P<j>\d)\s*:=\s*(?P<multiplications>.+);", line)
+            if match:
+                i, j = int(match.group("i")) - 1, int(match.group("j")) - 1
+                for multiplication in re.findall(r"[+-]?P\d+", match.group("multiplications")):
+                    if multiplication.startswith("P"):
+                        sign = 1
+                        index = int(multiplication[1:]) - 1
+                    else:
+                        sign = 1 if multiplication[0] == "+" else -1
+                        index = int(multiplication[2:]) - 1
+
+                    w[index][j * n + i] = abs(sign) % 2 != 0 if z2 else sign
+
+        return Scheme(n=n, m=m, u=u, v=v, w=w, z2=z2)
+
+    @classmethod
     def load(cls, path: str) -> "Scheme":
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
@@ -131,6 +169,15 @@ class Scheme:
         v = [[value_type(value) for value in row] for row in data["v"]]
         w = [[value_type(value) for value in row] for row in data["w"]]
         return Scheme(n=data["n"], m=data["m"], u=u, v=v, w=w, z2=z2)
+
+    def to_z2(self) -> "Scheme":
+        u = [[abs(self.u[index][i]) % 2 != 0 for i in range(self.nn)] for index in range(self.m)]
+        v = [[abs(self.v[index][i]) % 2 != 0 for i in range(self.nn)] for index in range(self.m)]
+        w = [[abs(self.w[index][i]) % 2 != 0 for i in range(self.nn)] for index in range(self.m)]
+        return Scheme(n=self.n, m=self.m, u=u, v=v, w=w, z2=True)
+
+    def copy(self) -> "Scheme":
+        return Scheme(n=self.n, m=self.m, u=self.u, v=self.v, w=self.w, z2=self.z2)
 
     def save(self, path: str) -> None:
         u = pretty_matrix(self.u, '"u":', "    ")
@@ -267,9 +314,9 @@ class Scheme:
         self.__validate()
 
     def sandwiching(self, u: List[List[int]], v: List[List[int]], w: List[List[int]]) -> None:
-        u1 = get_inverse(u)
-        v1 = get_inverse(v)
-        w1 = get_inverse(w)
+        u1 = get_inverse(u, z2=self.z2)
+        v1 = get_inverse(v, z2=self.z2)
+        w1 = get_inverse(w, z2=self.z2)
 
         if all(value == 0 for value in flatten(u1)) or all(value == 0 for value in flatten(v1)) or all(value == 0 for value in flatten(w1)):
             print("Invalid inverse matrix")
@@ -284,14 +331,13 @@ class Scheme:
 
     def _matmul(self, matrix: List[int], left: List[List[int]], right: List[List[int]]) -> List[int]:
         matrix = [[int(matrix[i * self.n + j]) for j in range(self.n)] for i in range(self.n)]
-
         result = [[sum(left[i][k] * matrix[k][j] for k in range(self.n)) for j in range(self.n)] for i in range(self.n)]
         result = [[sum(result[i][k] * right[k][j] for k in range(self.n)) for j in range(self.n)] for i in range(self.n)]
 
         if self.z2:
-            result = [abs(value) % 2 != 0 for row in result for value in row]
+            result = [abs(int(value)) % 2 != 0 for row in result for value in row]
         else:
-            result = [value for row in result for value in row]
+            result = [int(value) for row in result for value in row]
 
         return result
 
@@ -371,7 +417,7 @@ class Scheme:
             return str(hash(tuple(ranks)))
 
         letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        ranks2letter = {rank: letters[i] for i, rank in enumerate(itertools.product(range(1, self.n + 1), repeat=self.n))}
+        ranks2letter = {rank: letters[i] for i, rank in enumerate(itertools.product(range(1, self.n + 1), repeat=3))}
 
         pattern = "".join(ranks2letter[ranks] for ranks in ranks)
         matches = [match.group() for match in re.finditer(r"(.)\1+|\w", pattern)]
