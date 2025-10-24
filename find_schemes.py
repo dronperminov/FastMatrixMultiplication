@@ -57,7 +57,7 @@ def parse_solution(stdout: str, real_variables: List[int]) -> Tuple[Optional[boo
     return sat, literals
 
 
-def save_solution(task_path: str, solution: List[int], version: int, unique_ranks: Set[str], show_scheme: bool, save_scheme: bool) -> None:
+def save_solution(task_path: str, solution: List[int], version: int, show_scheme: bool, save_scheme: bool) -> Scheme:
     model_path = os.path.join(task_path, "model.json")
     solution_path = os.path.join(task_path, f"{version:05d}_solution.json")
     scheme_path = os.path.join(task_path, f"{version:05d}_scheme.json")
@@ -76,7 +76,6 @@ def save_solution(task_path: str, solution: List[int], version: int, unique_rank
         scheme = Scheme.from_solution(solution_path)
 
     scheme.sort()
-    unique_ranks.add(scheme.invariant_rank_pattern())
 
     if show_scheme:
         scheme.show()
@@ -84,7 +83,7 @@ def save_solution(task_path: str, solution: List[int], version: int, unique_rank
     if save_scheme:
         scheme.save(scheme_path)
 
-    print(f"unique ranks: {len(unique_ranks)}")
+    return scheme
 
 
 def add_solutions_to_cnf(cnf: ConjunctiveNormalForm, solutions: List[List[int]], path: str) -> None:
@@ -144,6 +143,7 @@ def main():
         print(f"- time limit: {pretty_time(args.max_time)}")
 
     unique_ranks = set()
+    unique_f = set()
     times = []
 
     solutions = get_found_solutions(task_dir=task_dir)
@@ -179,7 +179,10 @@ def main():
             print("\n=================================================================================================================================================")
 
             if sat:
-                save_solution(task_path=task_dir, solution=solution, version=version, unique_ranks=unique_ranks, show_scheme=True, save_scheme=True)
+                scheme = save_solution(task_path=task_dir, solution=solution, version=version, show_scheme=args.show_scheme, save_scheme=True)
+                unique_ranks.add(scheme.invariant_rank_pattern())
+                unique_f.add(scheme.invariant_f())
+                print(f"unique ranks: {len(unique_ranks)}, unique f(x, y, z): {len(unique_f)}")
                 break
 
             if type(sat) is bool and not args.retry_on_unsat:
@@ -197,7 +200,10 @@ def main():
             print(f"\n{sat} {version}: {pretty_time(elapsed_time)}, mean: {pretty_time(sum(times) / len(times))}, [{min(times):.3f}...{max(times):.3f}] ({' '.join(cmd)})")
 
             if sat:
-                save_solution(task_path=task_dir, solution=solution, version=version, unique_ranks=unique_ranks, show_scheme=args.show_scheme, save_scheme=save_scheme)
+                scheme = save_solution(task_path=task_dir, solution=solution, version=version, show_scheme=args.show_scheme, save_scheme=save_scheme)
+                unique_ranks.add(scheme.invariant_rank_pattern())
+                unique_f.add(scheme.invariant_f())
+                print(f"unique ranks: {len(unique_ranks)}, unique f(x, y, z): {len(unique_f)}")
                 continue
 
             if type(sat) is bool and not args.retry_on_unsat:
