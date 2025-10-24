@@ -139,7 +139,7 @@ class SchemeCyclic(Scheme):
         self.__validate()
 
     def sandwiching_cyclic(self, m: List[List[int]]) -> None:
-        m1 = get_inverse(m)
+        m1 = get_inverse(m, z2=self.z2)
 
         for index in range(self.rank_s):
             self.a[index] = self._matmul(self.a[index], m, m1)

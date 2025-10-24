@@ -6,8 +6,6 @@ from collections import defaultdict
 from itertools import permutations
 from typing import Dict, List, Tuple, Union
 
-import numpy as np
-
 from src.utils.algebra import get_inverse, get_rank
 from src.utils.utils import flatten, parse_value, pretty_matrix
 
@@ -68,7 +66,7 @@ class Scheme:
         w = [[False if z2 else 0 for _ in range(n * n)] for _ in range(m)]
 
         for index, line in enumerate(lines):
-            alpha, beta, gamma = [re.findall(r"[-+]\d?\*?[abc]\d\d", v[1:-1]) for v in re.findall(f"\(.*?\)", lines[index])]
+            alpha, beta, gamma = [re.findall(r"[-+]\d?\*?[abc]\d\d", v[1:-1]) for v in re.findall(rf"\(.*?\)", lines[index])]
 
             for alpha_i in alpha:
                 i, j, value = cls.__parse_exp_row(alpha_i, z2)
@@ -329,15 +327,15 @@ class Scheme:
 
         self.__validate()
 
-    def _matmul(self, matrix: List[int], left: List[List[int]], right: List[List[int]]) -> List[int]:
+    def _matmul(self, matrix: List[Union[bool, int]], left: List[List[int]], right: List[List[int]]) -> List[Union[bool, int]]:
         matrix = [[int(matrix[i * self.n + j]) for j in range(self.n)] for i in range(self.n)]
         result = [[sum(left[i][k] * matrix[k][j] for k in range(self.n)) for j in range(self.n)] for i in range(self.n)]
         result = [[sum(result[i][k] * right[k][j] for k in range(self.n)) for j in range(self.n)] for i in range(self.n)]
 
         if self.z2:
-            result = [abs(int(value)) % 2 != 0 for row in result for value in row]
+            result = [abs(value) % 2 != 0 for row in result for value in row]
         else:
-            result = [int(value) for row in result for value in row]
+            result = [value for row in result for value in row]
 
         return result
 
@@ -424,8 +422,7 @@ class Scheme:
         return "".join(f'{len(match) if len(match) > 1 else ""}{match[0]}' for match in matches)
 
     def ranks(self) -> List[Tuple[int, int, int]]:
-        pattern = [(self.__get_rank(self.u[index]), self.__get_rank(self.v[index]), self.__get_rank(self.w[index])) for index in range(self.m)]
-        return pattern
+        return [(self.__get_rank(self.u[index]), self.__get_rank(self.v[index]), self.__get_rank(self.w[index])) for index in range(self.m)]
 
     def weight(self) -> int:
         terms = 0
@@ -529,8 +526,8 @@ class Scheme:
         return equation == target
 
     def __get_rank(self, matrix: List[bool]) -> int:
-        matrix = [[matrix[i * self.n + j] for j in range(self.n)] for i in range(self.n)]
-        return get_rank(matrix)
+        matrix = [[int(matrix[i * self.n + j]) for j in range(self.n)] for i in range(self.n)]
+        return get_rank(matrix, z2=self.z2)
 
     def __pp(self, name: str, power: int) -> str:
         if power == 0:
@@ -555,13 +552,6 @@ class Scheme:
 
     def __get_order(self, index: int) -> List[Union[int, bool]]:
         return self.u[index] + self.v[index]
-
-    def __show_ordering(self) -> None:
-        print("ordering:")
-        print(f"- multiplications: {self.__check_multiplications_ordering()}")
-        print(f"- basis: {self.__check_basis_ordering()}")
-        print(f"- cycle shift: {self.__check_cycle_shift_ordering()}")
-        print(f"- transpose: {self.__check_transpose_ordering()}")
 
     def __check_ordering(self) -> bool:
         checks = [
