@@ -252,6 +252,16 @@ class Scheme:
         print(f"- weight: {self.weight()}")
         print(f"- complexity: {self.complexity()}")
 
+    def show_tab(self) -> None:
+        for index in range(self.m):
+            for i in range(self.n):
+                u = " ".join(f"{self.u[index][i * self.n + j]:2d}" for j in range(self.n))
+                v = " ".join(f"{self.v[index][i * self.n + j]:2d}" for j in range(self.n))
+                w = " ".join(f"{self.w[index][i * self.n + j]:2d}" for j in range(self.n))
+                print(f"{u} |{v} |{w}")
+
+            print("+".join(["---" * self.n] * 3))
+
     def sort(self) -> None:
         while not self.__check_ordering():
             if random.random() < 0.5:
@@ -390,7 +400,7 @@ class Scheme:
             for (a, b, c) in permutations([rank_a, rank_b, rank_c], r=3):
                 ranks[(a, b, c)] += 1
 
-        sorted_ranks = sorted(ranks.items(), key=lambda v: (sum(v[0]), *v[0]), reverse=True)
+        sorted_ranks = sorted(ranks.items(), key=lambda v: (sum(v[0]), sum(v[0][:2]), v[0]), reverse=True)
         coefficients = [f'{self.__pc(count)}{self.__pp("x", rank_a)}{self.__pp("y", rank_b)}{self.__pp("z", rank_c)}' for (rank_a, rank_b, rank_c), count in sorted_ranks]
         return " + ".join(coefficients)
 
@@ -410,14 +420,17 @@ class Scheme:
         return f'{" + ".join(coefficients)} ({sum(terms)})'
 
     def invariant_rank_pattern(self) -> str:
-        ranks = sorted(self.ranks())
+        scheme_ranks = self.ranks()
+        permuted_ranks = [sorted((ranks[i], ranks[j], ranks[k]) for ranks in scheme_ranks) for i, j, k in permutations(range(3), r=3)]
+        sorted_ranks = max(permuted_ranks, key=lambda ranks: self.__sorted_count(ranks))
+
         if self.n > 3:
-            return str(hash(tuple(ranks)))
+            return str(hash(tuple(sorted_ranks)))
 
         letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         ranks2letter = {rank: letters[i] for i, rank in enumerate(itertools.product(range(1, self.n + 1), repeat=3))}
 
-        pattern = "".join(ranks2letter[ranks] for ranks in ranks)
+        pattern = "".join(ranks2letter[ranks] for ranks in sorted_ranks)
         matches = [match.group() for match in re.finditer(r"(.)\1+|\w", pattern)]
         return "".join(f'{len(match) if len(match) > 1 else ""}{match[0]}' for match in matches)
 
@@ -552,6 +565,10 @@ class Scheme:
 
     def __get_order(self, index: int) -> List[Union[int, bool]]:
         return self.u[index] + self.v[index]
+
+    def __sorted_count(self, ranks: List[Tuple[int, int, int]]) -> tuple:
+        ranks = flatten(ranks)
+        return tuple(ranks)
 
     def __check_ordering(self) -> bool:
         checks = [
