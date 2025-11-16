@@ -1,0 +1,545 @@
+import json
+import random
+import re
+from collections import defaultdict
+from fractions import Fraction
+from itertools import permutations
+from typing import Dict, List, Tuple
+
+from src.utils.algebra import rank_z2
+from src.utils.utils import pretty_matrix
+
+
+class Scheme:
+    def __init__(self, n1: int, n2: int, n3: int, m: int, u: List[List[int | Fraction]], v: List[List[int | Fraction]], w: List[List[int | Fraction]], z2: bool, validate: bool = True) -> None:
+        self.n = [n1, n2, n3]
+        self.nn = [n1 * n2, n2 * n3, n3 * n1]
+        self.m = m
+        self.z2 = z2
+
+        assert len(u) == len(v) == len(w) == m
+        self.u = [[abs(u[index][i]) % 2 if z2 else u[index][i] for i in range(self.nn[0])] for index in range(self.m)]
+        self.v = [[abs(v[index][i]) % 2 if z2 else v[index][i] for i in range(self.nn[1])] for index in range(self.m)]
+        self.w = [[abs(w[index][i]) % 2 if z2 else w[index][i] for i in range(self.nn[2])] for index in range(self.m)]
+
+        if validate:
+            self.__validate()
+
+    def save(self, path: str) -> None:
+        multiplications = "".join(f'{"," if i > 0 else ""}\n        "{multiplication}"' for i, multiplication in enumerate(self.__get_multiplications()))
+        elements = "".join(f'{"," if i > 0 else ""}\n        "{element}"' for i, element in enumerate(self.__get_elements()))
+
+        u = pretty_matrix(self.u, '"u":', "    ")
+        v = pretty_matrix(self.v, '"v":', "    ")
+        w = pretty_matrix(self.w, '"w":', "    ")
+
+        with open(path, "w", encoding="utf-8") as f:
+            f.write("{\n")
+            f.write(f'    "n": {self.n},\n')
+            f.write(f'    "m": {self.m},\n')
+            f.write(f'    "z2": {"true" if self.z2 else "false"},\n')
+            f.write(f'    "multiplications": [{multiplications}\n')
+            f.write(f'    ],\n')
+            f.write(f'    "elements": [{elements}\n')
+            f.write(f'    ],\n')
+            f.write(f'    {u},\n')
+            f.write(f'    {v},\n')
+            f.write(f'    {w}')
+
+            if self.z2:
+                f.write(",\n")
+                f.write(f'    "invariant_f": "{self.invariant_f()}",\n')
+                f.write(f'    "invariant_g": "{self.invariant_g()}",\n')
+                f.write(f'    "type": "{self.invariant_type()}"')
+
+            f.write("\n")
+            f.write("}\n")
+
+    @classmethod
+    def load(cls, path: str, validate: bool = True) -> "Scheme":
+        lower_path = path.lower()
+
+        if lower_path.endswith(".exp"):
+            return Scheme.from_exp(path, validate=validate)
+
+        if lower_path.endswith(".m"):
+            return Scheme.from_m(path, validate=validate)
+
+        if lower_path.endswith("lrp.mpl"):
+            return Scheme.from_lrp_mpl(path, validate=validate)
+
+        if lower_path.endswith("tensor.mpl"):
+            return Scheme.from_tensor_mpl(path, validate=validate)
+
+        if lower_path.endswith(".json"):
+            return Scheme.from_json(path, validate=validate)
+
+        raise ValueError(f'Invalid extension "{path}"')
+
+    @classmethod
+    def from_json(cls, path: str, validate: bool = True) -> "Scheme":
+        with open(path, "r") as f:
+            data = json.load(f)
+
+        n1, n2, n3 = data["n"]
+        m = data["m"]
+        z2 = data.get("z2", False)
+
+        u = [[cls.__parse_value(value) for value in row] for row in data["u"]]
+        v = [[cls.__parse_value(value) for value in row] for row in data["v"]]
+        w = [[cls.__parse_value(value) for value in row] for row in data["w"]]
+        return Scheme(n1=n1, n2=n2, n3=n3, m=m, z2=z2, u=u, v=v, w=w, validate=validate)
+
+    @classmethod
+    def from_lrp_mpl(cls, path: str, validate: bool = True) -> "Scheme":
+        match = re.search(r"(?P<n1>\d+)x(?P<n2>\d+)x(?P<n3>\d+)_LRP.mpl", path)
+        n1 = int(match.group("n1"))
+        n2 = int(match.group("n2"))
+        n3 = int(match.group("n3"))
+
+        with open(path, "r") as f:
+            text = f.read()
+
+        mu, mv, mw = re.findall(r"\[\[.*?]]", text)
+        u, v, w = json.loads(mu), json.loads(mv), json.loads(mw)
+        m = len(u)
+        z2 = all(value == 0 or value == 1 for matrix in [u, v, w] for row in matrix for value in row)
+
+        u = [[u[index][j * n1 + i] for i in range(n1) for j in range(n2)] for index in range(m)]
+        v = [[v[index][j * n2 + i] for i in range(n2) for j in range(n3)] for index in range(m)]
+        w = [[w[j * n3 + i][index] for i in range(n3) for j in range(n1)] for index in range(m)]
+        return Scheme(n1=n1, n2=n2, n3=n3, m=m, z2=z2, u=u, v=v, w=w, validate=validate)
+
+    @classmethod
+    def from_tensor_mpl(cls, path: str, validate: bool = True) -> "Scheme":
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+
+        a = re.search(r"A:=Matrix\((?P<rows>\d+), (?P<columns>\d+)", text)
+        b = re.search(r"B:=Matrix\((?P<rows>\d+), (?P<columns>\d+)", text)
+        c = re.search(r"C:=Matrix\((?P<rows>\d+), (?P<columns>\d+)", text)
+
+        triads = re.findall(r"Triad\(\[Matrix\(.+?\), Matrix\(.+?\), Matrix\(.+?\)]\)", text)
+        m = len(triads)
+        n1, n2, n3 = int(a.group("rows")), int(b.group("rows")), int(c.group("rows"))
+
+        u = [[0 for _ in range(n1 * n2)] for _ in range(m)]
+        v = [[0 for _ in range(n2 * n3)] for _ in range(m)]
+        w = [[0 for _ in range(n3 * n1)] for _ in range(m)]
+
+        for index, triad in enumerate(triads):
+            triad = re.sub(r"(-?\d+/\d+)", r'Fraction("\1")', triad)
+            a, b, c = [eval(matrix) for matrix in re.findall(r"Matrix\(\d+, \d+, (?P<values>\[.+?])\)", triad)]
+
+            for i in range(n1):
+                for j in range(n2):
+                    u[index][i * n2 + j] = a[i][j]
+
+            for i in range(n2):
+                for j in range(n3):
+                    v[index][i * n3 + j] = b[i][j]
+
+            for i in range(n3):
+                for j in range(n1):
+                    w[index][i * n1 + j] = c[i][j]
+
+        return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=False, validate=validate)
+
+    @classmethod
+    def from_exp(cls, path: str, validate: bool = True) -> "Scheme":
+        # TODO: fractions
+        with open(path, "r") as f:
+            text = f.read()
+            z2 = re.search(r"-[abc]", text) is None
+            lines = [line.replace(" ", "") for line in text.splitlines() if line.strip()]
+
+        m = len(lines)
+        n1, n2, n3 = 0, 0, 0
+        u = [{} for _ in range(m)]
+        v = [{} for _ in range(m)]
+        w = [{} for _ in range(m)]
+
+        for index, line in enumerate(lines):
+            for sign, matrix, row, column in re.findall(r"(?P<sign>[-+]?\d*)?\*?(?P<matrix>[abc])(?P<row>\d)(?P<column>\d)", line):
+                row, column = int(row), int(column)
+                sign = {"": 1, "+": 1, "-": -1}[sign] if sign in {"", "+", "-"} else int(sign)
+
+                if matrix == "a":
+                    u[index][(row - 1, column - 1)] = abs(sign) % 2 if z2 else sign
+                    n1 = max(n1, row)
+                    n2 = max(n2, column)
+                elif matrix == "b":
+                    v[index][(row - 1, column - 1)] = abs(sign) % 2 if z2 else sign
+                    n2 = max(n2, row)
+                    n3 = max(n3, column)
+                else:
+                    w[index][(row - 1, column - 1)] = abs(sign) % 2 if z2 else sign
+                    n1 = max(n1, column)
+                    n3 = max(n3, row)
+
+        u = [[u[index].get((i, j), 0) for i in range(n1) for j in range(n2)] for index in range(m)]
+        v = [[v[index].get((i, j), 0) for i in range(n2) for j in range(n3)] for index in range(m)]
+        w = [[w[index].get((i, j), 0) for i in range(n3) for j in range(n1)] for index in range(m)]
+
+        return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=z2, validate=validate)
+
+    @classmethod
+    def from_m(cls, path: str, validate: bool = True) -> "Scheme":
+        with open(path, encoding="utf-8") as f:
+            text = f.read().replace("{", "[").replace("}", "]")
+
+        text = re.sub(r"(-?\d+/\d+)", r'Fraction("\1")', text)
+        data = eval(text)
+
+        a, b, c = data[0]
+        n1 = len(a)
+        n2 = len(b)
+        n3 = len(b[0])
+        z2 = all(value == 0 or value == 1 for data_row in data for matrix in data_row for row in matrix for value in row)
+
+        u, v, w = [], [], []
+        for index, row in enumerate(data):
+            u.append([abs(row[0][i][j]) if z2 else row[0][i][j] for i in range(n1) for j in range(n2)])
+            v.append([abs(row[1][i][j]) if z2 else row[1][i][j] for i in range(n2) for j in range(n3)])
+            w.append([abs(row[2][i][j]) if z2 else row[2][i][j] for i in range(n3) for j in range(n1)])
+
+        return Scheme(n1=n1, n2=n2, n3=n3, m=len(data), u=u, v=v, w=w, z2=z2, validate=validate)
+
+    def to_z2(self) -> "Scheme":
+        u = [[abs(self.u[index][i]) % 2 for i in range(self.nn[0])] for index in range(self.m)]
+        v = [[abs(self.v[index][i]) % 2 for i in range(self.nn[1])] for index in range(self.m)]
+        w = [[abs(self.w[index][i]) % 2 for i in range(self.nn[2])] for index in range(self.m)]
+        return Scheme(n1=self.n[0], n2=self.n[1], n3=self.n[2], m=self.m, u=u, v=v, w=w, z2=True)
+
+    def show(self) -> None:
+        print(f"n: {self.n[0]}{self.n[1]}{self.n[2]}, m: {self.m}")
+        print("\n".join(self.__get_multiplications()))
+        print("\n".join(self.__get_elements()))
+
+    def show_tensors(self) -> None:
+        print("\n".join(self.__get_tensors()))
+
+    def to_cpp(self, den: int = 1) -> str:
+        u = " ".join(f'{" ".join(str(int(self.u[index][i] * den)) for i in range(self.nn[0]))}' for index in range(self.m))
+        v = " ".join(f'{" ".join(str(int(self.v[index][i] * den)) for i in range(self.nn[1]))}' for index in range(self.m))
+        w = " ".join(f'{" ".join(str(int(self.w[index][i] * den)) for i in range(self.nn[2]))}' for index in range(self.m))
+        n1, n2, n3 = self.n
+        return f"{n1} {n2} {n3} {self.m}\n{u}\n{v}\n{w}"
+
+    def invariant_f(self) -> str:
+        ranks: Dict[tuple, int] = defaultdict(int)
+
+        for index in range(self.m):
+            rank_a = self.__get_rank(self.u[index], self.n[0], self.n[1])
+            rank_b = self.__get_rank(self.v[index], self.n[1], self.n[2])
+            rank_c = self.__get_rank(self.w[index], self.n[2], self.n[0])
+
+            for (a, b, c) in permutations([rank_a, rank_b, rank_c], r=3):
+                ranks[(a, b, c)] += 1
+
+        sorted_ranks = sorted(ranks.items(), key=lambda v: (sum(v[0]), sum(v[0][:2]), v[0]), reverse=True)
+        coefficients = [f'{self.__pc(count)}{self.__pp("x", rank_a)}{self.__pp("y", rank_b)}{self.__pp("z", rank_c)}' for (rank_a, rank_b, rank_c), count in sorted_ranks]
+        return " + ".join(coefficients)
+
+    def invariant_g(self) -> str:
+        ranks: Dict[int, int] = defaultdict(int)
+
+        ranks[sum(self.__get_rank(self.u[index], self.n[0], self.n[1]) for index in range(self.m))] += 1
+        ranks[sum(self.__get_rank(self.v[index], self.n[1], self.n[2]) for index in range(self.m))] += 1
+        ranks[sum(self.__get_rank(self.w[index], self.n[2], self.n[0]) for index in range(self.m))] += 1
+
+        sorted_ranks = sorted(ranks.items(), key=lambda v: v[0], reverse=True)
+        coefficients = [f'{self.__pc(count)}{self.__pp("w", rank)}' for rank, count in sorted_ranks]
+        return " + ".join(coefficients)
+
+    def invariant_type(self) -> str:
+        ranks = []
+
+        for index in range(self.m):
+            u = self.__get_rank(self.u[index], self.n[0], self.n[1])
+            v = self.__get_rank(self.v[index], self.n[1], self.n[2])
+            w = self.__get_rank(self.w[index], self.n[2], self.n[0])
+            ranks.append((u, v, w))
+
+        powers: Dict[tuple, int] = defaultdict(int)
+
+        for a, b, c in sorted(ranks):
+            powers[(a, b, c)] += 1
+
+        sorted_ranks = sorted(powers.items(), key=lambda v: (sum(v[0]), sum(v[0][:2]), v[0]), reverse=True)
+        coefficients = [f'{self.__pc(count)}{self.__pp("X", rank_a)}{self.__pp("Y", rank_b)}{self.__pp("Z", rank_c)}' for (rank_a, rank_b, rank_c), count in sorted_ranks]
+        return " + ".join(coefficients)
+
+    def complexity(self) -> int:
+        u_ones = sum(bool(value) for row in self.u for value in row)
+        v_ones = sum(bool(value) for row in self.v for value in row)
+        w_ones = sum(bool(value) for row in self.w for value in row)
+        return u_ones + v_ones + w_ones - self.m * 2 - self.nn[2]
+
+    def get_key(self) -> str:
+        n = sorted(self.n)
+        return f"{n[0]}{n[1]}{n[2]}"
+
+    def swap_basis_rows(self, i1: int, i2: int) -> None:
+        if i1 == i2:
+            return
+
+        i_map = {i1: i2, i2: i1}
+        self.u = [[self.u[index][i_map.get(i, i) * self.n[1] + j] for i in range(self.n[0]) for j in range(self.n[1])] for index in range(self.m)]
+        self.w = [[self.w[index][i * self.n[0] + i_map.get(j, j)] for i in range(self.n[2]) for j in range(self.n[0])] for index in range(self.m)]
+        self.__validate()
+
+    def swap_basis_columns(self, j1: int, j2: int) -> None:
+        if j1 == j2:
+            return
+
+        j_map = {j1: j2, j2: j1}
+        self.v = [[self.v[index][i * self.n[2] + j_map.get(j, j)] for i in range(self.n[1]) for j in range(self.n[2])] for index in range(self.m)]
+        self.w = [[self.w[index][j_map.get(i, i) * self.n[0] + j] for i in range(self.n[2]) for j in range(self.n[0])] for index in range(self.m)]
+
+    def sort(self) -> None:
+        while not self.__check_ordering():
+            if random.random() < 0.5:
+                i1 = random.randint(0, self.n[0] - 1)
+                i2 = random.randint(0, self.n[0] - 1)
+                self.swap_basis_rows(i1, i2)
+
+            if random.random() < 0.5:
+                j1 = random.randint(0, self.n[2] - 1)
+                j2 = random.randint(0, self.n[2] - 1)
+                self.swap_basis_columns(j1, j2)
+
+            self.sort_multiplications()
+
+    def sort_multiplications(self) -> None:
+        indices = sorted(range(self.m), key=lambda index: self.u[index] + self.v[index] + self.w[index])
+
+        self.u = [self.u[index] for index in indices]
+        self.v = [self.v[index] for index in indices]
+        self.w = [self.w[index] for index in indices]
+
+    def is_ternary(self) -> bool:
+        if self.z2 or self.is_rational():
+            return False
+
+        values = [value for row in self.u + self.v + self.w for value in row]
+        return min(values) == -1 and max(values) == 1
+
+    def is_rational(self) -> bool:
+        if self.z2:
+            return False
+
+        values = [value for row in self.u + self.v + self.w for value in row]
+        return any(isinstance(value, Fraction) and value.denominator != 1 for value in values)
+
+    def get_ring(self) -> str:
+        if self.z2:
+            return "Z2"
+
+        values = [value for row in self.u + self.v + self.w for value in row]
+
+        if any(isinstance(value, Fraction) and value.denominator != 1 for value in values):
+            return "Q"
+
+        if min(values) == -1 and max(values) == 1:
+            return "ZT"
+
+        return "Z"
+
+    def product(self, p: int) -> None:
+        n = [self.n[0], self.n[1], self.n[2]]
+        n[p] *= 2
+
+        nn = [n[0] * n[1], n[1] * n[2], n[2] * n[0]]
+        m = self.m * 2
+
+        u = [[0 for _ in range(nn[0])] for _ in range(m)]
+        v = [[0 for _ in range(nn[1])] for _ in range(m)]
+        w = [[0 for _ in range(nn[2])] for _ in range(m)]
+
+        d0 = self.n[0] if p == 0 else 0
+        d1 = self.n[1] if p == 1 else 0
+        d2 = self.n[2] if p == 2 else 0
+
+        for index in range(self.m):
+            for i in range(self.n[0]):
+                for j in range(self.n[1]):
+                    u[index][i * n[1] + j] = self.u[index][i * self.n[1] + j]
+                    u[self.m + index][(i + d0) * n[1] + j + d1] = self.u[index][i * self.n[1] + j]
+
+            for i in range(self.n[1]):
+                for j in range(self.n[2]):
+                    v[index][i * n[2] + j] = self.v[index][i * self.n[2] + j]
+                    v[self.m + index][(i + d1) * n[2] + j + d2] = self.v[index][i * self.n[2] + j]
+
+            for i in range(self.n[2]):
+                for j in range(self.n[0]):
+                    w[index][i * n[0] + j] = self.w[index][i * self.n[0] + j]
+                    w[self.m + index][(i + d2) * n[0] + j + d0] = self.w[index][i * self.n[0] + j]
+
+        self.n = n
+        self.nn = nn
+        self.m = m
+
+        self.u = u
+        self.v = v
+        self.w = w
+        self.show()
+        self.__validate()
+
+    def __eq__(self, scheme: "Scheme") -> bool:
+        if self.n != scheme.n or self.m != scheme.m:
+            return False
+
+        for index in range(self.m):
+            if self.u[index] != scheme.u[index]:
+                return False
+
+            if self.v[index] != scheme.v[index]:
+                return False
+
+            if self.w[index] != scheme.w[index]:
+                return False
+
+        return True
+
+    def __validate(self) -> None:
+        for i in range(self.nn[0]):
+            for j in range(self.nn[1]):
+                for k in range(self.nn[2]):
+                    assert self.__validate_equation(i, j, k)
+
+    def __validate_equation(self, i: int, j: int, k: int) -> bool:
+        i1, i2, j1, j2, k1, k2 = i // self.n[1], i % self.n[1], j // self.n[2], j % self.n[2], k // self.n[0], k % self.n[0]
+        target = (i2 == j1) and (i1 == k2) and (j2 == k1)
+        equation = 0
+
+        for index in range(self.m):
+            equation += self.u[index][i] * self.v[index][j] * self.w[index][k]
+
+        if self.z2:
+            equation = abs(equation) % 2
+
+        return equation == target
+
+    @staticmethod
+    def __parse_value(value: str | int) -> int | Fraction:
+        if isinstance(value, str):
+            value = Fraction(value)
+            if value.denominator == 1:
+                value = int(value)
+
+        return value
+
+    def __get_rank(self, matrix: List[int], n1: int, n2: int) -> int:
+        matrix = [[abs(matrix[i * n2 + j]) % 2 for j in range(n2)] for i in range(n1)]
+        return rank_z2(matrix)
+
+    def __get_tensors(self) -> List[str]:
+        return [self.__get_tensor(index) for index in range(self.m)]
+
+    def __get_multiplications(self) -> List[str]:
+        return [self.__get_multiplication(index) for index in range(self.m)]
+
+    def __get_elements(self) -> List[str]:
+        return [self.__get_element(i, j) for i in range(self.n[0]) for j in range(self.n[2])]
+
+    def __get_tensor(self, index: int) -> str:
+        u = self.__get_addition([(self.u[index][i], f"a{i // self.n[1] + 1}{i % self.n[1] + 1}") for i in range(self.nn[0])])
+        v = self.__get_addition([(self.v[index][i], f"b{i // self.n[2] + 1}{i % self.n[2] + 1}") for i in range(self.nn[1])])
+        w = self.__get_addition([(self.w[index][i], f"c{i % self.n[0] + 1}{i // self.n[0] + 1}") for i in range(self.nn[2])])
+        return f"({u})×({v})×({w})"
+
+    def __get_multiplication(self, index: int) -> str:
+        product = "∧" if self.z2 else "*"
+        alpha = self.__get_addition([(self.u[index][i * self.n[1] + j], f"a{i + 1}{j + 1}") for i in range(self.n[0]) for j in range(self.n[1])])
+        beta = self.__get_addition([(self.v[index][i * self.n[2] + j], f"b{i + 1}{j + 1}") for i in range(self.n[1]) for j in range(self.n[2])])
+        return f"m{index + 1} = ({alpha}) {product} ({beta})"
+
+    def __get_element(self, i: int, j: int) -> str:
+        element = self.__get_addition([(self.w[index][j * self.n[0] + i], f"m{index + 1}") for index in range(self.m)])
+        return f"c{i + 1}{j + 1} = {element}"
+
+    def __get_addition(self, values: List[Tuple[int, str]]) -> str:
+        if self.z2:
+            return " ⊕ ".join(name for value, name in values if value)
+
+        addition = []
+
+        for value, name in values:
+            if not value:
+                continue
+
+            coefficient = "" if abs(value) == 1 else f"{abs(value)}"
+
+            if not addition:
+                addition.append(f"{coefficient}{name}" if value > 0 else f"-{coefficient}{name}")
+            else:
+                addition.append(f"+ {coefficient}{name}" if value > 0 else f"- {coefficient}{name}")
+
+        return " ".join(addition)
+
+    def __pp(self, name: str, power: int) -> str:
+        if power == 0:
+            return ""
+
+        if power == 1:
+            return name
+
+        return f"{name}^{power}"
+
+    def __pc(self, count: int) -> str:
+        if count == 1:
+            return ""
+
+        return str(count)
+
+    def __check_ordering(self) -> bool:
+        return self.__check_basis_ordering() and self.__check_multiplications_ordering()
+
+    def __check_multiplications_ordering(self) -> bool:
+        rows = [self.u[index] + self.v[index] + self.w[index] for index in range(self.m)]
+
+        for index in range(1, self.m):
+            if rows[index - 1] >= rows[index]:
+                return False
+
+        return True
+
+    def __check_basis_ordering(self) -> bool:
+        rows = []
+        columns = []
+
+        for i in range(self.n[0]):
+            row_u, column_w = [], []
+
+            for index in range(self.m):
+                row_u.extend(self.__get_row(self.u, index, row=i, n1=self.n[0], n2=self.n[1]))
+                column_w.extend(self.__get_column(self.w, index, column=i, n1=self.n[2], n2=self.n[0]))
+
+            rows.append(row_u + column_w)
+
+        for i in range(self.n[2]):
+            column_v, row_w = [], []
+
+            for index in range(self.m):
+                column_v.extend(self.__get_column(self.v, index, column=i, n1=self.n[1], n2=self.n[2]))
+                row_w.extend(self.__get_row(self.w, index, row=i, n1=self.n[2], n2=self.n[0]))
+
+            columns.append(column_v + row_w)
+
+        for i in range(1, self.n[0]):
+            if rows[i - 1] > rows[i]:
+                return False
+
+        for i in range(1, self.n[2]):
+            if columns[i - 1] > columns[i]:
+                return False
+
+        return True
+
+    def __get_row(self, matrix: List[List[int]], index: int, row: int, n1: int, n2: int) -> List[int]:
+        return [matrix[index][row * n2 + j] for j in range(n2)]
+
+    def __get_column(self, matrix: List[List[int]], index: int, column: int, n1: int, n2: int) -> List[int]:
+        return [matrix[index][i * n2 + column] for i in range(n1)]
