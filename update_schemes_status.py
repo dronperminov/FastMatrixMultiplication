@@ -46,6 +46,17 @@ def postprocess_size(data: dict, ring2equal_rings: Dict[str, List[str]]) -> None
         data["schemes"][ring] = schemes
 
 
+def get_scheme_paths(input_dir: str, scheme_extensions: List[str]) -> List[str]:
+    scheme_filenames = []
+
+    for path, _, filenames in os.walk(input_dir):
+        for filename in sorted(filenames):
+            if filename.endswith(tuple(scheme_extensions)):
+                scheme_filenames.append(os.path.join(path, filename).replace("\\", "/"))
+
+    return scheme_filenames
+
+
 def analyze_schemes(input_dirs: List[str], n_max: int, max_count: int, extensions: List[str], ring2equal_rings: Dict[str, List[str]]) -> dict:
     for ring in ring2equal_rings:
         os.makedirs(f"schemes/status/{ring}", exist_ok=True)
@@ -54,14 +65,15 @@ def analyze_schemes(input_dirs: List[str], n_max: int, max_count: int, extension
     checked_paths = {scheme["source"] for data in status.values() for schemes in data["schemes"].values() for scheme in schemes}
 
     for input_dir in input_dirs:
-        filenames = sorted(filename for filename in os.listdir(input_dir) if filename.endswith(tuple(extensions)))
-        print(f"Analyze '{input_dir}': {len(filenames)} scheme files")
+        input_paths = get_scheme_paths(input_dir=input_dir, scheme_extensions=extensions)
+        print(f"Analyze '{input_dir}': {len(input_paths)} scheme files")
 
-        for filename in filenames:
+        for input_path in input_paths:
+            filename = os.path.basename(input_path)
+
             if filename in {"2x4x6_tensor.mpl"}:
                 continue
 
-            input_path = f"{input_dir}/{filename}"
             if input_path in checked_paths:
                 continue
 
@@ -108,15 +120,15 @@ def format_rank(ring2rank: Dict[str, int], ring: str, min_rank: int) -> str:
         return "?"
 
     rank = ring2rank[ring]
-    if rank == min_rank or ring == "Z2" and rank < min_rank:
+    if min_rank is not None and (rank == min_rank or ring == "Z2" and rank < min_rank):
         return f"**{rank}**"
 
     return str(rank)
 
 
 def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
-    print("| nmp |      ZT      |      Z      |      Q      |      Z2      |")
-    print("|:---:|:------------:|:-----------:|:-----------:|:------------:|")
+    print("|   size   |      ZT      |      Z      |      Q      |      Z2      |")
+    print("|:--------:|:------------:|:-----------:|:-----------:|:------------:|")
 
     for size, data in status.items():
         known_ranks = {}
@@ -132,7 +144,7 @@ def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) 
                     known_ranks[equal_ring] = rank
 
         current_ranks = data["ranks"]
-        min_rank = min(current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks)
+        min_rank = min([current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks], default=None)
         diff = {}
 
         for ring in ring2equal_rings:
@@ -140,8 +152,7 @@ def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) 
             rank_known = format_rank(known_ranks, ring=ring, min_rank=min_rank)
             diff[ring] = rank_curr if rank_curr == rank_known else f"{rank_curr} ({rank_known})"
 
-        end = " invalid tensor file" if size in {"246"} else ""
-        print(f'| {size:3} | {diff["ZT"]:12} | {diff["Z"]:11} | {diff["Q"]:11} | {diff["Z2"]:12} |{end}')
+        print(f'| `({size[0]},{size[1]},{size[2]})` | {diff["ZT"]:12} | {diff["Z"]:11} | {diff["Q"]:11} | {diff["Z2"]:12} |')
 
 
 def main():
