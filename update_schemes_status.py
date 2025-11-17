@@ -127,8 +127,8 @@ def format_rank(ring2rank: Dict[str, int], ring: str, min_rank: int) -> str:
 
 
 def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
-    print("|   size   |      ZT      |      Z      |      Q      |      Z2      |")
-    print("|:--------:|:------------:|:-----------:|:-----------:|:------------:|")
+    print("|    size     | rank in `ZT`  | rank in `Z` | rank in `Q` |  rank in `Z2`   |")
+    print("|:-----------:|:-------------:|:-----------:|:-----------:|:---------------:|")
 
     for size, data in status.items():
         known_ranks = {}
@@ -152,7 +152,7 @@ def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) 
             rank_known = format_rank(known_ranks, ring=ring, min_rank=min_rank)
             diff[ring] = rank_curr if rank_curr == rank_known else f"{rank_curr} ({rank_known})"
 
-        print(f'| `({size[0]},{size[1]},{size[2]})` | {diff["ZT"]:12} | {diff["Z"]:11} | {diff["Q"]:11} | {diff["Z2"]:12} |')
+        print(f'| `({size[0]}, {size[1]}, {size[2]})` | {diff["ZT"]:15} | {diff["Z"]:13} | {diff["Q"]:13} | {diff["Z2"]:17} |')
 
 
 def main():
