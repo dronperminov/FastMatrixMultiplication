@@ -4,14 +4,14 @@ import re
 from collections import defaultdict
 from fractions import Fraction
 from itertools import permutations
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Union
 
 from src.utils.algebra import rank_z2
 from src.utils.utils import pretty_matrix
 
 
 class Scheme:
-    def __init__(self, n1: int, n2: int, n3: int, m: int, u: List[List[int | Fraction]], v: List[List[int | Fraction]], w: List[List[int | Fraction]], z2: bool, validate: bool = True) -> None:
+    def __init__(self, n1: int, n2: int, n3: int, m: int, u: List[List[Union[int, Fraction]]], v: List[List[Union[int, Fraction]]], w: List[List[Union[int, Fraction]]], z2: bool, validate: bool = True) -> None:
         self.n = [n1, n2, n3]
         self.nn = [n1 * n2, n2 * n3, n3 * n1]
         self.m = m
@@ -423,7 +423,7 @@ class Scheme:
         return equation == target
 
     @staticmethod
-    def __parse_value(value: str | int) -> int | Fraction:
+    def __parse_value(value: Union[str, int]) -> Union[int, Fraction]:
         if isinstance(value, str):
             value = Fraction(value)
             if value.denominator == 1:

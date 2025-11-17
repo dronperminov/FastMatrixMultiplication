@@ -115,15 +115,15 @@ def analyze_schemes(input_dirs: List[str], n_max: int, max_count: int, extension
     return status
 
 
-def format_rank(ring2rank: Dict[str, int], ring: str, min_rank: int) -> str:
+def format_rank(ring2rank: Dict[str, int], ring: str, min_rank: int, unique_rank: bool) -> str:
     if ring not in ring2rank:
         return "?"
 
     rank = ring2rank[ring]
-    if min_rank is not None and (rank == min_rank or ring == "Z2" and rank < min_rank):
-        return f"**{rank}**"
+    if min_rank is None or unique_rank or rank > min_rank:
+        return str(rank)
 
-    return str(rank)
+    return f"**{rank}**"
 
 
 def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
@@ -148,11 +148,12 @@ def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) 
         diff = {}
 
         for ring in ring2equal_rings:
-            rank_curr = format_rank(current_ranks, ring=ring, min_rank=min_rank)
-            rank_known = format_rank(known_ranks, ring=ring, min_rank=min_rank)
+            rank_curr = format_rank(current_ranks, ring=ring, min_rank=min_rank, unique_rank=len(set(current_ranks.values())) == 1)
+            rank_known = format_rank(known_ranks, ring=ring, min_rank=min_rank, unique_rank=len(set(current_ranks.values())) == 1)
             diff[ring] = rank_curr if rank_curr == rank_known else f"{rank_curr} ({rank_known})"
 
-        print(f'| `({size[0]}, {size[1]}, {size[2]})` | {diff["ZT"]:15} | {diff["Z"]:13} | {diff["Q"]:13} | {diff["Z2"]:17} |')
+        size = f"`({size[0]}, {size[1]}, {size[2]})`"
+        print(f'| {size:^11} | {diff["ZT"]:^13} | {diff["Z"]:^11} | {diff["Q"]:^11} | {diff["Z2"]:^15} |')
 
 
 def main():
