@@ -387,6 +387,82 @@ class Scheme:
         self.show()
         self.__validate()
 
+    def merge(self, scheme: "Scheme", p: int) -> "Scheme":
+        for i in range(3):
+            if i != p:
+                assert self.n[i] == scheme.n[i]
+
+        n = [self.n[i] if i != p else self.n[i] + scheme.n[i] for i in range(3)]
+        nn = [n[0] * n[1], n[1] * n[2], n[2] * n[0]]
+        m = self.m + scheme.m
+
+        u = [[0 for _ in range(nn[0])] for _ in range(m)]
+        v = [[0 for _ in range(nn[1])] for _ in range(m)]
+        w = [[0 for _ in range(nn[2])] for _ in range(m)]
+
+        d0 = self.n[0] if p == 0 else 0
+        d1 = self.n[1] if p == 1 else 0
+        d2 = self.n[2] if p == 2 else 0
+
+        for index in range(self.m):
+            for i in range(self.n[0]):
+                for j in range(self.n[1]):
+                    u[index][i * n[1] + j] = self.u[index][i * self.n[1] + j]
+
+            for i in range(self.n[1]):
+                for j in range(self.n[2]):
+                    v[index][i * n[2] + j] = self.v[index][i * self.n[2] + j]
+
+            for i in range(self.n[2]):
+                for j in range(self.n[0]):
+                    w[index][i * n[0] + j] = self.w[index][i * self.n[0] + j]
+
+        for index in range(scheme.m):
+            for i in range(scheme.n[0]):
+                for j in range(scheme.n[1]):
+                    u[self.m + index][(i + d0) * n[1] + j + d1] = scheme.u[index][i * scheme.n[1] + j]
+
+            for i in range(scheme.n[1]):
+                for j in range(scheme.n[2]):
+                    v[self.m + index][(i + d1) * n[2] + j + d2] = scheme.v[index][i * scheme.n[2] + j]
+
+            for i in range(scheme.n[2]):
+                for j in range(scheme.n[0]):
+                    w[self.m + index][(i + d2) * n[0] + j + d0] = scheme.w[index][i * scheme.n[0] + j]
+
+        return Scheme(n1=n[0], n2=n[1], n3=n[2], m=m, u=u, v=v, w=w, z2=self.z2)
+
+    def project(self, p: int, q: int) -> None:
+        self.__exclude_row(p, q)
+        self.__exclude_column((p + 2) % 3, q)
+        self.n[p] -= 1
+
+        for i in range(3):
+            self.nn[i] = self.n[i] * self.n[(i + 1) % 3]
+
+        self.__remove_zeroes()
+
+    def swap(self, p1:int, p2: int) -> "Scheme":
+        if p1 > p2:
+            p1, p2 = p2, p1
+
+        ut, vt, wt = True, True, True
+
+        if p1 == 0 and p2 == 1:
+            uvw = [self.u, self.w, self.v]
+            n = [self.n[1], self.n[0], self.n[2]]
+        elif p1 == 0 and p2 == 2:
+            uvw = [self.v, self.u, self.w]
+            n = [self.n[2], self.n[1], self.n[0]]
+        else:
+            uvw = [self.w, self.v, self.u]
+            n = [self.n[0], self.n[2], self.n[1]]
+
+        u = [[uvw[0][index][j * n[0] + i] for i in range(n[0]) for j in range(n[1])] for index in range(self.m)]
+        v = [[uvw[1][index][j * n[1] + i] for i in range(n[1]) for j in range(n[2])] for index in range(self.m)]
+        w = [[uvw[2][index][j * n[2] + i] for i in range(n[2]) for j in range(n[0])] for index in range(self.m)]
+        return Scheme(n1=n[0], n2=n[1], n3=n[2], m=self.m, u=u, v=v, w=w, z2=self.z2)
+
     def __eq__(self, scheme: "Scheme") -> bool:
         if self.n != scheme.n or self.m != scheme.m:
             return False
@@ -430,6 +506,29 @@ class Scheme:
                 value = int(value)
 
         return value
+
+    def __remove_zeroes(self) -> None:
+        non_zero_indices = [index for index in range(self.m) if any(self.u[index]) and any(self.v[index]) and any(self.w[index])]
+        self.u = [self.u[index] for index in non_zero_indices]
+        self.v = [self.v[index] for index in non_zero_indices]
+        self.w = [self.w[index] for index in non_zero_indices]
+        self.m = len(non_zero_indices)
+
+    def __exclude_column(self, matrix: int, column: int) -> None:
+        n1, n2 = self.n[matrix], self.n[(matrix + 1) % 3]
+        old_columns = [j for j in range(n2) if j != column]
+        uvw = [self.u, self.v, self.w]
+
+        for index in range(self.m):
+            uvw[matrix][index] = [uvw[matrix][index][i * n2 + old_j] for i in range(n1) for j, old_j in enumerate(old_columns)]
+
+    def __exclude_row(self, matrix: int, row: int) -> None:
+        n1, n2 = self.n[matrix], self.n[(matrix + 1) % 3]
+        old_rows = [i for i in range(n1) if i != row]
+        uvw = [self.u, self.v, self.w]
+
+        for index in range(self.m):
+            uvw[matrix][index] = [uvw[matrix][index][old_i * n2 + j] for i, old_i in enumerate(old_rows) for j in range(n2)]
 
     def __get_rank(self, matrix: List[int], n1: int, n2: int) -> int:
         matrix = [[abs(matrix[i * n2 + j]) % 2 for j in range(n2)] for i in range(n1)]
