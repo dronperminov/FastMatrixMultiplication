@@ -276,8 +276,8 @@ class Scheme:
         w_ones = sum(bool(value) for row in self.w for value in row)
         return u_ones + v_ones + w_ones - self.m * 2 - self.nn[2]
 
-    def get_key(self) -> str:
-        n = sorted(self.n)
+    def get_key(self, sort: bool) -> str:
+        n = sorted(self.n) if sort else self.n
         return f"{n[0]}x{n[1]}x{n[2]}"
 
     def swap_basis_rows(self, i1: int, i2: int) -> None:
@@ -430,7 +430,7 @@ class Scheme:
                 for j in range(scheme.n[0]):
                     w[self.m + index][(i + d2) * n[0] + j + d0] = scheme.w[index][i * scheme.n[0] + j]
 
-        return Scheme(n1=n[0], n2=n[1], n3=n[2], m=m, u=u, v=v, w=w, z2=self.z2)
+        return Scheme(n1=n[0], n2=n[1], n3=n[2], m=m, u=u, v=v, w=w, z2=self.z2, validate=False)
 
     def project(self, p: int, q: int) -> None:
         self.__exclude_row(p, q)
@@ -459,7 +459,7 @@ class Scheme:
         u = [[uvw[0][index][j * n[0] + i] for i in range(n[0]) for j in range(n[1])] for index in range(self.m)]
         v = [[uvw[1][index][j * n[1] + i] for i in range(n[1]) for j in range(n[2])] for index in range(self.m)]
         w = [[uvw[2][index][j * n[2] + i] for i in range(n[2]) for j in range(n[0])] for index in range(self.m)]
-        return Scheme(n1=n[0], n2=n[1], n3=n[2], m=self.m, u=u, v=v, w=w, z2=self.z2)
+        return Scheme(n1=n[0], n2=n[1], n3=n[2], m=self.m, u=u, v=v, w=w, z2=self.z2, validate=False)
 
     def __eq__(self, scheme: "Scheme") -> bool:
         if self.n != scheme.n or self.m != scheme.m:

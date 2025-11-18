@@ -88,8 +88,8 @@ def analyze_schemes(input_dirs: List[str], n_max: int, max_count: int, extension
             print(f'- load "{input_path}"')
             scheme = Scheme.load(path=input_path, validate=False)
             ring = scheme.get_ring()
-            size = f"{scheme.n[0]}{scheme.n[1]}{scheme.n[2]}"
-            size_key = scheme.get_key()
+            size = scheme.get_key(sort=False)
+            size_key = scheme.get_key(sort=True)
             complexity = scheme.complexity()
             output_path = f"schemes/status/{ring}/{size}_m{scheme.m}_{ring}.json"
 
@@ -179,7 +179,8 @@ def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) 
             else:
                 diff_complexity[ring] = "-"
 
-        size = f"`({size[0]}, {size[1]}, {size[2]})`"
+        n1, n2, n3 = size.split("x")
+        size = f"`({n1}, {n2}, {n3})`"
         print(f'| {size:^11} | {diff_rank["ZT"]:^13} | {diff_rank["Z"]:^11} | {diff_rank["Q"]:^11} | {diff_rank["Z2"]:^15} | {diff_complexity["ZT"]:^18} | {diff_complexity["Z"]:^17} | {diff_complexity["Q"]:^17} |')
 
 
@@ -198,7 +199,7 @@ def main():
 
     ring2equal_rings = {"Q": ["Q"], "Z2": ["Z2"], "Z": ["Z", "Z2", "Q"], "ZT": ["ZT", "Z", "Z2", "Q"]}
     extensions = [".exp", ".m", "tensor.mpl", "lrp.mpl", ".json"]
-    n_max = 9
+    n_max = 10
     max_count = 200
 
     status = analyze_schemes(input_dirs=input_dirs, n_max=n_max, max_count=max_count, extensions=extensions, ring2equal_rings=ring2equal_rings)
