@@ -19,7 +19,7 @@ def init_status(n_max: int = 9) -> dict:
         for n2 in range(n1, n_max + 1):
             for n3 in range(n2, n_max + 1):
                 if n1 * n2 <= 64 and n2 * n3 <= 64 and n1 * n3 <= 64:
-                    status[f"{n1}{n2}{n3}"] = current_status.get(f"{n1}{n2}{n3}", {"ranks": {}, "complexities": {}, "schemes": defaultdict(list)})
+                    status[f"{n1}x{n2}x{n3}"] = current_status.get(f"{n1}x{n2}x{n3}", {"ranks": {}, "complexities": {}, "schemes": defaultdict(list)})
 
     return status
 

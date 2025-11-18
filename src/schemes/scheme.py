@@ -278,7 +278,7 @@ class Scheme:
 
     def get_key(self) -> str:
         n = sorted(self.n)
-        return f"{n[0]}{n[1]}{n[2]}"
+        return f"{n[0]}x{n[1]}x{n[2]}"
 
     def swap_basis_rows(self, i1: int, i2: int) -> None:
         if i1 == i2:

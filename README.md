@@ -13,21 +13,6 @@ coefficients. This can lead to more efficient and hardware-friendly implementati
 
 ## Key results
 
-### New discoveries in binary field (`Z2`)
-
-|   Format    | Previous<br/>rank | Current<br/>rank | Best <br/>rank |
-|:-----------:|:-----------------:|:----------------:|:--------------:|
-| `(3, 3, 7)` |        51         |        49        |  49 (in `Q`)   |
-| `(3, 3, 8)` |         ?         |        58        |  55 (in `Q`)   |
-| `(3, 5, 7)` |        80         |        79        |  79 (in `Q`)   |
-| `(3, 6, 7)` |         ?         |        98        |  94 (in `Q`)   |
-| `(3, 7, 7)` |         ?         |       116        |  111 (in `Q`)  |
-| `(3, 7, 8)` |         ?         |       128        |  126 (in `Q`)  |
-| `(3, 8, 8)` |        148        |       145        |  145 (in `Q`)  |
-| `(4, 4, 8)` |        96         |        94        |  96 (in `Q`)   |
-| `(4, 5, 6)` |        90         |        89        |  90 (in `Q`)   |
-| `(5, 7, 8)` |         ?         |       207        |  205 (in `Q`)  |
-
 ### Conversions to ternary field (`ZT`)
 I have discovered and converted the following schemes to the `ZT` field, which were previously known over rational (`Q`) or integer (`Z`) fields but lacked known ternary
 implementations:
@@ -52,6 +37,19 @@ implementations:
 | `(5, 6, 6)` | 130  | Previously known in `Q/Z` |
 | `(5, 6, 7)` | 150  | Previously known in `Q/Z` |
 | `(5, 6, 9)` | 197  | Previously known in `Z`   |
+
+### New discoveries in binary field (`Z2`)
+
+|   Format    | Prev<br/>rank | Curr<br/>rank | Best<br/>rank |
+|:-----------:|:-------------:|:-------------:|:-------------:|
+| `(3, 3, 7)` |      51       |      49       |  49 (in `Q`)  |
+| `(3, 5, 7)` |      80       |      79       |  79 (in `Q`)  |
+| `(3, 8, 8)` |      148      |      145      | 145 (in `Q`)  |
+| `(4, 4, 5)` |      61       |      60       | 61 (in `Q/Z`) |
+| `(4, 5, 5)` |      76       |      73       | 76 (in `Q/Z`) |
+| `(4, 5, 6)` |      90       |      89       | 90 (in `Q/Z`) |
+| `(4, 5, 9)` |       ?       |      134      | 136 (in `Q`)  |
+| `(5, 5, 9)` |      167      |      166      | 167 (in `Q`)  |
 
 
 ### Reduce naive addition complexity
