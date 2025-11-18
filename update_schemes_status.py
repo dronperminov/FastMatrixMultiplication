@@ -9,14 +9,17 @@ from src.schemes.scheme import Scheme
 def init_status(n_max: int = 9) -> dict:
     if os.path.exists("schemes/status.json"):
         with open("schemes/status.json", encoding="utf-8") as f:
-            return json.load(f)
+            current_status = json.load(f)
+    else:
+        current_status = {}
 
     status = {}
 
     for n1 in range(2, n_max + 1):
         for n2 in range(n1, n_max + 1):
             for n3 in range(n2, n_max + 1):
-                status[f"{n1}{n2}{n3}"] = {"ranks": {}, "complexities": {}, "schemes": defaultdict(list)}
+                if n1 * n2 <= 64 and n2 * n3 <= 64 and n1 * n3 <= 64:
+                    status[f"{n1}{n2}{n3}"] = current_status.get(f"{n1}{n2}{n3}", {"ranks": {}, "complexities": {}, "schemes": defaultdict(list)})
 
     return status
 
@@ -158,8 +161,8 @@ def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) 
         min_rank = min([current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks], default=None)
         min_complexity = min([current_complexities[ring] for ring in ["Q", "Z", "ZT"] if ring in current_complexities], default=None)
 
-        unique_ranks = len(set(current_ranks.values())) == 1
-        unique_complexities = len(set(current_complexities.values())) == 1
+        unique_ranks = len(set(current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks)) == 1
+        unique_complexities = len(set(current_complexities[ring] for ring in ["Q", "Z", "ZT"] if ring in current_complexities)) == 1
 
         diff_rank = {}
         diff_complexity = {}
@@ -169,7 +172,7 @@ def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) 
             rank_known = format_value(known_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
             diff_rank[ring] = rank_curr if rank_curr == rank_known else f"{rank_curr} ({rank_known})"
 
-            if len(set(current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks)) == 1:
+            if unique_ranks:
                 complexity_curr = format_value(current_complexities, ring=ring, min_value=min_complexity, unique_value=unique_complexities)
                 complexity_known = format_value(known_complexities, ring=ring, min_value=min_complexity, unique_value=unique_complexities)
                 diff_complexity[ring] = complexity_curr if complexity_curr == complexity_known else f"{complexity_curr} ({complexity_known})"
@@ -189,12 +192,13 @@ def main():
         "schemes/known/meta_flip_graph",
         "schemes/new/FlipGraphGPU",
         "schemes/new/FlipGraphGPU_Z",
-        "schemes/new/FlipGraphGPU_Z2"
+        "schemes/new/FlipGraphGPU_Z2",
+        "schemes/new/FlipGraphGPU_merge",
     ]
 
     ring2equal_rings = {"Q": ["Q"], "Z2": ["Z2"], "Z": ["Z", "Z2", "Q"], "ZT": ["ZT", "Z", "Z2", "Q"]}
     extensions = [".exp", ".m", "tensor.mpl", "lrp.mpl", ".json"]
-    n_max = 8
+    n_max = 9
     max_count = 200
 
     status = analyze_schemes(input_dirs=input_dirs, n_max=n_max, max_count=max_count, extensions=extensions, ring2equal_rings=ring2equal_rings)

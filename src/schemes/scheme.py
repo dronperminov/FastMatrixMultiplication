@@ -442,11 +442,9 @@ class Scheme:
 
         self.__remove_zeroes()
 
-    def swap(self, p1:int, p2: int) -> "Scheme":
+    def swap(self, p1: int, p2: int) -> "Scheme":
         if p1 > p2:
             p1, p2 = p2, p1
-
-        ut, vt, wt = True, True, True
 
         if p1 == 0 and p2 == 1:
             uvw = [self.u, self.w, self.v]
