@@ -442,7 +442,7 @@ class Scheme:
 
         self.__remove_zeroes()
 
-    def swap(self, p1: int, p2: int) -> "Scheme":
+    def swap(self, p1: int, p2: int) -> None:
         if p1 > p2:
             p1, p2 = p2, p1
 
@@ -459,7 +459,21 @@ class Scheme:
         u = [[uvw[0][index][j * n[0] + i] for i in range(n[0]) for j in range(n[1])] for index in range(self.m)]
         v = [[uvw[1][index][j * n[1] + i] for i in range(n[1]) for j in range(n[2])] for index in range(self.m)]
         w = [[uvw[2][index][j * n[2] + i] for i in range(n[2]) for j in range(n[0])] for index in range(self.m)]
-        return Scheme(n1=n[0], n2=n[1], n3=n[2], m=self.m, u=u, v=v, w=w, z2=self.z2, validate=False)
+        self.u, self.v, self.w = u, v, w
+        self.n = n
+        self.nn = [n[i] * n[(i + 1) % 3] for i in range(3)]
+
+    def fix_sizes(self) -> None:
+        if self.n[0] > self.n[1]:
+            self.swap(0, 1)
+
+        if self.n[1] > self.n[2]:
+            self.swap(1, 2)
+
+        if self.n[0] > self.n[1]:
+            self.swap(0, 1)
+
+        assert sorted(self.n) == self.n
 
     def __eq__(self, scheme: "Scheme") -> bool:
         if self.n != scheme.n or self.m != scheme.m:
