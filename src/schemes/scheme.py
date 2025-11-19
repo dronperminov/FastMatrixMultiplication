@@ -25,6 +25,23 @@ class Scheme:
         if validate:
             self.__validate()
 
+    @classmethod
+    def naive(cls, n1: int, n2: int, n3: int, z2: bool) -> "Scheme":
+        m = n1 * n2 * n3
+        u = [[0 for _ in range(n1 * n2)] for _ in range(m)]
+        v = [[0 for _ in range(n2 * n3)] for _ in range(m)]
+        w = [[0 for _ in range(n3 * n1)] for _ in range(m)]
+
+        for i in range(n1):
+            for j in range(n3):
+                for k in range(n2):
+                    index = (i * n3 + j) * n2 + k
+                    u[index][i * n2 + k] = 1
+                    v[index][k * n3 + j] = 1
+                    w[index][j * n1 + i] = 1
+
+        return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=z2, validate=False)
+
     def save(self, path: str) -> None:
         multiplications = "".join(f'{"," if i > 0 else ""}\n        "{multiplication}"' for i, multiplication in enumerate(self.__get_multiplications()))
         elements = "".join(f'{"," if i > 0 else ""}\n        "{element}"' for i, element in enumerate(self.__get_elements()))

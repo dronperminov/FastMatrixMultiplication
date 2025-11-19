@@ -1,6 +1,6 @@
 # FastMatrixMultiplication
 
-A research project investigating fast matrix multiplication algorithms for small matrix formats, from `(2, 2, 2)` to `(10, 10, 10)`. The primary goal is to discover efficient schemes
+A research project investigating fast matrix multiplication algorithms for small matrix formats, from `(2, 2, 2)` to `(8, 8, 8)`. The primary goal is to discover efficient schemes
 with coefficients restricted to the ternary set `{-1, 0, 1}`.
 
 ## Overview
@@ -270,7 +270,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |      `(6, 8, 8)`       |       266        |       266       |       266       |       266        |          2780          |         2780          |         2780          |
 |      `(7, 7, 7)`       |     261 (?)      |     261 (?)     |     **249**     |     253 (?)      |           -            |           -           |           -           |
 |      `(7, 7, 8)`       |     292 (?)      |     292 (?)     |     **277**     |     288 (?)      |           -            |           -           |           -           |
-|      `(7, 7, 9)`       |     332 (?)      |     332 (?)     |     **315**     |     328 (?)      |           -            |           -           |           -           |
+|      `(7, 7, 9)`       |     332 (?)      |     332 (?)     |     **315**     |     320 (?)      |           -            |           -           |           -           |
 |      `(7, 8, 8)`       |     328 (?)      |     328 (?)     |     **306**     |     327 (?)      |           -            |           -           |           -           |
 |      `(8, 8, 8)`       |     364 (?)      |     364 (?)     |     **336**     |     364 (?)      |           -            |           -           |           -           |
 
