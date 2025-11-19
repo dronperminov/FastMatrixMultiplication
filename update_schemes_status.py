@@ -1,12 +1,13 @@
 import json
 import os
 from collections import defaultdict
-from typing import Dict, List
+from collections.abc import Set
+from typing import Dict, List, Optional
 
 from src.schemes.scheme import Scheme
 
 
-def init_status(n_max: int = 9) -> dict:
+def init_status(n_max: int) -> dict:
     if os.path.exists("schemes/status.json"):
         with open("schemes/status.json", encoding="utf-8") as f:
             current_status = json.load(f)
@@ -24,15 +25,15 @@ def init_status(n_max: int = 9) -> dict:
     return status
 
 
-def is_duplicate(data: List[dict], scheme: Scheme) -> bool:
+def find_duplicate(data: List[dict], scheme: Scheme) -> Optional[dict]:
     for row in data:
         if row["rank"] != scheme.m:
             continue
 
         if Scheme.load(row["path"], validate=False) == scheme:
-            return True
+            return row
 
-    return False
+    return None
 
 
 def postprocess_size(data: dict, ring2equal_rings: Dict[str, List[str]]) -> None:
@@ -65,12 +66,26 @@ def get_scheme_paths(input_dir: str, scheme_extensions: List[str]) -> List[str]:
     return scheme_filenames
 
 
-def analyze_schemes(input_dirs: List[str], n_max: int, max_count: int, extensions: List[str], ring2equal_rings: Dict[str, List[str]]) -> dict:
+def get_checked_paths(status: Dict[str, dict]) -> Set[str]:
+    checked_paths = set()
+
+    for data in status.values():
+        for schemes in data["schemes"].values():
+            for scheme in schemes:
+                checked_paths.add(scheme["source"])
+
+                for duplicate_path in scheme.get("duplicates", []):
+                    checked_paths.add(duplicate_path)
+
+    return checked_paths
+
+
+def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ring2equal_rings: Dict[str, List[str]]) -> dict:
     for ring in ring2equal_rings:
         os.makedirs(f"schemes/status/{ring}", exist_ok=True)
 
     status = init_status(n_max=n_max)
-    checked_paths = {scheme["source"] for data in status.values() for schemes in data["schemes"].values() for scheme in schemes}
+    checked_paths = get_checked_paths(status=status)
 
     for input_dir in input_dirs:
         input_paths = get_scheme_paths(input_dir=input_dir, scheme_extensions=extensions)
@@ -87,6 +102,8 @@ def analyze_schemes(input_dirs: List[str], n_max: int, max_count: int, extension
 
             print(f'- load "{input_path}"')
             scheme = Scheme.load(path=input_path, validate=False)
+            scheme.fix_sizes()
+
             ring = scheme.get_ring()
             size = scheme.get_key(sort=False)
             size_key = scheme.get_key(sort=True)
@@ -100,9 +117,13 @@ def analyze_schemes(input_dirs: List[str], n_max: int, max_count: int, extension
 
             if os.path.exists(output_path):
                 count = sum(1 for data in status[size_key]["schemes"][ring] if data["rank"] == scheme.m)
+                duplicate = find_duplicate(status[size_key]["schemes"][ring], scheme)
+                if duplicate:
+                    print(f'  - skip duplicate ("{output_path}" already exists)')
 
-                if count > max_count or is_duplicate(status[size_key]["schemes"][ring], scheme):
-                    print(f'  - skip ("{output_path}" already exists)')
+                    if "duplicates" not in duplicate:
+                        duplicate["duplicates"] = []
+                    duplicate["duplicates"].append(input_path)
                     continue
 
                 output_path = output_path.replace(".json", f"_v{count + 1}.json")
@@ -200,9 +221,8 @@ def main():
     ring2equal_rings = {"Q": ["Q"], "Z2": ["Z2"], "Z": ["Z", "Z2", "Q"], "ZT": ["ZT", "Z", "Z2", "Q"]}
     extensions = [".exp", ".m", "tensor.mpl", "lrp.mpl", ".json"]
     n_max = 10
-    max_count = 200
 
-    status = analyze_schemes(input_dirs=input_dirs, n_max=n_max, max_count=max_count, extensions=extensions, ring2equal_rings=ring2equal_rings)
+    status = analyze_schemes(input_dirs=input_dirs, n_max=n_max, extensions=extensions, ring2equal_rings=ring2equal_rings)
     plot_table(status, ring2equal_rings=ring2equal_rings)
 
 
