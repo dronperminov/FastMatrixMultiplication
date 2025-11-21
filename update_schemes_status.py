@@ -92,11 +92,6 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
         print(f"Analyze '{input_dir}': {len(input_paths)} scheme files")
 
         for input_path in input_paths:
-            filename = os.path.basename(input_path)
-
-            if filename in {"2x4x6_tensor.mpl"}:
-                continue
-
             if input_path in checked_paths:
                 continue
 
@@ -145,14 +140,12 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
 
 
 def format_value(ring2value: Dict[str, int], ring: str, min_value: int, unique_value: bool) -> str:
-    if ring not in ring2value:
-        return "?"
+    return "?" if ring not in ring2value else f"{ring2value[ring]}"
 
-    value = ring2value[ring]
-    if min_value is None or unique_value or value > min_value:
-        return str(value)
 
-    return f"**{value}**"
+def format_size(size: str) -> str:
+    n1, n2, n3 = map(int, size.split("x"))
+    return f"`({n1}, {n2}, {n3})`"
 
 
 def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
@@ -205,6 +198,65 @@ def plot_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) 
         print(f'| {size:^11} | {diff_rank["ZT"]:^13} | {diff_rank["Z"]:^11} | {diff_rank["Q"]:^11} | {diff_rank["Z2"]:^15} | {diff_complexity["ZT"]:^18} | {diff_complexity["Z"]:^17} | {diff_complexity["Q"]:^17} |')
 
 
+def plot_zt_table(status: Dict[str, dict]) -> None:
+    print("\n### Conversions to ternary field (`ZT`)")
+    print("|    Format    | Rank | Note                      |")
+    print("|:------------:|:----:|:--------------------------|")
+
+    for size, data in status.items():
+        ring2known_scheme = {}
+
+        for ring, schemes in data["schemes"].items():
+            known_schemes = [scheme for scheme in schemes if "known" in scheme["source"]]
+            if known_schemes:
+                ring2known_scheme[ring] = known_schemes[0]
+
+        min_known_rank = min(scheme["rank"] for ring, scheme in ring2known_scheme.items())
+        if "ZT" in ring2known_scheme and ring2known_scheme["ZT"]["rank"] == min_known_rank or "ZT" not in data["ranks"] or data["ranks"]["ZT"] != min_known_rank:
+            continue
+
+        rank = data["ranks"]["ZT"]
+        rings = [ring for ring in ["Z", "Q"] if ring in data["schemes"] and data["schemes"][ring][0]["rank"] == min_known_rank]
+
+        size = format_size(size)
+        note = f"Previously known in `{'/'.join(rings)}`"
+        print(f"| {size:^12} | {rank:^4} | {note:25} |")
+
+
+def plot_new_ranks_table(status: Dict[str, dict]) -> None:
+    print("\n### New best ranks (in `ZT`)")
+    print("|    Format    | Prev rank | New rank |")
+    print("|:------------:|:---------:|:--------:|")
+
+    for size, data in status.items():
+        ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items() if ring != "Z2"}
+        min_known_rank = min(scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if ring != "Z2" and "known" in scheme["source"])
+        min_rank = min(rank for ring, rank in data["ranks"].items() if ring != "Z2")
+        if min_rank >= min_known_rank:
+            continue
+
+        ring2known_rank = {ring: min(ranks) for ring, ranks in ring2known_ranks.items() if ranks}
+        known_rings = [ring for ring in ["Z", "Q"] if ring2known_rank.get(ring) == min_known_rank]
+        size = format_size(size)
+        prev = f"{min_known_rank} (`{'/'.join(known_rings)}`)"
+        print(f"| {size:^12} | {prev:^9} | {min_rank:^8} |")
+
+
+def plot_new_ranks_z2_table(status: Dict[str, dict]) -> None:
+    print("\n### New best ranks (in `Z2`)")
+    print("|    Format    | Prev rank | New rank | Note               |")
+    print("|:------------:|:---------:|:--------:|:-------------------|")
+
+    for size, data in status.items():
+        min_known_rank = min(scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if "known" in scheme["source"])
+        min_rank = data["ranks"]["Z2"]
+        if min_rank < min_known_rank:
+            print(f"| {format_size(size):^12} | {min_known_rank:^9} | {min_rank:^8} |")
+        elif min_rank == data["ranks"]["Q"] and data["ranks"]["Q"] < data["ranks"]["Z"]:
+            prev_rank = min([scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if ring != "Q" and "known" in scheme["source"]], default="?")
+            print(f"| {format_size(size):^12} | {prev_rank:^9} | {min_rank:^8} | equal to `Q` ring  |")
+
+
 def main():
     input_dirs = [
         "schemes/known/tensor",
@@ -220,10 +272,13 @@ def main():
 
     ring2equal_rings = {"Q": ["Q"], "Z2": ["Z2"], "Z": ["Z", "Z2", "Q"], "ZT": ["ZT", "Z", "Z2", "Q"]}
     extensions = [".exp", ".m", "tensor.mpl", "lrp.mpl", ".json"]
-    n_max = 10
+    n_max = 16
 
     status = analyze_schemes(input_dirs=input_dirs, n_max=n_max, extensions=extensions, ring2equal_rings=ring2equal_rings)
     plot_table(status, ring2equal_rings=ring2equal_rings)
+    plot_zt_table(status)
+    plot_new_ranks_table(status)
+    plot_new_ranks_z2_table(status)
 
 
 if __name__ == '__main__':
