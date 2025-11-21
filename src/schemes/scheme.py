@@ -363,7 +363,7 @@ class Scheme:
 
         return "Z"
 
-    def product(self, p: int) -> None:
+    def double(self, p: int) -> None:
         n = [self.n[0], self.n[1], self.n[2]]
         n[p] *= 2
 
@@ -448,6 +448,39 @@ class Scheme:
                     w[self.m + index][(i + d2) * n[0] + j + d0] = scheme.w[index][i * scheme.n[0] + j]
 
         return Scheme(n1=n[0], n2=n[1], n3=n[2], m=m, u=u, v=v, w=w, z2=self.z2, validate=False)
+
+    def product(self, scheme: "Scheme") -> "Scheme":
+        if self.z2 !=scheme.z2:
+            raise ValueError("only one of schemes in z2")
+
+        n = [self.n[i] * scheme.n[i] for i in range(3)]
+        nn = [n[i] * n[(i + 1) % 3] for i in range(3)]
+        m = self.m * scheme.m
+
+        u = [[0 for _ in range(nn[0])] for _ in range(m)]
+        v = [[0 for _ in range(nn[1])] for _ in range(m)]
+        w = [[0 for _ in range(nn[2])] for _ in range(m)]
+        uvw = [u, v, w]
+        uvw1 = [self.u, self.v, self.w]
+        uvw2 = [scheme.u, scheme.v, scheme.w]
+
+        for index1 in range(self.m):
+            for index2 in range(scheme.m):
+                index = index1 * scheme.m + index2
+
+                for p in range(3):
+                    p1 = (p + 1) % 3
+
+                    for i in range(self.nn[p]):
+                        for j in range(scheme.nn[p]):
+                            row1, col1 = i // self.n[p1], i % self.n[p1]
+                            row2, col2 = j // scheme.n[p1], j % scheme.n[p1]
+
+                            row = row1 * scheme.n[p] + row2
+                            col = col1 * scheme.n[p1] + col2
+                            uvw[p][index][row * n[p1] + col] = uvw1[p][index1][i] * uvw2[p][index2][j]
+
+        return Scheme(n1=n[0], n2=n[1], n3=n[2], m=m, u=uvw[0], v=uvw[1], w=uvw[2], z2=self.z2)
 
     def project(self, p: int, q: int) -> None:
         self.__exclude_row(p, q)
