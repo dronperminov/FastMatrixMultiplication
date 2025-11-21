@@ -13,8 +13,8 @@ coefficients. This can lead to more efficient and hardware-friendly implementati
 
 ## Key results
 
-### New Best Ranks in Ternary Field (ZT)
-I have discovered new schemes that improve the state-of-the-art for matrix multiplication in the ternary field, achieving lower ranks than previously known.
+### New best ranks in ternary field (ZT)
+New schemes have been discovered that improve the state-of-the-art for matrix multiplication in the ternary field, achieving lower ranks than previously known.
 
 |    Format    | Prev rank | New rank |
 |:------------:|:---------:|:--------:|
@@ -23,73 +23,79 @@ I have discovered new schemes that improve the state-of-the-art for matrix multi
 
 
 ### Conversions to ternary field (`ZT`)
-I have discovered and converted the following schemes to the `ZT` field, which were previously known over rational (`Q`) or integer (`Z`) fields but lacked known ternary
-implementations:
+The following schemes have been converted to the `ZT` field, having been previously known over rational (`Q`) or integer (`Z`) fields but lacking known
+ternary implementations:
 
-|    Format    | Rank | Note                      |
-|:------------:|:----:|:--------------------------|
-| `(2, 3, 5)`  |  25  | Previously known in `Z`   |
-| `(2, 3, 10)` |  50  | Previously known in `Z`   |
-| `(2, 3, 13)` |  65  | Previously known in `Z`   |
-| `(2, 3, 15)` |  75  | Previously known in `Z`   |
-| `(2, 4, 6)`  |  39  | Previously known in `Z`   |
-| `(2, 4, 9)`  |  59  | Previously known in `Q`   |
-| `(2, 4, 11)` |  71  | Previously known in `Q`   |
-| `(2, 4, 12)` |  77  | Previously known in `Q`   |
-| `(2, 4, 15)` |  96  | Previously known in `Q`   |
-| `(2, 5, 9)`  |  72  | Previously known in `Q`   |
-| `(2, 6, 9)`  |  86  | Previously known in `Z`   |
-| `(3, 4, 5)`  |  47  | Previously known in `Z`   |
-| `(4, 4, 6)`  |  73  | Previously known in `Z/Q` |
-| `(4, 4, 8)`  |  96  | Previously known in `Q`   |
-| `(4, 5, 6)`  |  90  | Previously known in `Z`   |
-| `(4, 5, 7)`  | 104  | Previously known in `Z/Q` |
-| `(4, 5, 8)`  | 118  | Previously known in `Z/Q` |
-| `(4, 5, 10)` | 151  | Previously known in `Z`   |
-| `(4, 5, 11)` | 165  | Previously known in `Z`   |
-| `(4, 6, 7)`  | 123  | Previously known in `Z/Q` |
-| `(4, 6, 10)` | 175  | Previously known in `Z`   |
-| `(5, 5, 6)`  | 110  | Previously known in `Z/Q` |
-| `(5, 5, 7)`  | 127  | Previously known in `Z/Q` |
-| `(5, 5, 8)`  | 144  | Previously known in `Z/Q` |
-| `(5, 5, 9)`  | 167  | Previously known in `Z`   |
-| `(5, 5, 10)` | 184  | Previously known in `Q`   |
-| `(5, 5, 11)` | 202  | Previously known in `Q`   |
-| `(5, 5, 12)` | 220  | Previously known in `Z`   |
-| `(5, 6, 6)`  | 130  | Previously known in `Z/Q` |
-| `(5, 6, 7)`  | 150  | Previously known in `Z/Q` |
-| `(5, 6, 8)`  | 170  | Previously known in `Z/Q` |
-| `(5, 6, 9)`  | 197  | Previously known in `Z`   |
+|    Format    | Rank | Known ring |
+|:------------:|:----:|:----------:|
+| `(2, 3, 5)`  |  25  |    `Z`     |
+| `(2, 3, 10)` |  50  |    `Z`     |
+| `(2, 3, 13)` |  65  |    `Z`     |
+| `(2, 3, 15)` |  75  |    `Z`     |
+| `(2, 4, 6)`  |  39  |    `Z`     |
+| `(2, 4, 9)`  |  59  |    `Q`     |
+| `(2, 4, 11)` |  71  |    `Q`     |
+| `(2, 4, 12)` |  77  |    `Q`     |
+| `(2, 4, 15)` |  96  |    `Q`     |
+| `(2, 5, 9)`  |  72  |    `Q`     |
+| `(2, 6, 9)`  |  86  |    `Z`     |
+| `(3, 4, 5)`  |  47  |    `Z`     |
+| `(4, 4, 6)`  |  73  |   `Z/Q`    |
+| `(4, 4, 8)`  |  96  |    `Q`     |
+| `(4, 5, 6)`  |  90  |    `Z`     |
+| `(4, 5, 7)`  | 104  |   `Z/Q`    |
+| `(4, 5, 8)`  | 118  |   `Z/Q`    |
+| `(4, 5, 10)` | 151  |    `Z`     |
+| `(4, 5, 11)` | 165  |    `Z`     |
+| `(4, 6, 7)`  | 123  |   `Z/Q`    |
+| `(4, 6, 10)` | 175  |    `Z`     |
+| `(5, 5, 6)`  | 110  |   `Z/Q`    |
+| `(5, 5, 7)`  | 127  |   `Z/Q`    |
+| `(5, 5, 8)`  | 144  |   `Z/Q`    |
+| `(5, 5, 9)`  | 167  |    `Z`     |
+| `(5, 5, 10)` | 184  |    `Q`     |
+| `(5, 5, 11)` | 202  |    `Q`     |
+| `(5, 5, 12)` | 220  |    `Z`     |
+| `(5, 6, 6)`  | 130  |   `Z/Q`    |
+| `(5, 6, 7)`  | 150  |   `Z/Q`    |
+| `(5, 6, 8)`  | 170  |   `Z/Q`    |
+| `(5, 6, 9)`  | 197  |    `Z`     |
+
 
 ### New discoveries in binary field (`Z2`)
+New schemes have been discovered that improve the state-of-the-art for matrix multiplication in the binary field (`Z2`),
+achieving lower ranks than previously known.
 
-|    Format    | Prev rank | New rank | Note               |
-|:------------:|:---------:|:--------:|:-------------------|
-| `(3, 3, 7)`  |     ?     |    49    | equal to `Q` ring  |
-| `(3, 4, 9)`  |     ?     |    83    | equal to `Q` ring  |
-| `(3, 4, 10)` |     ?     |    92    | equal to `Q` ring  |
-| `(3, 4, 11)` |     ?     |   101    | equal to `Q` ring  |
-| `(3, 4, 12)` |     ?     |   108    | equal to `Q` ring  |
-| `(3, 4, 16)` |     ?     |   146    | equal to `Q` ring  |
-| `(3, 5, 7)`  |    80     |    79    | equal to `Q` ring  |
-| `(3, 8, 8)`  |     ?     |   145    | equal to `Q` ring  |
-| `(4, 4, 8)`  |    96     |    94    |
-| `(4, 4, 10)` |     ?     |   120    | equal to `Q` ring  |
-| `(4, 4, 12)` |    142    |   141    |
-| `(4, 4, 16)` |    189    |   188    |
-| `(4, 5, 6)`  |    90     |    89    |
-| `(4, 5, 9)`  |    136    |   133    |
-| `(4, 5, 10)` |    151    |   146    |
-| `(4, 5, 11)` |    165    |   162    |
-| `(4, 5, 12)` |    180    |   177    |
-| `(4, 6, 9)`  |     ?     |   159    | equal to `Q` ring  |
-| `(5, 5, 9)`  |    167    |   166    |
-| `(5, 5, 10)` |    184    |   183    |
-| `(5, 5, 11)` |    202    |   200    |
-| `(5, 5, 12)` |    220    |   217    |
-| `(5, 6, 10)` |    218    |   217    |
-| `(5, 7, 9)`  |     ?     |   229    | equal to `Q` ring  |
-| `(8, 8, 8)`  |    336    |   329    |
+|    Format    | Prev rank | New rank | Note              |
+|:------------:|:---------:|:--------:|:------------------|
+| `(3, 3, 7)`  |     ?     |    49    | equal to `Q` ring |
+| `(3, 4, 9)`  |     ?     |    83    | equal to `Q` ring |
+| `(3, 4, 10)` |     ?     |    92    | equal to `Q` ring |
+| `(3, 4, 11)` |     ?     |   101    | equal to `Q` ring |
+| `(3, 4, 12)` |     ?     |   108    | equal to `Q` ring |
+| `(3, 4, 16)` |     ?     |   146    | equal to `Q` ring |
+| `(3, 5, 7)`  |    80     |    79    | equal to `Q` ring |
+| `(3, 8, 8)`  |     ?     |   145    | equal to `Q` ring |
+| `(4, 4, 8)`  |    96     |    94    |                   |
+| `(4, 4, 10)` |     ?     |   120    | equal to `Q` ring |
+| `(4, 4, 12)` |    142    |   141    |                   |
+| `(4, 4, 16)` |    189    |   188    |                   |
+| `(4, 5, 6)`  |    90     |    89    |                   |
+| `(4, 5, 9)`  |    136    |   133    |                   |
+| `(4, 5, 10)` |    151    |   146    |                   |
+| `(4, 5, 11)` |    165    |   162    |                   |
+| `(4, 5, 12)` |    180    |   177    |                   |
+| `(4, 6, 9)`  |     ?     |   159    | equal to `Q` ring |
+| `(5, 5, 9)`  |    167    |   166    |                   |
+| `(5, 5, 10)` |    184    |   183    |                   |
+| `(5, 5, 11)` |    202    |   200    |                   |
+| `(5, 5, 12)` |    220    |   217    |                   |
+| `(5, 6, 10)` |    218    |   217    |                   |
+| `(5, 7, 9)`  |     ?     |   229    | equal to `Q` ring |
+| `(6, 7, 9)`  |    270    |   269    |                   |
+| `(7, 8, 8)`  |     ?     |   306    | equal to `Q` ring |
+| `(8, 8, 8)`  |    336    |   329    |                   |
+
 
 ### Reduce naive addition complexity
 
@@ -246,7 +252,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |      `(3, 3, 5)`       |        36        |       36        |       36        |        36        |          193           |          193          |          193          |
 |      `(3, 3, 6)`       |      44 (?)      |       42        |       40        |        42        |           -            |           -           |           -           |
 |      `(3, 3, 7)`       |      51 (?)      |     51 (?)      |       49        |      49 (?)      |           -            |           -           |           -           |
-|      `(3, 3, 8)`       |      58 (?)      |     58 (?)      |       55        |      57 (?)      |           -            |           -           |           -           |
+|      `(3, 3, 8)`       |      58 (?)      |     58 (?)      |       55        |      56 (?)      |           -            |           -           |           -           |
 |      `(3, 3, 9)`       |      65 (?)      |     65 (?)      |       63        |      64 (?)      |           -            |           -           |           -           |
 |      `(3, 3, 10)`      |      72 (?)      |     72 (?)      |       69        |      71 (?)      |           -            |           -           |           -           |
 |      `(3, 3, 11)`      |      80 (?)      |     80 (?)      |       76        |      78 (?)      |           -            |           -           |           -           |
@@ -339,12 +345,12 @@ from other fields. The best ranks of previously known schemes are given in brack
 |      `(6, 6, 10)`      |     252 (?)      |     252 (?)     |       247       |     252 (?)      |           -            |           -           |           -           |
 |      `(6, 7, 7)`       |       215        |       215       |       215       |       215        |          2004          |         2004          |         2004          |
 |      `(6, 7, 8)`       |       239        |       239       |       239       |       239        |      2303 (2352)       |      2303 (2352)      |      2303 (2352)      |
-|      `(6, 7, 9)`       |       270        |       270       |       270       |       270        |      2842 (2917)       |      2842 (2917)      |      2842 (2917)      |
+|      `(6, 7, 9)`       |       270        |       270       |       270       |    269 (270)     |      2842 (2917)       |      2842 (2917)      |      2842 (2917)      |
 |      `(6, 8, 8)`       |       266        |       266       |       266       |       266        |          2780          |         2780          |         2780          |
 |      `(7, 7, 7)`       |     261 (?)      |     261 (?)     |       249       |     253 (?)      |           -            |           -           |           -           |
 |      `(7, 7, 8)`       |     292 (?)      |     292 (?)     |       277       |     288 (?)      |           -            |           -           |           -           |
 |      `(7, 7, 9)`       |     332 (?)      |     332 (?)     |       315       |     320 (?)      |           -            |           -           |           -           |
-|      `(7, 8, 8)`       |     328 (?)      |     328 (?)     |       306       |     313 (?)      |           -            |           -           |           -           |
+|      `(7, 8, 8)`       |     318 (?)      |     318 (?)     |       306       |     306 (?)      |           -            |           -           |           -           |
 |      `(8, 8, 8)`       |     343 (?)      |     343 (?)     |       336       |     329 (?)      |           -            |           -           |           -           |
 
 ## License and Citation
