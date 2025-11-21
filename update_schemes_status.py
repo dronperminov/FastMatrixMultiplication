@@ -201,8 +201,8 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
     print("\n\n### New best ranks in ternary field (ZT)")
     print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication in the ternary field, achieving lower ranks than previously known.\n")
-    print("|    Format    | Prev rank | New rank |")
-    print("|:------------:|:---------:|:--------:|")
+    print("|    Format    |  Prev rank  | New rank |")
+    print("|:------------:|:-----------:|:--------:|")
 
     for size, data in status.items():
         ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items() if ring != "Z2"}
@@ -212,10 +212,10 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
             continue
 
         ring2known_rank = {ring: min(ranks) for ring, ranks in ring2known_ranks.items() if ranks}
-        known_rings = [ring for ring in ["Z", "Q"] if ring2known_rank.get(ring) == min_known_rank]
+        known_rings = [ring for ring in ["ZT", "Z", "Q"] if ring2known_rank.get(ring) == min_known_rank]
         size = format_size(size)
         prev = f"{min_known_rank} (`{'/'.join(known_rings)}`)"
-        print(f"| {size:^12} | {prev:^9} | {min_rank:^8} |")
+        print(f"| {size:^12} | {prev:^11} | {min_rank:^8} |")
 
 
 def plot_zt_table(status: Dict[str, dict]) -> None:
@@ -262,11 +262,32 @@ def plot_new_ranks_z2_table(status: Dict[str, dict]) -> None:
             print(f"| {format_size(size):^12} | {prev_rank:^9} | {min_rank:^8} | equal to `Q` ring |")
 
 
+def plot_new_complexities_table(status: Dict[str, dict]) -> None:
+    print("\n\n### Reduce naive addition complexity")
+    print("The naive addition complexity - is the number of nonzero coefficients minus `2·rank + n·p`.\n")
+    print("|    Format    | Rank | Previous<br/>complexity | Current<br/>complexity |")
+    print("|:------------:|:----:|:-----------------------:|:----------------------:|")
+
+    for size, data in status.items():
+        schemes = [scheme for ring, schemes in data["schemes"].items() for scheme in schemes if ring != "Z2"]
+
+        known_schemes = [scheme for scheme in schemes if "known" in scheme["source"]]
+        known_rank = min(scheme["rank"] for scheme in known_schemes)
+        known_complexity = min(scheme["complexity"] for scheme in known_schemes if scheme["rank"] == known_rank)
+
+        new_schemes = [scheme for scheme in data["schemes"].get("ZT", []) if "known" not in scheme["source"] and scheme["rank"] == known_rank]
+        new_complexity = min([scheme["complexity"] for scheme in new_schemes], default=known_complexity)
+
+        if new_complexity < known_complexity:
+            print(f"| {format_size(size):^12} | {known_rank:^4} | {known_complexity:^23} | {new_complexity:^22} |")
+
+
 def main():
     input_dirs = [
         "schemes/known/tensor",
         "schemes/known/jakobmoosbauer_flips",
         "schemes/known/alpha_evolve",
+        "schemes/known/alpha_tensor",
         "schemes/known/fmm_add_reduction",
         "schemes/known/meta_flip_graph",
         "schemes/new/FlipGraphGPU",
@@ -283,6 +304,7 @@ def main():
     plot_new_ranks_table(status)
     plot_zt_table(status)
     plot_new_ranks_z2_table(status)
+    plot_new_complexities_table(status)
     plot_full_table(status, ring2equal_rings=ring2equal_rings)
 
 
