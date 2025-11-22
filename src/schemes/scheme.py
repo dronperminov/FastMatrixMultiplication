@@ -525,6 +525,22 @@ class Scheme:
 
         assert sorted(self.n) == self.n
 
+    def set_sizes(self, n1: int, n2: int, n3: int) -> None:
+        if self.n == [n1, n3, n2]:
+            self.swap(1, 2)
+        elif self.n == [n2, n1, n3]:
+            self.swap(0, 1)
+        elif self.n == [n2, n3, n1]:
+            self.swap(0, 1)
+            self.swap(0, 2)
+        elif self.n == [n3, n1, n2]:
+            self.swap(0, 1)
+            self.swap(1, 2)
+        elif self.n == [n3, n2, n1]:
+            self.swap(0, 2)
+
+        assert self.n == [n1, n2, n3]
+
     def __eq__(self, scheme: "Scheme") -> bool:
         if self.n != scheme.n or self.m != scheme.m:
             return False
