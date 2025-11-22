@@ -294,6 +294,7 @@ def main():
         "schemes/new/FlipGraphGPU_Z",
         "schemes/new/FlipGraphGPU_Z2",
         "schemes/new/FlipGraphGPU_merge",
+        "schemes/new/block"
     ]
 
     ring2equal_rings = {"Q": ["Q"], "Z2": ["Z2"], "Z": ["Z", "Z2", "Q"], "ZT": ["ZT", "Z", "Z2", "Q"]}
