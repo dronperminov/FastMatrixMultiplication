@@ -42,6 +42,12 @@ class Scheme:
 
         return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=z2, validate=False)
 
+    def copy(self) -> "Scheme":
+        u = [[self.u[index][i] for i in range(self.nn[0])] for index in range(self.m)]
+        v = [[self.v[index][i] for i in range(self.nn[1])] for index in range(self.m)]
+        w = [[self.w[index][i] for i in range(self.nn[2])] for index in range(self.m)]
+        return Scheme(n1=self.n[0], n2=self.n[1], n3=self.n[2], m=self.m,u=u, v=v, w=w, z2=self.z2, validate=False)
+
     def save(self, path: str) -> None:
         multiplications = "".join(f'{"," if i > 0 else ""}\n        "{multiplication}"' for i, multiplication in enumerate(self.__get_multiplications()))
         elements = "".join(f'{"," if i > 0 else ""}\n        "{element}"' for i, element in enumerate(self.__get_elements()))
@@ -304,7 +310,6 @@ class Scheme:
         i_map = {i1: i2, i2: i1}
         self.u = [[self.u[index][i_map.get(i, i) * self.n[1] + j] for i in range(self.n[0]) for j in range(self.n[1])] for index in range(self.m)]
         self.w = [[self.w[index][i * self.n[0] + i_map.get(j, j)] for i in range(self.n[2]) for j in range(self.n[0])] for index in range(self.m)]
-        self.__validate()
 
     def swap_basis_columns(self, j1: int, j2: int) -> None:
         if j1 == j2:
@@ -401,8 +406,10 @@ class Scheme:
         self.u = u
         self.v = v
         self.w = w
-        self.show()
-        self.__validate()
+        # self.__validate()
+
+    def can_merge(self, scheme: "Scheme", p: int) -> bool:
+        return all(self.n[i] == scheme.n[i] for i in range(3) if i != p)
 
     def merge(self, scheme: "Scheme", p: int) -> "Scheme":
         for i in range(3):
@@ -450,7 +457,7 @@ class Scheme:
         return Scheme(n1=n[0], n2=n[1], n3=n[2], m=m, u=u, v=v, w=w, z2=self.z2, validate=False)
 
     def product(self, scheme: "Scheme") -> "Scheme":
-        if self.z2 !=scheme.z2:
+        if self.z2 != scheme.z2:
             raise ValueError("only one of schemes in z2")
 
         n = [self.n[i] * scheme.n[i] for i in range(3)]
@@ -491,6 +498,40 @@ class Scheme:
             self.nn[i] = self.n[i] * self.n[(i + 1) % 3]
 
         self.__remove_zeroes()
+
+    def extend(self, p: int) -> None:
+        n = [self.n[i] for i in range(3)]
+        n[p] += 1
+        nn = [n[i] * n[(i + 1) % 3] for i in range(3)]
+
+        if p == 0:
+            self.__add_row(0)
+            self.__add_column(2)
+
+            for i in range(self.n[2]):
+                for j in range(self.n[1]):
+                    self.__add_triplet(0, 1, 2, self.__one_hot(nn[0], self.n[0] * self.n[1] + j), self.__one_hot(nn[1], j * self.n[2] + i), self.__one_hot(nn[2], i * (self.n[0] + 1) + self.n[0]))
+        elif p == 1:
+            self.__add_row(1)
+            self.__add_column(0)
+
+            for i in range(self.n[0]):
+                for j in range(self.n[2]):
+                    self.__add_triplet(0, 1, 2, self.__one_hot(nn[0], i * (self.n[1] + 1) + self.n[1]), self.__one_hot(nn[1], self.n[1] * self.n[2] + j), self.__one_hot(nn[2], j * self.n[0] + i))
+        elif p == 2:
+            self.__add_row(2)
+            self.__add_column(1)
+
+            for i in range(self.n[0]):
+                for j in range(self.n[1]):
+                    self.__add_triplet(0, 1, 2, self.__one_hot(nn[0], i * self.n[1] + j), self.__one_hot(nn[1], j * (self.n[2] + 1) + self.n[2]), self.__one_hot(nn[2], self.n[2] * self.n[0] + i))
+
+        self.n[p] += 1
+
+        for i in range(3):
+            self.nn[i] = self.n[i] * self.n[(i + 1) % 3]
+
+        # self.__validate()
 
     def swap(self, p1: int, p2: int) -> None:
         if p1 > p2:
@@ -540,6 +581,19 @@ class Scheme:
             self.swap(0, 2)
 
         assert self.n == [n1, n2, n3]
+
+    def modify_to_sizes(self, n1: int, n2: int, n3: int) -> None:
+        n = [n1, n2, n3]
+
+        while self.n != n:
+            p = random.choice([i for i in range(3) if self.n[i] != n[i]])
+
+            if self.n[p] > n[p]:
+                self.project(p, q=random.randint(0, self.n[p] - 1))
+            elif random.random() < 0.5:
+                self.double(p)
+            else:
+                self.extend(p)
 
     def __eq__(self, scheme: "Scheme") -> bool:
         if self.n != scheme.n or self.m != scheme.m:
@@ -592,6 +646,13 @@ class Scheme:
         self.w = [self.w[index] for index in non_zero_indices]
         self.m = len(non_zero_indices)
 
+    def __add_triplet(self, i: int, j: int, k: int, u: List[int], v: List[int], w: List[int]) -> None:
+        uvw = [self.u, self.v, self.w]
+        uvw[i].append(u)
+        uvw[j].append(v)
+        uvw[k].append(w)
+        self.m = len(self.u)
+
     def __exclude_column(self, matrix: int, column: int) -> None:
         n1, n2 = self.n[matrix], self.n[(matrix + 1) % 3]
         old_columns = [j for j in range(n2) if j != column]
@@ -607,6 +668,40 @@ class Scheme:
 
         for index in range(self.m):
             uvw[matrix][index] = [uvw[matrix][index][old_i * n2 + j] for i, old_i in enumerate(old_rows) for j in range(n2)]
+
+    def __add_column(self, matrix: int) -> None:
+        n1, n2 = self.n[matrix], self.n[(matrix + 1) % 3]
+        uvw = [self.u, self.v, self.w]
+
+        for index in range(self.m):
+            values = []
+            for i in range(n1):
+                for j in range(n2):
+                    values.append(uvw[matrix][index][i * n2 + j])
+
+                values.append(0)
+
+            uvw[matrix][index] = values
+
+    def __add_row(self, matrix: int) -> None:
+        n1, n2 = self.n[matrix], self.n[(matrix + 1) % 3]
+        uvw = [self.u, self.v, self.w]
+
+        for index in range(self.m):
+            values = []
+            for i in range(n1):
+                for j in range(n2):
+                    values.append(uvw[matrix][index][i * n2 + j])
+
+            for j in range(n2):
+                values.append(0)
+
+            uvw[matrix][index] = values
+
+    def __one_hot(self, nn: int, index: int) -> List[int]:
+        matrix = [0 for _ in range(nn)]
+        matrix[index] = 1
+        return matrix
 
     def __get_rank(self, matrix: List[int], n1: int, n2: int) -> int:
         matrix = [[abs(matrix[i * n2 + j]) % 2 for j in range(n2)] for i in range(n1)]
