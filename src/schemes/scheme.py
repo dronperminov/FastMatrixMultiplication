@@ -4,8 +4,9 @@ import re
 from collections import defaultdict
 from fractions import Fraction
 from itertools import permutations
-from typing import Dict, List, Tuple, Union
+from typing import Dict, List, Set, Tuple, Union
 
+from src.entities.addition_minimization import AdditionMinimization
 from src.utils.algebra import rank_z2
 from src.utils.utils import pretty_matrix
 
@@ -318,6 +319,28 @@ class Scheme:
         j_map = {j1: j2, j2: j1}
         self.v = [[self.v[index][i * self.n[2] + j_map.get(j, j)] for i in range(self.n[1]) for j in range(self.n[2])] for index in range(self.m)]
         self.w = [[self.w[index][j_map.get(i, i) * self.n[0] + j] for i in range(self.n[2]) for j in range(self.n[0])] for index in range(self.m)]
+
+    def minimize_additions(self) -> int:
+        greedy = True
+
+        u_minimization = AdditionMinimization(self.u, name="u", var_names=[f"a{i + 1}{j + 1}" for i in range(self.n[0]) for j in range(self.n[1])], max_size=self.m)
+        v_minimization = AdditionMinimization(self.v, name="v", var_names=[f"b{i + 1}{j + 1}" for i in range(self.n[1]) for j in range(self.n[2])], max_size=self.m)
+        w_minimization = AdditionMinimization([[self.w[index][i] for index in range(self.m)] for i in range(self.nn[2])], name="w", var_names=[f"m{i + 1}" for i in range(self.m)], max_size=self.nn[2])
+
+        u_indices, u_vars, u_additions = u_minimization.solve(greedy)
+        v_indices, v_vars, v_additions = v_minimization.solve(greedy)
+        w_indices, w_vars, w_additions = w_minimization.solve(greedy)
+        complexity = u_additions + v_additions + w_additions
+
+        # self.show()
+        # u_minimization.show(u_vars, u_indices)
+        # print("---------------------------------------")
+        # v_minimization.show(v_vars, v_indices)
+        # print("---------------------------------------")
+        # w_minimization.show(w_vars, w_indices)
+        # print(f"{self.complexity()} vs {complexity}")
+
+        return complexity
 
     def sort(self) -> None:
         while not self.__check_ordering():
