@@ -52,6 +52,19 @@ class TensorDecomposition:
         w = [[self.cnf[self.w[index][i]] for i in range(self.nn[2])] for index in range(self.m)]
         return u, v, w
 
+    def get_schemes(self, max_count: int = 100) -> List[Scheme]:
+        schemes = []
+
+        while len(schemes) < max_count:
+            solution = self.solve()
+            if not solution:
+                break
+
+            u, v, w = solution
+            schemes.append(Scheme(n1=self.n[0], n2=self.n[1], n3=self.n[2], m=self.m, u=u, v=v, w=w, z2=True))
+
+        return schemes
+
     def exclude_scheme(self, scheme: Scheme) -> None:
         variables = {}
 
