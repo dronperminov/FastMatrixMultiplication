@@ -150,8 +150,8 @@ def format_size(size: str) -> str:
 
 def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
     print("## Ranks and complexities")
-    print("|    size     | rank in `ZT`  | rank in `Z` | rank in `Q` |  rank in `Z2`   | complexity in `ZT` | complexity in `Z` | complexity in `Q` |")
-    print("|:-----------:|:-------------:|:-----------:|:-----------:|:---------------:|:------------------:|:-----------------:|:-----------------:|")
+    print("| Format<br/>`(n, m, p)` | rank<br/>in `ZT` | rank<br/>in `Z` | rank<br/>in `Q` | rank<br/>in `Z2` | complexity<br/>in `ZT` | complexity<br/>in `Z` | complexity<br/>in `Q` |")
+    print("|:----------------------:|:----------------:|:---------------:|:---------------:|:----------------:|:----------------------:|:---------------------:|:---------------------:|")
 
     for size, data in status.items():
         known_ranks, known_complexities = {}, {}
@@ -195,7 +195,7 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
 
         n1, n2, n3 = size.split("x")
         size = f"`({n1}, {n2}, {n3})`"
-        print(f'| {size:^11} | {diff_rank["ZT"]:^13} | {diff_rank["Z"]:^11} | {diff_rank["Q"]:^11} | {diff_rank["Z2"]:^15} | {diff_complexity["ZT"]:^18} | {diff_complexity["Z"]:^17} | {diff_complexity["Q"]:^17} |')
+        print(f'| {size:^22} | {diff_rank["ZT"]:^16} | {diff_rank["Z"]:^15} | {diff_rank["Q"]:^15} | {diff_rank["Z2"]:^16} | {diff_complexity["ZT"]:^22} | {diff_complexity["Z"]:^21} | {diff_complexity["Q"]:^21} |')
 
 
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
