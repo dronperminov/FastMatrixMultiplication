@@ -251,16 +251,16 @@ class Scheme:
         w_vars = cls.__parse_reduced_vars(data["w_fresh"], real_variables=m)
 
         for index, u_indices in enumerate(data["u"]):
-            for variable in cls.__replace_fresh_vars(u_indices, u_vars):
-                u[index][abs(variable) - 1] = 1 if variable > 0 else -1
+            for variable, value in cls.__replace_fresh_vars(u_indices, u_vars, value=1):
+                u[index][variable] = value
 
         for index, v_indices in enumerate(data["v"]):
-            for variable in cls.__replace_fresh_vars(v_indices, v_vars):
-                v[index][abs(variable) - 1] = 1 if variable > 0 else -1
+            for variable, value in cls.__replace_fresh_vars(v_indices, v_vars, value=1):
+                v[index][variable] = value
 
         for i, w_indices in enumerate(data["w"]):
-            for variable in cls.__replace_fresh_vars(w_indices, w_vars):
-                w[abs(variable) - 1][i] = 1 if variable > 0 else -1
+            for variable, value in cls.__replace_fresh_vars(w_indices, w_vars, value=1):
+                w[variable][i] = value
 
         return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=z2, validate=validate)
 
@@ -747,25 +747,27 @@ class Scheme:
         return value
 
     @staticmethod
-    def __parse_reduced_vars(fresh_vars: List[dict], real_variables: int) -> Dict[int, List[int]]:
+    def __parse_reduced_vars(fresh_vars: List[dict], real_variables: int) -> Dict[int, List[dict]]:
         parsed_vars = {}
 
         for i, fresh_var in enumerate(fresh_vars):
-            index = real_variables + 1 + i
+            index = real_variables + i
             parsed_vars[index] = fresh_var
-            parsed_vars[-index] = [-variable for variable in fresh_var]
+            parsed_vars[-index] = [{"index": variable["index"], "value": -variable["value"]} for variable in fresh_var]
 
         return parsed_vars
 
     @staticmethod
-    def __replace_fresh_vars(expression: List[int], fresh_vars: Dict[int, List[int]]) -> List[int]:
+    def __replace_fresh_vars(expression: List[dict], fresh_vars: Dict[int, List[dict]], value: Union[int, Fraction]) -> List[tuple]:
         replaced = []
 
         for variable in expression:
-            if variable in fresh_vars:
-                replaced.extend(Scheme.__replace_fresh_vars(fresh_vars[variable], fresh_vars))
+            var_index, var_value = variable["index"], variable["value"] * value
+
+            if var_index in fresh_vars:
+                replaced.extend(Scheme.__replace_fresh_vars(fresh_vars[var_index], fresh_vars, var_value))
             else:
-                replaced.append(variable)
+                replaced.append((var_index, var_value))
 
         return replaced
 

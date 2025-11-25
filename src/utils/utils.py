@@ -1,3 +1,4 @@
+import json
 from fractions import Fraction
 from typing import Iterable, Union
 
@@ -5,6 +6,9 @@ from typing import Iterable, Union
 def format_value(value: Union[int, str, Fraction]) -> str:
     if isinstance(value, Fraction):
         return f'"{value.numerator}/{value.denominator}"'
+
+    if isinstance(value, dict):
+        return json.dumps(value)
 
     return str(value)
 

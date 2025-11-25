@@ -50,9 +50,10 @@ def reduce_scheme_additions(scheme: Scheme, addition_reducer: AdditionReducer, m
 
 def main():
     output_dir = "schemes/reduced"
-    max_loops = 50
+    max_loops = 250
     max_size = 10
-    max_flips = 100
+    max_flips = 0
+    ring = "ZT"
 
     with open("schemes/status.json") as f:
         status = json.load(f)
@@ -60,13 +61,16 @@ def main():
     addition_reducer = AdditionReducer(max_loops=max_loops, max_size=max_size)
 
     for size, data in status.items():
-        scheme = Scheme.load(data["schemes"]["ZT"][0]["path"], validate=False)
+        if ring not in data["schemes"]:
+            continue
+
+        scheme = Scheme.load(data["schemes"][ring][0]["path"], validate=False)
         reduced = reduce_scheme_additions(scheme=scheme, addition_reducer=addition_reducer, max_flips=max_flips)
         reduced_complexity = reduced["complexity"]["reduced"]
 
         print(f"{size}: {scheme.m}, initial complexity: {scheme.complexity()}, reduced: {reduced_complexity}")
 
-        path = os.path.join(output_dir, f"{scheme.n[0]}x{scheme.n[1]}x{scheme.n[2]}_m{scheme.m}_c{reduced_complexity}_reduced.json")
+        path = os.path.join(output_dir, f"{scheme.n[0]}x{scheme.n[1]}x{scheme.n[2]}_m{scheme.m}_c{reduced_complexity}_{scheme.get_ring()}_reduced.json")
         save_reduced_scheme(reduced, path)
         Scheme.load(path)
 
