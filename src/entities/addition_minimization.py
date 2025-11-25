@@ -81,7 +81,7 @@ class AdditionMinimization:
 
     def solve_random(self) -> Tuple[List[Set[int]], Dict[int, Set[int]]]:
         new_vars = {}
-        expr_indices = [{i for i, used in enumerate(expression) if used} for expression in self.expressions]
+        expr_indices = [{(i + 1) * coefficient for i, coefficient in enumerate(expression) if coefficient != 0} for expression in self.expressions]
 
         while True:
             combination2count: Dict[tuple, int] = defaultdict(int)
@@ -97,7 +97,8 @@ class AdditionMinimization:
                 return expr_indices, new_vars
 
             best_combination, best_score = sorted_combinations[0] if random.random() < 0.7 else random.choice(sorted_combinations)
-            var_index = -len(new_vars) - 1
+            var_index = self.real_variables + len(new_vars) + 1
+            inverse_best_combination = {-v for v in best_combination}
 
             for indices in expr_indices:
                 if set(best_combination).issubset(indices):
@@ -105,6 +106,23 @@ class AdditionMinimization:
                         indices.remove(index)
 
                     indices.add(var_index)
+                elif inverse_best_combination.issubset(indices):
+                    for index in inverse_best_combination:
+                        indices.remove(index)
+
+                    indices.add(-var_index)
+
+            for indices in new_vars.values():
+                if set(best_combination).issubset(indices):
+                    for index in best_combination:
+                        indices.remove(index)
+
+                    indices.add(var_index)
+                elif inverse_best_combination.issubset(indices):
+                    for index in inverse_best_combination:
+                        indices.remove(index)
+
+                    indices.add(-var_index)
 
             new_vars[var_index] = set(best_combination)
 

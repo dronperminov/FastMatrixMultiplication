@@ -336,13 +336,10 @@ class Scheme:
 
         self.__validate()
 
-    def minimize_additions(self) -> int:
-        greedy = True
-
+    def minimize_additions(self, greedy: bool, loops: int = 250) -> int:
         max_size = 5
         uv_max_size = min(max_size, self.m)
         w_max_size = min(max_size, self.nn[2])
-        loops = 25
 
         u_minimization = AdditionMinimization(self.u, name="u", var_names=[f"a{i + 1}{j + 1}" for i in range(self.n[0]) for j in range(self.n[1])], max_size=uv_max_size)
         v_minimization = AdditionMinimization(self.v, name="v", var_names=[f"b{i + 1}{j + 1}" for i in range(self.n[1]) for j in range(self.n[2])], max_size=uv_max_size)
