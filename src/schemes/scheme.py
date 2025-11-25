@@ -323,13 +323,18 @@ class Scheme:
     def minimize_additions(self) -> int:
         greedy = True
 
-        u_minimization = AdditionMinimization(self.u, name="u", var_names=[f"a{i + 1}{j + 1}" for i in range(self.n[0]) for j in range(self.n[1])], max_size=self.m)
-        v_minimization = AdditionMinimization(self.v, name="v", var_names=[f"b{i + 1}{j + 1}" for i in range(self.n[1]) for j in range(self.n[2])], max_size=self.m)
-        w_minimization = AdditionMinimization([[self.w[index][i] for index in range(self.m)] for i in range(self.nn[2])], name="w", var_names=[f"m{i + 1}" for i in range(self.m)], max_size=self.nn[2])
+        max_size = 5
+        uv_max_size = min(max_size, self.m)
+        w_max_size = min(max_size, self.nn[2])
+        loops = 25
 
-        u_indices, u_vars, u_additions = u_minimization.solve(greedy)
-        v_indices, v_vars, v_additions = v_minimization.solve(greedy)
-        w_indices, w_vars, w_additions = w_minimization.solve(greedy)
+        u_minimization = AdditionMinimization(self.u, name="u", var_names=[f"a{i + 1}{j + 1}" for i in range(self.n[0]) for j in range(self.n[1])], max_size=uv_max_size)
+        v_minimization = AdditionMinimization(self.v, name="v", var_names=[f"b{i + 1}{j + 1}" for i in range(self.n[1]) for j in range(self.n[2])], max_size=uv_max_size)
+        w_minimization = AdditionMinimization([[self.w[index][i] for index in range(self.m)] for i in range(self.nn[2])], name="w", var_names=[f"m{i + 1}" for i in range(self.m)], max_size=w_max_size)
+
+        u_indices, u_vars, u_additions = u_minimization.solve(greedy, loops=loops)
+        v_indices, v_vars, v_additions = v_minimization.solve(greedy, loops=loops)
+        w_indices, w_vars, w_additions = w_minimization.solve(greedy, loops=loops)
         complexity = u_additions + v_additions + w_additions
 
         # self.show()
