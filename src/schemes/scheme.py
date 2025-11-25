@@ -96,6 +96,9 @@ class Scheme:
         if lower_path.endswith("tensor.mpl"):
             return Scheme.from_tensor_mpl(path, validate=validate)
 
+        if lower_path.endswith("reduced.json"):
+            return Scheme.from_reduced(path, validate=validate)
+
         if lower_path.endswith(".json"):
             return Scheme.from_json(path, validate=validate)
 
@@ -230,6 +233,37 @@ class Scheme:
 
         return Scheme(n1=n1, n2=n2, n3=n3, m=len(data), u=u, v=v, w=w, z2=z2, validate=validate)
 
+    @classmethod
+    def from_reduced(cls, path: str, validate: bool = True) -> "Scheme":
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+
+        n1, n2, n3 = data["n"]
+        m = data["m"]
+        z2 = data.get("z2", False)
+
+        u = [[0 for _ in range(n1 * n2)] for _ in range(m)]
+        v = [[0 for _ in range(n2 * n3)] for _ in range(m)]
+        w = [[0 for _ in range(n3 * n1)] for _ in range(m)]
+
+        u_vars = cls.__parse_reduced_vars(data["u_fresh"], real_variables=n1 * n2)
+        v_vars = cls.__parse_reduced_vars(data["v_fresh"], real_variables=n2 * n3)
+        w_vars = cls.__parse_reduced_vars(data["w_fresh"], real_variables=m)
+
+        for index, u_indices in enumerate(data["u"]):
+            for variable in cls.__replace_fresh_vars(u_indices, u_vars):
+                u[index][abs(variable) - 1] = 1 if variable > 0 else -1
+
+        for index, v_indices in enumerate(data["v"]):
+            for variable in cls.__replace_fresh_vars(v_indices, v_vars):
+                v[index][abs(variable) - 1] = 1 if variable > 0 else -1
+
+        for i, w_indices in enumerate(data["w"]):
+            for variable in cls.__replace_fresh_vars(w_indices, w_vars):
+                w[abs(variable) - 1][i] = 1 if variable > 0 else -1
+
+        return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=z2, validate=validate)
+
     def to_z2(self) -> "Scheme":
         u = [[abs(self.u[index][i]) % 2 for i in range(self.nn[0])] for index in range(self.m)]
         v = [[abs(self.v[index][i]) % 2 for i in range(self.nn[1])] for index in range(self.m)]
@@ -335,29 +369,6 @@ class Scheme:
             self.w[index][i] *= gamma
 
         self.__validate()
-
-    def minimize_additions(self, greedy: bool, loops: int = 250) -> int:
-        max_size = 5
-        uv_max_size = min(max_size, self.m)
-        w_max_size = min(max_size, self.nn[2])
-
-        u_minimization = AdditionMinimization(self.u, name="u", var_names=[f"a{i + 1}{j + 1}" for i in range(self.n[0]) for j in range(self.n[1])], max_size=uv_max_size)
-        v_minimization = AdditionMinimization(self.v, name="v", var_names=[f"b{i + 1}{j + 1}" for i in range(self.n[1]) for j in range(self.n[2])], max_size=uv_max_size)
-        w_minimization = AdditionMinimization([[self.w[index][i] for index in range(self.m)] for i in range(self.nn[2])], name="w", var_names=[f"m{i + 1}" for i in range(self.m)], max_size=w_max_size)
-
-        u_indices, u_vars, u_additions = u_minimization.solve(greedy, loops=loops)
-        v_indices, v_vars, v_additions = v_minimization.solve(greedy, loops=loops)
-        w_indices, w_vars, w_additions = w_minimization.solve(greedy, loops=loops)
-        complexity = u_additions + v_additions + w_additions
-
-        # self.show()
-        # u_minimization.show(u_vars, u_indices)
-        # print("---------------------------------------")
-        # v_minimization.show(v_vars, v_indices)
-        # print("---------------------------------------")
-        # w_minimization.show(w_vars, w_indices)
-        # print(f"{self.complexity()} vs {complexity}")
-        return complexity
 
     def sort(self) -> None:
         while not self.__check_ordering():
@@ -734,6 +745,29 @@ class Scheme:
                 value = int(value)
 
         return value
+
+    @staticmethod
+    def __parse_reduced_vars(fresh_vars: List[dict], real_variables: int) -> Dict[int, List[int]]:
+        parsed_vars = {}
+
+        for i, fresh_var in enumerate(fresh_vars):
+            index = real_variables + 1 + i
+            parsed_vars[index] = fresh_var
+            parsed_vars[-index] = [-variable for variable in fresh_var]
+
+        return parsed_vars
+
+    @staticmethod
+    def __replace_fresh_vars(expression: List[int], fresh_vars: Dict[int, List[int]]) -> List[int]:
+        replaced = []
+
+        for variable in expression:
+            if variable in fresh_vars:
+                replaced.extend(Scheme.__replace_fresh_vars(fresh_vars[variable], fresh_vars))
+            else:
+                replaced.append(variable)
+
+        return replaced
 
     def __remove_zeroes(self) -> None:
         non_zero_indices = [index for index in range(self.m) if any(self.u[index]) and any(self.v[index]) and any(self.w[index])]
