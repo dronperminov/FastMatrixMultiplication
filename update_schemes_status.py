@@ -290,6 +290,7 @@ def main():
         "schemes/known/alpha_tensor",
         "schemes/known/fmm_add_reduction",
         "schemes/known/jakobmoosbauer_symmetric_flips",
+        "schemes/known/Yamato-Arai_adap",
         "schemes/known/meta_flip_graph",
         "schemes/new/FlipGraphGPU",
         "schemes/new/FlipGraphGPU_Z",
