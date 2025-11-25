@@ -61,18 +61,20 @@ def main():
     addition_reducer = AdditionReducer(max_loops=max_loops, max_size=max_size)
 
     for size, data in status.items():
-        if ring not in data["schemes"]:
-            continue
+        schemes_data = data["schemes"].get(ring, [])
+        for scheme_data in schemes_data:
+            if scheme_data["rank"] != schemes_data[0]["rank"]:
+                break
 
-        scheme = Scheme.load(data["schemes"][ring][0]["path"], validate=False)
-        reduced = reduce_scheme_additions(scheme=scheme, addition_reducer=addition_reducer, max_flips=max_flips)
-        reduced_complexity = reduced["complexity"]["reduced"]
+            scheme = Scheme.load(scheme_data["path"], validate=False)
+            reduced = reduce_scheme_additions(scheme=scheme, addition_reducer=addition_reducer, max_flips=max_flips)
+            reduced_complexity = reduced["complexity"]["reduced"]
 
-        print(f"{size}: {scheme.m}, initial complexity: {scheme.complexity()}, reduced: {reduced_complexity}")
+            print(f"{size}: {scheme.m}, initial complexity: {scheme.complexity()}, reduced: {reduced_complexity}")
 
-        path = os.path.join(output_dir, f"{scheme.n[0]}x{scheme.n[1]}x{scheme.n[2]}_m{scheme.m}_c{reduced_complexity}_{scheme.get_ring()}_reduced.json")
-        save_reduced_scheme(reduced, path)
-        Scheme.load(path)
+            path = os.path.join(output_dir, f"{scheme.n[0]}x{scheme.n[1]}x{scheme.n[2]}_m{scheme.m}_c{reduced_complexity}_{scheme.get_ring()}_reduced.json")
+            save_reduced_scheme(reduced, path)
+            Scheme.load(path)
 
 
 if __name__ == '__main__':

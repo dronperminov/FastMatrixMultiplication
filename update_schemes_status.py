@@ -282,6 +282,43 @@ def plot_new_complexities_table(status: Dict[str, dict]) -> None:
             print(f"| {format_size(size):^12} | {known_rank:^4} | {known_complexity:^23} | {new_complexity:^22} |")
 
 
+def plot_reduce_additions_table() -> None:
+    ring = "ZT"
+
+    with open("schemes/reduced.json") as f:
+        reduced_known = json.load(f)
+
+    reduced_new = {}
+    for filename in os.listdir("schemes/reduced"):
+        if not filename.endswith(f"{ring}_reduced.json"):
+            continue
+
+        with open(f"schemes/reduced/{filename}") as f:
+            reduced_data = json.load(f)
+
+        (n1, n2, n3), rank, complexity = reduced_data["n"], reduced_data["m"], reduced_data["complexity"]
+        known_complexity = reduced_known.get(f"{n1}x{n2}x{n3}-{rank}", "?")
+
+        if (n1, n2, n3) not in reduced_new or reduced_data["complexity"]["reduced"] < reduced_new[(n1, n2, n3)]["reduced"]:
+            reduced_new[(n1, n2, n3)] = {"rank": f"{rank}", "naive": complexity["naive"], "reduced": complexity["reduced"], "known": known_complexity}
+
+    print("\n\n### Reduce addition complexity")
+    print("The following schemes have been optimized for addition count, achieving fewer operations than previously known through common subexpression elimination:\n")
+    print("|    Format    | Rank | Best known | Naive | Current | Saved |")
+    print("|:------------:|:----:|:----------:|:-----:|:-------:|:-----:|")
+
+    for n1, n2, n3 in sorted(reduced_new):
+        data = reduced_new[(n1, n2, n3)]
+
+        size = f"{n1}x{n2}x{n3}"
+
+        known = data["known"]
+        naive = data["naive"]
+        reduced = data["reduced"]
+
+        print(f'| {format_size(size):^12} | {data["rank"]:^4} | {known:^10} | {naive:^5} | {reduced:^7} | {naive - reduced:^5} |')
+
+
 def main():
     input_dirs = [
         "schemes/known/tensor",
@@ -308,6 +345,7 @@ def main():
     plot_zt_table(status)
     plot_new_ranks_z2_table(status)
     plot_new_complexities_table(status)
+    plot_reduce_additions_table()
     plot_full_table(status, ring2equal_rings=ring2equal_rings)
 
 

@@ -36,7 +36,7 @@ class AdditionMinimization:
         expr_indices = [{(i, coefficient) for i, coefficient in enumerate(expression) if coefficient != 0} for expression in self.expressions]
 
         while True:
-            combination2score = self.__get_combinations(expr_indices=expr_indices + new_vars, max_size=self.max_size)
+            combination2score = self.__get_combinations(expr_indices=expr_indices + new_vars, max_size=random.randint(2, self.max_size))
             sorted_combinations = sorted(combination2score.items(), key=lambda x: -x[1])
             best_score = sorted_combinations[0][1]
 
