@@ -1,10 +1,11 @@
+import itertools
 import json
 import random
 import re
 from collections import defaultdict
 from fractions import Fraction
 from itertools import permutations
-from typing import Dict, List, Set, Tuple, Union
+from typing import Dict, List, Tuple, Union
 
 from src.entities.addition_minimization import AdditionMinimization
 from src.utils.algebra import rank_z2
@@ -320,6 +321,21 @@ class Scheme:
         self.v = [[self.v[index][i * self.n[2] + j_map.get(j, j)] for i in range(self.n[1]) for j in range(self.n[2])] for index in range(self.m)]
         self.w = [[self.w[index][j_map.get(i, i) * self.n[0] + j] for i in range(self.n[2]) for j in range(self.n[0])] for index in range(self.m)]
 
+    def multiply_row(self, index, alpha: Union[int, Fraction], beta: Union[int, Fraction], gamma: Union[int, Fraction]) -> None:
+        if alpha * beta * gamma != 1:
+            raise ValueError(f'Invalid row multiplication coefficients')
+
+        for i in range(self.nn[0]):
+            self.u[index][i] *= alpha
+
+        for i in range(self.nn[1]):
+            self.v[index][i] *= beta
+
+        for i in range(self.nn[2]):
+            self.w[index][i] *= gamma
+
+        self.__validate()
+
     def minimize_additions(self) -> int:
         greedy = True
 
@@ -344,7 +360,6 @@ class Scheme:
         # print("---------------------------------------")
         # w_minimization.show(w_vars, w_indices)
         # print(f"{self.complexity()} vs {complexity}")
-
         return complexity
 
     def sort(self) -> None:
@@ -622,6 +637,62 @@ class Scheme:
                 self.double(p)
             else:
                 self.extend(p)
+
+    def flip(self, i: int, j: int, k: int, index1: int, index2: int) -> None:
+        uvw = [self.u, self.v, self.w]
+        assert uvw[i][index1] == uvw[i][index2]
+
+        for index in range(self.nn[j]):
+            uvw[j][index1][index] += uvw[j][index2][index]
+
+        for index in range(self.nn[k]):
+            uvw[k][index2][index] -= uvw[k][index1][index]
+
+        self.__remove_zeroes()
+
+    def try_flip(self) -> bool:
+        candidates = []
+
+        for index1, index2 in itertools.combinations(range(self.m), r=2):
+            if self.u[index1] == self.u[index2]:
+                if self.___ternary_add(self.v[index1], self.v[index2]) and self.___ternary_sub(self.w[index2], self.w[index1]):
+                    candidates.append((0, 1, 2, index1, index2))
+                elif self.___ternary_add(self.w[index1], self.w[index2]) and self.___ternary_sub(self.v[index2], self.v[index1]):
+                    candidates.append((0, 2, 1, index1, index2))
+            elif self.v[index1] == self.v[index2]:
+                if self.___ternary_add(self.u[index1], self.u[index2]) and self.___ternary_sub(self.w[index2], self.w[index1]):
+                    candidates.append((1, 0, 2, index1, index2))
+                elif self.___ternary_add(self.w[index1], self.w[index2]) and self.___ternary_sub(self.u[index2], self.u[index1]):
+                    candidates.append((1, 2, 0, index1, index2))
+            elif self.w[index1] == self.w[index2]:
+                if self.___ternary_add(self.u[index1], self.u[index2]) and self.___ternary_sub(self.v[index2], self.v[index1]):
+                    candidates.append((2, 0, 1, index1, index2))
+                elif self.___ternary_add(self.v[index1], self.v[index2]) and self.___ternary_sub(self.u[index2], self.u[index1]):
+                    candidates.append((2, 1, 0, index1, index2))
+
+        if not candidates:
+            return False
+
+        i, j, k, index1, index2 = random.choice(candidates)
+        if random.random() < 0.5:
+            index1, index2 = index2, index1
+
+        self.flip(i, j, k, index1, index2)
+        return True
+
+    def ___ternary_add(self, a: List[int], b: List[int]) -> bool:
+        for ai, bi in zip(a, b):
+            if not (-1 <= ai + bi <= 1):
+                return False
+
+        return True
+
+    def ___ternary_sub(self, a: List[int], b: List[int]) -> bool:
+        for ai, bi in zip(a, b):
+            if not (-1 <= ai - bi <= 1):
+                return False
+
+        return True
 
     def __eq__(self, scheme: "Scheme") -> bool:
         if self.n != scheme.n or self.m != scheme.m:
