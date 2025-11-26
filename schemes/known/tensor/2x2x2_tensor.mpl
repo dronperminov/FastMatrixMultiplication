@@ -1,0 +1,5 @@
+A:=Matrix(2, 2, [[A_1_1,A_1_2],[A_2_1,A_2_2]]):
+B:=Matrix(2, 2, [[B_1_1,B_1_2],[B_2_1,B_2_2]]):
+C:=Matrix(2, 2, [[C_1_1,C_1_2],[C_2_1,C_2_2]]):
+Tensor:=TriadSet([Triad([Matrix(2, 2, [[1,0],[0,1]]), Matrix(2, 2, [[1,0],[0,1]]), Matrix(2, 2, [[1,0],[0,1]])]), Triad([Matrix(2, 2, [[0,1],[0,-1]]), Matrix(2, 2, [[0,0],[1,1]]), Matrix(2, 2, [[1,0],[0,0]])]), Triad([Matrix(2, 2, [[-1,0],[1,0]]), Matrix(2, 2, [[1,1],[0,0]]), Matrix(2, 2, [[0,0],[0,1]])]), Triad([Matrix(2, 2, [[1,1],[0,0]]), Matrix(2, 2, [[0,0],[0,1]]), Matrix(2, 2, [[-1,0],[1,0]])]), Triad([Matrix(2, 2, [[1,0],[0,0]]), Matrix(2, 2, [[0,1],[0,-1]]), Matrix(2, 2, [[0,0],[1,1]])]), Triad([Matrix(2, 2, [[0,0],[0,1]]), Matrix(2, 2, [[-1,0],[1,0]]), Matrix(2, 2, [[1,1],[0,0]])]), Triad([Matrix(2, 2, [[0,0],[1,1]]), Matrix(2, 2, [[1,0],[0,0]]), Matrix(2, 2, [[0,1],[0,-1]])])]):
+map(expand,A.B-add(LinearAlgebra:-Trace(LinearAlgebra:-Transpose(op([1,i,1,1],Tensor)).A)*LinearAlgebra:-Trace(LinearAlgebra:-Transpose(op([1,i,1,2],Tensor)).B)*LinearAlgebra:-Transpose(op([1,i,1,3],Tensor)),i=1..7));
