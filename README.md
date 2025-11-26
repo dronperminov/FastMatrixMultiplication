@@ -1,7 +1,7 @@
 # FastMatrixMultiplication
 
 A research project investigating fast matrix multiplication algorithms for small matrix formats, from `(2, 2, 2)` to `(8, 8, 8)`. The primary goal is to discover efficient schemes
-with coefficients restricted to the ternary set `{-1, 0, 1}`, focusing on all tensor shapes satisfying `max(mn, np, mp) ≤ 64` and `max(m, n, p) ≤ 16`.
+with coefficients restricted to the ternary set `{-1, 0, 1}`, focusing on all tensor shapes satisfying `max(n₁n₂, n₂n₃, n₃n₁) ≤ 64` and `max(n₁, n₂, n₃) ≤ 16`.
 
 ## Overview
 This repository documents the search for fast matrix multiplication (FMM) schemes using a custom GPU-accelerated meta flip graph method. The search is conducted in the ternary
@@ -20,11 +20,11 @@ coefficients. This can lead to more efficient and hardware-friendly implementati
 ### New best ranks in ternary field (ZT)
 New schemes have been discovered that improve the state-of-the-art for matrix multiplication in the ternary field, achieving lower ranks than previously known.
 
-|    Format    |  Prev rank  | New rank |
-|:------------:|:-----------:|:--------:|
-| `(4, 5, 12)` |  180 (`Z`)  |   179    |
-| `(5, 6, 10)` |  218 (`Z`)  |   217    |
-| `(6, 7, 9)`  | 270 (`ZT`)  |   268    |
+|    Format    |  Prev rank  | New rank | Naive complexity |
+|:------------:|:-----------:|:--------:|:----------------:|
+| `(4, 5, 12)` |  180 (`Z`)  |   179    |       1977       |
+| `(5, 6, 10)` |  218 (`Z`)  |   217    |       2772       |
+| `(6, 7, 9)`  | 270 (`ZT`)  |   268    |       3062       |
 
 
 ### Conversions to ternary field (`ZT`)
@@ -124,7 +124,7 @@ The following schemes have been optimized for addition count, achieving fewer op
 | `(2, 5, 12)` |  94  |     ?      |  664  |   356   |  308  |     46.4     |
 | `(2, 6, 6)`  |  57  |     ?      |  326  |   231   |  95   |     29.1     |
 | `(2, 6, 7)`  |  68  |     ?      |  396  |   249   |  147  |     37.1     |
-| `(2, 6, 8)`  |  77  |     ?      |  456  |   286   |  170  |     37.3     |
+| `(2, 6, 8)`  |  77  |     ?      |  456  |   285   |  171  |     37.5     |
 | `(2, 6, 9)`  |  86  |     ?      |  548  |   310   |  238  |     43.4     |
 | `(2, 6, 10)` |  94  |     ?      |  668  |   356   |  312  |     46.7     |
 | `(2, 7, 7)`  |  77  |     ?      |  452  |   323   |  129  |     28.5     |
@@ -203,7 +203,7 @@ The following schemes have been optimized for addition count, achieving fewer op
 | `(4, 6, 10)` | 175  |     ?      | 1986  |   792   | 1194  |     60.1     |
 | `(4, 7, 7)`  | 145  |     ?      | 1387  |   693   |  694  |     50.0     |
 | `(4, 7, 8)`  | 164  |     ?      | 1505  |   768   |  737  |     49.0     |
-| `(4, 7, 9)`  | 188  |     ?      | 1779  |   894   |  885  |     49.7     |
+| `(4, 7, 9)`  | 187  |     ?      | 2053  |   827   | 1226  |     59.7     |
 | `(4, 8, 8)`  | 182  |     ?      | 1884  |   855   | 1029  |     54.6     |
 | `(5, 5, 5)`  |  93  |     ?      |  843  |   414   |  429  |     50.9     |
 | `(5, 5, 6)`  | 110  |     ?      | 1215  |   496   |  719  |     59.2     |
@@ -217,8 +217,8 @@ The following schemes have been optimized for addition count, achieving fewer op
 | `(5, 6, 7)`  | 150  |     ?      | 2042  |   745   | 1297  |     63.5     |
 | `(5, 6, 8)`  | 170  |     ?      | 2312  |   766   | 1546  |     66.9     |
 | `(5, 6, 9)`  | 197  |     ?      | 2373  |   936   | 1437  |     60.6     |
-| `(5, 6, 10)` | 217  |     ?      | 2772  |  1012   | 1760  |     63.5     |
-| `(5, 7, 7)`  | 176  |     ?      | 2610  |   853   | 1757  |     67.3     |
+| `(5, 6, 10)` | 217  |     ?      | 2772  |  1008   | 1764  |     63.6     |
+| `(5, 7, 7)`  | 176  |     ?      | 2610  |   852   | 1758  |     67.4     |
 | `(5, 7, 8)`  | 206  |     ?      | 1880  |   980   |  900  |     47.9     |
 | `(5, 7, 9)`  | 231  |     ?      | 2551  |  1042   | 1509  |     59.2     |
 | `(5, 8, 8)`  | 230  |     ?      | 2842  |  1084   | 1758  |     61.9     |
@@ -229,13 +229,13 @@ The following schemes have been optimized for addition count, achieving fewer op
 | `(6, 6, 10)` | 252  |     ?      | 3536  |  1412   | 2124  |     60.1     |
 | `(6, 7, 7)`  | 215  |     ?      | 2004  |  1023   |  981  |     49.0     |
 | `(6, 7, 8)`  | 239  |     ?      | 2263  |  1158   | 1105  |     48.8     |
-| `(6, 7, 9)`  | 268  |     ?      | 3275  |  1302   | 1973  |     60.2     |
-| `(6, 8, 8)`  | 266  |     ?      | 2780  |  1314   | 1466  |     52.7     |
+| `(6, 7, 9)`  | 268  |     ?      | 3275  |  1299   | 1976  |     60.3     |
+| `(6, 8, 8)`  | 266  |     ?      | 2780  |  1310   | 1470  |     52.9     |
 | `(7, 7, 7)`  | 250  |     ?      | 2417  |  1205   | 1212  |     50.1     |
 | `(7, 7, 8)`  | 279  |     ?      | 2926  |  1424   | 1502  |     51.3     |
-| `(7, 7, 9)`  | 316  |     ?      | 3452  |  1610   | 1842  |     53.4     |
-| `(7, 8, 8)`  | 310  |     ?      | 3604  |  1733   | 1871  |     51.9     |
-| `(8, 8, 8)`  | 343  |     ?      | 4434  |  1878   | 2556  |     57.6     |
+| `(7, 7, 9)`  | 316  |     ?      | 3452  |  1609   | 1843  |     53.4     |
+| `(7, 8, 8)`  | 310  |     ?      | 3604  |  1732   | 1872  |     51.9     |
+| `(8, 8, 8)`  | 343  |     ?      | 4434  |  1867   | 2567  |     57.9     |
 
 
 ### New discoveries in binary field (`Z2`)
@@ -750,7 +750,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |      `(6, 6, 10)`      |     252 (?)      |     252 (?)     |       247       |     252 (?)      |           -            |           -           |           -           |
 |      `(6, 7, 7)`       |       215        |       215       |       215       |       215        |          2004          |         2004          |         2004          |
 |      `(6, 7, 8)`       |       239        |       239       |       239       |       239        |      2263 (2352)       |      2263 (2352)      |      2263 (2352)      |
-|      `(6, 7, 9)`       |    268 (270)     |    268 (270)    |    268 (270)    |    268 (270)     |      3275 (2917)       |      3275 (2917)      |      3275 (2917)      |
+|      `(6, 7, 9)`       |    268 (270)     |    268 (270)    |    268 (270)    |    268 (270)     |      3062 (2917)       |      3062 (2917)      |      3062 (2917)      |
 |      `(6, 8, 8)`       |       266        |       266       |       266       |       266        |          2780          |         2780          |         2780          |
 |      `(7, 7, 7)`       |     250 (?)      |     250 (?)     |       249       |     248 (?)      |           -            |           -           |           -           |
 |      `(7, 7, 8)`       |     279 (?)      |     279 (?)     |       277       |     275 (?)      |           -            |           -           |           -           |
