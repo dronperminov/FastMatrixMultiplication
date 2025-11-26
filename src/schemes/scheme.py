@@ -8,6 +8,7 @@ from itertools import permutations
 from typing import Dict, List, Tuple, Union
 
 from src.entities.addition_minimization import AdditionMinimization
+from src.entities.fraction_json_encoder import FractionJsonEncoder
 from src.utils.algebra import rank_z2
 from src.utils.utils import pretty_matrix
 
@@ -78,6 +79,19 @@ class Scheme:
                 f.write(f'    "type": "{self.invariant_type()}"')
 
             f.write("\n")
+            f.write("}\n")
+
+    def save_maple(self, path: str) -> None:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write("{\n")
+            for index in range(self.m):
+                row = json.dumps([
+                    [[self.u[index][i * self.n[1] + j] for j in range(self.n[1])] for i in range(self.n[0])],
+                    [[self.v[index][i * self.n[2] + j] for j in range(self.n[2])] for i in range(self.n[1])],
+                    [[self.w[index][i * self.n[0] + j] for j in range(self.n[0])] for i in range(self.n[2])],
+                ], cls=FractionJsonEncoder).replace("[", "{").replace("]", "}").replace('"', "")
+
+                f.write(f'  {row}{"," if index < self.m - 1 else ""}\n')
             f.write("}\n")
 
     @classmethod
