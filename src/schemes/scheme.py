@@ -99,6 +99,9 @@ class Scheme:
     def load(cls, path: str, validate: bool = True) -> "Scheme":
         lower_path = path.lower()
 
+        if lower_path.endswith(".txt"):
+            return Scheme.from_txt(path, validate=validate)
+
         if lower_path.endswith(".exp"):
             return Scheme.from_exp(path, validate=validate)
 
@@ -247,6 +250,25 @@ class Scheme:
             w.append([abs(row[2][i][j]) if z2 else row[2][i][j] for i in range(n3) for j in range(n1)])
 
         return Scheme(n1=n1, n2=n2, n3=n3, m=len(data), u=u, v=v, w=w, z2=z2, validate=validate)
+
+    @classmethod
+    def from_txt(cls, path: str, validate: bool = True) -> "Scheme":
+        with open(path) as f:
+            text = map(int, re.split("[\s\n]+", f.read().strip()))
+
+        n1, n2, n3, m, *uvw = text
+        nn = [n1 * n2, n2 * n3, n3 * n1]
+        print(n1, n2, n3, m)
+
+        u_values = uvw[:nn[0] * m]
+        v_values = uvw[nn[0]*m:(nn[0] + nn[1])*m]
+        w_values = uvw[(nn[0] + nn[1])*m:]
+
+        u = [[u_values[i * m + index] for i in range(nn[0])] for index in range(m)]
+        v = [[v_values[i * m + index] for i in range(nn[1])] for index in range(m)]
+        w = [[w_values[(j * n3 + i) * m + index] for i in range(n3) for j in range(n1)] for index in range(m)]
+        z2 = set(uvw) == {0, 1}
+        return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=z2, validate=validate)
 
     @classmethod
     def from_reduced(cls, path: str, validate: bool = True) -> "Scheme":

@@ -289,17 +289,17 @@ def plot_reduce_additions_table() -> None:
         reduced_known = json.load(f)
 
     reduced_new = {}
-    for filename in os.listdir("schemes/reduced"):
+    for filename in os.listdir("schemes/new/addition_reduced"):
         if not filename.endswith(f"{ring}_reduced.json"):
             continue
 
-        with open(f"schemes/reduced/{filename}") as f:
+        with open(f"schemes/new/addition_reduced/{filename}") as f:
             reduced_data = json.load(f)
 
         (n1, n2, n3), rank, complexity = reduced_data["n"], reduced_data["m"], reduced_data["complexity"]
         known_complexity = reduced_known.get(f"{n1}x{n2}x{n3}-{rank}", {"Z": "?", "Z2": "?"}).get("Z", "?")
 
-        if (n1, n2, n3) not in reduced_new or reduced_data["complexity"]["reduced"] < reduced_new[(n1, n2, n3)]["reduced"]:
+        if (n1, n2, n3) not in reduced_new or complexity["reduced"] < reduced_new[(n1, n2, n3)]["reduced"]:
             reduced_new[(n1, n2, n3)] = {"rank": f"{rank}", "naive": complexity["naive"], "reduced": complexity["reduced"], "known": known_complexity}
 
     print("\n\n### Reduce addition complexity")
@@ -322,6 +322,7 @@ def plot_reduce_additions_table() -> None:
 
 def main():
     input_dirs = [
+        "schemes/known/classic",
         "schemes/known/tensor",
         "schemes/known/jakobmoosbauer_flips",
         "schemes/known/alpha_evolve",
@@ -331,11 +332,7 @@ def main():
         "schemes/known/Yamato-Arai_adap",
         "schemes/known/meta_flip_graph",
         "schemes/known/a_60_addition",
-        "schemes/new/FlipGraphGPU",
-        "schemes/new/FlipGraphGPU_Z",
-        "schemes/new/FlipGraphGPU_Z2",
-        "schemes/new/FlipGraphGPU_merge",
-        "schemes/new/block"
+        "schemes/results"
     ]
 
     ring2equal_rings = {"Q": ["Q"], "Z2": ["Z2"], "Z": ["Z", "Z2", "Q"], "ZT": ["ZT", "Z", "Z2", "Q"]}
