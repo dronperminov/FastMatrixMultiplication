@@ -293,8 +293,6 @@ def plot_reduce_additions_table() -> None:
         if not filename.endswith(f"{ring}_reduced.json"):
             continue
 
-        # Scheme.load(f"schemes/reduced/{filename}", validate=True)
-        # print(f"validated {filename}")
         with open(f"schemes/reduced/{filename}") as f:
             reduced_data = json.load(f)
 
@@ -332,6 +330,7 @@ def main():
         "schemes/known/jakobmoosbauer_symmetric_flips",
         "schemes/known/Yamato-Arai_adap",
         "schemes/known/meta_flip_graph",
+        "schemes/known/a_60_addition",
         "schemes/new/FlipGraphGPU",
         "schemes/new/FlipGraphGPU_Z",
         "schemes/new/FlipGraphGPU_Z2",
