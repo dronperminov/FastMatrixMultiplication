@@ -64,6 +64,7 @@ class Scheme:
             f.write(f'    "n": {self.n},\n')
             f.write(f'    "m": {self.m},\n')
             f.write(f'    "z2": {"true" if self.z2 else "false"},\n')
+            f.write(f'    "complexity": {self.complexity()},\n')
             f.write(f'    "multiplications": [{multiplications}\n')
             f.write(f'    ],\n')
             f.write(f'    "elements": [{elements}\n')
