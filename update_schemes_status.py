@@ -293,6 +293,8 @@ def plot_reduce_additions_table() -> None:
         if not filename.endswith(f"{ring}_reduced.json"):
             continue
 
+        # Scheme.load(f"schemes/reduced/{filename}", validate=True)
+        # print(f"validated {filename}")
         with open(f"schemes/reduced/{filename}") as f:
             reduced_data = json.load(f)
 
@@ -304,8 +306,8 @@ def plot_reduce_additions_table() -> None:
 
     print("\n\n### Reduce addition complexity")
     print("The following schemes have been optimized for addition count, achieving fewer operations than previously known through common subexpression elimination:\n")
-    print("|    Format    | Rank | Best known | Naive | Current | Saved |")
-    print("|:------------:|:----:|:----------:|:-----:|:-------:|:-----:|")
+    print("|    Format    | Rank | Best known | Naive | Current | Saved | Improved (%) |")
+    print("|:------------:|:----:|:----------:|:-----:|:-------:|:-----:|:------------:|")
 
     for n1, n2, n3 in sorted(reduced_new):
         data = reduced_new[(n1, n2, n3)]
@@ -315,8 +317,9 @@ def plot_reduce_additions_table() -> None:
         known = data["known"]
         naive = data["naive"]
         reduced = data["reduced"]
+        improved = (naive - reduced) / naive * 100
 
-        print(f'| {format_size(size):^12} | {data["rank"]:^4} | {known:^10} | {naive:^5} | {reduced:^7} | {naive - reduced:^5} |')
+        print(f'| {format_size(size):^12} | {data["rank"]:^4} | {known:^10} | {naive:^5} | {reduced:^7} | {naive - reduced:^5} | {improved:^12.1f} |')
 
 
 def main():
