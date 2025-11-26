@@ -343,9 +343,9 @@ def main():
     status = analyze_schemes(input_dirs=input_dirs, n_max=n_max, extensions=extensions, ring2equal_rings=ring2equal_rings)
     plot_new_ranks_table(status)
     plot_zt_table(status)
+    plot_reduce_additions_table()
     plot_new_ranks_z2_table(status)
     plot_new_complexities_table(status)
-    plot_reduce_additions_table()
     plot_full_table(status, ring2equal_rings=ring2equal_rings)
 
 
