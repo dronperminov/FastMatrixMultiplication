@@ -103,6 +103,7 @@ class ConjunctiveNormalForm:
         if seed > 0:
             args.extend(["-r", f"{seed + 1}"])
 
+        args.extend(["--polar", "false"])
         args.extend(["--threads", f"{threads}"])
         args.append(path)
         return args
