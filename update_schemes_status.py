@@ -300,8 +300,8 @@ def plot_reduce_additions_table() -> None:
         (n1, n2, n3), rank, complexity = reduced_data["n"], reduced_data["m"], reduced_data["complexity"]
         known_complexity = reduced_known.get(f"{n1}x{n2}x{n3}-{rank}", {"Z": "?", "Z2": "?"}).get("Z", "?")
 
-        if (n1, n2, n3) not in reduced_new or (complexity["reduced"], complexity["naive"]) < (reduced_new[(n1, n2, n3)]["reduced"], reduced_new[(n1, n2, n3)]["naive"]):
-            reduced_new[(n1, n2, n3)] = {"rank": f"{rank}", "naive": complexity["naive"], "reduced": complexity["reduced"], "known": known_complexity}
+        if (n1, n2, n3) not in reduced_new or (rank, complexity["reduced"], complexity["naive"]) < (reduced_new[(n1, n2, n3)]["rank"], reduced_new[(n1, n2, n3)]["reduced"], reduced_new[(n1, n2, n3)]["naive"]):
+            reduced_new[(n1, n2, n3)] = {"rank": rank, "naive": complexity["naive"], "reduced": complexity["reduced"], "known": known_complexity}
 
     print("\n\n### Reduce addition complexity")
     print("The following schemes have been optimized for addition count, achieving fewer operations than previously known through common subexpression elimination:\n")
