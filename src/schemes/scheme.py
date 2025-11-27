@@ -7,7 +7,6 @@ from fractions import Fraction
 from itertools import permutations
 from typing import Dict, List, Tuple, Union
 
-from src.entities.addition_minimization import AdditionMinimization
 from src.entities.fraction_json_encoder import FractionJsonEncoder
 from src.utils.algebra import rank_z2
 from src.utils.utils import pretty_matrix

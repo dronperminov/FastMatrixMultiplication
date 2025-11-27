@@ -5,7 +5,7 @@ from itertools import combinations
 from typing import Dict, List, Set, Tuple, Union
 
 
-class AdditionMinimization:
+class RandomCommonAdditionReducer:
     def __init__(self, expressions: List[List[Union[int, Fraction]]], real_variables: int, max_size: int = 23) -> None:
         self.expressions = expressions
         self.real_variables = real_variables

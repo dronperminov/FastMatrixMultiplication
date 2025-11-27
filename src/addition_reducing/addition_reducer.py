@@ -1,4 +1,4 @@
-from src.entities.addition_minimization import AdditionMinimization
+from src.addition_reducing.random_common_reducer import RandomCommonAdditionReducer
 from src.schemes.scheme import Scheme
 
 
@@ -12,9 +12,9 @@ class AdditionReducer:
         v_expressions = [[scheme.v[index][i] for i in range(scheme.nn[1])] for index in range(scheme.m)]
         w_expressions = [[scheme.w[index][i] for index in range(scheme.m)] for i in range(scheme.nn[2])]
 
-        u_minimization = AdditionMinimization(u_expressions, real_variables=scheme.nn[0], max_size=self.max_size)
-        v_minimization = AdditionMinimization(v_expressions, real_variables=scheme.nn[1], max_size=self.max_size)
-        w_minimization = AdditionMinimization(w_expressions, real_variables=scheme.m, max_size=self.max_size)
+        u_minimization = RandomCommonAdditionReducer(u_expressions, real_variables=scheme.nn[0], max_size=self.max_size)
+        v_minimization = RandomCommonAdditionReducer(v_expressions, real_variables=scheme.nn[1], max_size=self.max_size)
+        w_minimization = RandomCommonAdditionReducer(w_expressions, real_variables=scheme.m, max_size=self.max_size)
 
         u_indices, u_fresh, u_additions = u_minimization.solve(mode=mode, loops=self.max_loops)
         v_indices, v_fresh, v_additions = v_minimization.solve(mode=mode, loops=self.max_loops)
