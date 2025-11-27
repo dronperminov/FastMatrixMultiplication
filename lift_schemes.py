@@ -20,13 +20,13 @@ def main():
 
     os.makedirs(args.output_dir, exist_ok=True)
     extensions = (".json", ".exp", ".m", "tensor.mpl", "lrp.mpl")
-    filenames = sorted(filename for filename in os.listdir(args.input_dir) if filename.lower().endswith(extensions))[args.skip:]
+    filenames = sorted(filename for filename in os.listdir(args.input_dir) if filename.lower().endswith(extensions) and "solution" not in filename)[args.skip:]
 
     if not filenames:
         print("There are no schemes for lifting")
         return
 
-    print(f"Start lifting {len(filenames)} schemes from Z2 to Z ring")
+    print(f"Start lifting {len(filenames)} schemes from Z2 ring to ZT coefficient set")
     print(f"- input directory: {args.input_dir}")
     print(f"- output directory: {args.output_dir}")
     print(f"- time limit: {args.max_time}")
@@ -41,17 +41,17 @@ def main():
     for filename in filenames:
         input_path = os.path.join(args.input_dir, filename)
         name, extension = filename.rsplit(".", maxsplit=1)
-        output_path = os.path.join(args.output_dir, f"{name}_mod0.{extension}")
+        output_path = os.path.join(args.output_dir, f"{name}_ZT.{extension}")
 
         if not args.force and os.path.exists(output_path):
             skipped += 1
             print(f'Skip lifting the scheme "{input_path}" (already lifted)')
             continue
 
-        scheme = Scheme.load(input_path)
+        scheme = Scheme.load(input_path, validate=False)
         if not scheme.z2:
             skipped += 1
-            print(f'Skip lifting the scheme "{input_path}" (already Z field)')
+            print(f'Skip lifting the scheme "{input_path}" (already ZT coefficient set)')
             continue
 
         solver = TernarySolver(scheme=scheme)
@@ -75,7 +75,7 @@ def main():
                 lifted_scheme.sort()
 
             lifted_name = (name if i == 0 else f"{name}_v{i + 1}")
-            lifted_scheme.save(os.path.join(args.output_dir, f"{lifted_name}_mod0.json"))
+            lifted_scheme.save(os.path.join(args.output_dir, f"{lifted_name}_ZT.json"))
 
         print(f'Successfully lift the scheme "{input_path}" ({pretty_time(elapsed_time)}, mean: {pretty_time(sum(times) / len(times))}, solutions: {len(lifted_schemes)})')
 

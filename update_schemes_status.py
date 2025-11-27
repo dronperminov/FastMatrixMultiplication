@@ -199,8 +199,9 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
 
 
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
-    print("\n\n### New best ranks in ternary field (ZT)")
-    print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication in the ternary field, achieving lower ranks than previously known.\n")
+    print("\n\n### New best ranks in the ternary coefficient set (`ZT`)")
+    print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication with coefficients restricted to the ternary set `{-1, 0, 1}`,")
+    print("achieving lower ranks than previously known.\n")
     print("|    Format    |  Prev rank  | New rank | Naive complexity |")
     print("|:------------:|:-----------:|:--------:|:----------------:|")
 
@@ -220,9 +221,9 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
 
 
 def plot_zt_table(status: Dict[str, dict]) -> None:
-    print("\n\n### Conversions to ternary field (`ZT`)")
-    print("The following schemes have been converted to the `ZT` field, having been previously known over rational (`Q`) or integer (`Z`) fields but lacking known")
-    print("ternary implementations:\n")
+    print("\n\n### Conversions to the ternary coefficient set (`ZT`)")
+    print("The following schemes have been converted to the `ZT` format, having been previously known over the rational (`Q`) or integer (`Z`) fields but lacking known")
+    print("implementations with coefficients restricted to the ternary set:\n")
     print("|    Format    | Rank | Known ring |")
     print("|:------------:|:----:|:----------:|")
 
@@ -284,14 +285,17 @@ def plot_new_complexities_table(status: Dict[str, dict]) -> None:
 
 
 def plot_reduce_additions_table() -> None:
-    ring = "ZT"
+    with open("schemes/status.json") as f:
+        status = json.load(f)
+
+    min_known_ranks = {tuple(map(int, size.split("x"))): min(data["ranks"][ring] for ring in ["Z", "Q"]) for size, data in status.items()}
 
     with open("schemes/reduced.json") as f:
         reduced_known = json.load(f)
 
     reduced_new = {}
     for filename in os.listdir("schemes/new/addition_reduced"):
-        if not filename.endswith(f"{ring}_reduced.json"):
+        if not filename.endswith(f"ZT_reduced.json"):
             continue
 
         with open(f"schemes/new/addition_reduced/{filename}") as f:
@@ -305,20 +309,23 @@ def plot_reduce_additions_table() -> None:
 
     print("\n\n### Reduce addition complexity")
     print("The following schemes have been optimized for addition count, achieving fewer operations than previously known through common subexpression elimination:\n")
-    print("|    Format    | Rank | Best known | Naive | Current | Saved | Improved (%) |")
-    print("|:------------:|:----:|:----------:|:-----:|:-------:|:-----:|:------------:|")
+    print("|    Format    |        Rank        | Best known | Naive | Current | Saved | Improved (%) |")
+    print("|:------------:|:------------------:|:----------:|:-----:|:-------:|:-----:|:------------:|")
 
     for n1, n2, n3 in sorted(reduced_new):
         data = reduced_new[(n1, n2, n3)]
 
         size = f"{n1}x{n2}x{n3}"
 
+        optimal = " (near optimal)" if data["rank"] > min_known_ranks[(n1, n2, n3)] else ""
+        rank = f'{data["rank"]}{optimal}'
+
         known = data["known"]
         naive = data["naive"]
         reduced = data["reduced"]
         improved = (naive - reduced) / naive * 100
 
-        print(f'| {format_size(size):^12} | {data["rank"]:^4} | {known:^10} | {naive:^5} | {reduced:^7} | {naive - reduced:^5} | {improved:^12.1f} |')
+        print(f'| {format_size(size):^12} | {rank:^18} | {known:^10} | {naive:^5} | {reduced:^7} | {naive - reduced:^5} | {improved:^12.1f} |')
 
 
 def main():

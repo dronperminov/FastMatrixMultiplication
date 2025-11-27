@@ -6,7 +6,7 @@ from src.schemes.scheme_bit_packed import Scheme
 
 
 class TensorDecomposition:
-    def __init__(self, n1: int, n2: int, n3: int, m: int, path: str) -> None:
+    def __init__(self, n1: int, n2: int, n3: int, m: int, max_complexity: int, path: str) -> None:
         self.n = [n1, n2, n3]
         self.nn = [n1 * n2, n2 * n3, n3 * n1]
         self.m = m
@@ -21,7 +21,7 @@ class TensorDecomposition:
         self.__encode_multiplications_ordering()
         self.__encode_cycle_shift_ordering()
         self.__encode_basis_ordering()
-        self.__encode_constraints()
+        self.__encode_constraints(max_complexity)
 
     def set_probable_scheme(self, scheme: Scheme, pu: float, pv: float, pw: float) -> None:
         if scheme.n != self.n or scheme.m != self.m:
@@ -135,7 +135,7 @@ class TensorDecomposition:
         self.cnf.add_lex_chain(rows, strict=False, comment=f"basis rows ordering")
         self.cnf.add_lex_chain(columns, strict=False, comment=f"basis columns ordering")
 
-    def __encode_constraints(self) -> None:
+    def __encode_constraints(self, max_complexity: int) -> None:
         for index in range(self.m):
             self.cnf.add_at_least_k(self.u[index], k=1)
             self.cnf.add_at_least_k(self.v[index], k=1)
@@ -149,6 +149,12 @@ class TensorDecomposition:
 
         for i in range(self.nn[2]):
             self.cnf.add_at_least_k([self.w[index][i] for index in range(self.m)], k=1)
+
+        if max_complexity > 0:
+            u = [value for row in self.u for value in row]
+            v = [value for row in self.v for value in row]
+            w = [value for row in self.w for value in row]
+            self.cnf.add_at_most_k(u + v + w, k=max_complexity + 2 * self.m + self.nn[2])
 
     def __get_row(self, matrix: List[List[int]], index: int, row: int, n1: int, n2: int) -> List[int]:
         return [matrix[index][row * n2 + j] for j in range(n2)]

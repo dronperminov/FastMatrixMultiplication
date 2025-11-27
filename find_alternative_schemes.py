@@ -47,6 +47,7 @@ def main():
     parser.add_argument("-n", "--max-schemes", help="maximum number of schemes (default: %(default)d)", type=int, default=10000)
     parser.add_argument("-t", "--threads", help="number of sat solver threads (default: %(default)d)", type=int, default=2)
     parser.add_argument("--max-time", help="max sat solver time in seconds (default: %(default)d)", type=int, default=20)
+    parser.add_argument("--max-complexity", help="max count of naive additions (default: %(default)d)", type=int, default=0)
     parser.add_argument("-f", "--flip-iterations", help="max number of flip iterations (default: %(default)d)", type=int, default=0)
     args = parser.parse_args()
 
@@ -59,9 +60,11 @@ def main():
     (n1, n2, n3), m = scheme.n, scheme.m
     print(f"Successfully load scheme ({n1}, {n2}, {n3}, {m})")
 
-    output_dir = os.path.join(args.output_dir, f"{n1}{n2}{n3}_{m}")
+    output_dir = os.path.join(args.output_dir, f"{n1}x{n2}x{n3}_m{m}")
     os.makedirs(output_dir, exist_ok=True)
-    tensor_decomposition = TensorDecomposition(n1=n1, n2=n2, n3=n3, m=m, path=os.path.join(output_dir, f"{n1}{n2}{n3}_{m}.cnf"))
+
+    cnf_path = os.path.join(output_dir, f"{n1}x{n2}x{n3}_m{m}.cnf")
+    tensor_decomposition = TensorDecomposition(n1=n1, n2=n2, n3=n3, m=m, max_complexity=args.max_complexity, path=cnf_path)
 
     schemes = [scheme]
     add_previous_schemes(input_dir=output_dir, scheme=scheme, schemes=schemes)
@@ -70,9 +73,9 @@ def main():
         tensor_decomposition.exclude_scheme(scheme=scheme)
 
     pu, pv, pw = args.probability_u, args.probability_v, args.probability_w
-    print(f"Start finding schemes from {len(schemes)} schemes (p = {pu}, {pv}, {pw}")
+    print(f"Start finding schemes from {len(schemes)} schemes (p = {pu}, {pv}, {pw}), max complexity: {args.max_complexity}")
 
-    while len(schemes) < args.max_schemes:
+    while len(schemes) <= args.max_schemes:
         scheme = random.choice(schemes)
 
         if args.flip_iterations > 0:
@@ -81,7 +84,7 @@ def main():
         scheme.sort()
         tensor_decomposition.set_probable_scheme(scheme=scheme, pu=pu, pv=pv, pw=pw)
 
-        while True:
+        while len(schemes) <= args.max_schemes:
             start_time = time.time()
             solution = tensor_decomposition.solve(threads=args.threads, max_time=args.max_time)
             end_time = time.time()
@@ -93,7 +96,7 @@ def main():
             u, v, w = solution
             scheme = Scheme(n1=n1, n2=n2, n3=n3, m=m, z2=True, u=u, v=v, w=w)
 
-            filename = f"{n1}{n2}{n3}_{m}_{len(schemes):06d}_mod2.json"
+            filename = f"{n1}x{n2}x{n3}_m{m}_c{scheme.complexity()}_{len(schemes):06d}_Z2.json"
             scheme.save(os.path.join(output_dir, filename))
 
             print(f'{len(schemes)}. SAT (elapsed: {pretty_time(end_time - start_time)}, saved as "{filename}"')
