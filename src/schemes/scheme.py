@@ -126,7 +126,7 @@ class Scheme:
         with open(path, "r") as f:
             data = json.load(f)
 
-        n1, n2, n3 = data["n"]
+        n1, n2, n3 = (data["n"], data["n"], data["n"]) if isinstance(data["n"], int) else data["n"]
         m = data["m"]
         z2 = data.get("z2", False)
 

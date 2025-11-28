@@ -1,5 +1,5 @@
 import random
-from collections import defaultdict
+from collections import Counter
 from fractions import Fraction
 from itertools import combinations
 from typing import Dict, List, Set, Tuple, Union
@@ -36,57 +36,58 @@ class RandomCommonAdditionReducer:
         expr_indices = [{(i, coefficient) for i, coefficient in enumerate(expression) if coefficient != 0} for expression in self.expressions]
 
         while True:
-            combination2score = self.__get_combinations(expr_indices=expr_indices + new_vars, max_size=random.randint(2, self.max_size))
-            sorted_combinations = sorted(combination2score.items(), key=lambda x: -x[1])
-            best_score = sorted_combinations[0][1]
+            subexpression2score = self.__get_subexpressions(expr_indices=expr_indices + new_vars, max_size=self.max_size)
+            best_score = max(subexpression2score.values())
 
             if best_score == 0:
-                return [self.__sort_combination(indices) for indices in expr_indices], [self.__sort_combination(indices) for indices in new_vars]
+                return [self.__sort_expression(indices) for indices in expr_indices], [self.__sort_expression(indices) for indices in new_vars]
 
-            best_combination = random.choice([combination for combination, score in sorted_combinations if score == best_score])
-            self.__replace_best_combination(expr_indices=expr_indices, new_vars=new_vars, combination=set(best_combination))
+            sorted_subexpressions = [subexpression for subexpression, score in subexpression2score.items() if score == best_score]
+            self.__replace_best_subexpression(expr_indices=expr_indices, new_vars=new_vars, subexpression=set(random.choice(sorted_subexpressions)))
 
     def __solve_random(self) -> Tuple[List[List[dict]], List[List[dict]]]:
         new_vars = []
         expr_indices = [{(i, coefficient) for i, coefficient in enumerate(expression) if coefficient != 0} for expression in self.expressions]
 
         while True:
-            combination2score = self.__get_combinations(expr_indices=expr_indices + new_vars, max_size=2)
-            sorted_combinations = sorted([(combination, score) for combination, score in combination2score.items() if score > 0], key=lambda x: -x[1])
+            subexpression2score = self.__get_subexpressions(expr_indices=expr_indices + new_vars, max_size=random.randint(2, self.max_size))
+            sorted_subexpressions = sorted([(subexpression, score) for subexpression, score in subexpression2score.items() if score > 0], key=lambda x: -x[1])
 
-            if not sorted_combinations:
-                return [self.__sort_combination(indices) for indices in expr_indices], [self.__sort_combination(indices) for indices in new_vars]
+            if not sorted_subexpressions:
+                return [self.__sort_expression(indices) for indices in expr_indices], [self.__sort_expression(indices) for indices in new_vars]
 
-            best_combination, _ = sorted_combinations[0] if random.random() < 0.5 else random.choice(sorted_combinations)
-            self.__replace_best_combination(expr_indices=expr_indices, new_vars=new_vars, combination=set(best_combination))
+            subexpression_scores = [score for _, score in sorted_subexpressions]
+            best_subexpression, _ = random.choices(sorted_subexpressions, weights=subexpression_scores, k=1)[0]
+            self.__replace_best_subexpression(expr_indices=expr_indices, new_vars=new_vars, subexpression=set(best_subexpression))
 
-    def __get_combinations(self, expr_indices: List[Set[tuple]], max_size: int) -> Dict[tuple, int]:
-        combination2count: Dict[tuple, int] = defaultdict(int)
+    def __get_subexpressions(self, expr_indices: List[Set[tuple]], max_size: int) -> Dict[tuple, int]:
+        subexpression2count = Counter()
 
         for indices in expr_indices:
-            for combination_size in range(2, max_size + 1):
-                for combination in combinations(sorted(indices), r=combination_size):
-                    combination2count[tuple(combination)] += 1
+            indices = sorted(indices)
 
-        return {combination: (len(combination) - 1) * (count - 1) for combination, count in combination2count.items()}
+            for subexpression_size in range(2, min(len(indices), max_size) + 1):
+                subexpression2count.update(combinations(indices, r=subexpression_size))
 
-    def __replace_best_combination(self, expr_indices: List[Set[tuple]], new_vars: List[Set[tuple]], combination: Set[tuple]) -> None:
-        inverse_combination = {(v, -c) for v, c in combination}
+        return {subexpression: (len(subexpression) - 1) * (count - 1) for subexpression, count in subexpression2count.items()}
+
+    def __replace_best_subexpression(self, expr_indices: List[Set[tuple]], new_vars: List[Set[tuple]], subexpression: Set[tuple]) -> None:
+        inverse_subexpression = {(v, -c) for v, c in subexpression}
         var_index = self.real_variables + len(new_vars)
 
         for indices in expr_indices + new_vars:
-            if combination.issubset(indices):
-                indices.difference_update(combination)
+            if subexpression.issubset(indices):
+                indices.difference_update(subexpression)
                 indices.add((var_index, 1))
-            elif inverse_combination.issubset(indices):
-                indices.difference_update(inverse_combination)
+            elif inverse_subexpression.issubset(indices):
+                indices.difference_update(inverse_subexpression)
                 indices.add((var_index, -1))
 
-        new_vars.append(combination)
+        new_vars.append(subexpression)
 
     def __get_cost(self, expr_indices: List[List[dict]], new_vars: List[List[dict]]) -> int:
         return sum(len(expr) - 1 for expr in expr_indices + new_vars)
 
-    def __sort_combination(self, combination: Set[tuple]) -> List[dict]:
-        combination = [{"index": index, "value": value} for index, value in combination]
-        return sorted(combination, key=lambda variable: variable["index"])
+    def __sort_expression(self, expression: Set[tuple]) -> List[dict]:
+        expression = [{"index": index, "value": value} for index, value in expression]
+        return sorted(expression, key=lambda variable: variable["index"])
