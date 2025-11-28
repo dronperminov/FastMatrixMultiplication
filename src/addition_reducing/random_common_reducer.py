@@ -56,8 +56,11 @@ class RandomCommonAdditionReducer:
             if not sorted_subexpressions:
                 return [self.__sort_expression(indices) for indices in expr_indices], [self.__sort_expression(indices) for indices in new_vars]
 
-            subexpression_scores = [score for _, score in sorted_subexpressions]
-            best_subexpression, _ = random.choices(sorted_subexpressions, weights=subexpression_scores, k=1)[0]
+            if random.random() < 0.9:
+                best_subexpression = random.choice([subexpression for subexpression, score in sorted_subexpressions if score == sorted_subexpressions[0][1]])
+            else:
+                best_subexpression = random.choice(sorted_subexpressions)[0]
+
             self.__replace_best_subexpression(expr_indices=expr_indices, new_vars=new_vars, subexpression=set(best_subexpression))
 
     def __get_subexpressions(self, expr_indices: List[Set[tuple]], max_size: int) -> Dict[tuple, int]:
@@ -67,7 +70,8 @@ class RandomCommonAdditionReducer:
             indices = sorted(indices)
 
             for subexpression_size in range(2, min(len(indices), max_size) + 1):
-                subexpression2count.update(combinations(indices, r=subexpression_size))
+                subexpressions = [self.__canonize_subexpression(subexpression) for subexpression in combinations(indices, r=subexpression_size)]
+                subexpression2count.update(subexpressions)
 
         return {subexpression: (len(subexpression) - 1) * (count - 1) for subexpression, count in subexpression2count.items()}
 
@@ -91,3 +95,9 @@ class RandomCommonAdditionReducer:
     def __sort_expression(self, expression: Set[tuple]) -> List[dict]:
         expression = [{"index": index, "value": value} for index, value in expression]
         return sorted(expression, key=lambda variable: variable["index"])
+
+    def __canonize_subexpression(self, subexpression: tuple) -> tuple:
+        if subexpression[0][1] > 0:
+            return subexpression
+
+        return tuple((i, -c) for i, c in subexpression)

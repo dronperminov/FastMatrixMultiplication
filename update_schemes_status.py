@@ -293,6 +293,9 @@ def plot_reduce_additions_table() -> None:
     with open("schemes/reduced.json") as f:
         reduced_known = json.load(f)
 
+    with open("schemes/fmm_add_reduction.json") as f:
+        fmm_add_reduction = json.load(f)
+
     reduced_new = {}
     for filename in os.listdir("schemes/new/addition_reduced"):
         if not filename.endswith(f"ZT_reduced.json"):
@@ -302,15 +305,26 @@ def plot_reduce_additions_table() -> None:
             reduced_data = json.load(f)
 
         (n1, n2, n3), rank, complexity = reduced_data["n"], reduced_data["m"], reduced_data["complexity"]
-        known_complexity = reduced_known.get(f"{n1}x{n2}x{n3}-{rank}", {"Z": "?", "Z2": "?"}).get("Z", "?")
+        key = f"{n1}x{n2}x{n3}-{rank}"
+
+        known_complexity = reduced_known.get(key, {"Z": "?", "Z2": "?"}).get("Z", "?")
+        greedy_vanilla = "?" if key not in fmm_add_reduction or not fmm_add_reduction[key]["greedy vanilla"] else fmm_add_reduction[key]["greedy vanilla"][0]["reduced"]
+        greedy_potential = "?" if key not in fmm_add_reduction or not fmm_add_reduction[key]["greedy potential"] else fmm_add_reduction[key]["greedy potential"][0]["reduced"]
 
         if (n1, n2, n3) not in reduced_new or (rank, complexity["reduced"], complexity["naive"]) < (reduced_new[(n1, n2, n3)]["rank"], reduced_new[(n1, n2, n3)]["reduced"], reduced_new[(n1, n2, n3)]["naive"]):
-            reduced_new[(n1, n2, n3)] = {"rank": rank, "naive": complexity["naive"], "reduced": complexity["reduced"], "known": known_complexity}
+            reduced_new[(n1, n2, n3)] = {
+                "rank": rank,
+                "naive": complexity["naive"],
+                "reduced": complexity["reduced"],
+                "known": known_complexity,
+                "greedy vanilla": greedy_vanilla,
+                "greedy potential": greedy_potential
+            }
 
     print("\n\n### Reduce addition complexity")
     print("The following schemes have been optimized for addition count, achieving fewer operations than previously known through common subexpression elimination:\n")
-    print("|    Format    |        Rank        | Best known | Naive | Current | Saved | Improved (%) |")
-    print("|:------------:|:------------------:|:----------:|:-----:|:-------:|:-----:|:------------:|")
+    print("|    Format    |        Rank        | Best known | Naive | Greedy<br>Vanilla | Greedy<br>Potential | Current | Saved | Improved (%) |")
+    print("|:------------:|:------------------:|:----------:|:-----:|:-----------------:|:-------------------:|:-------:|:-----:|:------------:|")
 
     for n1, n2, n3 in sorted(reduced_new):
         data = reduced_new[(n1, n2, n3)]
@@ -321,11 +335,23 @@ def plot_reduce_additions_table() -> None:
         rank = f'{data["rank"]}{optimal}'
 
         known = data["known"]
-        naive = data["naive"]
-        reduced = data["reduced"]
+        naive, greedy_vanilla, greedy_potential, reduced = data["naive"], data["greedy vanilla"], data["greedy potential"], data["reduced"]
+        saved = naive - reduced
         improved = (naive - reduced) / naive * 100
 
-        print(f'| {format_size(size):^12} | {rank:^18} | {known:^10} | {naive:^5} | {reduced:^7} | {naive - reduced:^5} | {improved:^12.1f} |')
+        additions = [value for value in [greedy_vanilla, greedy_potential, reduced] if value != "?"]
+        min_additions = min(additions)
+
+        if greedy_vanilla == min_additions:
+            greedy_vanilla = f"**{greedy_vanilla}**"
+
+        if greedy_potential == min_additions:
+            greedy_potential = f"**{greedy_potential}**"
+
+        if reduced == min_additions and len(additions) > 1:
+            reduced = f"**{reduced}**"
+
+        print(f'| {format_size(size):^12} | {rank:^18} | {known:^10} | {naive:^5} | {greedy_vanilla:^17} | {greedy_potential:^19} | {reduced:^7} | {saved:^5} | {improved:^12.1f} |')
 
 
 def main():
