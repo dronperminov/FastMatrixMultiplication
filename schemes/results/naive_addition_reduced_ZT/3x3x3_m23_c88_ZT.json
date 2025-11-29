@@ -113,5 +113,8 @@
         [0, 0, 0, 0, 0, 1, 0, 0, -1],
         [0, 0, 0, 0, 1, 0, 0, -1, 0],
         [1, 0, 0, 0, 0, 0, 0, 0, 0]
-    ]
+    ],
+    "invariant_f": "24x^2y^2z^2 + 6x^3yz + 2x^2y^2z + 6xy^3z + 2x^2yz^2 + 2xy^2z^2 + 6xyz^3 + 6x^2yz + 6xy^2z + 6xyz^2 + 72xyz",
+    "invariant_g": "2w^31 + w^30",
+    "type": "4X^2Y^2Z^2 + X^3YZ + XY^3Z + XY^2Z^2 + XYZ^3 + X^2YZ + XY^2Z + XYZ^2 + 12XYZ"
 }
