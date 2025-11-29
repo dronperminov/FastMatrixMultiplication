@@ -339,13 +339,13 @@ def plot_reduce_additions_table() -> None:
         saved = naive - reduced
         improved = (naive - reduced) / naive * 100
 
-        additions = [value for value in [greedy_vanilla, greedy_potential, reduced] if value != "?"]
+        additions = {value for value in [greedy_vanilla, greedy_potential, reduced] if value != "?"}
         min_additions = min(additions)
 
-        if greedy_vanilla == min_additions:
+        if greedy_vanilla == min_additions and len(additions) > 1:
             greedy_vanilla = f"**{greedy_vanilla}**"
 
-        if greedy_potential == min_additions:
+        if greedy_potential == min_additions and len(additions) > 1:
             greedy_potential = f"**{greedy_potential}**"
 
         if reduced == min_additions and len(additions) > 1:
