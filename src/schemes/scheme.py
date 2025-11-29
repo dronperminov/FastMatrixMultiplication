@@ -7,6 +7,8 @@ from fractions import Fraction
 from itertools import permutations
 from typing import Dict, List, Tuple, Union
 
+import numpy as np
+
 from src.entities.fraction_json_encoder import FractionJsonEncoder
 from src.utils.algebra import rank_z2
 from src.utils.utils import pretty_matrix
@@ -872,8 +874,12 @@ class Scheme:
         return matrix
 
     def __get_rank(self, matrix: List[int], n1: int, n2: int) -> int:
-        matrix = [[abs(matrix[i * n2 + j]) % 2 for j in range(n2)] for i in range(n1)]
-        return rank_z2(matrix)
+        if self.z2:
+            matrix = [[abs(matrix[i * n2 + j]) % 2 for j in range(n2)] for i in range(n1)]
+            return rank_z2(matrix)
+
+        matrix = np.array([[matrix[i * n2 + j] for j in range(n2)] for i in range(n1)])
+        return int(np.linalg.matrix_rank(matrix))
 
     def __get_tensors(self) -> List[str]:
         return [self.__get_tensor(index) for index in range(self.m)]
