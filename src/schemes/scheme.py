@@ -52,7 +52,7 @@ class Scheme:
         w = [[self.w[index][i] for i in range(self.nn[2])] for index in range(self.m)]
         return Scheme(n1=self.n[0], n2=self.n[1], n3=self.n[2], m=self.m,u=u, v=v, w=w, z2=self.z2, validate=False)
 
-    def save(self, path: str) -> None:
+    def save(self, path: str, with_invariants: bool = False) -> None:
         multiplications = "".join(f'{"," if i > 0 else ""}\n        "{multiplication}"' for i, multiplication in enumerate(self.__get_multiplications()))
         elements = "".join(f'{"," if i > 0 else ""}\n        "{element}"' for i, element in enumerate(self.__get_elements()))
 
@@ -74,7 +74,7 @@ class Scheme:
             f.write(f'    {v},\n')
             f.write(f'    {w}')
 
-            if self.z2:
+            if with_invariants:
                 f.write(",\n")
                 f.write(f'    "invariant_f": "{self.invariant_f()}",\n')
                 f.write(f'    "invariant_g": "{self.invariant_g()}",\n')
