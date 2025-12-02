@@ -251,17 +251,14 @@ def plot_new_ranks_z2_table(status: Dict[str, dict]) -> None:
     print("\n\n### New discoveries in binary field (`Z2`)")
     print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication in the binary field (`Z2`),")
     print("achieving lower ranks than previously known.\n")
-    print("|    Format    | Prev rank | New rank | Note              |")
-    print("|:------------:|:---------:|:--------:|:------------------|")
+    print("|    Format    | Prev rank | New rank |")
+    print("|:------------:|:---------:|:--------:|")
 
     for size, data in status.items():
         min_known_rank = min(scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if "known" in scheme["source"])
         min_rank = data["ranks"]["Z2"]
         if min_rank < min_known_rank:
-            print(f"| {format_size(size):^12} | {min_known_rank:^9} | {min_rank:^8} |                   |")
-        elif min_rank == data["ranks"]["Q"] and data["ranks"]["Q"] < data["ranks"]["Z"]:
-            prev_rank = min([scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if ring != "Q" and "known" in scheme["source"]], default="?")
-            print(f"| {format_size(size):^12} | {prev_rank:^9} | {min_rank:^8} | equal to `Q` ring |")
+            print(f"| {format_size(size):^12} | {min_known_rank:^9} | {min_rank:^8} |")
 
 
 def plot_new_complexities_table(status: Dict[str, dict]) -> None:
@@ -323,8 +320,8 @@ def plot_reduce_additions_table() -> None:
 
     print("\n\n### Reduce addition complexity")
     print("The following schemes have been optimized for addition count, achieving fewer operations than previously known through common subexpression elimination:\n")
-    print("|    Format    |        Rank        | Best known | Naive | Greedy<br>Vanilla | Greedy<br>Potential | Current | Saved | Improved (%) |")
-    print("|:------------:|:------------------:|:----------:|:-----:|:-----------------:|:-------------------:|:-------:|:-----:|:------------:|")
+    print("|    Format    |        Rank        | Best known | Naive | Greedy<br>Vanilla | Greedy<br>Potential |  Current  | Saved | Improved (%) |")
+    print("|:------------:|:------------------:|:----------:|:-----:|:-----------------:|:-------------------:|:---------:|:-----:|:------------:|")
 
     for n1, n2, n3 in sorted(reduced_new):
         data = reduced_new[(n1, n2, n3)]
@@ -351,21 +348,12 @@ def plot_reduce_additions_table() -> None:
         if reduced == min_additions and len(additions) > 1:
             reduced = f"**{reduced}**"
 
-        print(f'| {format_size(size):^12} | {rank:^18} | {known:^10} | {naive:^5} | {greedy_vanilla:^17} | {greedy_potential:^19} | {reduced:^7} | {saved:^5} | {improved:^12.1f} |')
+        print(f'| {format_size(size):^12} | {rank:^18} | {known:^10} | {naive:^5} | {greedy_vanilla:^17} | {greedy_potential:^19} | {reduced:^9} | {saved:^5} | {improved:^12.1f} |')
 
 
 def main():
     input_dirs = [
-        "schemes/known/classic",
-        "schemes/known/tensor",
-        "schemes/known/jakobmoosbauer_flips",
-        "schemes/known/alpha_evolve",
-        "schemes/known/alpha_tensor",
-        "schemes/known/fmm_add_reduction",
-        "schemes/known/jakobmoosbauer_symmetric_flips",
-        "schemes/known/Yamato-Arai_adap",
-        "schemes/known/meta_flip_graph",
-        "schemes/known/a_60_addition",
+        "schemes/known",
         "schemes/results"
     ]
 
