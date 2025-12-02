@@ -302,11 +302,14 @@ class Scheme:
 
         return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=z2, validate=validate)
 
-    def to_z2(self) -> "Scheme":
-        u = [[abs(self.u[index][i]) % 2 for i in range(self.nn[0])] for index in range(self.m)]
-        v = [[abs(self.v[index][i]) % 2 for i in range(self.nn[1])] for index in range(self.m)]
-        w = [[abs(self.w[index][i]) % 2 for i in range(self.nn[2])] for index in range(self.m)]
-        return Scheme(n1=self.n[0], n2=self.n[1], n3=self.n[2], m=self.m, u=u, v=v, w=w, z2=True)
+    def to_z2(self, validate: bool = True, den: int = 1) -> "Scheme":
+        if den % 2 == 0:
+            raise ValueError("den must be odd")
+
+        u = [[abs(int(self.u[index][i] * den)) % 2 for i in range(self.nn[0])] for index in range(self.m)]
+        v = [[abs(int(self.v[index][i] * den)) % 2 for i in range(self.nn[1])] for index in range(self.m)]
+        w = [[abs(int(self.w[index][i] * den)) % 2 for i in range(self.nn[2])] for index in range(self.m)]
+        return Scheme(n1=self.n[0], n2=self.n[1], n3=self.n[2], m=self.m, u=u, v=v, w=w, z2=True, validate=validate)
 
     def show(self) -> None:
         print(f"n: {self.n[0]}{self.n[1]}{self.n[2]}, m: {self.m}")
