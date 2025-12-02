@@ -255,11 +255,11 @@ class Scheme:
     @classmethod
     def from_txt(cls, path: str, validate: bool = True) -> "Scheme":
         with open(path) as f:
-            text = map(int, re.split("[\s\n]+", f.read().strip()))
+            text = " ".join([line.strip() for line in f.readlines() if not line.startswith("#")])
+            text = map(int, re.split("[\s\n]+", text))
 
         n1, n2, n3, m, *uvw = text
         nn = [n1 * n2, n2 * n3, n3 * n1]
-        print(n1, n2, n3, m)
 
         u_values = uvw[:nn[0] * m]
         v_values = uvw[nn[0]*m:(nn[0] + nn[1])*m]
