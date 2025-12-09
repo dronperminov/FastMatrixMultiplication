@@ -287,7 +287,7 @@ def plot_reduce_additions_table() -> None:
 
     min_known_ranks = {tuple(map(int, size.split("x"))): min(data["ranks"][ring] for ring in ["Z", "Q"]) for size, data in status.items()}
 
-    with open("schemes/reduced.json") as f:
+    with open("schemes/reduced_known.json") as f:
         reduced_known = json.load(f)
 
     with open("schemes/fmm_add_reduction.json") as f:
@@ -306,7 +306,8 @@ def plot_reduce_additions_table() -> None:
 
         known_complexity = reduced_known.get(key, {"Z": "?", "Z2": "?"}).get("Z", "?")
         greedy_vanilla = "?" if key not in fmm_add_reduction or not fmm_add_reduction[key]["greedy vanilla"] else fmm_add_reduction[key]["greedy vanilla"][0]["reduced"]
-        greedy_potential = "?" if key not in fmm_add_reduction or not fmm_add_reduction[key]["greedy potential"] else fmm_add_reduction[key]["greedy potential"][0]["reduced"]
+        greedy_potential5 = "?" if key not in fmm_add_reduction or not fmm_add_reduction[key]["greedy potential (5 steps)"] else fmm_add_reduction[key]["greedy potential (5 steps)"][0]["reduced"]
+        greedy_potential40 = "?" if key not in fmm_add_reduction or not fmm_add_reduction[key]["greedy potential (40 steps)"] else fmm_add_reduction[key]["greedy potential (40 steps)"][0]["reduced"]
 
         if (n1, n2, n3) not in reduced_new or (rank, complexity["reduced"], complexity["naive"]) < (reduced_new[(n1, n2, n3)]["rank"], reduced_new[(n1, n2, n3)]["reduced"], reduced_new[(n1, n2, n3)]["naive"]):
             reduced_new[(n1, n2, n3)] = {
@@ -315,40 +316,48 @@ def plot_reduce_additions_table() -> None:
                 "reduced": complexity["reduced"],
                 "known": known_complexity,
                 "greedy vanilla": greedy_vanilla,
-                "greedy potential": greedy_potential
+                "greedy potential (5 steps)": greedy_potential5,
+                "greedy potential (40 steps)": greedy_potential40,
             }
 
     print("\n\n### Reduce addition complexity")
     print("The following schemes have been optimized for addition count, achieving fewer operations than previously known through common subexpression elimination:\n")
-    print("|    Format    |        Rank        | Best known | Naive | Greedy<br>Vanilla | Greedy<br>Potential |  Current  | Saved | Improved (%) |")
-    print("|:------------:|:------------------:|:----------:|:-----:|:-----------------:|:-------------------:|:---------:|:-----:|:------------:|")
+    print("The results compare different approaches using the [fmm_add_reduction](https://github.com/werekorren/fmm_add_reduction) tool:")
+    print("* `fmm gv` - greedy vanilla,")
+    print("* `fmm gp (5 steps)` - greedy potential with default parameters `0 0.5 5`),")
+    print("* `fmm gp (40 steps)` - greedy potential with parameters `0 0.5 40`).\n")
+
+    print("|    Format    |        Rank        | Best known | Naive | fmm<br>gv | fmm gp<br>5 steps | fmm gp<br>40 steps |  Proposed  | Saved | Improved (%) |")
+    print("|:------------:|:------------------:|:----------:|:-----:|:---------:|:-----------------:|:------------------:|:----------:|:-----:|:------------:|")
 
     for n1, n2, n3 in sorted(reduced_new):
         data = reduced_new[(n1, n2, n3)]
 
         size = f"{n1}x{n2}x{n3}"
-
         optimal = " (near optimal)" if data["rank"] > min_known_ranks[(n1, n2, n3)] else ""
         rank = f'{data["rank"]}{optimal}'
 
-        known = data["known"]
-        naive, greedy_vanilla, greedy_potential, reduced = data["naive"], data["greedy vanilla"], data["greedy potential"], data["reduced"]
+        naive, known, reduced = data["naive"], data["known"], data["reduced"]
+        greedy_vanilla, greedy_potential5, greedy_potential40 = data["greedy vanilla"], data["greedy potential (5 steps)"], data["greedy potential (40 steps)"]
         saved = naive - reduced
         improved = (naive - reduced) / naive * 100
 
-        additions = {value for value in [greedy_vanilla, greedy_potential, reduced] if value != "?"}
+        additions = {value for value in [greedy_vanilla, greedy_potential5, greedy_potential40, reduced] if value != "?"}
         min_additions = min(additions)
 
         if greedy_vanilla == min_additions and len(additions) > 1:
             greedy_vanilla = f"**{greedy_vanilla}**"
 
-        if greedy_potential == min_additions and len(additions) > 1:
-            greedy_potential = f"**{greedy_potential}**"
+        if greedy_potential5 == min_additions and len(additions) > 1:
+            greedy_potential5 = f"**{greedy_potential5}**"
+
+        if greedy_potential40 == min_additions and len(additions) > 1:
+            greedy_potential40 = f"**{greedy_potential40}**"
 
         if reduced == min_additions and len(additions) > 1:
             reduced = f"**{reduced}**"
 
-        print(f'| {format_size(size):^12} | {rank:^18} | {known:^10} | {naive:^5} | {greedy_vanilla:^17} | {greedy_potential:^19} | {reduced:^9} | {saved:^5} | {improved:^12.1f} |')
+        print(f'| {format_size(size):^12} | {rank:^18} | {known:^10} | {naive:^5} | {greedy_vanilla:^9} | {greedy_potential5:^17} | {greedy_potential40:^18} | {reduced:^10} | {saved:^5} | {improved:^12.1f} |')
 
 
 def main():
