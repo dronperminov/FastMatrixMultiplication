@@ -248,8 +248,8 @@ The results compare different approaches using the [fmm_add_reduction](https://g
 | `(6, 8, 8)`  |        266         |     ?      | 2780  |   1244    |       1214        |      **1181**      |    1217    | 1563  |     56.2     |
 | `(7, 7, 7)`  | 250 (near optimal) |     ?      | 2417  |   1119    |       1077        |      **1070**      |    1073    | 1344  |     55.6     |
 | `(7, 7, 8)`  | 279 (near optimal) |     ?      | 2926  |   1369    |       1260        |      **1248**      |    1454    | 1472  |     50.3     |
-| `(7, 7, 9)`  | 316 (near optimal) |     ?      | 3452  |   1460    |       1404        |      **1385**      |    1412    | 2040  |     59.1     |
-| `(7, 8, 8)`  | 310 (near optimal) |     ?      | 3604  |   1670    |       1498        |      **1471**      |    1566    | 2038  |     56.5     |
+| `(7, 7, 9)`  | 316 (near optimal) |     ?      | 3452  |   1460    |       1404        |      **1385**      |    1400    | 2052  |     59.4     |
+| `(7, 8, 8)`  | 310 (near optimal) |     ?      | 3604  |   1670    |       1498        |      **1471**      |    1526    | 2078  |     57.7     |
 | `(8, 8, 8)`  | 343 (near optimal) |     ?      | 4434  |   1748    |       1709        |      **1668**      |    1710    | 2724  |     61.4     |
 
 
@@ -572,11 +572,11 @@ Reduces `(2, 2, 2: 7)` from 18 to 15 multiplications:
 ## Loading Schemes
 
 The repository provides a Scheme class with a load method that supports all scheme formats used here:
-* Full scheme format;
-* Addition-reduced scheme format;
-* `.m` (Maple)
-* `.exp` (explicit circuit description)
-* `.tensor.mpl` (Maple tensor representation)
+* Full scheme format (`.json`);
+* Addition-reduced scheme format (`reduced.json`);
+* Maple format (`.m`)
+* Plain text expressions (`.exp`)
+* Maple tensor representation (`.tensor.mpl`)
 
 This allows seamless integration of circuits produced by different tools and sources.
 
@@ -655,7 +655,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |      `(2, 6, 10)`      |        94        |       94        |       94        |        94        |          668           |          668          |          668          |
 |      `(2, 7, 7)`       |      77 (?)      |     77 (?)      |       76        |        76        |           -            |           -           |           -           |
 |      `(2, 7, 8)`       |      90 (?)      |       88        |       88        |        88        |           -            |           -           |           -           |
-|      `(2, 7, 9)`       |     102 (?)      |     102 (?)     |       99        |     101 (?)      |           -            |           -           |           -           |
+|      `(2, 7, 9)`       |     102 (?)      |     102 (?)     |       99        |     100 (?)      |           -            |           -           |           -           |
 |      `(2, 8, 8)`       |       100        |       100       |       100       |       100        |          608           |          608          |          608          |
 |      `(3, 3, 3)`       |        23        |       23        |       23        |        23        |           84           |          84           |          84           |
 |      `(3, 3, 4)`       |        29        |       29        |       29        |        29        |          134           |          134          |          134          |
@@ -681,7 +681,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |      `(3, 4, 11)`      |     102 (?)      |     102 (?)     |       101       |     101 (?)      |           -            |           -           |           -           |
 |      `(3, 4, 12)`      |     111 (?)      |     111 (?)     |       108       |     108 (?)      |           -            |           -           |           -           |
 |      `(3, 4, 13)`      |     120 (?)      |     120 (?)     |       117       |     118 (?)      |           -            |           -           |           -           |
-|      `(3, 4, 14)`      |     128 (?)      |     128 (?)     |       126       |     128 (?)      |           -            |           -           |           -           |
+|      `(3, 4, 14)`      |     128 (?)      |     128 (?)     |       126       |     127 (?)      |           -            |           -           |           -           |
 |      `(3, 4, 15)`      |     138 (?)      |     138 (?)     |       136       |     137 (?)      |           -            |           -           |           -           |
 |      `(3, 4, 16)`      |     148 (?)      |     148 (?)     |       146       |     146 (?)      |           -            |           -           |           -           |
 |      `(3, 5, 5)`       |        58        |       58        |       58        |        58        |          357           |          357          |          357          |
@@ -767,13 +767,10 @@ from other fields. The best ranks of previously known schemes are given in brack
 This project is for research purposes. Please use the following citation when referencing this code or dataset in your academic work:
 
 ```bibtex
-@misc{perminov2025fastmatrixmultiplicationternary,
-      title={Fast Matrix Multiplication via Ternary Meta Flip Graphs},
-      author={A. I. Perminov},
-      year={2025},
-      eprint={2511.20317},
-      archivePrefix={arXiv},
-      primaryClass={cs.SC},
-      url={https://arxiv.org/abs/2511.20317}
+@article{perminov2025fast,
+    title={Fast Matrix Multiplication via Ternary Meta Flip Graphs},
+    author={Perminov, Andrew I},
+    journal={arXiv preprint arXiv:2511.20317},
+    year={2025}
 }
 ```
