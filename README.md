@@ -1,5 +1,8 @@
 # FastMatrixMultiplication
 
+[![arXiv:2511.20317](https://img.shields.io/badge/arXiv-2511.20317-b31b1b.svg)](https://arxiv.org/abs/2511.20317)
+[![arXiv:2512.13365](https://img.shields.io/badge/arXiv-2512.13365-b31b1b.svg)](https://arxiv.org/abs/2512.13365)
+
 A research project investigating fast matrix multiplication algorithms for small matrix formats, from `(2, 2, 2)` to `(8, 8, 8)`. The primary goal is to discover efficient schemes
 with coefficients restricted to the ternary set `{-1, 0, 1}`, focusing on all tensor shapes satisfying `max(n₁n₂, n₂n₃, n₃n₁) ≤ 64` and `max(n₁, n₂, n₃) ≤ 16`.
 
@@ -22,6 +25,7 @@ coefficients. This can lead to more efficient and hardware-friendly implementati
 ## Publications
 
 * [Fast Matrix Multiplication via Ternary Meta Flip Graphs](https://arxiv.org/abs/2511.20317) (arxiv)
+* [Parallel Heuristic Exploration for Additive Complexity Reduction in Fast Matrix Multiplication](https://arxiv.org/abs/2512.13365) (arxiv)
 
 ## Key results
 
@@ -775,6 +779,17 @@ This project is for research purposes. Please use the following citation when re
     title={Fast Matrix Multiplication via Ternary Meta Flip Graphs},
     author={Perminov, Andrew I},
     journal={arXiv preprint arXiv:2511.20317},
+    url={https://arxiv.org/abs/2511.20317},
+    year={2025}
+}
+```
+
+```bibtex
+@article{perminov2025parallel,
+    title={Parallel Heuristic Exploration for Additive Complexity Reduction in Fast Matrix Multiplication},
+    author={Perminov, Andrew I},
+    journal={arXiv preprint arXiv:2512.13365},
+    url={https://arxiv.org/abs/2512.13365},
     year={2025}
 }
 ```
