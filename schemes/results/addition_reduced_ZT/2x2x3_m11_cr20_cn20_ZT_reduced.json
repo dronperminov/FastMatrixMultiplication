@@ -1,0 +1,46 @@
+{
+    "n": [2, 2, 3],
+    "m": 11,
+    "z2": false,
+    "complexity": {"naive": 20, "reduced": 20},
+    "u_fresh": [
+    ],
+    "v_fresh": [
+    ],
+    "w_fresh": [
+    ],
+    "u": [
+        [{"index": 3, "value": 1}],
+        [{"index": 3, "value": 1}],
+        [{"index": 2, "value": 1}],
+        [{"index": 2, "value": 1}, {"index": 3, "value": 1}],
+        [{"index": 1, "value": 1}],
+        [{"index": 1, "value": 1}, {"index": 3, "value": -1}],
+        [{"index": 0, "value": 1}],
+        [{"index": 0, "value": 1}],
+        [{"index": 0, "value": 1}, {"index": 3, "value": 1}],
+        [{"index": 0, "value": 1}, {"index": 2, "value": -1}],
+        [{"index": 0, "value": 1}, {"index": 1, "value": 1}]
+    ],
+    "v": [
+        [{"index": 5, "value": 1}],
+        [{"index": 1, "value": -1}, {"index": 4, "value": 1}],
+        [{"index": 2, "value": 1}],
+        [{"index": 1, "value": -1}],
+        [{"index": 5, "value": 1}],
+        [{"index": 3, "value": 1}, {"index": 4, "value": 1}],
+        [{"index": 2, "value": 1}],
+        [{"index": 0, "value": 1}, {"index": 3, "value": -1}],
+        [{"index": 1, "value": 1}, {"index": 3, "value": 1}],
+        [{"index": 0, "value": -1}, {"index": 1, "value": -1}],
+        [{"index": 3, "value": 1}]
+    ],
+    "w": [
+        [{"index": 7, "value": 1}, {"index": 10, "value": 1}],
+        [{"index": 3, "value": 1}, {"index": 7, "value": 1}, {"index": 8, "value": 1}, {"index": 9, "value": 1}],
+        [{"index": 1, "value": 1}, {"index": 5, "value": 1}, {"index": 8, "value": 1}, {"index": 10, "value": -1}],
+        [{"index": 1, "value": 1}, {"index": 3, "value": -1}],
+        [{"index": 4, "value": 1}, {"index": 6, "value": 1}],
+        [{"index": 0, "value": 1}, {"index": 2, "value": 1}]
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "n": [2, 2, 2],
+    "m": 7,
+    "z2": false,
+    "complexity": {"naive": 24, "reduced": 15},
+    "u_fresh": [
+        [{"index": 2, "value": 1}, {"index": 3, "value": 1}],
+        [{"index": 0, "value": 1}, {"index": 4, "value": 1}]
+    ],
+    "u": [
+        [{"index": 3, "value": 1}],
+        [{"index": 4, "value": 1}],
+        [{"index": 1, "value": 1}],
+        [{"index": 0, "value": 1}],
+        [{"index": 0, "value": 1}, {"index": 2, "value": 1}],
+        [{"index": 5, "value": 1}],
+        [{"index": 5, "value": 1}, {"index": 1, "value": 1}]
+    ],
+    "v_fresh": [
+        [{"index": 0, "value": 1}, {"index": 2, "value": -1}],
+        [{"index": 1, "value": 1}, {"index": 4, "value": -1}]
+    ],
+    "v": [
+        [{"index": 3, "value": 1}, {"index": 5, "value": -1}],
+        [{"index": 0, "value": 1}, {"index": 1, "value": -1}],
+        [{"index": 3, "value": 1}],
+        [{"index": 1, "value": 1}],
+        [{"index": 4, "value": 1}],
+        [{"index": 5, "value": -1}],
+        [{"index": 2, "value": 1}]
+    ],
+    "w_fresh": [
+        [{"index": 3, "value": 1}, {"index": 5, "value": 1}],
+        [{"index": 4, "value": 1}, {"index": 7, "value": -1}]
+    ],
+    "w": [
+        [{"index": 1, "value": -1}, {"index": 7, "value": 1}, {"index": 6, "value": 1}],
+        [{"index": 1, "value": 1}, {"index": 8, "value": 1}],
+        [{"index": 2, "value": 1}, {"index": 3, "value": 1}],
+        [{"index": 0, "value": 1}, {"index": 8, "value": 1}]
+    ]
+}
