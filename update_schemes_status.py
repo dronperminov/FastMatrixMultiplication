@@ -221,9 +221,9 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
 
 
 def plot_zt_table(status: Dict[str, dict]) -> None:
-    print("\n\n### Conversions to the ternary coefficient set (`ZT`)")
-    print("The following schemes have been converted to the `ZT` format, having been previously known over the rational (`Q`) or integer (`Z`) fields but lacking known")
-    print("implementations with coefficients restricted to the ternary set:\n")
+    print("\n\n### Rediscovery in the ternary coefficient set (`ZT`)")
+    print("The following schemes have been rediscovered in the `ZT` format. Originally known over the rational (`Q`) or integer (`Z`) fields, implementations")
+    print("with coefficients restricted to the ternary set were previously unknown.\n")
     print("|    Format    | Rank | Known ring |")
     print("|:------------:|:----:|:----------:|")
 
@@ -294,14 +294,15 @@ def plot_reduce_additions_table() -> None:
         fmm_add_reduction = json.load(f)
 
     reduced_new = {}
-    for filename in os.listdir("schemes/new/addition_reduced"):
+    for filename in os.listdir("schemes/results/addition_reduced_ZT"):
         if not filename.endswith(f"ZT_reduced.json"):
             continue
 
-        with open(f"schemes/new/addition_reduced/{filename}") as f:
+        with open(f"schemes/results/addition_reduced_ZT/{filename}") as f:
             reduced_data = json.load(f)
 
         (n1, n2, n3), rank, complexity = reduced_data["n"], reduced_data["m"], reduced_data["complexity"]
+        fresh_vars = len(reduced_data["u_fresh"]) + len(reduced_data["v_fresh"]) + len(reduced_data["w_fresh"])
         key = f"{n1}x{n2}x{n3}-{rank}"
 
         known_complexity = reduced_known.get(key, {"Z": "?", "Z2": "?"}).get("Z", "?")
@@ -314,6 +315,7 @@ def plot_reduce_additions_table() -> None:
                 "rank": rank,
                 "naive": complexity["naive"],
                 "reduced": complexity["reduced"],
+                "fresh_vars": fresh_vars,
                 "known": known_complexity,
                 "greedy vanilla": greedy_vanilla,
                 "greedy potential (5 steps)": greedy_potential5,
