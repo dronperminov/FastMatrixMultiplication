@@ -40,9 +40,9 @@ achieving lower ranks than previously known.
 | `(6, 7, 9)`  | 270 (`ZT`)  |   268    |       3062       |
 
 
-### Conversions to the ternary coefficient set (`ZT`)
-The following schemes have been converted to the `ZT` format, having been previously known over the rational (`Q`) or integer (`Z`) fields but lacking known
-implementations with coefficients restricted to the ternary set:
+### Rediscovery in the ternary coefficient set (`ZT`)
+The following schemes have been rediscovered in the `ZT` format. Originally known over the rational (`Q`) or integer (`Z`) fields, implementations
+with coefficients restricted to the ternary set were previously unknown.
 
 |    Format    | Rank | Known ring |
 |:------------:|:----:|:----------:|
@@ -195,7 +195,7 @@ The results compare different approaches using the [fmm_add_reduction](https://g
 | `(3, 7, 9)`  | 147 (near optimal) |     ?      | 1002  |    592    |        583        |        580         |  **579**   |  423  |     42.2     |
 | `(3, 8, 8)`  | 148 (near optimal) |     ?      | 1020  |    519    |      **511**      |      **511**       |  **511**   |  509  |     49.9     |
 | `(4, 4, 4)`  | 49 (near optimal)  |    325     |  474  |    167    |        164        |        163         |  **159**   |  315  |     66.5     |
-| `(4, 4, 5)`  |         61         |     ?      |  452  |    247    |        237        |        237         |  **235**   |  217  |     48.0     |
+| `(4, 4, 5)`  |         61         |     ?      |  452  |    247    |        237        |        237         |  **233**   |  219  |     48.5     |
 | `(4, 4, 6)`  |         73         |     ?      |  540  |    288    |        282        |        281         |  **280**   |  260  |     48.1     |
 | `(4, 4, 7)`  |         85         |     ?      |  631  |    326    |        323        |        320         |  **319**   |  312  |     49.4     |
 | `(4, 4, 8)`  |         96         |     ?      |  973  |    396    |        391        |        387         |  **377**   |  596  |     61.3     |
@@ -209,8 +209,8 @@ The results compare different approaches using the [fmm_add_reduction](https://g
 | `(4, 4, 16)` | 192 (near optimal) |     ?      | 2059  |    730    |        728        |        724         |  **718**   | 1341  |     65.1     |
 | `(4, 5, 5)`  |         76         |    451     |  530  |    315    |        300        |      **299**       |  **299**   |  231  |     43.6     |
 | `(4, 5, 6)`  |         90         |     ?      | 1023  |    401    |        393        |        386         |  **380**   |  643  |     62.9     |
-| `(4, 5, 7)`  |        104         |     ?      |  931  |    423    |        413        |        405         |  **402**   |  529  |     56.8     |
-| `(4, 5, 8)`  |        118         |     ?      | 1521  |    543    |        538        |        522         |  **517**   | 1004  |     66.0     |
+| `(4, 5, 7)`  |        104         |     ?      |  931  |    423    |        413        |        405         |  **400**   |  531  |     57.0     |
+| `(4, 5, 8)`  |        118         |     ?      | 1521  |    543    |        538        |        522         |  **513**   | 1008  |     66.3     |
 | `(4, 5, 9)`  | 137 (near optimal) |     ?      | 1217  |    564    |        555        |        547         |  **542**   |  675  |     55.5     |
 | `(4, 5, 10)` |        151         |     ?      | 1207  |    590    |        580        |        571         |  **566**   |  641  |     53.1     |
 | `(4, 5, 11)` |        165         |     ?      | 1801  |    718    |        702        |        689         |  **681**   | 1120  |     62.2     |
@@ -224,7 +224,7 @@ The results compare different approaches using the [fmm_add_reduction](https://g
 | `(4, 7, 8)`  |        164         |     ?      | 1505  |    752    |        729        |        698         |  **690**   |  815  |     54.2     |
 | `(4, 7, 9)`  | 187 (near optimal) |     ?      | 2059  |    806    |        800        |        788         |  **785**   | 1274  |     61.9     |
 | `(4, 8, 8)`  |        182         |     ?      | 1884  |    861    |        812        |        800         |  **795**   | 1089  |     57.8     |
-| `(5, 5, 5)`  |         93         |     ?      |  843  |    392    |        391        |        387         |  **384**   |  459  |     54.4     |
+| `(5, 5, 5)`  |         93         |     ?      |  843  |    392    |        391        |        387         |  **383**   |  460  |     54.6     |
 | `(5, 5, 6)`  |        110         |     ?      | 1215  |    491    |        479        |        466         |  **460**   |  755  |     62.1     |
 | `(5, 5, 7)`  |        127         |     ?      | 1607  |    561    |        553        |        539         |  **531**   | 1076  |     67.0     |
 | `(5, 5, 8)`  |        144         |     ?      | 1924  |    645    |        638        |        631         |  **620**   | 1304  |     67.8     |
