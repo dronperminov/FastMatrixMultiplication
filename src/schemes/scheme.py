@@ -96,6 +96,15 @@ class Scheme:
                 f.write(f'  {row}{"," if index < self.m - 1 else ""}\n')
             f.write("}\n")
 
+    def save_txt(self, path: str) -> None:
+        n1, n2, n3 = self.n
+        u = " ".join(f'{" ".join(str(self.u[index][i]) for i in range(self.nn[0]))}' for index in range(self.m))
+        v = " ".join(f'{" ".join(str(self.v[index][i]) for i in range(self.nn[1]))}' for index in range(self.m))
+        w = " ".join(f'{" ".join(str(self.w[index][i]) for i in range(self.nn[2]))}' for index in range(self.m))
+
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(f"{n1} {n2} {n3} {self.m}\n{u}\n{v}\n{w}\n")
+
     @classmethod
     def load(cls, path: str, validate: bool = True) -> "Scheme":
         lower_path = path.lower()
@@ -819,6 +828,13 @@ class Scheme:
         self.w = [self.w[index] for index in non_zero_indices]
         self.m = len(non_zero_indices)
 
+    def __remove_at(self, target_index: int) -> None:
+        indices = [index for index in range(self.m) if index != target_index]
+        self.u = [self.u[index] for index in indices]
+        self.v = [self.v[index] for index in indices]
+        self.w = [self.w[index] for index in indices]
+        self.m = len(indices)
+
     def __add_triplet(self, i: int, j: int, k: int, u: List[int], v: List[int], w: List[int]) -> None:
         uvw = [self.u, self.v, self.w]
         uvw[i].append(u)
@@ -877,12 +893,18 @@ class Scheme:
         return matrix
 
     def __get_rank(self, matrix: List[int], n1: int, n2: int) -> int:
+        matrix = [[self.__map_rank_value(matrix[i * n2 + j]) for j in range(n2)] for i in range(n1)]
+
         if self.z2:
-            matrix = [[abs(matrix[i * n2 + j]) % 2 for j in range(n2)] for i in range(n1)]
             return rank_z2(matrix)
 
-        matrix = np.array([[matrix[i * n2 + j] for j in range(n2)] for i in range(n1)])
-        return int(np.linalg.matrix_rank(matrix))
+        return int(np.linalg.matrix_rank(np.array(matrix)))
+
+    def __map_rank_value(self, value: Union[int, Fraction]) -> Union[int, float]:
+        if self.z2:
+            return abs(value) % 2
+
+        return float(value) if isinstance(value, Fraction) else value
 
     def __get_tensors(self) -> List[str]:
         return [self.__get_tensor(index) for index in range(self.m)]
