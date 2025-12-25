@@ -17,11 +17,14 @@ coefficients. This can lead to more efficient and hardware-friendly implementati
 ## Latest progress
 
 ### Ternary coefficient rediscovery (`ZT`)
-* `3x5x10`: found scheme with `115` multiplications and `730` naive additions (20.12.2025)
+* `3x5x10`: found scheme with `115` multiplications and `730` naive additions (20.12.2025);
 * `6x6x7`: found scheme with `183` multiplications and `2493` naive additions (02.12.2025);
 
 ### Binary field improvement (`Z2`)
 * `7x7x8`: reduced multiplications from `275` to `274` (02.12.2025);
+
+### Additions reducing
+* discovered a `3x3x3` matrix multiplication scheme with `23` multiplications and `58` additions (25.12.2025);
 
 ## Publications
 
