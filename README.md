@@ -7,9 +7,8 @@ A research project investigating fast matrix multiplication algorithms for small
 with coefficients restricted to the ternary set `{-1, 0, 1}`, focusing on all tensor shapes satisfying `max(n₁n₂, n₂n₃, n₃n₁) ≤ 64` and `max(n₁, n₂, n₃) ≤ 16`.
 
 ## Overview
-This repository documents the search for fast matrix multiplication (FMM) schemes using a custom GPU-accelerated meta flip graph method. The search focuses on
-schemes that use only the coefficients `-1`, `0`, and `1`, denoted as `ZT`. This constraint is significant for practical implementations where computational
-complexity and hardware efficiency are critical.
+This repository documents the search for fast matrix multiplication (FMM) schemes using a custom meta flip graph method. The search focuses on schemes that use only the
+coefficients `-1`, `0`, and `1`, denoted as `ZT`. This constraint is significant for practical implementations where computational complexity and hardware efficiency are critical.
 
 Key insight: several known optimal schemes originally found over the rationals (`Q`) or integers (`Z`) have been successfully rediscovered with minimal, ternary
 coefficients. This can lead to more efficient and hardware-friendly implementations.
@@ -341,7 +340,12 @@ The naive addition complexity - is the number of nonzero coefficients minus `2·
 ## Methodology & instruments
 The research employs a multi-stage approach using custom-built tools:
 
-### [FlipGraphGPU](https://github.com/dronperminov/FlipGraphGPU): primary exploration tool
+### [ternary_flip_graph](https://github.com/dronperminov/ternary_flip_graph): core flip graph exploration toolkit
+A comprehensive CPU-based toolkit for discovering fast matrix multiplication algorithms using flip graph techniques. Supports multiple coefficient sets
+(`{0, 1}`, `{0, 1, 2}`, `{-1, 0, 1}`) and provides tools for rank minimization, complexity optimization, alternative scheme discovery, and meta operations
+for transforming schemes between dimensions.
+
+### [FlipGraphGPU](https://github.com/dronperminov/FlipGraphGPU): GPU-accelerated exploration
 A high-performance instrument for exploring the fast matrix multiplication schemes using meta flip graph techniques, optimized for execution on NVIDIA GPUs with
 coefficients restricted to the ternary integer set.
 
