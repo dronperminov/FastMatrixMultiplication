@@ -916,10 +916,10 @@ class Scheme:
         return [self.__get_element(i, j) for i in range(self.n[0]) for j in range(self.n[2])]
 
     def __get_tensor(self, index: int) -> str:
-        u = self.__get_addition([(self.u[index][i], f"a{i // self.n[1] + 1}{i % self.n[1] + 1}") for i in range(self.nn[0])])
-        v = self.__get_addition([(self.v[index][i], f"b{i // self.n[2] + 1}{i % self.n[2] + 1}") for i in range(self.nn[1])])
-        w = self.__get_addition([(self.w[index][i], f"c{i % self.n[0] + 1}{i // self.n[0] + 1}") for i in range(self.nn[2])])
-        return f"({u})×({v})×({w})"
+        u = self.__get_addition([(self.u[index][i], f"a_{i // self.n[1] + 1}_{i % self.n[1] + 1}") for i in range(self.nn[0])])
+        v = self.__get_addition([(self.v[index][i], f"b_{i // self.n[2] + 1}_{i % self.n[2] + 1}") for i in range(self.nn[1])])
+        w = self.__get_addition([(self.w[index][i], f"c_{i // self.n[0] + 1}_{i % self.n[0] + 1}") for i in range(self.nn[2])])
+        return f"+({u})*({v})*({w})"
 
     def __get_multiplication(self, index: int) -> str:
         product = "∧" if self.z2 else "*"
