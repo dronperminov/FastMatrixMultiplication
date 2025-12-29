@@ -265,7 +265,7 @@ class Scheme:
     def from_txt(cls, path: str, validate: bool = True) -> "Scheme":
         with open(path) as f:
             text = " ".join([line.strip() for line in f.readlines() if not line.startswith("#")])
-            text = map(int, re.split("[\s\n]+", text))
+            text = map(int, re.split(r"[\s\n]+", text))
 
         n1, n2, n3, m, *uvw = text
         nn = [n1 * n2, n2 * n3, n3 * n1]
@@ -274,9 +274,9 @@ class Scheme:
         v_values = uvw[nn[0]*m:(nn[0] + nn[1])*m]
         w_values = uvw[(nn[0] + nn[1])*m:]
 
-        u = [[u_values[i * m + index] for i in range(nn[0])] for index in range(m)]
-        v = [[v_values[i * m + index] for i in range(nn[1])] for index in range(m)]
-        w = [[w_values[(j * n3 + i) * m + index] for i in range(n3) for j in range(n1)] for index in range(m)]
+        u = [[u_values[index * nn[0] + i] for i in range(nn[0])] for index in range(m)]
+        v = [[v_values[index * nn[1] + i] for i in range(nn[1])] for index in range(m)]
+        w = [[w_values[index * nn[2] + i] for i in range(nn[2])] for index in range(m)]
         z2 = set(uvw) == {0, 1}
         return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=z2, validate=validate)
 
