@@ -20,12 +20,15 @@ coefficients. This can lead to more efficient and hardware-friendly implementati
 * `3x5x10`: found scheme with `115` multiplications and `730` naive additions (20.12.2025);
 * `6x6x7`: found scheme with `183` multiplications and `2493` naive additions (02.12.2025);
 
+### Additions reducing
+* discovered a `3x3x3` matrix multiplication scheme with `23` multiplications and `58` additions (25.12.2025);
+
 ### Binary field improvement (`Z2`)
 * `7x7x8`: reduced multiplications from `274` to `273` (01.01.2026);
 * `7x7x8`: reduced multiplications from `275` to `274` (02.12.2025);
 
-### Additions reducing
-* discovered a `3x3x3` matrix multiplication scheme with `23` multiplications and `58` additions (25.12.2025);
+### Binary field rediscovery (`Z2`)
+* `3x3x9`: found scheme with `63` multiplications and `1221` naive xor operators (02.01.2026)
 
 ## Publications
 
@@ -685,7 +688,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |      `(3, 3, 6)`       |      43 (?)      |       42        |       40        |        42        |           -            |           -           |           -           |
 |      `(3, 3, 7)`       |      51 (?)      |     51 (?)      |       49        |      49 (?)      |           -            |           -           |           -           |
 |      `(3, 3, 8)`       |      58 (?)      |     58 (?)      |       55        |      56 (?)      |           -            |           -           |           -           |
-|      `(3, 3, 9)`       |      65 (?)      |     65 (?)      |       63        |      64 (?)      |           -            |           -           |           -           |
+|      `(3, 3, 9)`       |      65 (?)      |     65 (?)      |       63        |      63 (?)      |           -            |           -           |           -           |
 |      `(3, 3, 10)`      |      72 (?)      |     72 (?)      |       69        |      71 (?)      |           -            |           -           |           -           |
 |      `(3, 3, 11)`      |      79 (?)      |     79 (?)      |       76        |      78 (?)      |           -            |           -           |           -           |
 |      `(3, 3, 12)`      |      86 (?)      |     86 (?)      |       80        |      84 (?)      |           -            |           -           |           -           |
