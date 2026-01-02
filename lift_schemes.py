@@ -19,7 +19,7 @@ def main():
     args = parser.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
-    extensions = (".json", ".exp", ".m", "tensor.mpl", "lrp.mpl")
+    extensions = (".json", ".exp", ".m", "tensor.mpl", "lrp.mpl", ".txt")
     filenames = sorted(filename for filename in os.listdir(args.input_dir) if filename.lower().endswith(extensions) and "solution" not in filename)[args.skip:]
 
     if not filenames:
