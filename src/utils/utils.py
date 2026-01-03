@@ -5,6 +5,9 @@ from typing import Iterable, Union
 
 def format_value(value: Union[int, str, Fraction]) -> str:
     if isinstance(value, Fraction):
+        if value.denominator == 1:
+            return str(value.numerator)
+
         return f'"{value.numerator}/{value.denominator}"'
 
     if isinstance(value, dict):
