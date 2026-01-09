@@ -247,6 +247,26 @@ def plot_zt_table(status: Dict[str, dict]) -> None:
         print(f"| {size:^12} | {rank:^4} | {rings:^10} |")
 
 
+def plot_z_table(status: Dict[str, dict]) -> None:
+    print("\n\n### Rediscovery in the integer ring (`Z`)")
+    print("The following schemes, originally known over the rational field (`Q`), have now been rediscovered in the integer ring (`Z`).")
+    print("Implementations restricted to integer coefficients were previously unknown.\n")
+    print("|    Format    | Rank |")
+    print("|:------------:|:----:|")
+
+    for size, data in status.items():
+        ring2known_rank = {}
+
+        for ring, schemes in data["schemes"].items():
+            known_schemes = [scheme for scheme in schemes if "known" in scheme["source"]]
+            if known_schemes:
+                ring2known_rank[ring] = known_schemes[0]["rank"]
+
+        min_known_rank = min(ring2known_rank.values())
+        if ("Z" not in ring2known_rank or ring2known_rank["Z"] > min_known_rank) and data["ranks"]["ZT"] > min_known_rank and data["ranks"]["Z"] == min_known_rank:
+            print(f'| {format_size(size):^12} | {data["ranks"]["Z"]:^4} |')
+
+
 def plot_new_ranks_z2_table(status: Dict[str, dict]) -> None:
     print("\n\n### New discoveries in binary field (`Z2`)")
     print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication in the binary field (`Z2`),")
@@ -375,6 +395,7 @@ def main():
     status = analyze_schemes(input_dirs=input_dirs, n_max=n_max, extensions=extensions, ring2equal_rings=ring2equal_rings)
     plot_new_ranks_table(status)
     plot_zt_table(status)
+    plot_z_table(status)
     plot_reduce_additions_table()
     plot_new_ranks_z2_table(status)
     plot_new_complexities_table(status)
