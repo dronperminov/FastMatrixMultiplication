@@ -16,40 +16,7 @@ coefficients. This can lead to more efficient and hardware-friendly implementati
 
 ## Latest progress
 
-### Integer ring rediscovery (`Z`)
-* `5x7x8`: found scheme with `205` multiplications (10.01.2026);
-* `5x7x9`: found scheme with `229` multiplications (10.01.2026);
-* `2x5x7`: found scheme with `55` multiplications (09.01.2026);
-* `2x5x8`: found scheme with `63` multiplications (09.01.2026);
-* `2x6x8`: found scheme with `75` multiplications (09.01.2026);
-* `2x7x7`: found scheme with `76` multiplications (09.01.2026);
-* `3x3x7`: found scheme with `49` multiplications (09.01.2026);
-* `3x3x9`: found scheme with `63` multiplications (09.01.2026);
-* `3x4x8`: found scheme with `73` multiplications (09.01.2026);
-* `3x5x7`: found scheme with `79` multiplications (09.01.2026);
-* `3x7x7`: found scheme with `111` multiplications (09.01.2026);
-
-### Ternary coefficient rediscovery (`ZT`)
-* `3x4x6`: found scheme with `54` multiplications (07.01.2026);
-* `3x4x9`: found scheme with `83` multiplications (07.01.2026);
-* `3x4x10`: found scheme with `92` multiplications (07.01.2026);
-* `3x4x11`: found scheme with `101` multiplications (07.01.2026);
-* `3x4x12`: found scheme with `108` multiplications (07.01.2026);
-* `3x4x16`: found scheme with `146` multiplications (07.01.2026);
-* `3x6x8`: found scheme with `108` multiplications (07.01.2026);
-* `4x6x9`: found scheme with `159` multiplications (07.01.2026);
-* `3x5x10`: found scheme with `115` multiplications and `730` naive additions (20.12.2025);
-* `6x6x7`: found scheme with `183` multiplications and `2493` naive additions (02.12.2025);
-
-### Additions reducing
-* discovered a `3x3x3` matrix multiplication scheme with `23` multiplications and `58` additions (25.12.2025);
-
-### Binary field improvement (`Z2`)
-* `7x7x8`: reduced multiplications from `274` to `273` (01.01.2026);
-* `7x7x8`: reduced multiplications from `275` to `274` (02.12.2025);
-
-### Binary field rediscovery (`Z2`)
-* `3x3x9`: found scheme with `63` multiplications and `1221` naive xor operators (02.01.2026)
+For a detailed history of discoveries and improvements, see the [CHANGELOG.md](CHANGELOG.md).
 
 ## Publications
 
@@ -86,6 +53,7 @@ with coefficients restricted to the ternary set were previously unknown.
 | `(2, 4, 15)` |  96  |    `Q`     |
 | `(2, 5, 9)`  |  72  |    `Q`     |
 | `(2, 6, 9)`  |  86  |    `Z`     |
+| `(2, 7, 8)`  |  88  |    `Z`     |
 | `(3, 4, 5)`  |  47  |    `Z`     |
 | `(3, 4, 6)`  |  54  |   `Z/Q`    |
 | `(3, 4, 9)`  |  83  |    `Q`     |
@@ -358,6 +326,7 @@ The naive addition complexity - is the number of nonzero coefficients minus `2·
 | `(2, 4, 15)` |  96  |          1314           |          662           |
 | `(2, 5, 9)`  |  72  |           565           |          465           |
 | `(2, 6, 9)`  |  86  |           691           |          548           |
+| `(2, 7, 8)`  |  88  |           783           |          745           |
 | `(3, 4, 5)`  |  47  |           293           |          277           |
 | `(3, 5, 5)`  |  58  |           357           |          351           |
 | `(3, 5, 10)` | 115  |           778           |          730           |
@@ -727,7 +696,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |      `(2, 6, 9)`       |      86 (?)      |       86        |       86        |        86        |        548 (?)         |       548 (691)       |       548 (691)       |
 |      `(2, 6, 10)`      |        94        |       94        |       94        |        94        |          668           |          668          |          668          |
 |      `(2, 7, 7)`       |      77 (?)      |     76 (?)      |       76        |        76        |           -            |           -           |           -           |
-|      `(2, 7, 8)`       |      90 (?)      |       88        |       88        |        88        |           -            |           -           |           -           |
+|      `(2, 7, 8)`       |      88 (?)      |       88        |       88        |        88        |        745 (?)         |       745 (783)       |       745 (783)       |
 |      `(2, 7, 9)`       |     102 (?)      |     100 (?)     |       99        |     100 (?)      |           -            |           -           |           -           |
 |      `(2, 8, 8)`       |       100        |       100       |       100       |       100        |          608           |          608          |          608          |
 |      `(3, 3, 3)`       |        23        |       23        |       23        |        23        |           84           |          84           |          84           |
