@@ -1,5 +1,13 @@
 # Changelog
 
+## 18.01.2026
+### Rational field improvement (`Q`)
+* `2x4x9`: found scheme with `58` multiplications;
+* `4x5x10`: found scheme with `150` multiplications;
+
+### Binary field rediscovery (`Z2`)
+* `3x3x8`: found scheme with `55` multiplications;
+
 ## 11.01.2026
 ### Ternary coefficient rediscovery (`ZT`)
 * `2x7x8`: found scheme with `88` multiplications;

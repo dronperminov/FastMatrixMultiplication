@@ -199,25 +199,27 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
 
 
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
-    print("\n\n### New best ranks in the ternary coefficient set (`ZT`)")
-    print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication with coefficients restricted to the ternary set `{-1, 0, 1}`,")
-    print("achieving lower ranks than previously known.\n")
-    print("|    Format    |  Prev rank  | New rank | Naive complexity |")
-    print("|:------------:|:-----------:|:--------:|:----------------:|")
+    print("\n\n### New best ranks")
+    print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than previously known.\n")
+    print("|    Format    |  Prev rank  |  New rank  |")
+    print("|:------------:|:-----------:|:----------:|")
 
     for size, data in status.items():
-        ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items() if ring != "Z2"}
-        min_known_rank = min(scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if ring != "Z2" and "known" in scheme["source"])
         min_rank = min(rank for ring, rank in data["ranks"].items() if ring != "Z2")
+        min_known_rank = min(scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if ring != "Z2" and "known" in scheme["source"])
+
         if min_rank >= min_known_rank:
             continue
 
+        ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items() if ring != "Z2"}
         ring2known_rank = {ring: min(ranks) for ring, ranks in ring2known_ranks.items() if ranks}
         known_rings = [ring for ring in ["ZT", "Z", "Q"] if ring2known_rank.get(ring) == min_known_rank]
-        size = format_size(size)
+        rings = [ring for ring in ["ZT", "Z", "Q"] if ring in data["schemes"] and data["schemes"][ring][0]["rank"] == min_rank]
+
         prev = f"{min_known_rank} (`{'/'.join(known_rings)}`)"
-        complexity = data["complexities"]["ZT"]
-        print(f"| {size:^12} | {prev:^11} | {min_rank:^8} | {complexity:^16} |")
+        curr = f"{min_rank} (`{'/'.join(rings)}`)"
+        size = format_size(size)
+        print(f"| {size:^12} | {prev:^11} | {curr:^10} |")
 
 
 def plot_zt_table(status: Dict[str, dict]) -> None:
@@ -228,23 +230,20 @@ def plot_zt_table(status: Dict[str, dict]) -> None:
     print("|:------------:|:----:|:----------:|")
 
     for size, data in status.items():
-        ring2known_scheme = {}
+        ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items() if ring != "Z2"}
+        ring2known_rank = {ring: min(ranks) for ring, ranks in ring2known_ranks.items() if ranks}
+        min_known_rank = min(min(ranks) for ranks in ring2known_ranks.values() if ranks)
+        min_rank = min(rank for ring, rank in data["ranks"].items() if ring != "Z2")
 
-        for ring, schemes in data["schemes"].items():
-            known_schemes = [scheme for scheme in schemes if "known" in scheme["source"]]
-            if known_schemes:
-                ring2known_scheme[ring] = known_schemes[0]
-
-        min_known_rank = min(scheme["rank"] for ring, scheme in ring2known_scheme.items())
-        if "ZT" in ring2known_scheme and ring2known_scheme["ZT"]["rank"] == min_known_rank or "ZT" not in data["ranks"] or data["ranks"]["ZT"] != min_known_rank:
+        zt_rank = data["ranks"].get("ZT")
+        if zt_rank != min_rank or zt_rank != min_known_rank or zt_rank == ring2known_rank.get("ZT"):
             continue
 
-        rank = data["ranks"]["ZT"]
-        rings = [ring for ring in ["Z", "Q"] if ring in data["schemes"] and data["schemes"][ring][0]["rank"] == min_known_rank]
+        rings = [ring for ring in ["Z", "Q"] if ring in data["schemes"] and data["schemes"][ring][0]["rank"] == zt_rank]
 
         size = format_size(size)
         rings = f"`{'/'.join(rings)}`"
-        print(f"| {size:^12} | {rank:^4} | {rings:^10} |")
+        print(f"| {size:^12} | {zt_rank:^4} | {rings:^10} |")
 
 
 def plot_z_table(status: Dict[str, dict]) -> None:
