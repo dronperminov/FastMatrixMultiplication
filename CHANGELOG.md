@@ -1,5 +1,9 @@
 # Changelog
 
+## 25.01.2026
+### Ternary coefficient rediscovery (`ZT`)
+* `3x3x7`: found scheme with `49` multiplications;
+
 ## 18.01.2026
 ### Rational field improvement (`Q`)
 * `2x4x9`: found scheme with `58` multiplications;
