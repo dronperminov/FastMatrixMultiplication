@@ -239,7 +239,7 @@ def plot_zt_table(status: Dict[str, dict]) -> None:
         if zt_rank != min_rank or zt_rank != min_known_rank or zt_rank == ring2known_rank.get("ZT"):
             continue
 
-        rings = [ring for ring in ["Z", "Q"] if ring in data["schemes"] and data["schemes"][ring][0]["rank"] == zt_rank]
+        rings = [ring for ring in ["Z", "Q"] if ring2known_rank.get(ring) == zt_rank]
 
         size = format_size(size)
         rings = f"`{'/'.join(rings)}`"

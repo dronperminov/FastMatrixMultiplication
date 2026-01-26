@@ -54,7 +54,7 @@ with coefficients restricted to the ternary set were previously unknown.
 | `(2, 5, 9)`  |  72  |    `Q`     |
 | `(2, 6, 9)`  |  86  |    `Z`     |
 | `(2, 7, 8)`  |  88  |    `Z`     |
-| `(3, 3, 7)`  |  49  |   `Z/Q`    |
+| `(3, 3, 7)`  |  49  |    `Q`     |
 | `(3, 4, 5)`  |  47  |    `Z`     |
 | `(3, 4, 6)`  |  54  |   `Z/Q`    |
 | `(3, 4, 9)`  |  83  |    `Q`     |
