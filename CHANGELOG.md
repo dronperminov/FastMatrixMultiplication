@@ -2,7 +2,15 @@
 
 ## 31.01.2026
 ### Ternary coefficient improvement (`ZT`)
-* `4x4x10`: found scheme with `118` multiplications;
+* `4x4x10`: found scheme with `115` multiplications;
+* `4x4x12`: found scheme with `141` multiplications;
+* `4x4x14`: found scheme with `164` multiplications;
+* `4x4x15`: found scheme with `176` multiplications;
+* `4x4x16`: found scheme with `188` multiplications;
+
+### Rational field improvement (`Q`)
+* `4x4x14`: found scheme with `163` multiplications;
+
 
 ## 25.01.2026
 ### Ternary coefficient rediscovery (`ZT`)
