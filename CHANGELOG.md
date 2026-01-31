@@ -2,7 +2,7 @@
 
 ## 31.01.2026
 ### Ternary coefficient improvement (`ZT`)
-* `4x4x10`: found scheme with `119` multiplications;
+* `4x4x10`: found scheme with `118` multiplications;
 
 ## 25.01.2026
 ### Ternary coefficient rediscovery (`ZT`)
