@@ -1,5 +1,9 @@
 # Changelog
 
+## 02.02.2026
+### Ternary coefficient rediscovery (`ZT`)
+* `3x3x9`: found scheme with `63` multiplications;
+
 ## 31.01.2026
 ### Ternary coefficient improvement (`ZT`)
 * `4x4x10`: found scheme with `115` multiplications;
