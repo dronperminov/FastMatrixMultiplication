@@ -1,5 +1,14 @@
 # Changelog
 
+## 04.02.2026
+### Ternary coefficient improvement (`ZT`)
+* `4x5x9`: found scheme with `132` multiplications;
+* `4x5x10`: found scheme with `146` multiplications;
+* `4x5x11`: found scheme with `160` multiplications;
+* `4x5x12`: found scheme with `176` multiplications;
+* `5x5x9`: found scheme with `166` multiplications;
+* `6x7x7`: found scheme with `213` multiplications;
+
 ## 03.02.2026
 ### Ternary coefficient rediscovery (`ZT`)
 * `4x7x7`: found scheme with `144` multiplications;
