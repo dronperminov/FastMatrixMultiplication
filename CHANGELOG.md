@@ -3,6 +3,10 @@
 ## 05.02.2026
 ### Ternary coefficient improvement (`ZT`)
 * `4x5x12`: found scheme with `175` multiplications;
+* `4x5x13`: found scheme with `192` multiplications;
+* `4x5x14`: found scheme with `207` multiplications;
+* `4x5x15`: found scheme with `221` multiplications;
+* `4x5x16`: found scheme with `236` multiplications;
 * `5x5x9`: found scheme with `163` multiplications;
 * `5x7x8`: found scheme with `204` multiplications;
 * `6x7x7`: found scheme with `212` multiplications;
