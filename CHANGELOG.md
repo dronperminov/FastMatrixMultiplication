@@ -7,9 +7,11 @@
 * `4x5x14`: found scheme with `207` multiplications;
 * `4x5x15`: found scheme with `221` multiplications;
 * `4x5x16`: found scheme with `236` multiplications;
+* `4x9x11`: found scheme with `279` multiplications;
 * `5x5x9`: found scheme with `163` multiplications;
 * `5x7x8`: found scheme with `204` multiplications;
 * `6x7x7`: found scheme with `212` multiplications;
+* `6x7x8`: found scheme with `238` multiplications;
 
 ## 04.02.2026
 ### Ternary coefficient improvement (`ZT`)
