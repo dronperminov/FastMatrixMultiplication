@@ -1,8 +1,38 @@
 # Changelog
 
 ## 06.02.2026
-### Ternary coefficient improvement (`ZT`)
-* `4x7x11`: found scheme with `226` multiplications;
+### Rank improvement
+* `2x8x13`: found scheme with `163` multiplications (`Z`);
+* `4x7x11`: found scheme with `226` multiplications (`ZT`);
+* `6x7x10`: found scheme with `293` multiplications (`Q`);
+* `7x7x10`: found scheme with `345` multiplications (`Q`);
+
+### Integer ring rediscovery (`Z`)
+* `2x5x13`: found scheme with `102` multiplications;
+* `2x5x14`: found scheme with `110` multiplications;
+* `2x5x15`: found scheme with `118` multiplications;
+* `2x5x16`: found scheme with `126` multiplications;
+* `2x6x13`: found scheme with `122` multiplications;
+* `2x6x14`: found scheme with `131` multiplications;
+* `2x7x12`: found scheme with `131` multiplications;
+* `2x7x13`: found scheme with `142` multiplications;
+* `2x7x14`: found scheme with `152` multiplications;
+* `2x7x15`: found scheme with `164` multiplications;
+* `2x8x14`: found scheme with `175` multiplications;
+* `3x5x13`: found scheme with `147` multiplications;
+* `3x5x14`: found scheme with `158` multiplications;
+* `3x5x15`: found scheme with `169` multiplications;
+* `3x8x9`: found scheme with `163` multiplications;
+* `3x8x11`: found scheme with `198` multiplications;
+* `3x8x16`: found scheme with `288` multiplications;
+* `5x8x9`: found scheme with `260` multiplications;
+* `5x9x11`: found scheme with `353` multiplications;
+* `5x9x12`: found scheme with `377` multiplications;
+* `6x8x16`: found scheme with `511` multiplications;
+* `6x9x11`: found scheme with `407` multiplications;
+* `6x9x12`: found scheme with `434` multiplications;
+* `7x9x11`: found scheme with `480` multiplications;
+
 
 ## 05.02.2026
 ### Ternary coefficient improvement (`ZT`)
