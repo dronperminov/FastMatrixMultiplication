@@ -1,5 +1,6 @@
 import itertools
 import json
+import math
 import random
 import re
 from collections import defaultdict
@@ -189,15 +190,15 @@ class Scheme:
 
             for i in range(n1):
                 for j in range(n2):
-                    u[index][i * n2 + j] = a[i][j]
+                    u[index][i * n2 + j] = cls.__parse_value(a[i][j])
 
             for i in range(n2):
                 for j in range(n3):
-                    v[index][i * n3 + j] = b[i][j]
+                    v[index][i * n3 + j] = cls.__parse_value(b[i][j])
 
             for i in range(n3):
                 for j in range(n1):
-                    w[index][i * n1 + j] = c[i][j]
+                    w[index][i * n1 + j] = cls.__parse_value(c[i][j])
 
         return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=False, validate=validate)
 
@@ -378,6 +379,9 @@ class Scheme:
         sorted_ranks = sorted(powers.items(), key=lambda v: (sum(v[0]), sum(v[0][:2]), v[0]), reverse=True)
         coefficients = [f'{self.__pc(count)}{self.__pp("X", rank_a)}{self.__pp("Y", rank_b)}{self.__pp("Z", rank_c)}' for (rank_a, rank_b, rank_c), count in sorted_ranks]
         return " + ".join(coefficients)
+
+    def omega(self) -> float:
+        return 3 * math.log(self.m) / math.log(self.n[0] * self.n[1] * self.n[2])
 
     def complexity(self) -> int:
         u_ones = sum(bool(value) for row in self.u for value in row)
@@ -588,7 +592,7 @@ class Scheme:
                             col = col1 * scheme.n[p1] + col2
                             uvw[p][index][row * n[p1] + col] = uvw1[p][index1][i] * uvw2[p][index2][j]
 
-        return Scheme(n1=n[0], n2=n[1], n3=n[2], m=m, u=uvw[0], v=uvw[1], w=uvw[2], z2=self.z2)
+        return Scheme(n1=n[0], n2=n[1], n3=n[2], m=m, u=uvw[0], v=uvw[1], w=uvw[2], z2=self.z2, validate=False)
 
     def project(self, p: int, q: int) -> None:
         self.__exclude_row(p, q)

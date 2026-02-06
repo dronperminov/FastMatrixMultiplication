@@ -7,6 +7,9 @@
 * `6x7x10`: found scheme with `293` multiplications (`Q`);
 * `7x7x10`: found scheme with `345` multiplications (`Q`);
 
+### Ternary coefficient rediscovery (`ZT`)
+* `8x9x11`: found scheme with `533` multiplications;
+
 ### Integer ring rediscovery (`Z`)
 * `2x5x13`: found scheme with `102` multiplications;
 * `2x5x14`: found scheme with `110` multiplications;

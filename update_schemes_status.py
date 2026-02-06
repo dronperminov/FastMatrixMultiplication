@@ -19,8 +19,8 @@ def init_status(n_max: int) -> dict:
     for n1 in range(2, n_max + 1):
         for n2 in range(n1, n_max + 1):
             for n3 in range(n2, n_max + 1):
-                if n1 * n2 <= 64 and n2 * n3 <= 64 and n1 * n3 <= 64:
-                    status[f"{n1}x{n2}x{n3}"] = current_status.get(f"{n1}x{n2}x{n3}", {"ranks": {}, "complexities": {}, "schemes": defaultdict(list)})
+                if max(n1 * n2, n2 * n3, n1 * n3) <= 128:
+                    status[f"{n1}x{n2}x{n3}"] = current_status.get(f"{n1}x{n2}x{n3}", {"ranks": {}, "omegas": {}, "complexities": {}, "schemes": defaultdict(list)})
 
     return status
 
@@ -39,11 +39,13 @@ def find_duplicate(data: List[dict], scheme: Scheme) -> Optional[dict]:
 def postprocess_size(data: dict, ring2equal_rings: Dict[str, List[str]]) -> None:
     data["ranks"] = {}
     data["complexities"] = {}
+    data["omegas"] = {}
 
     for ring, schemes in data["schemes"].items():
         schemes = sorted(schemes, key=lambda info: (info["rank"], info["complexity"], not info["source"].startswith("schemes/known/")))
         rank = schemes[0]["rank"]
         complexity = schemes[0]["complexity"]
+        omega = schemes[0]["omega"]
 
         for equal_ring in ring2equal_rings[ring]:
             if equal_ring not in data["ranks"] or rank < data["ranks"][equal_ring]:
@@ -51,6 +53,9 @@ def postprocess_size(data: dict, ring2equal_rings: Dict[str, List[str]]) -> None
 
             if equal_ring not in data["complexities"] or complexity < data["complexities"][equal_ring]:
                 data["complexities"][equal_ring] = complexity
+
+            if equal_ring not in data["omegas"] or omega < data["omegas"][equal_ring]:
+                data["omegas"][equal_ring] = omega
 
         data["schemes"][ring] = schemes
 
@@ -99,15 +104,22 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
             scheme = Scheme.load(path=input_path, validate=False)
             scheme.fix_sizes()
 
+            for matrix in [scheme.u, scheme.v, scheme.w]:
+                for row in matrix:
+                    for value in row:
+                        assert not isinstance(value, float)
+
             ring = scheme.get_ring()
             size = scheme.get_key(sort=False)
             size_key = scheme.get_key(sort=True)
+            omega = scheme.omega()
             complexity = scheme.complexity()
             output_path = f"schemes/status/{ring}/{size}_m{scheme.m}_{ring}.json"
 
             print(f"  - size: {size}")
             print(f"  - rank: {scheme.m}")
             print(f"  - ring: {ring}")
+            print(f"  - omega: {omega}")
             print(f"  - complexity: {complexity}")
 
             if os.path.exists(output_path):
@@ -126,11 +138,11 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
             if ring not in status[size_key]["schemes"]:
                 status[size_key]["schemes"][ring] = []
 
-            status[size_key]["schemes"][ring].append({"rank": scheme.m, "complexity": complexity, "source": input_path, "path": output_path})
+            status[size_key]["schemes"][ring].append({"rank": scheme.m, "omega": omega, "complexity": complexity, "source": input_path, "path": output_path})
             scheme.save(output_path)
             print(f'  - saved to "{output_path}"')
 
-        for size, data in status.items():
+        for data in status.values():
             postprocess_size(data=data, ring2equal_rings=ring2equal_rings)
 
         with open("schemes/status.json", "w", encoding="utf-8") as f:
@@ -226,8 +238,8 @@ def plot_zt_table(status: Dict[str, dict]) -> None:
     print("\n\n### Rediscovery in the ternary coefficient set (`ZT`)")
     print("The following schemes have been rediscovered in the `ZT` format. Originally known over the rational (`Q`) or integer (`Z`) fields, implementations")
     print("with coefficients restricted to the ternary set were previously unknown.\n")
-    print("|    Format    | Rank | Known ring |")
-    print("|:------------:|:----:|:----------:|")
+    print("|     Format     | Rank | Known ring |")
+    print("|:--------------:|:----:|:----------:|")
 
     for size, data in status.items():
         ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items() if ring != "Z2"}
@@ -243,15 +255,15 @@ def plot_zt_table(status: Dict[str, dict]) -> None:
 
         size = format_size(size)
         rings = f"`{'/'.join(rings)}`"
-        print(f"| {size:^12} | {zt_rank:^4} | {rings:^10} |")
+        print(f"| {size:^14} | {zt_rank:^4} | {rings:^10} |")
 
 
 def plot_z_table(status: Dict[str, dict]) -> None:
     print("\n\n### Rediscovery in the integer ring (`Z`)")
     print("The following schemes, originally known over the rational field (`Q`), have now been rediscovered in the integer ring (`Z`).")
     print("Implementations restricted to integer coefficients were previously unknown.\n")
-    print("|    Format    | Rank |")
-    print("|:------------:|:----:|")
+    print("|     Format     | Rank |")
+    print("|:--------------:|:----:|")
 
     for size, data in status.items():
         ring2known_rank = {}
@@ -263,122 +275,7 @@ def plot_z_table(status: Dict[str, dict]) -> None:
 
         min_known_rank = min(ring2known_rank.values())
         if ("Z" not in ring2known_rank or ring2known_rank["Z"] > min_known_rank) and data["ranks"]["ZT"] > min_known_rank and data["ranks"]["Z"] == min_known_rank:
-            print(f'| {format_size(size):^12} | {data["ranks"]["Z"]:^4} |')
-
-
-def plot_new_ranks_z2_table(status: Dict[str, dict]) -> None:
-    print("\n\n### New discoveries in binary field (`Z2`)")
-    print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication in the binary field (`Z2`),")
-    print("achieving lower ranks than previously known.\n")
-    print("|    Format    | Prev rank | New rank |")
-    print("|:------------:|:---------:|:--------:|")
-
-    for size, data in status.items():
-        min_known_rank = min(scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if "known" in scheme["source"])
-        min_rank = data["ranks"]["Z2"]
-        if min_rank < min_known_rank:
-            print(f"| {format_size(size):^12} | {min_known_rank:^9} | {min_rank:^8} |")
-
-
-def plot_new_complexities_table(status: Dict[str, dict]) -> None:
-    print("\n\n### Reduce naive addition complexity")
-    print("The naive addition complexity - is the number of nonzero coefficients minus `2·rank + n·p`.\n")
-    print("|    Format    | Rank | Previous<br/>complexity | Current<br/>complexity |")
-    print("|:------------:|:----:|:-----------------------:|:----------------------:|")
-
-    for size, data in status.items():
-        schemes = [scheme for ring, schemes in data["schemes"].items() for scheme in schemes if ring != "Z2"]
-
-        known_schemes = [scheme for scheme in schemes if "known" in scheme["source"]]
-        known_rank = min(scheme["rank"] for scheme in known_schemes)
-        known_complexity = min(scheme["complexity"] for scheme in known_schemes if scheme["rank"] == known_rank)
-
-        new_schemes = [scheme for scheme in data["schemes"].get("ZT", []) if "known" not in scheme["source"] and scheme["rank"] == known_rank]
-        new_complexity = min([scheme["complexity"] for scheme in new_schemes], default=known_complexity)
-
-        if new_complexity < known_complexity:
-            print(f"| {format_size(size):^12} | {known_rank:^4} | {known_complexity:^23} | {new_complexity:^22} |")
-
-
-def plot_reduce_additions_table() -> None:
-    with open("schemes/status.json") as f:
-        status = json.load(f)
-
-    min_known_ranks = {tuple(map(int, size.split("x"))): min(data["ranks"][ring] for ring in ["Z", "Q"]) for size, data in status.items()}
-
-    with open("schemes/reduced_known.json") as f:
-        reduced_known = json.load(f)
-
-    with open("schemes/fmm_add_reduction.json") as f:
-        fmm_add_reduction = json.load(f)
-
-    reduced_new = {}
-    for filename in os.listdir("schemes/results/addition_reduced_ZT"):
-        if not filename.endswith(f"ZT_reduced.json"):
-            continue
-
-        with open(f"schemes/results/addition_reduced_ZT/{filename}") as f:
-            reduced_data = json.load(f)
-
-        (n1, n2, n3), rank, complexity = reduced_data["n"], reduced_data["m"], reduced_data["complexity"]
-        fresh_vars = len(reduced_data["u_fresh"]) + len(reduced_data["v_fresh"]) + len(reduced_data["w_fresh"])
-        key = f"{n1}x{n2}x{n3}-{rank}"
-
-        known_complexity = reduced_known.get(key, {"Z": "?", "Z2": "?"}).get("Z", "?")
-        greedy_vanilla = "?" if key not in fmm_add_reduction or not fmm_add_reduction[key]["greedy vanilla"] else fmm_add_reduction[key]["greedy vanilla"][0]["reduced"]
-        greedy_potential5 = "?" if key not in fmm_add_reduction or not fmm_add_reduction[key]["greedy potential (5 steps)"] else fmm_add_reduction[key]["greedy potential (5 steps)"][0]["reduced"]
-        greedy_potential40 = "?" if key not in fmm_add_reduction or not fmm_add_reduction[key]["greedy potential (40 steps)"] else fmm_add_reduction[key]["greedy potential (40 steps)"][0]["reduced"]
-
-        if (n1, n2, n3) not in reduced_new or (rank, complexity["reduced"], complexity["naive"]) < (reduced_new[(n1, n2, n3)]["rank"], reduced_new[(n1, n2, n3)]["reduced"], reduced_new[(n1, n2, n3)]["naive"]):
-            reduced_new[(n1, n2, n3)] = {
-                "rank": rank,
-                "naive": complexity["naive"],
-                "reduced": complexity["reduced"],
-                "fresh_vars": fresh_vars,
-                "known": known_complexity,
-                "greedy vanilla": greedy_vanilla,
-                "greedy potential (5 steps)": greedy_potential5,
-                "greedy potential (40 steps)": greedy_potential40,
-            }
-
-    print("\n\n### Reduce addition complexity")
-    print("The following schemes have been optimized for addition count, achieving fewer operations than previously known through common subexpression elimination:\n")
-    print("The results compare different approaches using the [fmm_add_reduction](https://github.com/werekorren/fmm_add_reduction) tool:")
-    print("* `fmm gv` - greedy vanilla,")
-    print("* `fmm gp (5 steps)` - greedy potential with default parameters `0 0.5 5`),")
-    print("* `fmm gp (40 steps)` - greedy potential with parameters `0 0.5 40`).\n")
-
-    print("|    Format    |        Rank        | Best known | Naive | fmm<br>gv | fmm gp<br>5 steps | fmm gp<br>40 steps |  Proposed  | Saved | Improved (%) |")
-    print("|:------------:|:------------------:|:----------:|:-----:|:---------:|:-----------------:|:------------------:|:----------:|:-----:|:------------:|")
-
-    for n1, n2, n3 in sorted(reduced_new):
-        data = reduced_new[(n1, n2, n3)]
-
-        size = f"{n1}x{n2}x{n3}"
-        optimal = " (near optimal)" if data["rank"] > min_known_ranks[(n1, n2, n3)] else ""
-        rank = f'{data["rank"]}{optimal}'
-
-        naive, known, reduced = data["naive"], data["known"], data["reduced"]
-        greedy_vanilla, greedy_potential5, greedy_potential40 = data["greedy vanilla"], data["greedy potential (5 steps)"], data["greedy potential (40 steps)"]
-        saved = naive - reduced
-        improved = (naive - reduced) / naive * 100
-
-        additions = {value for value in [greedy_vanilla, greedy_potential5, greedy_potential40, reduced] if value != "?"}
-        min_additions = min(additions)
-
-        if greedy_vanilla == min_additions and len(additions) > 1:
-            greedy_vanilla = f"**{greedy_vanilla}**"
-
-        if greedy_potential5 == min_additions and len(additions) > 1:
-            greedy_potential5 = f"**{greedy_potential5}**"
-
-        if greedy_potential40 == min_additions and len(additions) > 1:
-            greedy_potential40 = f"**{greedy_potential40}**"
-
-        if reduced == min_additions and len(additions) > 1:
-            reduced = f"**{reduced}**"
-
-        print(f'| {format_size(size):^12} | {rank:^18} | {known:^10} | {naive:^5} | {greedy_vanilla:^9} | {greedy_potential5:^17} | {greedy_potential40:^18} | {reduced:^10} | {saved:^5} | {improved:^12.1f} |')
+            print(f'| {format_size(size):^14} | {data["ranks"]["Z"]:^4} |')
 
 
 def main():
@@ -395,9 +292,6 @@ def main():
     plot_new_ranks_table(status)
     plot_zt_table(status)
     plot_z_table(status)
-    plot_reduce_additions_table()
-    plot_new_ranks_z2_table(status)
-    plot_new_complexities_table(status)
     plot_full_table(status, ring2equal_rings=ring2equal_rings)
 
 
