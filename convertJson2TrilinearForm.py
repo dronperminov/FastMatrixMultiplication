@@ -8,5 +8,12 @@ argparser = argparse.ArgumentParser(prog='convertJson2TrilinearForm.py',
 argparser.add_argument('--json_file', help='the jsoninput file')
 args = argparser.parse_args()
 
-scheme = Scheme.load(args.json_file)
-scheme.show_tensors()
+try:
+    scheme = Scheme.load(args.json_file)
+    print("pol:=")
+    scheme.show_tensors()
+    print(";")
+except:
+    argparser.print_help()
+
+

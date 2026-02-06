@@ -945,12 +945,12 @@ class Scheme:
             if not value:
                 continue
 
-            coefficient = "" if abs(value) == 1 else f"{abs(value)}"
+            coefficient = "1" if abs(value) == 1 else f"{abs(value)}"
 
             if not addition:
-                addition.append(f"{coefficient}{name}" if value > 0 else f"-{coefficient}{name}")
+                addition.append(f"{coefficient}*{name}" if value > 0 else f"-{coefficient}*{name}")
             else:
-                addition.append(f"+ {coefficient}{name}" if value > 0 else f"- {coefficient}{name}")
+                addition.append(f"+ {coefficient}*{name}" if value > 0 else f"- {coefficient}*{name}")
 
         return " ".join(addition)
 
