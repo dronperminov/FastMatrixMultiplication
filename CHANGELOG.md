@@ -1,5 +1,15 @@
 # Changelog
 
+## 07.02.2026
+### Rank improvement
+* `8x8x16`: found scheme with `671` multiplications (`Q`);
+* `8x9x14`: found scheme with `666` multiplications (`ZT`);
+* `9x10x10`: found scheme with `599` multiplications (`ZT`);
+
+### Ternary coefficient rediscovery (`ZT`)
+* `4x9x14`: found scheme with `355` multiplications;
+* `8x9x13`: found scheme with `624` multiplications;
+
 ## 06.02.2026
 ### Rank improvement
 * `2x8x13`: found scheme with `163` multiplications (`Z`);
