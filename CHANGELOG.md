@@ -1,5 +1,14 @@
 # Changelog
 
+## 08.02.2026
+### Rank improvement
+* `7x8x15`: found scheme with `570` multiplications (`Q`);
+* `9x11x11`: found scheme with `715` multiplications (`Q`);
+
+### Integer ring rediscovery (`Z`)
+* `5x8x16`: found scheme with `445` multiplications;
+* `7x8x16`: found scheme with `603` multiplications;
+
 ## 07.02.2026
 ### Rank improvement
 * `8x8x16`: found scheme with `671` multiplications (`Q`);
