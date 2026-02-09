@@ -2145,19 +2145,19 @@
         {
           "rank": 58,
           "omega": 2.8483235989537223,
+          "complexity": 568,
+          "source": "schemes/known/tensor/2x4x9_tensor.mpl",
+          "path": "schemes/status/Q/2x4x9_m58_Q_v2.json"
+        },
+        {
+          "rank": 58,
+          "omega": 2.8483235989537223,
           "complexity": 622,
           "source": "schemes/results/Q/2x4x9_m58_Q.json",
           "path": "schemes/status/Q/2x4x9_m58_Q.json",
           "duplicates": [
             "schemes/results/Q/2x4x9_m58_Q.m"
           ]
-        },
-        {
-          "rank": 59,
-          "omega": 2.8603150190577775,
-          "complexity": 379,
-          "source": "schemes/known/tensor/2x4x9_tensor.mpl",
-          "path": "schemes/status/Q/2x4x9_m59_Q.json"
         }
       ],
       "ZT": [

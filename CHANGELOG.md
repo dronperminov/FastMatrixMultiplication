@@ -105,7 +105,6 @@
 
 ## 18.01.2026
 ### Rational field improvement (`Q`)
-* `2x4x9`: found scheme with `58` multiplications;
 * `4x5x10`: found scheme with `150` multiplications;
 
 ### Binary field rediscovery (`Z2`)
