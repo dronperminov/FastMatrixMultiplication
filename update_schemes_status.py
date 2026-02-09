@@ -148,6 +148,14 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
         with open("schemes/status.json", "w", encoding="utf-8") as f:
             json.dump(status, f, indent=2, ensure_ascii=False, sort_keys=False)
 
+    for data in status.values():
+        for scheme_datas in data["schemes"].values():
+            for scheme_data in scheme_datas:
+                if not os.path.exists(scheme_data["path"]):
+                    scheme = Scheme.load(scheme_data["source"], validate=False)
+                    scheme.save(scheme_data["path"])
+                    print(f'Detected missed scheme "{scheme_data["path"]}" (reload from "{scheme_data["source"]}")')
+
     return status
 
 
