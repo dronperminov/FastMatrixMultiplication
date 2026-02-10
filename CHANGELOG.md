@@ -1,5 +1,9 @@
 # Changelog
 
+## 10.02.2026
+### Rank improvement
+* `8x9x11`: found scheme with `532` multiplications (`ZT`);
+
 ## 08.02.2026
 ### Rank improvement
 * `7x8x15`: found scheme with `570` multiplications (`Q`);
