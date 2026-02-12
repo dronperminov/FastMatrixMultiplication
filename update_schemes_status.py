@@ -19,8 +19,7 @@ def init_status(n_max: int) -> dict:
     for n1 in range(2, n_max + 1):
         for n2 in range(n1, n_max + 1):
             for n3 in range(n2, n_max + 1):
-                if max(n1 * n2, n2 * n3, n1 * n3) <= 128:
-                    status[f"{n1}x{n2}x{n3}"] = current_status.get(f"{n1}x{n2}x{n3}", {"ranks": {}, "omegas": {}, "complexities": {}, "schemes": defaultdict(list)})
+                status[f"{n1}x{n2}x{n3}"] = current_status.get(f"{n1}x{n2}x{n3}", {"ranks": {}, "omegas": {}, "complexities": {}, "schemes": defaultdict(list)})
 
     return status
 
@@ -145,6 +144,8 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
         for data in status.values():
             postprocess_size(data=data, ring2equal_rings=ring2equal_rings)
 
+        status = {key: value for key, value in status.items() if value["ranks"]}
+
         with open("schemes/status.json", "w", encoding="utf-8") as f:
             json.dump(status, f, indent=2, ensure_ascii=False, sort_keys=False)
 
@@ -221,8 +222,8 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
     print("\n\n### New best ranks")
     print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than previously known.\n")
-    print("|     Format     |  Prev rank  |  New rank  |")
-    print("|:--------------:|:-----------:|:----------:|")
+    print("|     Format     |  Prev rank  |   New rank   |")
+    print("|:--------------:|:-----------:|:------------:|")
 
     for size, data in status.items():
         min_rank = min(rank for ring, rank in data["ranks"].items() if ring != "Z2")
@@ -239,7 +240,7 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
         prev = f"{min_known_rank} (`{'/'.join(known_rings)}`)"
         curr = f"{min_rank} (`{'/'.join(rings)}`)"
         size = format_size(size)
-        print(f"| {size:^14} | {prev:^11} | {curr:^10} |")
+        print(f"| {size:^14} | {prev:^11} | {curr:^12} |")
 
 
 def plot_zt_table(status: Dict[str, dict]) -> None:
@@ -282,7 +283,13 @@ def plot_z_table(status: Dict[str, dict]) -> None:
                 ring2known_rank[ring] = known_schemes[0]["rank"]
 
         min_known_rank = min(ring2known_rank.values())
-        if ("Z" not in ring2known_rank or ring2known_rank["Z"] > min_known_rank) and data["ranks"]["ZT"] > min_known_rank and data["ranks"]["Z"] == min_known_rank:
+        if "Z" in ring2known_rank and ring2known_rank["Z"] == min_known_rank:
+            continue
+
+        if "ZT" in data["ranks"] and data["ranks"]["ZT"] == min_known_rank:
+            continue
+
+        if data["ranks"].get("Z") == min_known_rank:
             print(f'| {format_size(size):^14} | {data["ranks"]["Z"]:^4} |')
 
 
