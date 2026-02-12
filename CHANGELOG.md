@@ -1,5 +1,12 @@
 # Changelog
 
+## 13.02.2026
+### Rank improvement
+* `10x12x15`: found scheme with `1130` multiplications (`ZT`);
+* `10x13x16`: found scheme with `1326` multiplications (`ZT`);
+* `11x11x16`: found scheme with `1230` multiplications (`ZT`);
+* `11x12x15`: found scheme with `1262` multiplications (`ZT`);
+
 ## 12.02.2026
 ### Rank improvement
 * `7x9x15`: found scheme with `638` multiplications (`Q`);
