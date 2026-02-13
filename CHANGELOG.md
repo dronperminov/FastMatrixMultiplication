@@ -2,7 +2,11 @@
 
 ## 13.02.2026
 ### Rank improvement
+
+* `10x11x15`: found scheme with `1055` multiplications (`ZT`);
+* `10x11x16`: found scheme with `1112` multiplications (`ZT`);
 * `10x12x15`: found scheme with `1130` multiplications (`ZT`);
+* `10x12x16`: found scheme with `1190` multiplications (`ZT`);
 * `10x13x16`: found scheme with `1326` multiplications (`ZT`);
 * `11x11x15`: found scheme with `1170` multiplications (`ZT`);
 * `11x11x16`: found scheme with `1230` multiplications (`ZT`);
@@ -16,6 +20,24 @@
 
 ### Ternary coefficient rediscovery (`ZT`)
 * `5x7x13`: found scheme with `325` multiplications;
+* `10x10x13`: found scheme with `838` multiplications;
+* `10x10x14`: found scheme with `889` multiplications;
+* `10x10x15`: found scheme with `957` multiplications;
+* `10x10x16`: found scheme with `1008` multiplications;
+* `10x11x12`: found scheme with `850` multiplications;
+* `10x11x13`: found scheme with `924` multiplications;
+* `10x11x14`: found scheme with `981` multiplications;
+* `10x12x12`: found scheme with `910` multiplications;
+* `10x12x13`: found scheme with `990` multiplications;
+* `10x12x14`: found scheme with `1050` multiplications;
+* `10x13x13`: found scheme with `1082` multiplications;
+* `10x13x14`: found scheme with `1154` multiplications;
+* `10x13x15`: found scheme with `1242` multiplications;
+* `10x14x14`: found scheme with `1232` multiplications;
+* `10x14x15`: found scheme with `1327` multiplications;
+* `10x14x16`: found scheme with `1423` multiplications;
+* `10x15x15`: found scheme with `1395` multiplications;
+* `10x15x16`: found scheme with `1497` multiplications;
 * `11x11x12`: found scheme with `936` multiplications;
 * `11x11x13`: found scheme with `1023` multiplications;
 * `11x11x14`: found scheme with `1093` multiplications;

@@ -37557,6 +37557,178 @@
       ]
     }
   },
+  "10x10x13": {
+    "ranks": {
+      "Z": 838,
+      "Z2": 838,
+      "Q": 838,
+      "ZT": 838
+    },
+    "omegas": {
+      "Z": 2.8162786100120076,
+      "Z2": 2.8162786100120076,
+      "Q": 2.8162786100120076,
+      "ZT": 2.8162786100120076
+    },
+    "complexities": {
+      "Z": 18357,
+      "Z2": 18357,
+      "Q": 18357,
+      "ZT": 18357
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 838,
+          "omega": 2.8162786100120076,
+          "complexity": 23746,
+          "source": "schemes/known/tensor/10x10x13_tensor.mpl",
+          "path": "schemes/status/Z/10x10x13_m838_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 838,
+          "omega": 2.8162786100120076,
+          "complexity": 18357,
+          "source": "schemes/results/ZT/10x10x13_m838_ZT.json",
+          "path": "schemes/status/ZT/10x10x13_m838_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x10x13_m838_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x10x14": {
+    "ranks": {
+      "Z": 889,
+      "Z2": 889,
+      "Q": 889,
+      "ZT": 889
+    },
+    "omegas": {
+      "Z": 2.8119342832159977,
+      "Z2": 2.8119342832159977,
+      "Q": 2.8119342832159977,
+      "ZT": 2.8119342832159977
+    },
+    "complexities": {
+      "Z": 20822,
+      "Z2": 20822,
+      "Q": 20822,
+      "ZT": 20822
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 889,
+          "omega": 2.8119342832159977,
+          "complexity": 25694,
+          "source": "schemes/known/tensor/10x10x14_tensor.mpl",
+          "path": "schemes/status/Z/10x10x14_m889_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 889,
+          "omega": 2.8119342832159977,
+          "complexity": 20822,
+          "source": "schemes/results/ZT/10x10x14_m889_ZT.json",
+          "path": "schemes/status/ZT/10x10x14_m889_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x10x14_m889_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x10x15": {
+    "ranks": {
+      "Q": 957,
+      "ZT": 957,
+      "Z": 957,
+      "Z2": 957
+    },
+    "omegas": {
+      "Q": 2.815641958597057,
+      "ZT": 2.815641958597057,
+      "Z": 2.815641958597057,
+      "Z2": 2.815641958597057
+    },
+    "complexities": {
+      "Q": 22501,
+      "ZT": 22501,
+      "Z": 22501,
+      "Z2": 22501
+    },
+    "schemes": {
+      "Q": [
+        {
+          "rank": 957,
+          "omega": 2.815641958597057,
+          "complexity": 27987,
+          "source": "schemes/known/tensor/10x10x15_tensor.mpl",
+          "path": "schemes/status/Q/10x10x15_m957_Q.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 957,
+          "omega": 2.815641958597057,
+          "complexity": 22501,
+          "source": "schemes/results/ZT/10x10x15_m957_ZT.json",
+          "path": "schemes/status/ZT/10x10x15_m957_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x10x15_m957_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x10x16": {
+    "ranks": {
+      "Q": 1008,
+      "ZT": 1008,
+      "Z": 1008,
+      "Z2": 1008
+    },
+    "omegas": {
+      "Q": 2.8121236548887696,
+      "ZT": 2.8121236548887696,
+      "Z": 2.8121236548887696,
+      "Z2": 2.8121236548887696
+    },
+    "complexities": {
+      "Q": 24224,
+      "ZT": 24224,
+      "Z": 24224,
+      "Z2": 24224
+    },
+    "schemes": {
+      "Q": [
+        {
+          "rank": 1008,
+          "omega": 2.8121236548887696,
+          "complexity": 30248,
+          "source": "schemes/known/tensor/10x10x16_tensor.mpl",
+          "path": "schemes/status/Q/10x10x16_m1008_Q.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1008,
+          "omega": 2.8121236548887696,
+          "complexity": 24224,
+          "source": "schemes/results/ZT/10x10x16_m1008_ZT.json",
+          "path": "schemes/status/ZT/10x10x16_m1008_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x10x16_m1008_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
   "10x11x11": {
     "ranks": {
       "Z": 793,
@@ -37616,6 +37788,350 @@
       ]
     }
   },
+  "10x11x12": {
+    "ranks": {
+      "Z": 850,
+      "Z2": 850,
+      "Q": 850,
+      "ZT": 850
+    },
+    "omegas": {
+      "Z": 2.8162309148519125,
+      "Z2": 2.8162309148519125,
+      "Q": 2.8162309148519125,
+      "ZT": 2.8162309148519125
+    },
+    "complexities": {
+      "Z": 18911,
+      "Z2": 18911,
+      "Q": 18911,
+      "ZT": 18911
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 850,
+          "omega": 2.8162309148519125,
+          "complexity": 23180,
+          "source": "schemes/known/tensor/10x11x12_tensor.mpl",
+          "path": "schemes/status/Z/10x11x12_m850_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 850,
+          "omega": 2.8162309148519125,
+          "complexity": 18911,
+          "source": "schemes/results/ZT/10x11x12_m850_ZT.json",
+          "path": "schemes/status/ZT/10x11x12_m850_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x11x12_m850_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x11x13": {
+    "ranks": {
+      "Z": 924,
+      "Z2": 924,
+      "Q": 924,
+      "ZT": 924
+    },
+    "omegas": {
+      "Z": 2.8196730262707668,
+      "Z2": 2.8196730262707668,
+      "Q": 2.8196730262707668,
+      "ZT": 2.8196730262707668
+    },
+    "complexities": {
+      "Z": 21141,
+      "Z2": 21141,
+      "Q": 21141,
+      "ZT": 21141
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 924,
+          "omega": 2.8196730262707668,
+          "complexity": 26590,
+          "source": "schemes/known/tensor/10x11x13_tensor.mpl",
+          "path": "schemes/status/Z/10x11x13_m924_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 924,
+          "omega": 2.8196730262707668,
+          "complexity": 21141,
+          "source": "schemes/results/ZT/10x11x13_m924_ZT.json",
+          "path": "schemes/status/ZT/10x11x13_m924_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x11x13_m924_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x11x14": {
+    "ranks": {
+      "Z": 981,
+      "Z2": 981,
+      "Q": 981,
+      "ZT": 981
+    },
+    "omegas": {
+      "Z": 2.8156701738348677,
+      "Z2": 2.8156701738348677,
+      "Q": 2.8156701738348677,
+      "ZT": 2.8156701738348677
+    },
+    "complexities": {
+      "Z": 23202,
+      "Z2": 23202,
+      "Q": 23202,
+      "ZT": 23202
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 981,
+          "omega": 2.8156701738348677,
+          "complexity": 30237,
+          "source": "schemes/known/tensor/10x11x14_tensor.mpl",
+          "path": "schemes/status/Z/10x11x14_m981_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 981,
+          "omega": 2.8156701738348677,
+          "complexity": 23202,
+          "source": "schemes/results/ZT/10x11x14_m981_ZT.json",
+          "path": "schemes/status/ZT/10x11x14_m981_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x11x14_m981_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x11x15": {
+    "ranks": {
+      "Q": 1055,
+      "ZT": 1055,
+      "Z": 1055,
+      "Z2": 1055
+    },
+    "omegas": {
+      "Q": 2.8188974789482755,
+      "ZT": 2.8188974789482755,
+      "Z": 2.8188974789482755,
+      "Z2": 2.8188974789482755
+    },
+    "complexities": {
+      "Q": 24973,
+      "ZT": 24973,
+      "Z": 24973,
+      "Z2": 24973
+    },
+    "schemes": {
+      "Q": [
+        {
+          "rank": 1067,
+          "omega": 2.8234774176916453,
+          "complexity": 28488,
+          "source": "schemes/known/tensor/10x11x15_tensor.mpl",
+          "path": "schemes/status/Q/10x11x15_m1067_Q.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1055,
+          "omega": 2.8188974789482755,
+          "complexity": 24973,
+          "source": "schemes/results/ZT/10x11x15_m1055_ZT.json",
+          "path": "schemes/status/ZT/10x11x15_m1055_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x11x15_m1055_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x11x16": {
+    "ranks": {
+      "Q": 1112,
+      "ZT": 1112,
+      "Z": 1112,
+      "Z2": 1112
+    },
+    "omegas": {
+      "Q": 2.8156766887287374,
+      "ZT": 2.8156766887287374,
+      "Z": 2.8156766887287374,
+      "Z2": 2.8156766887287374
+    },
+    "complexities": {
+      "Q": 26939,
+      "ZT": 26958,
+      "Z": 26958,
+      "Z2": 26958
+    },
+    "schemes": {
+      "Q": [
+        {
+          "rank": 1136,
+          "omega": 2.8242487188621532,
+          "complexity": 26939,
+          "source": "schemes/known/tensor/10x11x16_tensor.mpl",
+          "path": "schemes/status/Q/10x11x16_m1136_Q.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1112,
+          "omega": 2.8156766887287374,
+          "complexity": 26958,
+          "source": "schemes/results/ZT/10x11x16_m1112_ZT.json",
+          "path": "schemes/status/ZT/10x11x16_m1112_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x11x16_m1112_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x12x12": {
+    "ranks": {
+      "Z": 910,
+      "Z2": 910,
+      "Q": 910,
+      "ZT": 910
+    },
+    "omegas": {
+      "Z": 2.810672998802686,
+      "Z2": 2.810672998802686,
+      "Q": 2.810672998802686,
+      "ZT": 2.810672998802686
+    },
+    "complexities": {
+      "Z": 21904,
+      "Z2": 21904,
+      "Q": 21904,
+      "ZT": 21904
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 910,
+          "omega": 2.810672998802686,
+          "complexity": 24712,
+          "source": "schemes/known/tensor/10x12x12_tensor.mpl",
+          "path": "schemes/status/Z/10x12x12_m910_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 910,
+          "omega": 2.810672998802686,
+          "complexity": 21904,
+          "source": "schemes/results/ZT/10x12x12_m910_ZT.json",
+          "path": "schemes/status/ZT/10x12x12_m910_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x12x12_m910_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x12x13": {
+    "ranks": {
+      "Z": 990,
+      "Z2": 990,
+      "Q": 990,
+      "ZT": 990
+    },
+    "omegas": {
+      "Z": 2.8144550289155466,
+      "Z2": 2.8144550289155466,
+      "Q": 2.8144550289155466,
+      "ZT": 2.8144550289155466
+    },
+    "complexities": {
+      "Z": 23668,
+      "Z2": 23668,
+      "Q": 23668,
+      "ZT": 23668
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 990,
+          "omega": 2.8144550289155466,
+          "complexity": 29797,
+          "source": "schemes/known/tensor/10x12x13_tensor.mpl",
+          "path": "schemes/status/Z/10x12x13_m990_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 990,
+          "omega": 2.8144550289155466,
+          "complexity": 23668,
+          "source": "schemes/results/ZT/10x12x13_m990_ZT.json",
+          "path": "schemes/status/ZT/10x12x13_m990_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x12x13_m990_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x12x14": {
+    "ranks": {
+      "Z": 1050,
+      "Z2": 1050,
+      "Q": 1050,
+      "ZT": 1050
+    },
+    "omegas": {
+      "Z": 2.81013915427047,
+      "Z2": 2.81013915427047,
+      "Q": 2.81013915427047,
+      "ZT": 2.81013915427047
+    },
+    "complexities": {
+      "Z": 25708,
+      "Z2": 25708,
+      "Q": 25708,
+      "ZT": 25708
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 1050,
+          "omega": 2.81013915427047,
+          "complexity": 34360,
+          "source": "schemes/known/tensor/10x12x14_tensor.mpl",
+          "path": "schemes/status/Z/10x12x14_m1050_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1050,
+          "omega": 2.81013915427047,
+          "complexity": 25708,
+          "source": "schemes/results/ZT/10x12x14_m1050_ZT.json",
+          "path": "schemes/status/ZT/10x12x14_m1050_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x12x14_m1050_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
   "10x12x15": {
     "ranks": {
       "ZT": 1130,
@@ -37653,6 +38169,178 @@
           "complexity": 20242,
           "source": "schemes/known/tensor/10x12x15_tensor.mpl",
           "path": "schemes/status/ZT/10x12x15_m1140_ZT.json"
+        }
+      ]
+    }
+  },
+  "10x12x16": {
+    "ranks": {
+      "Q": 1190,
+      "ZT": 1190,
+      "Z": 1190,
+      "Z2": 1190
+    },
+    "omegas": {
+      "Q": 2.810171909758289,
+      "ZT": 2.810171909758289,
+      "Z": 2.810171909758289,
+      "Z2": 2.810171909758289
+    },
+    "complexities": {
+      "Q": 29764,
+      "ZT": 29764,
+      "Z": 29764,
+      "Z2": 29764
+    },
+    "schemes": {
+      "Q": [
+        {
+          "rank": 1216,
+          "omega": 2.818748594829515,
+          "complexity": 54876,
+          "source": "schemes/known/tensor/10x12x16_tensor.mpl",
+          "path": "schemes/status/Q/10x12x16_m1216_Q.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1190,
+          "omega": 2.810171909758289,
+          "complexity": 29764,
+          "source": "schemes/results/ZT/10x12x16_m1190_ZT.json",
+          "path": "schemes/status/ZT/10x12x16_m1190_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x12x16_m1190_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x13x13": {
+    "ranks": {
+      "Z": 1082,
+      "Z2": 1082,
+      "Q": 1082,
+      "ZT": 1082
+    },
+    "omegas": {
+      "Z": 2.8200127870972156,
+      "Z2": 2.8200127870972156,
+      "Q": 2.8200127870972156,
+      "ZT": 2.8200127870972156
+    },
+    "complexities": {
+      "Z": 26067,
+      "Z2": 26067,
+      "Q": 26067,
+      "ZT": 26067
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 1082,
+          "omega": 2.8200127870972156,
+          "complexity": 33829,
+          "source": "schemes/known/tensor/10x13x13_tensor.mpl",
+          "path": "schemes/status/Z/10x13x13_m1082_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1082,
+          "omega": 2.8200127870972156,
+          "complexity": 26067,
+          "source": "schemes/results/ZT/10x13x13_m1082_ZT.json",
+          "path": "schemes/status/ZT/10x13x13_m1082_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x13x13_m1082_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x13x14": {
+    "ranks": {
+      "Z": 1154,
+      "Z2": 1154,
+      "Q": 1154,
+      "ZT": 1154
+    },
+    "omegas": {
+      "Z": 2.817919098433312,
+      "Z2": 2.817919098433312,
+      "Q": 2.817919098433312,
+      "ZT": 2.817919098433312
+    },
+    "complexities": {
+      "Z": 29099,
+      "Z2": 29099,
+      "Q": 29099,
+      "ZT": 29099
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 1154,
+          "omega": 2.817919098433312,
+          "complexity": 37822,
+          "source": "schemes/known/tensor/10x13x14_tensor.mpl",
+          "path": "schemes/status/Z/10x13x14_m1154_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1154,
+          "omega": 2.817919098433312,
+          "complexity": 29099,
+          "source": "schemes/results/ZT/10x13x14_m1154_ZT.json",
+          "path": "schemes/status/ZT/10x13x14_m1154_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x13x14_m1154_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x13x15": {
+    "ranks": {
+      "Z": 1242,
+      "Z2": 1242,
+      "Q": 1242,
+      "ZT": 1242
+    },
+    "omegas": {
+      "Z": 2.821357792244481,
+      "Z2": 2.821357792244481,
+      "Q": 2.821357792244481,
+      "ZT": 2.821357792244481
+    },
+    "complexities": {
+      "Z": 23194,
+      "Z2": 23194,
+      "Q": 23194,
+      "ZT": 23194
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 1242,
+          "omega": 2.821357792244481,
+          "complexity": 26110,
+          "source": "schemes/known/tensor/10x13x15_tensor.mpl",
+          "path": "schemes/status/Z/10x13x15_m1242_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1242,
+          "omega": 2.821357792244481,
+          "complexity": 23194,
+          "source": "schemes/results/ZT/10x13x15_m1242_ZT.json",
+          "path": "schemes/status/ZT/10x13x15_m1242_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x13x15_m1242_ZT.m"
+          ]
         }
       ]
     }
@@ -37696,6 +38384,252 @@
           "duplicates": [
             "schemes/results/ZT/10x13x16_m1326_ZT.m"
           ]
+        }
+      ]
+    }
+  },
+  "10x14x14": {
+    "ranks": {
+      "Z": 1232,
+      "Z2": 1232,
+      "Q": 1232,
+      "ZT": 1232
+    },
+    "omegas": {
+      "Z": 2.8162548485072842,
+      "Z2": 2.8162548485072842,
+      "Q": 2.8162548485072842,
+      "ZT": 2.8162548485072842
+    },
+    "complexities": {
+      "Z": 32460,
+      "Z2": 32460,
+      "Q": 32460,
+      "ZT": 32460
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 1232,
+          "omega": 2.8162548485072842,
+          "complexity": 41820,
+          "source": "schemes/known/tensor/10x14x14_tensor.mpl",
+          "path": "schemes/status/Z/10x14x14_m1232_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1232,
+          "omega": 2.8162548485072842,
+          "complexity": 32460,
+          "source": "schemes/results/ZT/10x14x14_m1232_ZT.json",
+          "path": "schemes/status/ZT/10x14x14_m1232_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x14x14_m1232_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x14x15": {
+    "ranks": {
+      "Z": 1327,
+      "Z2": 1327,
+      "Q": 1327,
+      "ZT": 1327
+    },
+    "omegas": {
+      "Z": 2.819986261425783,
+      "Z2": 2.819986261425783,
+      "Q": 2.819986261425783,
+      "ZT": 2.819986261425783
+    },
+    "complexities": {
+      "Z": 26678,
+      "Z2": 26678,
+      "Q": 26678,
+      "ZT": 26678
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 1327,
+          "omega": 2.819986261425783,
+          "complexity": 31123,
+          "source": "schemes/known/tensor/10x14x15_tensor.mpl",
+          "path": "schemes/status/Z/10x14x15_m1327_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1327,
+          "omega": 2.819986261425783,
+          "complexity": 26678,
+          "source": "schemes/results/ZT/10x14x15_m1327_ZT.json",
+          "path": "schemes/status/ZT/10x14x15_m1327_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x14x15_m1327_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x14x16": {
+    "ranks": {
+      "Z": 1423,
+      "Z2": 1423,
+      "Q": 1423,
+      "ZT": 1423
+    },
+    "omegas": {
+      "Z": 2.8235565392428583,
+      "Z2": 2.8235565392428583,
+      "Q": 2.8235565392428583,
+      "ZT": 2.8235565392428583
+    },
+    "complexities": {
+      "Z": 31174,
+      "Z2": 31174,
+      "Q": 31174,
+      "ZT": 31174
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 1423,
+          "omega": 2.8235565392428583,
+          "complexity": 38742,
+          "source": "schemes/known/tensor/10x14x16_tensor.mpl",
+          "path": "schemes/status/Z/10x14x16_m1423_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1423,
+          "omega": 2.8235565392428583,
+          "complexity": 31174,
+          "source": "schemes/results/ZT/10x14x16_m1423_ZT.json",
+          "path": "schemes/status/ZT/10x14x16_m1423_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x14x16_m1423_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x15x15": {
+    "ranks": {
+      "Z": 1395,
+      "Z2": 1395,
+      "Q": 1395,
+      "ZT": 1395
+    },
+    "omegas": {
+      "Z": 2.814203156260077,
+      "Z2": 2.814203156260077,
+      "Q": 2.814203156260077,
+      "ZT": 2.814203156260077
+    },
+    "complexities": {
+      "Z": 30084,
+      "Z2": 30084,
+      "Q": 30084,
+      "ZT": 30084
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 1395,
+          "omega": 2.814203156260077,
+          "complexity": 35976,
+          "source": "schemes/known/tensor/10x15x15_tensor.mpl",
+          "path": "schemes/status/Z/10x15x15_m1395_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1395,
+          "omega": 2.814203156260077,
+          "complexity": 30084,
+          "source": "schemes/results/ZT/10x15x15_m1395_ZT.json",
+          "path": "schemes/status/ZT/10x15x15_m1395_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x15x15_m1395_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x15x16": {
+    "ranks": {
+      "Z": 1497,
+      "Z2": 1497,
+      "Q": 1497,
+      "ZT": 1497
+    },
+    "omegas": {
+      "Z": 2.8180680791434014,
+      "Z2": 2.8180680791434014,
+      "Q": 2.8180680791434014,
+      "ZT": 2.8180680791434014
+    },
+    "complexities": {
+      "Z": 34254,
+      "Z2": 34254,
+      "Q": 34254,
+      "ZT": 34254
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 1497,
+          "omega": 2.8180680791434014,
+          "complexity": 44030,
+          "source": "schemes/known/tensor/10x15x16_tensor.mpl",
+          "path": "schemes/status/Z/10x15x16_m1497_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 1497,
+          "omega": 2.8180680791434014,
+          "complexity": 34254,
+          "source": "schemes/results/ZT/10x15x16_m1497_ZT.json",
+          "path": "schemes/status/ZT/10x15x16_m1497_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/10x15x16_m1497_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "10x16x16": {
+    "ranks": {
+      "ZT": 1586,
+      "Z": 1586,
+      "Z2": 1586,
+      "Q": 1586
+    },
+    "omegas": {
+      "ZT": 2.8169699453853694,
+      "Z": 2.8169699453853694,
+      "Z2": 2.8169699453853694,
+      "Q": 2.8169699453853694
+    },
+    "complexities": {
+      "ZT": 34472,
+      "Z": 34472,
+      "Z2": 34472,
+      "Q": 34472
+    },
+    "schemes": {
+      "ZT": [
+        {
+          "rank": 1586,
+          "omega": 2.8169699453853694,
+          "complexity": 34472,
+          "source": "schemes/known/tensor/10x16x16_tensor.mpl",
+          "path": "schemes/status/ZT/10x16x16_m1586_ZT.json"
         }
       ]
     }
