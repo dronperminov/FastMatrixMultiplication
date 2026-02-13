@@ -27,6 +27,9 @@
 * `6x12x15`: found scheme with `705` multiplications;
 * `6x12x16`: found scheme with `746` multiplications;
 * `6x13x15`: found scheme with `771` multiplications;
+* `7x11x15`: found scheme with `778` multiplications;
+* `7x12x15`: found scheme with `831` multiplications;
+* `7x13x15`: found scheme with `909` multiplications;
 * `10x10x13`: found scheme with `838` multiplications;
 * `10x10x14`: found scheme with `889` multiplications;
 * `10x10x15`: found scheme with `957` multiplications;
@@ -79,6 +82,9 @@
 * `6x14x14`: found scheme with `777` multiplications;
 * `6x14x15`: found scheme with `825` multiplications;
 * `6x14x16`: found scheme with `880` multiplications;
+* `7x10x13`: found scheme with `614` multiplications;
+* `7x10x14`: found scheme with `653` multiplications;
+* `7x13x14`: found scheme with `852` multiplications;
 * `9x14x15`: found scheme with `1185` multiplications;
 
 ## 12.02.2026
