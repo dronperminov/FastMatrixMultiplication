@@ -171,11 +171,11 @@ def format_size(size: str) -> str:
 
 def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
     print("## Ranks and complexities")
-    print("| Format<br/>`(n, m, p)` | rank<br/>in `ZT` | rank<br/>in `Z` | rank<br/>in `Q` | rank<br/>in `Z2` | complexity<br/>in `ZT` | complexity<br/>in `Z` | complexity<br/>in `Q` |")
-    print("|:----------------------:|:----------------:|:---------------:|:---------------:|:----------------:|:----------------------:|:---------------------:|:---------------------:|")
+    print("| Format<br/>`(n, m, p)` | rank<br/>in `ZT` | rank<br/>in `Z` | rank<br/>in `Q` | rank<br/>in `Z2` |")
+    print("|:----------------------:|:----------------:|:---------------:|:---------------:|:----------------:|")
 
     for size, data in status.items():
-        known_ranks, known_complexities = {}, {}
+        known_ranks = {}
 
         for ring, schemes in data["schemes"].items():
             known_schemes = sorted([scheme for scheme in schemes if "known" in scheme["source"]], key=lambda s: (s["rank"], s["complexity"]))
@@ -183,40 +183,24 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
                 continue
 
             rank = known_schemes[0]["rank"]
-            complexity = known_schemes[0]["complexity"]
 
             for equal_ring in ring2equal_rings[ring]:
                 if equal_ring not in known_ranks or rank < known_ranks[equal_ring]:
                     known_ranks[equal_ring] = rank
 
-                if equal_ring not in known_complexities or complexity < known_complexities[equal_ring]:
-                    known_complexities[equal_ring] = complexity
-
-        current_ranks, current_complexities = data["ranks"], data["complexities"]
+        current_ranks = data["ranks"]
         min_rank = min([current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks], default=None)
-        min_complexity = min([current_complexities[ring] for ring in ["Q", "Z", "ZT"] if ring in current_complexities], default=None)
-
         unique_ranks = len(set(current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks)) == 1
-        unique_complexities = len(set(current_complexities[ring] for ring in ["Q", "Z", "ZT"] if ring in current_complexities)) == 1
-
         diff_rank = {}
-        diff_complexity = {}
 
         for ring in ring2equal_rings:
             rank_curr = format_value(current_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
             rank_known = format_value(known_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
             diff_rank[ring] = rank_curr if rank_curr == rank_known else f"{rank_curr} ({rank_known})"
 
-            if unique_ranks:
-                complexity_curr = format_value(current_complexities, ring=ring, min_value=min_complexity, unique_value=unique_complexities)
-                complexity_known = format_value(known_complexities, ring=ring, min_value=min_complexity, unique_value=unique_complexities)
-                diff_complexity[ring] = complexity_curr if complexity_curr == complexity_known else f"{complexity_curr} ({complexity_known})"
-            else:
-                diff_complexity[ring] = "-"
-
         n1, n2, n3 = size.split("x")
         size = f"`({n1}, {n2}, {n3})`"
-        print(f'| {size:^22} | {diff_rank["ZT"]:^16} | {diff_rank["Z"]:^15} | {diff_rank["Q"]:^15} | {diff_rank["Z2"]:^16} | {diff_complexity["ZT"]:^22} | {diff_complexity["Z"]:^21} | {diff_complexity["Q"]:^21} |')
+        print(f'| {size:^22} | {diff_rank["ZT"]:^16} | {diff_rank["Z"]:^15} | {diff_rank["Q"]:^15} | {diff_rank["Z2"]:^16} |')
 
 
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
