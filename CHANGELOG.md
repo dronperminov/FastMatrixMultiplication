@@ -30,6 +30,15 @@
 * `7x11x15`: found scheme with `778` multiplications;
 * `7x12x15`: found scheme with `831` multiplications;
 * `7x13x15`: found scheme with `909` multiplications;
+* `8x9x15`: found scheme with `705` multiplications;
+* `8x9x16`: found scheme with `746` multiplications;
+* `8x10x13`: found scheme with `686` multiplications;
+* `8x10x14`: found scheme with `728` multiplications;
+* `8x11x14`: found scheme with `804` multiplications;
+* `8x11x15`: found scheme with `859` multiplications;
+* `8x12x14`: found scheme with `861` multiplications;
+* `8x13x14`: found scheme with `945` multiplications;
+* `8x14x14`: found scheme with `1008` multiplications;
 * `10x10x13`: found scheme with `838` multiplications;
 * `10x10x14`: found scheme with `889` multiplications;
 * `10x10x15`: found scheme with `957` multiplications;
