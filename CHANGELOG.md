@@ -21,6 +21,7 @@
 * `15x15x16`: found scheme with `2155` multiplications (`Q`);
 
 ### Ternary coefficient rediscovery (`ZT`)
+* `4x9x15`: found scheme with `375` multiplications;
 * `5x7x13`: found scheme with `325` multiplications;
 * `10x10x13`: found scheme with `838` multiplications;
 * `10x10x14`: found scheme with `889` multiplications;
@@ -52,6 +53,14 @@
 * `15x15x15`: found scheme with `2058` multiplications;
 
 ### Integer ring rediscovery (`Z`)
+* `3x10x16`: found scheme with `360` multiplications;
+* `4x10x13`: found scheme with `361` multiplications;
+* `4x10x14`: found scheme with `385` multiplications;
+* `4x10x15`: found scheme with `417` multiplications;
+* `4x10x16`: found scheme with `441` multiplications;
+* `4x11x14`: found scheme with `429` multiplications;
+* `4x11x16`: found scheme with `489` multiplications;
+* `4x14x14`: found scheme with `532` multiplications;
 * `9x14x15`: found scheme with `1185` multiplications;
 
 ## 12.02.2026
