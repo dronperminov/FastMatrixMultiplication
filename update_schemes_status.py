@@ -206,8 +206,8 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
     print("\n\n### New best ranks")
     print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than previously known.\n")
-    print("|     Format     |  Prev rank  |   New rank   |")
-    print("|:--------------:|:-----------:|:------------:|")
+    print("|     Format     |  Prev rank  |    New rank    |")
+    print("|:--------------:|:-----------:|:--------------:|")
 
     for size, data in status.items():
         min_rank = min(rank for ring, rank in data["ranks"].items() if ring != "Z2")
@@ -224,7 +224,7 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
         prev = f"{min_known_rank} (`{'/'.join(known_rings)}`)"
         curr = f"{min_rank} (`{'/'.join(rings)}`)"
         size = format_size(size)
-        print(f"| {size:^14} | {prev:^11} | {curr:^12} |")
+        print(f"| {size:^14} | {prev:^11} | {curr:^14} |")
 
 
 def plot_zt_table(status: Dict[str, dict]) -> None:
