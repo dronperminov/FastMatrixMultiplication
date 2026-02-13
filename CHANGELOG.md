@@ -61,6 +61,11 @@
 * `4x11x14`: found scheme with `429` multiplications;
 * `4x11x16`: found scheme with `489` multiplications;
 * `4x14x14`: found scheme with `532` multiplications;
+* `5x10x13`: found scheme with `451` multiplications;
+* `5x10x14`: found scheme with `481` multiplications;
+* `5x10x15`: found scheme with `519` multiplications;
+* `5x10x16`: found scheme with `549` multiplications;
+* `5x11x16`: found scheme with `609` multiplications;
 * `9x14x15`: found scheme with `1185` multiplications;
 
 ## 12.02.2026
