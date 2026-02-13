@@ -2,6 +2,7 @@
 
 ## 13.02.2026
 ### Rank improvement
+* `9x10x10`: found scheme with `598` multiplications (`ZT`);
 * `9x10x16`: found scheme with `930` multiplications (`ZT`);
 * `9x15x16`: found scheme with `1341` multiplications (`Q`);
 * `10x11x15`: found scheme with `1055` multiplications (`ZT`);
