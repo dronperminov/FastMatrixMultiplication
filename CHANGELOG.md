@@ -7,6 +7,9 @@
 * `11x11x16`: found scheme with `1230` multiplications (`ZT`);
 * `11x12x15`: found scheme with `1262` multiplications (`ZT`);
 
+### Ternary coefficient rediscovery (`ZT`)
+* `5x7x13`: found scheme with `325` multiplications;
+
 ## 12.02.2026
 ### Rank improvement
 * `7x9x15`: found scheme with `638` multiplications (`Q`);
