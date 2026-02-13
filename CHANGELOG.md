@@ -6,10 +6,13 @@
 * `10x13x16`: found scheme with `1326` multiplications (`ZT`);
 * `11x11x16`: found scheme with `1230` multiplications (`ZT`);
 * `11x12x15`: found scheme with `1262` multiplications (`ZT`);
+* `13x13x16`: found scheme with `1711` multiplications (`ZT`);
 * `15x15x16`: found scheme with `2155` multiplications (`Q`);
 
 ### Ternary coefficient rediscovery (`ZT`)
 * `5x7x13`: found scheme with `325` multiplications;
+* `13x13x15`: found scheme with `1605` multiplications;
+* `13x15x15`: found scheme with `1803` multiplications;
 * `14x14x15`: found scheme with `1813` multiplications;
 * `14x15x15`: found scheme with `1905` multiplications;
 * `15x15x15`: found scheme with `2058` multiplications;
