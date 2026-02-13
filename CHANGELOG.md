@@ -2,7 +2,8 @@
 
 ## 13.02.2026
 ### Rank improvement
-
+* `9x10x16`: found scheme with `930` multiplications (`ZT`);
+* `9x15x16`: found scheme with `1341` multiplications (`Q`);
 * `10x11x15`: found scheme with `1055` multiplications (`ZT`);
 * `10x11x16`: found scheme with `1112` multiplications (`ZT`);
 * `10x12x15`: found scheme with `1130` multiplications (`ZT`);
@@ -48,6 +49,9 @@
 * `14x14x15`: found scheme with `1813` multiplications;
 * `14x15x15`: found scheme with `1905` multiplications;
 * `15x15x15`: found scheme with `2058` multiplications;
+
+### Integer ring rediscovery (`Z`)
+* `9x14x15`: found scheme with `1185` multiplications;
 
 ## 12.02.2026
 ### Rank improvement
