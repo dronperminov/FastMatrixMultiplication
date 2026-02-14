@@ -2,6 +2,7 @@
 
 ## 14.02.2026
 ### Rank improvement
+* `7x9x15`: found scheme with `634` multiplications (`Q`);
 * `9x16x16`: found scheme with `1431` multiplications (`Q`);
 * `12x13x16`: found scheme with `1548` multiplications (`ZT`);
 * `13x13x16`: found scheme with `1704` multiplications (`Q`);
