@@ -4,8 +4,8 @@
 [![arXiv:2512.13365](https://img.shields.io/badge/arXiv-2512.13365-b31b1b.svg)](https://arxiv.org/abs/2512.13365)
 [![arXiv:2512.13365](https://img.shields.io/badge/arXiv-2512.21980-b31b1b.svg)](https://arxiv.org/abs/2512.21980)
 
-A research project investigating fast matrix multiplication algorithms for small matrix formats, from `(2, 2, 2)` to `(11, 11, 11)`. The primary goal is to discover efficient schemes
-with coefficients restricted to the ternary set `{-1, 0, 1}`, focusing on all tensor shapes satisfying `max(n₁n₂, n₂n₃, n₃n₁) ≤ 128` and `max(n₁, n₂, n₃) ≤ 16`.
+A research project investigating fast matrix multiplication algorithms for small matrix formats, from `(2, 2, 2)` to `(16, 16, 16)`. The primary goal is to discover efficient schemes
+with coefficients restricted to the ternary set `{-1, 0, 1}`, focusing on all tensor shapes satisfying `max(n₁, n₂, n₃) ≤ 16`.
 
 ## Overview
 This repository documents the search for fast matrix multiplication (FMM) schemes using a custom meta flip graph method. The search focuses on schemes that use only the
