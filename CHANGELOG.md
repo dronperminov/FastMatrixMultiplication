@@ -1,5 +1,10 @@
 # Changelog
 
+## 15.02.2026
+### Ternary coefficient rediscovery (`ZT`)
+* `5x9x15`: found scheme with `474` multiplications;
+
+
 ## 14.02.2026
 ### Rank improvement
 * `7x9x15`: found scheme with `634` multiplications (`Q`);
