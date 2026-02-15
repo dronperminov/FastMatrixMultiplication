@@ -715,6 +715,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |     `(2, 12, 12)`      |       222        |       222       |       222       |       222        |
 |     `(2, 12, 13)`      |     245 (?)      |       241       |       241       |       241        |
 |     `(2, 12, 14)`      |     264 (?)      |       259       |       259       |       259        |
+|     `(2, 12, 15)`      |     282 (?)      |       278       |       278       |       278        |
 |     `(2, 12, 16)`      |     299 (?)      |     298 (?)     |    298 (300)    |     298 (?)      |
 |     `(2, 13, 13)`      |       260        |       260       |       260       |       260        |
 |     `(2, 13, 14)`      |     286 (?)      |     283 (?)     |       280       |     283 (?)      |
@@ -722,6 +723,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |     `(2, 13, 16)`      |     325 (?)      |     324 (?)     |       320       |     324 (?)      |
 |     `(2, 14, 14)`      |       301        |       301       |       301       |       301        |
 |     `(2, 14, 15)`      |     329 (?)      |       323       |       323       |       323        |
+|     `(2, 14, 16)`      |     350 (?)      |       344       |       344       |       344        |
 |     `(2, 15, 15)`      |       345        |       345       |       345       |       345        |
 |     `(2, 15, 16)`      |     375 (?)      |     375 (?)     |       368       |     375 (?)      |
 |     `(2, 16, 16)`      |       392        |       392       |       392       |       392        |
@@ -1285,6 +1287,13 @@ from other fields. The best ranks of previously known schemes are given in brack
 |     `(15, 15, 16)`     |     2160 (?)     |    2160 (?)     |   2155 (2173)   |     2160 (?)     |
 |     `(15, 16, 16)`     |     2302 (?)     |    2302 (?)     |      2262       |     2302 (?)     |
 |     `(16, 16, 16)`     |     2401 (?)     |    2401 (?)     |      2304       |     2401 (?)     |
+
+### Coefficient set status
+* total schemes: 680 (29 better Strassen)
+* `ZT` schemes: 274 (40.29%)
+* `Z` schemes: 109 (16.03%)
+* `Q` schemes: 297 (43.68%)
+
 
 ## License and Citation
 This project is for research purposes. Please use the following citation when referencing this code or dataset in your academic work:

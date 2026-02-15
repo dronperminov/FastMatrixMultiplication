@@ -7431,6 +7431,49 @@
       ]
     }
   },
+  "2x12x15": {
+    "ranks": {
+      "Z": 278,
+      "Z2": 278,
+      "Q": 278,
+      "ZT": 282
+    },
+    "omegas": {
+      "Z": 2.868257722062804,
+      "Z2": 2.868257722062804,
+      "Q": 2.868257722062804,
+      "ZT": 2.8755389171476065
+    },
+    "complexities": {
+      "Z": 2034,
+      "Z2": 2034,
+      "Q": 2034,
+      "ZT": 2034
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 278,
+          "omega": 2.868257722062804,
+          "complexity": 3857,
+          "source": "schemes/known/tensor/2x12x15_tensor.mpl",
+          "path": "schemes/status/Z/2x12x15_m278_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 282,
+          "omega": 2.8755389171476065,
+          "complexity": 2034,
+          "source": "schemes/results/ZT/2x12x15_m282_ZT.json",
+          "path": "schemes/status/ZT/2x12x15_m282_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/2x12x15_m282_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
   "2x12x16": {
     "ranks": {
       "Q": 298,
@@ -7761,6 +7804,49 @@
           "path": "schemes/status/ZT/2x14x15_m329_ZT.json",
           "duplicates": [
             "schemes/results/ZT/2x14x15_m329_ZT.m"
+          ]
+        }
+      ]
+    }
+  },
+  "2x14x16": {
+    "ranks": {
+      "Z": 344,
+      "Z2": 344,
+      "Q": 344,
+      "ZT": 350
+    },
+    "omegas": {
+      "Z": 2.87019138978909,
+      "Z2": 2.87019138978909,
+      "Q": 2.87019138978909,
+      "ZT": 2.8786887277586612
+    },
+    "complexities": {
+      "Z": 2188,
+      "Z2": 2188,
+      "Q": 2188,
+      "ZT": 2188
+    },
+    "schemes": {
+      "Z": [
+        {
+          "rank": 344,
+          "omega": 2.87019138978909,
+          "complexity": 4113,
+          "source": "schemes/known/tensor/2x14x16_tensor.mpl",
+          "path": "schemes/status/Z/2x14x16_m344_Z.json"
+        }
+      ],
+      "ZT": [
+        {
+          "rank": 350,
+          "omega": 2.8786887277586612,
+          "complexity": 2188,
+          "source": "schemes/results/ZT/2x14x16_m350_ZT.json",
+          "path": "schemes/status/ZT/2x14x16_m350_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/2x14x16_m350_ZT.m"
           ]
         }
       ]
