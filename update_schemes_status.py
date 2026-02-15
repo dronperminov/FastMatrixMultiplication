@@ -1,4 +1,5 @@
 import json
+import math
 import os
 from collections import defaultdict
 from collections.abc import Set
@@ -277,6 +278,41 @@ def plot_z_table(status: Dict[str, dict]) -> None:
             print(f'| {format_size(size):^14} | {data["ranks"]["Z"]:^4} |')
 
 
+def print_coefficients_status(status: Dict[str, dict]) -> None:
+    zt_count = 0
+    z_count = 0
+    q_count = 0
+    total = 0
+    better_strassen = 0
+
+    for size, data in status.items():
+        n1, n2, n3 = map(int, size.split("x"))
+        naive_rank = n1*n2*n3
+        q = data["ranks"]["Q"]
+        z = data["ranks"].get("Z", naive_rank)
+        zt = data["ranks"].get("ZT", naive_rank)
+
+        omega = 3*math.log(q) / math.log(naive_rank)
+
+        if zt == q:
+            zt_count += 1
+        elif z == q:
+            z_count += 1
+        else:
+            q_count += 1
+
+        if omega < math.log(7, 2):
+            better_strassen += 1
+
+        total += 1
+
+    print("\n### Coefficient set status")
+    print(f"* total schemes: {total} ({better_strassen} better Strassen)")
+    print(f"* `ZT` schemes: {zt_count} ({zt_count / total:.2%})")
+    print(f"* `Z` schemes: {z_count} ({z_count / total:.2%})")
+    print(f"* `Q` schemes: {q_count} ({q_count / total:.2%})\n")
+
+
 def main():
     input_dirs = [
         "schemes/known",
@@ -292,6 +328,7 @@ def main():
     plot_zt_table(status)
     plot_z_table(status)
     plot_full_table(status, ring2equal_rings=ring2equal_rings)
+    print_coefficients_status(status)
 
 
 if __name__ == '__main__':
