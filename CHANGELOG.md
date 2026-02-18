@@ -1,24 +1,29 @@
 # Changelog
 
+## 18.02.2026
+### Rank improvement
+* `7x9x11`: found [scheme](schemes/results/ZT/7x9x11_m479_ZT.json) with `479` multiplications (`ZT`);
+
+
 ## 17.02.2026
 ### Rank improvement
-* `4x6x13`: found scheme with `227` multiplications (`ZT`);
+* `4x6x13`: found [scheme](schemes/results/ZT/4x6x13_m227_ZT.json) with `227` multiplications (`ZT`);
 
 
 ## 15.02.2026
 ### Ternary coefficient rediscovery (`ZT`)
-* `5x9x15`: found scheme with `474` multiplications;
+* `5x9x15`: found [scheme](schemes/results/ZT/5x9x15_m474_ZT.json) with `474` multiplications;
 
 
 ## 14.02.2026
 ### Rank improvement
-* `7x9x15`: found scheme with `634` multiplications (`Q`);
-* `9x16x16`: found scheme with `1431` multiplications (`Q`);
-* `11x13x13`: found scheme with `1205` multiplications (`ZT`);
-* `12x13x16`: found scheme with `1548` multiplications (`ZT`);
-* `13x13x16`: found scheme with `1704` multiplications (`Q`);
-* `13x14x16`: found scheme with `1806` multiplications (`Q`);
-* `13x15x16`: found scheme with `1908` multiplications (`Q`);
+* `7x9x15`: found [scheme](schemes/results/Q/7x9x15_m634_Q.json) with `634` multiplications (`Q`);
+* `9x16x16`: found [scheme](schemes/results/Q/9x16x16_m1431_Q.json) with `1431` multiplications (`Q`);
+* `11x13x13`: found [scheme](schemes/results/ZT/11x13x13_m1205_ZT.json) with `1205` multiplications (`ZT`);
+* `12x13x16`: found [scheme](schemes/results/ZT/12x13x16_m1548_ZT.json) with `1548` multiplications (`ZT`);
+* `13x13x16`: found [scheme](schemes/results/Q/13x13x16_m1704_Q.json) with `1704` multiplications (`Q`);
+* `13x14x16`: found [scheme](schemes/results/Q/13x14x16_m1806_Q.json) with `1806` multiplications (`Q`);
+* `13x15x16`: found [scheme](schemes/results/Q/13x15x16_m1908_Q.json) with `1908` multiplications (`Q`);
 
 
 ## 13.02.2026

@@ -167,13 +167,13 @@ def format_value(ring2value: Dict[str, int], ring: str, min_value: int, unique_v
 
 def format_size(size: str) -> str:
     n1, n2, n3 = map(int, size.split("x"))
-    return f"`({n1}, {n2}, {n3})`"
+    return f"`{n1}×{n2}×{n3}`"
 
 
 def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
-    print("## Ranks and complexities")
-    print("| Format<br/>`(n, m, p)` | rank<br/>in `ZT` | rank<br/>in `Z` | rank<br/>in `Q` | rank<br/>in `Z2` |")
-    print("|:----------------------:|:----------------:|:---------------:|:---------------:|:----------------:|")
+    print("## Ranks")
+    print("|   Format   |  `ZT` rank  |   `Z` rank   |   `Q` rank   |  `Z2` rank  |")
+    print("|:----------:|:-----------:|:------------:|:------------:|:-----------:|")
 
     for size, data in status.items():
         known_ranks = {}
@@ -199,16 +199,14 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
             rank_known = format_value(known_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
             diff_rank[ring] = rank_curr if rank_curr == rank_known else f"{rank_curr} ({rank_known})"
 
-        n1, n2, n3 = size.split("x")
-        size = f"`({n1}, {n2}, {n3})`"
-        print(f'| {size:^22} | {diff_rank["ZT"]:^16} | {diff_rank["Z"]:^15} | {diff_rank["Q"]:^15} | {diff_rank["Z2"]:^16} |')
+        print(f'| {format_size(size):^10} | {diff_rank["ZT"]:^11} | {diff_rank["Z"]:^12} | {diff_rank["Q"]:^12} | {diff_rank["Z2"]:^11} |')
 
 
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
     print("\n\n### New best ranks")
     print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than previously known.\n")
-    print("|     Format     |  Prev rank  |    New rank    |")
-    print("|:--------------:|:-----------:|:--------------:|")
+    print("|   Format   |  Prev rank  |                          New rank                          |")
+    print("|:----------:|:-----------:|:----------------------------------------------------------:|")
 
     for size, data in status.items():
         min_rank = min(rank for ring, rank in data["ranks"].items() if ring != "Z2")
@@ -223,17 +221,17 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
         rings = [ring for ring in ["ZT", "Z", "Q"] if ring in data["schemes"] and data["schemes"][ring][0]["rank"] == min_rank]
 
         prev = f"{min_known_rank} (`{'/'.join(known_rings)}`)"
-        curr = f"{min_rank} (`{'/'.join(rings)}`)"
+        curr = f"[{min_rank}](schemes/results/{rings[0]}/{size}_m{min_rank}_{rings[0]}.json) (`{'/'.join(rings)}`)"
         size = format_size(size)
-        print(f"| {size:^14} | {prev:^11} | {curr:^14} |")
+        print(f"| {size:^10} | {prev:^11} | {curr:^58} |")
 
 
 def plot_zt_table(status: Dict[str, dict]) -> None:
     print("\n\n### Rediscovery in the ternary coefficient set (`ZT`)")
     print("The following schemes have been rediscovered in the `ZT` format. Originally known over the rational (`Q`) or integer (`Z`) fields, implementations")
     print("with coefficients restricted to the ternary set were previously unknown.\n")
-    print("|     Format     | Rank | Known ring |")
-    print("|:--------------:|:----:|:----------:|")
+    print("|   Format   |                        Rank                        | Known ring |")
+    print("|:----------:|:--------------------------------------------------:|:----------:|")
 
     for size, data in status.items():
         ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items() if ring != "Z2"}
@@ -247,17 +245,18 @@ def plot_zt_table(status: Dict[str, dict]) -> None:
 
         rings = [ring for ring in ["Z", "Q"] if ring2known_rank.get(ring) == zt_rank]
 
-        size = format_size(size)
+        link = f"[{zt_rank}](schemes/results/ZT/{size}_m{zt_rank}_ZT.json)"
         rings = f"`{'/'.join(rings)}`"
-        print(f"| {size:^14} | {zt_rank:^4} | {rings:^10} |")
+        size = format_size(size)
+        print(f"| {size:^10} | {link:^50} | {rings:^10} |")
 
 
 def plot_z_table(status: Dict[str, dict]) -> None:
     print("\n\n### Rediscovery in the integer ring (`Z`)")
     print("The following schemes, originally known over the rational field (`Q`), have now been rediscovered in the integer ring (`Z`).")
     print("Implementations restricted to integer coefficients were previously unknown.\n")
-    print("|     Format     | Rank |")
-    print("|:--------------:|:----:|")
+    print("|   Format   |                       Rank                       |")
+    print("|:----------:|:------------------------------------------------:|")
 
     for size, data in status.items():
         ring2known_rank = {}
@@ -274,8 +273,12 @@ def plot_z_table(status: Dict[str, dict]) -> None:
         if "ZT" in data["ranks"] and data["ranks"]["ZT"] == min_known_rank:
             continue
 
-        if data["ranks"].get("Z") == min_known_rank:
-            print(f'| {format_size(size):^14} | {data["ranks"]["Z"]:^4} |')
+        if data["ranks"].get("Z") != min_known_rank:
+            continue
+
+        z_rank = data["ranks"]["Z"]
+        link = f"[{z_rank}](schemes/results/Z/{size}_m{z_rank}_Z.json)"
+        print(f'| {format_size(size):^10} | {link:^48} |')
 
 
 def print_coefficients_status(status: Dict[str, dict]) -> None:
