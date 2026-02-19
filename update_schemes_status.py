@@ -205,8 +205,8 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
     print("\n\n### New best ranks")
     print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than previously known.\n")
-    print("|   Format   |  Prev rank  |                          New rank                          |")
-    print("|:----------:|:-----------:|:----------------------------------------------------------:|")
+    print("|   Format   |  Prev rank  |                          New rank                          |        ω        |")
+    print("|:----------:|:-----------:|:----------------------------------------------------------:|:---------------:|")
 
     excluded = {
         "2x8x13", "2x10x15", "2x12x16",
@@ -217,7 +217,10 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
         "11x11x15", "11x11x16"
     }
 
+    strassen = math.log(7, 2)
+
     for size, data in status.items():
+        n1, n2, n3 = map(int, size.split("x"))
         min_rank = min(rank for ring, rank in data["ranks"].items() if ring != "Z2")
         min_known_rank = min(scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if ring != "Z2" and "known" in scheme["source"])
 
@@ -232,7 +235,9 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
         prev = f"{min_known_rank} (`{'/'.join(known_rings)}`)"
         curr = f"[{min_rank}](schemes/results/{rings[0]}/{size}_m{min_rank}_{rings[0]}.json) (`{'/'.join(rings)}`)"
         size = format_size(size)
-        print(f"| {size:^10} | {prev:^11} | {curr:^58} |")
+        omega = 3*math.log(min_rank, n1*n2*n3)
+        bold = "**" if omega < strassen else "  "
+        print(f"| {size:^10} | {prev:^11} | {curr:^58} | {bold}{omega:.9f}{bold} |")
 
 
 def plot_zt_table(status: Dict[str, dict]) -> None:

@@ -29,84 +29,84 @@ For a detailed history of discoveries and improvements, see the [CHANGELOG.md](C
 ### New best ranks
 New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than previously known.
 
-|   Format   |  Prev rank  |                          New rank                          |
-|:----------:|:-----------:|:----------------------------------------------------------:|
-|  `4×4×10`  |  120 (`Q`)  |    [115](schemes/results/ZT/4x4x10_m115_ZT.json) (`ZT`)    |
-|  `4×4×12`  |  142 (`Q`)  |    [141](schemes/results/ZT/4x4x12_m141_ZT.json) (`ZT`)    |
-|  `4×4×14`  |  165 (`Q`)  |     [163](schemes/results/Q/4x4x14_m163_Q.json) (`Q`)      |
-|  `4×4×15`  |  177 (`Q`)  |    [176](schemes/results/ZT/4x4x15_m176_ZT.json) (`ZT`)    |
-|  `4×4×16`  |  189 (`Q`)  |    [188](schemes/results/ZT/4x4x16_m188_ZT.json) (`ZT`)    |
-|  `4×5×9`   |  136 (`Q`)  |    [132](schemes/results/ZT/4x5x9_m132_ZT.json) (`ZT`)     |
-|  `4×5×10`  |  151 (`Z`)  |    [146](schemes/results/ZT/4x5x10_m146_ZT.json) (`ZT`)    |
-|  `4×5×11`  |  165 (`Z`)  |    [160](schemes/results/ZT/4x5x11_m160_ZT.json) (`ZT`)    |
-|  `4×5×12`  |  180 (`Z`)  |    [175](schemes/results/ZT/4x5x12_m175_ZT.json) (`ZT`)    |
-|  `4×5×13`  |  194 (`Z`)  |    [192](schemes/results/ZT/4x5x13_m192_ZT.json) (`ZT`)    |
-|  `4×5×14`  |  208 (`Z`)  |    [207](schemes/results/ZT/4x5x14_m207_ZT.json) (`ZT`)    |
-|  `4×5×15`  |  226 (`Z`)  |    [221](schemes/results/ZT/4x5x15_m221_ZT.json) (`ZT`)    |
-|  `4×5×16`  |  240 (`Q`)  |    [236](schemes/results/ZT/4x5x16_m236_ZT.json) (`ZT`)    |
-|  `4×6×13`  |  228 (`Z`)  |    [227](schemes/results/ZT/4x6x13_m227_ZT.json) (`ZT`)    |
-|  `4×7×11`  |  227 (`Z`)  |    [226](schemes/results/ZT/4x7x11_m226_ZT.json) (`ZT`)    |
-|  `4×9×11`  | 280 (`ZT`)  |    [279](schemes/results/ZT/4x9x11_m279_ZT.json) (`ZT`)    |
-|  `5×5×9`   |  167 (`Z`)  |    [163](schemes/results/ZT/5x5x9_m163_ZT.json) (`ZT`)     |
-|  `5×6×10`  |  218 (`Z`)  |    [217](schemes/results/ZT/5x6x10_m217_ZT.json) (`ZT`)    |
-|  `5×7×8`   |  205 (`Q`)  |    [204](schemes/results/ZT/5x7x8_m204_ZT.json) (`ZT`)     |
-| `5×13×13`  |  588 (`Q`)  |     [587](schemes/results/Q/5x13x13_m587_Q.json) (`Q`)     |
-| `5×13×14`  |  630 (`Q`)  |     [628](schemes/results/Q/5x13x14_m628_Q.json) (`Q`)     |
-| `5×14×14`  |  676 (`Q`)  |     [672](schemes/results/Z/5x14x14_m672_Z.json) (`Z`)     |
-|  `6×7×7`   | 215 (`ZT`)  |    [212](schemes/results/ZT/6x7x7_m212_ZT.json) (`ZT`)     |
-|  `6×7×8`   | 239 (`ZT`)  |    [238](schemes/results/ZT/6x7x8_m238_ZT.json) (`ZT`)     |
-|  `6×7×9`   | 270 (`ZT`)  |    [268](schemes/results/ZT/6x7x9_m268_ZT.json) (`ZT`)     |
-|  `6×7×10`  |  296 (`Z`)  |     [293](schemes/results/Q/6x7x10_m293_Q.json) (`Q`)      |
-| `6×13×13`  |  680 (`Q`)  |     [678](schemes/results/Q/6x13x13_m678_Q.json) (`Q`)     |
-| `6×13×14`  |  730 (`Q`)  |     [726](schemes/results/Q/6x13x14_m726_Q.json) (`Q`)     |
-|  `7×7×10`  |  346 (`Z`)  |     [345](schemes/results/Q/7x7x10_m345_Q.json) (`Q`)      |
-|  `7×8×15`  |  571 (`Q`)  |     [570](schemes/results/Q/7x8x15_m570_Q.json) (`Q`)      |
-|  `7×9×11`  |  480 (`Q`)  |    [479](schemes/results/ZT/7x9x11_m479_ZT.json) (`ZT`)    |
-|  `7×9×15`  |  639 (`Z`)  |     [634](schemes/results/Q/7x9x15_m634_Q.json) (`Q`)      |
-| `7×14×15`  |  976 (`Z`)  |     [969](schemes/results/Z/7x14x15_m969_Z.json) (`Z`)     |
-|  `8×8×16`  |  672 (`Q`)  |     [671](schemes/results/Q/8x8x16_m671_Q.json) (`Q`)      |
-|  `8×9×11`  |  533 (`Q`)  |    [532](schemes/results/ZT/8x9x11_m532_ZT.json) (`ZT`)    |
-|  `8×9×14`  |  669 (`Z`)  |    [666](schemes/results/ZT/8x9x14_m666_ZT.json) (`ZT`)    |
-| `9×10×10`  |  600 (`Z`)  |   [598](schemes/results/ZT/9x10x10_m598_ZT.json) (`ZT`)    |
-| `9×10×13`  |  772 (`Z`)  |     [765](schemes/results/Q/9x10x13_m765_Q.json) (`Q`)     |
-| `9×10×14`  |  820 (`Z`)  |     [819](schemes/results/Q/9x10x14_m819_Q.json) (`Q`)     |
-| `9×11×11`  |  725 (`Q`)  |     [715](schemes/results/Q/9x11x11_m715_Q.json) (`Q`)     |
-| `9×11×12`  |  760 (`Q`)  |     [754](schemes/results/Q/9x11x12_m754_Q.json) (`Q`)     |
-| `9×11×13`  |  849 (`Z`)  |     [835](schemes/results/Q/9x11x13_m835_Q.json) (`Q`)     |
-| `9×11×14`  |  904 (`Z`)  |     [889](schemes/results/Q/9x11x14_m889_Q.json) (`Q`)     |
-| `9×11×15`  |  981 (`Q`)  |     [960](schemes/results/Z/9x11x15_m960_Z.json) (`Z`)     |
-| `9×11×16`  | 1030 (`Z`)  |    [1023](schemes/results/Q/9x11x16_m1023_Q.json) (`Q`)    |
-| `9×12×13`  |  900 (`Q`)  |     [884](schemes/results/Q/9x12x13_m884_Q.json) (`Q`)     |
-| `9×12×16`  | 1080 (`Q`)  |    [1072](schemes/results/Q/9x12x16_m1072_Q.json) (`Q`)    |
-| `9×13×13`  |  996 (`Z`)  |     [981](schemes/results/Q/9x13x13_m981_Q.json) (`Q`)     |
-| `9×13×14`  | 1063 (`Z`)  |    [1041](schemes/results/Q/9x13x14_m1041_Q.json) (`Q`)    |
-| `9×13×15`  | 1135 (`Q`)  |    [1119](schemes/results/Z/9x13x15_m1119_Z.json) (`Z`)    |
-| `9×13×16`  | 1210 (`Z`)  |    [1183](schemes/results/Q/9x13x16_m1183_Q.json) (`Q`)    |
-| `9×14×14`  | 1136 (`Z`)  |    [1121](schemes/results/Q/9x14x14_m1121_Q.json) (`Q`)    |
-| `9×15×15`  | 1290 (`Q`)  |    [1284](schemes/results/Z/9x15x15_m1284_Z.json) (`Z`)    |
-| `9×15×16`  | 1350 (`Z`)  |    [1341](schemes/results/Q/9x15x16_m1341_Q.json) (`Q`)    |
-| `9×16×16`  | 1444 (`ZT`) |    [1431](schemes/results/Q/9x16x16_m1431_Q.json) (`Q`)    |
-| `10×11×15` | 1067 (`Q`)  |  [1055](schemes/results/ZT/10x11x15_m1055_ZT.json) (`ZT`)  |
-| `10×13×16` | 1332 (`Z`)  |  [1326](schemes/results/ZT/10x13x16_m1326_ZT.json) (`ZT`)  |
-| `11×12×13` | 1102 (`Z`)  |   [1092](schemes/results/Q/11x12x13_m1092_Q.json) (`Q`)    |
-| `11×12×15` | 1264 (`Q`)  |   [1240](schemes/results/Q/11x12x15_m1240_Q.json) (`Q`)    |
-| `11×13×13` | 1210 (`Z`)  |  [1205](schemes/results/ZT/11x13x13_m1205_ZT.json) (`ZT`)  |
-| `11×13×14` | 1298 (`Z`)  |  [1292](schemes/results/ZT/11x13x14_m1292_ZT.json) (`ZT`)  |
-| `11×13×16` | 1472 (`Z`)  |   [1452](schemes/results/Q/11x13x16_m1452_Q.json) (`Q`)    |
-| `11×14×14` | 1388 (`Z`)  |  [1376](schemes/results/ZT/11x14x14_m1376_ZT.json) (`ZT`)  |
-| `11×14×15` | 1471 (`Z`)  |   [1460](schemes/results/Z/11x14x15_m1460_Z.json) (`Z`)    |
-| `11×14×16` | 1571 (`Q`)  |   [1548](schemes/results/Q/11x14x16_m1548_Q.json) (`Q`)    |
-| `12×12×14` | 1250 (`Q`)  |   [1240](schemes/results/Q/12x12x14_m1240_Q.json) (`Q`)    |
-| `12×13×16` | 1556 (`Q`)  | [1548](schemes/results/ZT/12x13x16_m1548_ZT.json) (`ZT/Q`) |
-| `13×13×13` | 1426 (`Q`)  |   [1421](schemes/results/Q/13x13x13_m1421_Q.json) (`Q`)    |
-| `13×13×14` | 1524 (`Z`)  |  [1511](schemes/results/ZT/13x13x14_m1511_ZT.json) (`ZT`)  |
-| `13×13×16` | 1713 (`Q`)  |   [1704](schemes/results/Q/13x13x16_m1704_Q.json) (`Q`)    |
-| `13×14×14` | 1625 (`Z`)  |  [1614](schemes/results/ZT/13x14x14_m1614_ZT.json) (`ZT`)  |
-| `13×14×15` | 1714 (`Z`)  |  [1698](schemes/results/ZT/13x14x15_m1698_ZT.json) (`ZT`)  |
-| `13×14×16` | 1825 (`Q`)  |   [1806](schemes/results/Q/13x14x16_m1806_Q.json) (`Q`)    |
-| `13×15×16` | 1932 (`Z`)  |   [1908](schemes/results/Q/13x15x16_m1908_Q.json) (`Q`)    |
-| `14×14×16` | 1939 (`Q`)  |   [1938](schemes/results/Q/14x14x16_m1938_Q.json) (`Q`)    |
-| `15×15×16` | 2173 (`Q`)  |   [2155](schemes/results/Q/15x15x16_m2155_Q.json) (`Q`)    |
+|   Format   |  Prev rank  |                          New rank                          |        ω        |
+|:----------:|:-----------:|:----------------------------------------------------------:|:---------------:|
+|  `4×4×10`  |  120 (`Q`)  |    [115](schemes/results/ZT/4x4x10_m115_ZT.json) (`ZT`)    | **2.804789925** |
+|  `4×4×12`  |  142 (`Q`)  |    [141](schemes/results/ZT/4x4x12_m141_ZT.json) (`ZT`)    |   2.823831239   |
+|  `4×4×14`  |  165 (`Q`)  |     [163](schemes/results/Q/4x4x14_m163_Q.json) (`Q`)      |   2.823771262   |
+|  `4×4×15`  |  177 (`Q`)  |    [176](schemes/results/ZT/4x4x15_m176_ZT.json) (`ZT`)    |   2.830226950   |
+|  `4×4×16`  |  189 (`Q`)  |    [188](schemes/results/ZT/4x4x16_m188_ZT.json) (`ZT`)    |   2.832970819   |
+|  `4×5×9`   |  136 (`Q`)  |    [132](schemes/results/ZT/4x5x9_m132_ZT.json) (`ZT`)     |   2.820821776   |
+|  `4×5×10`  |  151 (`Z`)  |    [146](schemes/results/ZT/4x5x10_m146_ZT.json) (`ZT`)    |   2.821805270   |
+|  `4×5×11`  |  165 (`Z`)  |    [160](schemes/results/ZT/4x5x11_m160_ZT.json) (`ZT`)    |   2.822872235   |
+|  `4×5×12`  |  180 (`Z`)  |    [175](schemes/results/ZT/4x5x12_m175_ZT.json) (`ZT`)    |   2.827107959   |
+|  `4×5×13`  |  194 (`Z`)  |    [192](schemes/results/ZT/4x5x13_m192_ZT.json) (`ZT`)    |   2.836430345   |
+|  `4×5×14`  |  208 (`Z`)  |    [207](schemes/results/ZT/4x5x14_m207_ZT.json) (`ZT`)    |   2.839175463   |
+|  `4×5×15`  |  226 (`Z`)  |    [221](schemes/results/ZT/4x5x15_m221_ZT.json) (`ZT`)    |   2.839254157   |
+|  `4×5×16`  |  240 (`Q`)  |    [236](schemes/results/ZT/4x5x16_m236_ZT.json) (`ZT`)    |   2.841640648   |
+|  `4×6×13`  |  228 (`Z`)  |    [227](schemes/results/ZT/4x6x13_m227_ZT.json) (`ZT`)    |   2.833857047   |
+|  `4×7×11`  |  227 (`Z`)  |    [226](schemes/results/ZT/4x7x11_m226_ZT.json) (`ZT`)    |   2.837927019   |
+|  `4×9×11`  | 280 (`ZT`)  |    [279](schemes/results/ZT/4x9x11_m279_ZT.json) (`ZT`)    |   2.824354701   |
+|  `5×5×9`   |  167 (`Z`)  |    [163](schemes/results/ZT/5x5x9_m163_ZT.json) (`ZT`)     |   2.821448915   |
+|  `5×6×10`  |  218 (`Z`)  |    [217](schemes/results/ZT/5x6x10_m217_ZT.json) (`ZT`)    |   2.829647192   |
+|  `5×7×8`   |  205 (`Q`)  |    [204](schemes/results/ZT/5x7x8_m204_ZT.json) (`ZT`)     |   2.831402964   |
+| `5×13×13`  |  588 (`Q`)  |     [587](schemes/results/Q/5x13x13_m587_Q.json) (`Q`)     |   2.837827448   |
+| `5×13×14`  |  630 (`Q`)  |     [628](schemes/results/Q/5x13x14_m628_Q.json) (`Q`)     |   2.836688582   |
+| `5×14×14`  |  676 (`Q`)  |     [672](schemes/results/Z/5x14x14_m672_Z.json) (`Z`)     |   2.835662569   |
+|  `6×7×7`   | 215 (`ZT`)  |    [212](schemes/results/ZT/6x7x7_m212_ZT.json) (`ZT`)     |   2.827400948   |
+|  `6×7×8`   | 239 (`ZT`)  |    [238](schemes/results/ZT/6x7x8_m238_ZT.json) (`ZT`)     |   2.822158898   |
+|  `6×7×9`   | 270 (`ZT`)  |    [268](schemes/results/ZT/6x7x9_m268_ZT.json) (`ZT`)     |   2.826160061   |
+|  `6×7×10`  |  296 (`Z`)  |     [293](schemes/results/Q/6x7x10_m293_Q.json) (`Q`)      |   2.821158816   |
+| `6×13×13`  |  680 (`Q`)  |     [678](schemes/results/Q/6x13x13_m678_Q.json) (`Q`)     |   2.825542860   |
+| `6×13×14`  |  730 (`Q`)  |     [726](schemes/results/Q/6x13x14_m726_Q.json) (`Q`)     |   2.824944345   |
+|  `7×7×10`  |  346 (`Z`)  |     [345](schemes/results/Q/7x7x10_m345_Q.json) (`Q`)      |   2.830075228   |
+|  `7×8×15`  |  571 (`Q`)  |     [570](schemes/results/Q/7x8x15_m570_Q.json) (`Q`)      |   2.827234938   |
+|  `7×9×11`  |  480 (`Q`)  |    [479](schemes/results/ZT/7x9x11_m479_ZT.json) (`ZT`)    |   2.830609521   |
+|  `7×9×15`  |  639 (`Z`)  |     [634](schemes/results/Q/7x9x15_m634_Q.json) (`Q`)      |   2.825226157   |
+| `7×14×15`  |  976 (`Z`)  |     [969](schemes/results/Z/7x14x15_m969_Z.json) (`Z`)     |   2.828567644   |
+|  `8×8×16`  |  672 (`Q`)  |     [671](schemes/results/Q/8x8x16_m671_Q.json) (`Q`)      |   2.817050687   |
+|  `8×9×11`  |  533 (`Q`)  |    [532](schemes/results/ZT/8x9x11_m532_ZT.json) (`ZT`)    |   2.821148741   |
+|  `8×9×14`  |  669 (`Z`)  |    [666](schemes/results/ZT/8x9x14_m666_ZT.json) (`ZT`)    |   2.820221074   |
+| `9×10×10`  |  600 (`Z`)  |   [598](schemes/results/ZT/9x10x10_m598_ZT.json) (`ZT`)    |   2.819708783   |
+| `9×10×13`  |  772 (`Z`)  |     [765](schemes/results/Q/9x10x13_m765_Q.json) (`Q`)     |   2.819576354   |
+| `9×10×14`  |  820 (`Z`)  |     [819](schemes/results/Q/9x10x14_m819_Q.json) (`Q`)     |   2.818970048   |
+| `9×11×11`  |  725 (`Q`)  |     [715](schemes/results/Q/9x11x11_m715_Q.json) (`Q`)     |   2.819505933   |
+| `9×11×12`  |  760 (`Q`)  |     [754](schemes/results/Q/9x11x12_m754_Q.json) (`Q`)     |   2.807359140   |
+| `9×11×13`  |  849 (`Z`)  |     [835](schemes/results/Q/9x11x13_m835_Q.json) (`Q`)     |   2.818729064   |
+| `9×11×14`  |  904 (`Z`)  |     [889](schemes/results/Q/9x11x14_m889_Q.json) (`Q`)     |   2.815840862   |
+| `9×11×15`  |  981 (`Q`)  |     [960](schemes/results/Z/9x11x15_m960_Z.json) (`Z`)     |   2.820802434   |
+| `9×11×16`  | 1030 (`Z`)  |    [1023](schemes/results/Q/9x11x16_m1023_Q.json) (`Q`)    |   2.821974308   |
+| `9×12×13`  |  900 (`Q`)  |     [884](schemes/results/Q/9x12x13_m884_Q.json) (`Q`)     |   2.808492461   |
+| `9×12×16`  | 1080 (`Q`)  |    [1072](schemes/results/Q/9x12x16_m1072_Q.json) (`Q`)    |   2.807864570   |
+| `9×13×13`  |  996 (`Z`)  |     [981](schemes/results/Q/9x13x13_m981_Q.json) (`Q`)     |   2.820440786   |
+| `9×13×14`  | 1063 (`Z`)  |    [1041](schemes/results/Q/9x13x14_m1041_Q.json) (`Q`)    |   2.816262654   |
+| `9×13×15`  | 1135 (`Q`)  |    [1119](schemes/results/Z/9x13x15_m1119_Z.json) (`Z`)    |   2.819269106   |
+| `9×13×16`  | 1210 (`Z`)  |    [1183](schemes/results/Q/9x13x16_m1183_Q.json) (`Q`)    |   2.817265461   |
+| `9×14×14`  | 1136 (`Z`)  |    [1121](schemes/results/Q/9x14x14_m1121_Q.json) (`Q`)    |   2.818056626   |
+| `9×15×15`  | 1290 (`Q`)  |    [1284](schemes/results/Z/9x15x15_m1284_Z.json) (`Z`)    |   2.820476797   |
+| `9×15×16`  | 1350 (`Z`)  |    [1341](schemes/results/Q/9x15x16_m1341_Q.json) (`Q`)    |   2.813740131   |
+| `9×16×16`  | 1444 (`ZT`) |    [1431](schemes/results/Q/9x16x16_m1431_Q.json) (`Q`)    |   2.815455240   |
+| `10×11×15` | 1067 (`Q`)  |  [1055](schemes/results/ZT/10x11x15_m1055_ZT.json) (`ZT`)  |   2.818897479   |
+| `10×13×16` | 1332 (`Z`)  |  [1326](schemes/results/ZT/10x13x16_m1326_ZT.json) (`ZT`)  |   2.823222352   |
+| `11×12×13` | 1102 (`Z`)  |   [1092](schemes/results/Q/11x12x13_m1092_Q.json) (`Q`)    |   2.817937614   |
+| `11×12×15` | 1264 (`Q`)  |   [1240](schemes/results/Q/11x12x15_m1240_Q.json) (`Q`)    |   2.815046272   |
+| `11×13×13` | 1210 (`Z`)  |  [1205](schemes/results/ZT/11x13x13_m1205_ZT.json) (`ZT`)  |   2.827216655   |
+| `11×13×14` | 1298 (`Z`)  |  [1292](schemes/results/ZT/11x13x14_m1292_ZT.json) (`ZT`)  |   2.827166171   |
+| `11×13×16` | 1472 (`Z`)  |   [1452](schemes/results/Q/11x13x16_m1452_Q.json) (`Q`)    |   2.823641623   |
+| `11×14×14` | 1388 (`Z`)  |  [1376](schemes/results/ZT/11x14x14_m1376_ZT.json) (`ZT`)  |   2.824489318   |
+| `11×14×15` | 1471 (`Z`)  |   [1460](schemes/results/Z/11x14x15_m1460_Z.json) (`Z`)    |   2.822281114   |
+| `11×14×16` | 1571 (`Q`)  |   [1548](schemes/results/Q/11x14x16_m1548_Q.json) (`Q`)    |   2.821440626   |
+| `12×12×14` | 1250 (`Q`)  |   [1240](schemes/results/Q/12x12x14_m1240_Q.json) (`Q`)    |   2.808379984   |
+| `12×13×16` | 1556 (`Q`)  | [1548](schemes/results/ZT/12x13x16_m1548_ZT.json) (`ZT/Q`) |   2.816786558   |
+| `13×13×13` | 1426 (`Q`)  |   [1421](schemes/results/Q/13x13x13_m1421_Q.json) (`Q`)    |   2.830120644   |
+| `13×13×14` | 1524 (`Z`)  |  [1511](schemes/results/ZT/13x13x14_m1511_ZT.json) (`ZT`)  |   2.826838093   |
+| `13×13×16` | 1713 (`Q`)  |   [1704](schemes/results/Q/13x13x16_m1704_Q.json) (`Q`)    |   2.824705676   |
+| `13×14×14` | 1625 (`Z`)  |  [1614](schemes/results/ZT/13x14x14_m1614_ZT.json) (`ZT`)  |   2.825351482   |
+| `13×14×15` | 1714 (`Z`)  |  [1698](schemes/results/ZT/13x14x15_m1698_ZT.json) (`ZT`)  |   2.819951805   |
+| `13×14×16` | 1825 (`Q`)  |   [1806](schemes/results/Q/13x14x16_m1806_Q.json) (`Q`)    |   2.820327226   |
+| `13×15×16` | 1932 (`Z`)  |   [1908](schemes/results/Q/13x15x16_m1908_Q.json) (`Q`)    |   2.816628414   |
+| `14×14×16` | 1939 (`Q`)  |   [1938](schemes/results/Q/14x14x16_m1938_Q.json) (`Q`)    |   2.820652346   |
+| `15×15×16` | 2173 (`Q`)  |   [2155](schemes/results/Q/15x15x16_m2155_Q.json) (`Q`)    |   2.812005396   |
 
 
 ### Rediscovery in the ternary coefficient set (`ZT`)
