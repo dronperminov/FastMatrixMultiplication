@@ -1,5 +1,18 @@
 # Changelog
 
+# 19.02.2026
+### Integer ring rediscovery (`Z`)
+* `2x7x9`: found [scheme](schemes/results/Z/2x7x9_m99_Z.json) with `99` multiplications;
+* `2x7x16`: found [scheme](schemes/results/Z/2x7x16_m175_Z.json) with `175` multiplications;
+* `2x8x9`: found [scheme](schemes/results/Z/2x8x9_m113_Z.json) with `113` multiplications;
+* `2x11x12`: found [scheme](schemes/results/Z/2x11x12_m204_Z.json) with `204` multiplications;
+* `2x11x13`: found [scheme](schemes/results/Z/2x11x13_m221_Z.json) with `221` multiplications;
+* `2x11x14`: found [scheme](schemes/results/Z/2x11x14_m238_Z.json) with `238` multiplications;
+* `2x13x15`: found [scheme](schemes/results/Z/2x13x15_m300_Z.json) with `300` multiplications;
+* `2x13x16`: found [scheme](schemes/results/Z/2x13x16_m320_Z.json) with `320` multiplications;
+* `2x15x16`: found [scheme](schemes/results/Z/2x15x16_m368_Z.json) with `368` multiplications;
+
+
 ## 18.02.2026
 ### Rank improvement
 * `7x9x11`: found [scheme](schemes/results/ZT/7x9x11_m479_ZT.json) with `479` multiplications (`ZT`);
