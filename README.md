@@ -31,9 +31,6 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 
 |   Format   |  Prev rank  |                          New rank                          |
 |:----------:|:-----------:|:----------------------------------------------------------:|
-|  `2×8×13`  |  164 (`Q`)  |     [163](schemes/results/Z/2x8x13_m163_Z.json) (`Z`)      |
-| `2×10×15`  | 235 (`ZT`)  |     [234](schemes/results/Z/2x10x15_m234_Z.json) (`Z`)     |
-| `2×12×16`  |  300 (`Q`)  |     [298](schemes/results/Z/2x12x16_m298_Z.json) (`Z`)     |
 |  `4×4×10`  |  120 (`Q`)  |    [115](schemes/results/ZT/4x4x10_m115_ZT.json) (`ZT`)    |
 |  `4×4×12`  |  142 (`Q`)  |    [141](schemes/results/ZT/4x4x12_m141_ZT.json) (`ZT`)    |
 |  `4×4×14`  |  165 (`Q`)  |     [163](schemes/results/Q/4x4x14_m163_Q.json) (`Q`)      |
@@ -66,24 +63,13 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `7×8×15`  |  571 (`Q`)  |     [570](schemes/results/Q/7x8x15_m570_Q.json) (`Q`)      |
 |  `7×9×11`  |  480 (`Q`)  |    [479](schemes/results/ZT/7x9x11_m479_ZT.json) (`ZT`)    |
 |  `7×9×15`  |  639 (`Z`)  |     [634](schemes/results/Q/7x9x15_m634_Q.json) (`Q`)      |
-| `7×10×15`  |  711 (`Q`)  |     [703](schemes/results/Z/7x10x15_m703_Z.json) (`Z`)     |
-| `7×10×16`  |  752 (`Q`)  |     [742](schemes/results/Z/7x10x16_m742_Z.json) (`Z`)     |
-| `7×11×15`  |  778 (`Z`)  |     [777](schemes/results/Q/7x11x15_m777_Q.json) (`Q`)     |
-| `7×11×16`  |  827 (`Q`)  |     [822](schemes/results/Z/7x11x16_m822_Z.json) (`Z`)     |
-| `7×13×13`  |  795 (`Q`)  |     [794](schemes/results/Q/7x13x13_m794_Q.json) (`Q`)     |
-| `7×13×14`  |  852 (`Q`)  |     [850](schemes/results/Q/7x13x14_m850_Q.json) (`Q`)     |
-| `7×14×14`  |  912 (`Q`)  |     [909](schemes/results/Z/7x14x14_m909_Z.json) (`Z`)     |
 | `7×14×15`  |  976 (`Z`)  |     [969](schemes/results/Z/7x14x15_m969_Z.json) (`Z`)     |
 |  `8×8×16`  |  672 (`Q`)  |     [671](schemes/results/Q/8x8x16_m671_Q.json) (`Q`)      |
 |  `8×9×11`  |  533 (`Q`)  |    [532](schemes/results/ZT/8x9x11_m532_ZT.json) (`ZT`)    |
 |  `8×9×14`  |  669 (`Z`)  |    [666](schemes/results/ZT/8x9x14_m666_ZT.json) (`ZT`)    |
-| `8×10×15`  |  789 (`Z`)  |   [784](schemes/results/ZT/8x10x15_m784_ZT.json) (`ZT`)    |
-| `8×10×16`  |  832 (`Q`)  |   [826](schemes/results/ZT/8x10x16_m826_ZT.json) (`ZT`)    |
-| `8×11×16`  |  920 (`Q`)  |   [914](schemes/results/ZT/8x11x16_m914_ZT.json) (`ZT`)    |
 | `9×10×10`  |  600 (`Z`)  |   [598](schemes/results/ZT/9x10x10_m598_ZT.json) (`ZT`)    |
 | `9×10×13`  |  772 (`Z`)  |     [765](schemes/results/Q/9x10x13_m765_Q.json) (`Q`)     |
 | `9×10×14`  |  820 (`Z`)  |     [819](schemes/results/Q/9x10x14_m819_Q.json) (`Q`)     |
-| `9×10×16`  |  939 (`Q`)  |   [930](schemes/results/ZT/9x10x16_m930_ZT.json) (`ZT`)    |
 | `9×11×11`  |  725 (`Q`)  |     [715](schemes/results/Q/9x11x11_m715_Q.json) (`Q`)     |
 | `9×11×12`  |  760 (`Q`)  |     [754](schemes/results/Q/9x11x12_m754_Q.json) (`Q`)     |
 | `9×11×13`  |  849 (`Z`)  |     [835](schemes/results/Q/9x11x13_m835_Q.json) (`Q`)     |
@@ -101,12 +87,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `9×15×16`  | 1350 (`Z`)  |    [1341](schemes/results/Q/9x15x16_m1341_Q.json) (`Q`)    |
 | `9×16×16`  | 1444 (`ZT`) |    [1431](schemes/results/Q/9x16x16_m1431_Q.json) (`Q`)    |
 | `10×11×15` | 1067 (`Q`)  |  [1055](schemes/results/ZT/10x11x15_m1055_ZT.json) (`ZT`)  |
-| `10×11×16` | 1136 (`Q`)  |  [1112](schemes/results/ZT/10x11x16_m1112_ZT.json) (`ZT`)  |
-| `10×12×15` | 1140 (`ZT`) |  [1130](schemes/results/ZT/10x12x15_m1130_ZT.json) (`ZT`)  |
-| `10×12×16` | 1216 (`Q`)  |  [1190](schemes/results/ZT/10x12x16_m1190_ZT.json) (`ZT`)  |
 | `10×13×16` | 1332 (`Z`)  |  [1326](schemes/results/ZT/10x13x16_m1326_ZT.json) (`ZT`)  |
-| `11×11×15` | 1181 (`Z`)  |  [1170](schemes/results/ZT/11x11x15_m1170_ZT.json) (`ZT`)  |
-| `11×11×16` | 1236 (`Q`)  |  [1230](schemes/results/ZT/11x11x16_m1230_ZT.json) (`ZT`)  |
 | `11×12×13` | 1102 (`Z`)  |   [1092](schemes/results/Q/11x12x13_m1092_Q.json) (`Q`)    |
 | `11×12×15` | 1264 (`Q`)  |   [1240](schemes/results/Q/11x12x15_m1240_Q.json) (`Q`)    |
 | `11×13×13` | 1210 (`Z`)  |  [1205](schemes/results/ZT/11x13x13_m1205_ZT.json) (`ZT`)  |

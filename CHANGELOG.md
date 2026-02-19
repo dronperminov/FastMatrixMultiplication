@@ -29,15 +29,9 @@
 ## 13.02.2026
 ### Rank improvement
 * `9x10x10`: found scheme with `598` multiplications (`ZT`);
-* `9x10x16`: found scheme with `930` multiplications (`ZT`);
 * `9x15x16`: found scheme with `1341` multiplications (`Q`);
 * `10x11x15`: found scheme with `1055` multiplications (`ZT`);
-* `10x11x16`: found scheme with `1112` multiplications (`ZT`);
-* `10x12x15`: found scheme with `1130` multiplications (`ZT`);
-* `10x12x16`: found scheme with `1190` multiplications (`ZT`);
 * `10x13x16`: found scheme with `1326` multiplications (`ZT`);
-* `11x11x15`: found scheme with `1170` multiplications (`ZT`);
-* `11x11x16`: found scheme with `1230` multiplications (`ZT`);
 * `11x12x15`: found scheme with `1240` multiplications (`Q`);
 * `11x13x13`: found scheme with `1207` multiplications (`ZT`);
 * `11x13x14`: found scheme with `1292` multiplications (`ZT`);
@@ -53,7 +47,6 @@
 * `6x12x15`: found scheme with `705` multiplications;
 * `6x12x16`: found scheme with `746` multiplications;
 * `6x13x15`: found scheme with `771` multiplications;
-* `7x11x15`: found scheme with `778` multiplications;
 * `7x12x15`: found scheme with `831` multiplications;
 * `7x13x15`: found scheme with `909` multiplications;
 * `8x9x15`: found scheme with `705` multiplications;

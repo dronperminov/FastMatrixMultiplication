@@ -208,11 +208,20 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
     print("|   Format   |  Prev rank  |                          New rank                          |")
     print("|:----------:|:-----------:|:----------------------------------------------------------:|")
 
+    excluded = {
+        "2x8x13", "2x10x15", "2x12x16",
+        "7x10x15", "7x10x16", "7x11x15", "7x11x16", "7x13x13", "7x13x14", "7x14x14",
+        "8x10x15", "8x10x16", "8x11x16",
+        "9x10x16",
+        "10x11x16", "10x12x15", "10x12x16",
+        "11x11x15", "11x11x16"
+    }
+
     for size, data in status.items():
         min_rank = min(rank for ring, rank in data["ranks"].items() if ring != "Z2")
         min_known_rank = min(scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if ring != "Z2" and "known" in scheme["source"])
 
-        if min_rank >= min_known_rank:
+        if min_rank >= min_known_rank or size in excluded:
             continue
 
         ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items() if ring != "Z2"}
