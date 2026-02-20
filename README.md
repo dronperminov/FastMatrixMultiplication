@@ -65,7 +65,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `7×9×15`  |  639 (`Z`)  |     [634](schemes/results/Q/7x9x15_m634_Q.json) (`Q`)      |   2.825226157   |
 | `7×14×15`  |  976 (`Z`)  |     [969](schemes/results/Z/7x14x15_m969_Z.json) (`Z`)     |   2.828567644   |
 |  `8×8×16`  |  672 (`Q`)  |     [671](schemes/results/Q/8x8x16_m671_Q.json) (`Q`)      |   2.817050687   |
-|  `8×9×11`  |  533 (`Q`)  |    [532](schemes/results/ZT/8x9x11_m532_ZT.json) (`ZT`)    |   2.821148741   |
+|  `8×9×11`  |  533 (`Q`)  |    [531](schemes/results/ZT/8x9x11_m531_ZT.json) (`ZT`)    |   2.820303082   |
 |  `8×9×14`  |  669 (`Z`)  |    [666](schemes/results/ZT/8x9x14_m666_ZT.json) (`ZT`)    |   2.820221074   |
 | `9×10×10`  |  600 (`Z`)  |   [598](schemes/results/ZT/9x10x10_m598_ZT.json) (`ZT`)    |   2.819708783   |
 | `9×10×13`  |  772 (`Z`)  |     [765](schemes/results/Q/9x10x13_m765_Q.json) (`Q`)     |   2.819576354   |
@@ -1123,7 +1123,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `8×8×16`  |   672 (?)   |   672 (?)    |  671 (672)   |   672 (?)   |
 |  `8×9×9`   |   435 (?)   |   435 (?)    |     430      |   435 (?)   |
 |  `8×9×10`  |     487     |     487      |     487      |     487     |
-|  `8×9×11`  |   532 (?)   |   532 (?)    |  532 (533)   |   532 (?)   |
+|  `8×9×11`  |   531 (?)   |   531 (?)    |  531 (533)   |   531 (?)   |
 |  `8×9×12`  |   570 (?)   |   570 (?)    |     560      |   570 (?)   |
 |  `8×9×13`  |   624 (?)   |     624      |     624      |     624     |
 |  `8×9×14`  |   666 (?)   |  666 (669)   |  666 (669)   |  666 (669)  |
