@@ -1,6 +1,11 @@
 # Changelog
 
-# 19.02.2026
+## 20.02.2026
+### Rank improvement
+* `8x9x11`: found [scheme](schemes/results/ZT/8x9x11_m531_ZT.json) with `531` multiplications (`ZT`);
+
+
+## 19.02.2026
 ### Integer ring rediscovery (`Z`)
 * `2x7x9`: found [scheme](schemes/results/Z/2x7x9_m99_Z.json) with `99` multiplications;
 * `2x7x16`: found [scheme](schemes/results/Z/2x7x16_m175_Z.json) with `175` multiplications;
