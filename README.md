@@ -49,6 +49,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `4×9×11`  | 280 (`ZT`)  |    [279](schemes/results/ZT/4x9x11_m279_ZT.json) (`ZT`)    |   2.824354701   |
 |  `5×5×9`   |  167 (`Z`)  |    [163](schemes/results/ZT/5x5x9_m163_ZT.json) (`ZT`)     |   2.821448915   |
 |  `5×5×10`  |  184 (`Q`)  |    [181](schemes/results/ZT/5x5x10_m181_ZT.json) (`ZT`)    |   2.824522590   |
+|  `5×5×11`  |  202 (`Q`)  |    [201](schemes/results/ZT/5x5x11_m201_ZT.json) (`ZT`)    |   2.832573101   |
 |  `5×6×10`  |  218 (`Z`)  |    [217](schemes/results/ZT/5x6x10_m217_ZT.json) (`ZT`)    |   2.829647192   |
 |  `5×7×8`   |  205 (`Q`)  |    [204](schemes/results/ZT/5x7x8_m204_ZT.json) (`ZT`)     |   2.831402964   |
 |  `6×7×7`   | 215 (`ZT`)  |    [212](schemes/results/ZT/6x7x7_m212_ZT.json) (`ZT`)     |   2.827400948   |
@@ -154,7 +155,6 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `5×5×6`   |    [110](schemes/results/ZT/5x5x6_m110_ZT.json)    |   `Z/Q`    |
 |  `5×5×7`   |    [127](schemes/results/ZT/5x5x7_m127_ZT.json)    |   `Z/Q`    |
 |  `5×5×8`   |    [144](schemes/results/ZT/5x5x8_m144_ZT.json)    |   `Z/Q`    |
-|  `5×5×11`  |   [202](schemes/results/ZT/5x5x11_m202_ZT.json)    |    `Q`     |
 |  `5×5×12`  |   [220](schemes/results/ZT/5x5x12_m220_ZT.json)    |    `Z`     |
 |  `5×5×13`  |   [237](schemes/results/ZT/5x5x13_m237_ZT.json)    |    `Z`     |
 |  `5×5×14`  |   [254](schemes/results/ZT/5x5x14_m254_ZT.json)    |    `Z`     |
@@ -914,7 +914,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `5×5×8`   |   144 (?)   |     144      |     144      |     144     |
 |  `5×5×9`   |   163 (?)   |  163 (167)   |  163 (167)   |  163 (167)  |
 |  `5×5×10`  |   181 (?)   |   181 (?)    |  181 (184)   |  181 (184)  |
-|  `5×5×11`  |   202 (?)   |   202 (?)    |     202      |  200 (202)  |
+|  `5×5×11`  |   201 (?)   |   201 (?)    |  201 (202)   |  200 (202)  |
 |  `5×5×12`  |   220 (?)   |     220      |     220      |  217 (220)  |
 |  `5×5×13`  |   237 (?)   |     237      |     237      |     237     |
 |  `5×5×14`  |   254 (?)   |     254      |     254      |     254     |
