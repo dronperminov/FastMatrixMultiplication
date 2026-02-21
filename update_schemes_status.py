@@ -210,6 +210,8 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
 
     excluded = {
         "2x8x13", "2x10x15", "2x12x16",
+        "5x13x13", "5x13x14", "5x14x14",
+        "6x13x13", "6x13x14",
         "7x10x15", "7x10x16", "7x11x15", "7x11x16", "7x13x13", "7x13x14", "7x14x14",
         "8x10x15", "8x10x16", "8x11x16",
         "9x10x16",
