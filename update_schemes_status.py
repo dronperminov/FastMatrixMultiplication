@@ -172,8 +172,8 @@ def format_size(size: str) -> str:
 
 def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
     print("## Ranks")
-    print("|   Format   |  `ZT` rank  |   `Z` rank   |   `Q` rank   |  `Z2` rank  |")
-    print("|:----------:|:-----------:|:------------:|:------------:|:-----------:|")
+    print("|   Format   |  `ZT` rank  |   `Z` rank   |   `Q` rank   |        ω        |")
+    print("|:----------:|:-----------:|:------------:|:------------:|:---------------:|")
 
     for size, data in status.items():
         known_ranks = {}
@@ -199,7 +199,11 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
             rank_known = format_value(known_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
             diff_rank[ring] = rank_curr if rank_curr == rank_known else f"{rank_curr} ({rank_known})"
 
-        print(f'| {format_size(size):^10} | {diff_rank["ZT"]:^11} | {diff_rank["Z"]:^12} | {diff_rank["Q"]:^12} | {diff_rank["Z2"]:^11} |')
+        n1, n2, n3 = map(int, size.split("x"))
+        omega = 3 * math.log(min_rank, n1 * n2 * n3)
+        bold = "**" if omega < math.log(7, 2) else "  "
+
+        print(f'| {format_size(size):^10} | {diff_rank["ZT"]:^11} | {diff_rank["Z"]:^12} | {diff_rank["Q"]:^12} | {bold}{omega:.9f}{bold} |')
 
 
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
