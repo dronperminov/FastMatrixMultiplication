@@ -1,5 +1,10 @@
 # Changelog
 
+## 23.02.2026
+### Rank improvement
+* `11x11x15`: found [scheme](schemes/results/ZT/11x11x15_m1169_ZT.json) with `1169` multiplications (`ZT`);
+
+
 ## 22.02.2026
 ### Rank improvement
 * `9x10x10`: found [scheme](schemes/results/ZT/9x10x10_m597_ZT.json) with `597` multiplications (`ZT`);
