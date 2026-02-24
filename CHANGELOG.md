@@ -2,6 +2,7 @@
 
 ## 24.02.2026
 ### Rank improvement
+* `5x5x10`: found [scheme](schemes/results/ZT/5x5x10_m180_ZT.json) with `180` multiplications (`ZT`);
 * `5x5x11`: found [scheme](schemes/results/ZT/5x5x11_m198_ZT.json) with `198` multiplications (`ZT`);
 * `5x5x12`: found [scheme](schemes/results/ZT/5x5x12_m216_ZT.json) with `216` multiplications (`ZT`);
 
