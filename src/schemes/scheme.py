@@ -825,6 +825,18 @@ class Scheme:
 
         return replaced
 
+    def remove_zeroes(self):
+        self.__remove_zeroes()
+
+    def check_reduce(self) -> bool:
+        for index1, index2 in itertools.combinations(range(self.m), r=2):
+            u = self.u[index1] == self.u[index2]
+            v = self.v[index1] == self.v[index2]
+            w = self.w[index1] == self.w[index2]
+            if u and v or v and w or u and w:
+                return True
+        return False
+
     def __remove_zeroes(self) -> None:
         non_zero_indices = [index for index in range(self.m) if any(self.u[index]) and any(self.v[index]) and any(self.w[index])]
         self.u = [self.u[index] for index in non_zero_indices]

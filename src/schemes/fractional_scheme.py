@@ -2,8 +2,12 @@ import itertools
 import json
 import math
 import random
+import re
 from fractions import Fraction
 from typing import List, Optional, Tuple
+
+from src.schemes.scheme import Scheme
+from src.utils.algebra import inverse_fraction_matrix
 
 
 class FractionalScheme:
@@ -18,8 +22,6 @@ class FractionalScheme:
             [[Fraction(v[index][i]) for i in range(self.nn[1])] for index in range(self.m)],
             [[Fraction(w[index][i]) for i in range(self.nn[2])] for index in range(self.m)]
         ]
-
-        self.den = math.lcm(*[value.denominator for p in range(3) for index in range(self.m) for value in self.uvw[p][index]])
 
         if validate:
             self.__validate()
@@ -44,8 +46,28 @@ class FractionalScheme:
     def can_reduce(self) -> bool:
         return len(self.__find_reduce_candidate()) > 0
 
+    def sandwiching(self, u: List[List[Fraction]], v: List[List[Fraction]], w: List[List[Fraction]]) -> None:
+        u1, v1, w1 = inverse_fraction_matrix(u), inverse_fraction_matrix(v), inverse_fraction_matrix(w)
+        assert u1 is not None and v1 is not None and w1 is not None
+
+        for index in range(self.m):
+            self.__sandwich(index, 0, u, v1)
+            self.__sandwich(index, 1, v, w1)
+            self.__sandwich(index, 2, w, u1)
+
+    def scale(self, index: int, alpha: Fraction, beta: Fraction, gamma: Fraction) -> None:
+        assert alpha * beta * gamma == 1
+
+        for p, scale in enumerate([alpha, beta, gamma]):
+            for i in range(self.nn[p]):
+                self.uvw[p][index][i] *= scale
+
     def fractions_count(self) -> int:
         return sum(value.denominator != 1 for p in range(3) for index in range(self.m) for value in self.uvw[p][index])
+
+    def unique_values(self) -> List[str]:
+        unique_values = sorted(set((value.numerator, value.denominator) for matrix in self.uvw for row in matrix for value in row), key=lambda v: v[0] / max(1, v[1]))
+        return [f"{num} / {den}" if den > 1 else str(num) for num, den in unique_values]
 
     def convert_to_ring(self, ring: int = 3) -> Tuple[List[List[int]], List[List[int]], List[List[int]]]:
         u = [[self.__mod(self.uvw[0][index][i], ring) for i in range(self.nn[0])] for index in range(self.m)]
@@ -77,6 +99,17 @@ class FractionalScheme:
 
         return row
 
+    def to_scheme(self, validate: bool = True) -> Scheme:
+        n1, n2, n3 = self.n
+        return Scheme(n1=n1, n2=n2, n3=n3, m=self.m, u=self.uvw[0], v=self.uvw[1], w=self.uvw[2], z2=False, validate=validate)
+
+    @classmethod
+    def load(cls, path: str, validate: bool = True) -> "FractionalScheme":
+        if path.endswith(".txt"):
+            return FractionalScheme.from_txt(path=path, validate=validate)
+
+        return FractionalScheme.from_json(path=path, validate=validate)
+
     @classmethod
     def from_json(cls, path: str, validate: bool = True) -> "FractionalScheme":
         with open(path, "r") as f:
@@ -89,6 +122,52 @@ class FractionalScheme:
         v = [[Fraction(value) for value in row] for row in data["v"]]
         w = [[Fraction(value) for value in row] for row in data["w"]]
         return FractionalScheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, validate=validate)
+
+    @classmethod
+    def from_txt(cls, path: str, validate: bool = True) -> "FractionalScheme":
+        with open(path) as f:
+            text = " ".join([line.strip() for line in f.readlines() if not line.startswith("#")])
+            text = map(int, re.split(r"[\s\n]+", text))
+
+        n1, n2, n3, m, *uvw = text
+        nn = [n1 * n2, n2 * n3, n3 * n1]
+
+        u_values = uvw[:nn[0] * m * 2]
+        v_values = uvw[nn[0]*m*2:(nn[0] + nn[1])*m*2]
+        w_values = uvw[(nn[0] + nn[1])*m*2:]
+
+        u = [[Fraction(u_values[(index * nn[0] + i) * 2], u_values[(index * nn[0] + i) * 2 + 1]) for i in range(nn[0])] for index in range(m)]
+        v = [[Fraction(v_values[(index * nn[1] + i) * 2], v_values[(index * nn[1] + i) * 2 + 1]) for i in range(nn[1])] for index in range(m)]
+        w = [[Fraction(w_values[(index * nn[2] + i) * 2], w_values[(index * nn[2] + i) * 2 + 1]) for i in range(nn[2])] for index in range(m)]
+        return FractionalScheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, validate=validate)
+
+    def save_txt(self, path: str) -> None:
+        with open(path, "w") as f:
+            f.write(self.to_txt())
+
+    def to_txt(self) -> str:
+        lines = []
+
+        for p in range(3):
+            line = " ".join(f"{self.uvw[p][index][i].numerator} {self.uvw[p][index][i].denominator}" for index in range(self.m) for i in range(self.nn[p]))
+            lines.append(f"{line}\n")
+
+        n1, n2, n3 = self.n
+        return f'{n1} {n2} {n3} {self.m}\n{"".join(lines)}'
+
+    def have_fractions(self, index: int) -> bool:
+        for i in range(3):
+            for v in self.uvw[i][index]:
+                if v.denominator > 1:
+                    return True
+
+        return False
+
+    def canonize(self) -> None:
+        for index in range(self.m):
+            v_lcm = math.lcm(*[v.denominator for v in self.uvw[1][index]])
+            w_lcm = math.lcm(*[v.denominator for v in self.uvw[2][index]])
+            self.scale(index, Fraction(1, v_lcm * w_lcm), Fraction(v_lcm), Fraction(w_lcm))
 
     def __validate(self) -> None:
         for i in range(self.nn[0]):
@@ -173,3 +252,13 @@ class FractionalScheme:
                 return c
 
         raise ValueError("invalid value")
+
+    def __sandwich(self, index: int, p: int, left: List[List[Fraction]], right: List[List[Fraction]]) -> None:
+        rows = self.n[p]
+        cols = self.n[(p + 1) % 3]
+
+        matrix = [[sum(left[i][k] * self.uvw[p][index][k * cols + j] for k in range(rows)) for j in range(cols)] for i in range(rows)]
+
+        for i in range(rows):
+            for j in range(cols):
+                self.uvw[p][index][i * cols + j] = sum(matrix[i][k] * right[k][j] for k in range(cols))
