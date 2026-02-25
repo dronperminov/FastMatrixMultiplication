@@ -53,6 +53,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `5×5×12`  |  220 (`Z`)  |    [216](schemes/results/ZT/5x5x12_m216_ZT.json) (`ZT`)    |   2.827217780   |
 |  `5×6×10`  |  218 (`Z`)  |    [217](schemes/results/ZT/5x6x10_m217_ZT.json) (`ZT`)    |   2.829647192   |
 |  `5×7×8`   |  205 (`Q`)  |    [204](schemes/results/ZT/5x7x8_m204_ZT.json) (`ZT`)     |   2.831402964   |
+|  `5×9×9`   |  294 (`Q`)  |    [293](schemes/results/ZT/5x9x9_m293_ZT.json) (`ZT`)     |   2.838247561   |
 |  `6×7×7`   | 215 (`ZT`)  |    [212](schemes/results/ZT/6x7x7_m212_ZT.json) (`ZT`)     |   2.827400948   |
 |  `6×7×8`   | 239 (`ZT`)  |    [238](schemes/results/ZT/6x7x8_m238_ZT.json) (`ZT`)     |   2.822158898   |
 |  `6×7×9`   | 270 (`ZT`)  |    [268](schemes/results/ZT/6x7x9_m268_ZT.json) (`ZT`)     |   2.826160061   |
@@ -171,6 +172,7 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `5×7×11`  |   [277](schemes/results/ZT/5x7x11_m277_ZT.json)    |    `Z`     |
 |  `5×7×13`  |   [325](schemes/results/ZT/5x7x13_m325_ZT.json)    |    `Q`     |
 |  `5×8×12`  |   [333](schemes/results/ZT/5x8x12_m333_ZT.json)    |    `Q`     |
+|  `5×9×10`  |   [322](schemes/results/ZT/5x9x10_m322_ZT.json)    |    `Q`     |
 |  `5×9×15`  |   [474](schemes/results/ZT/5x9x15_m474_ZT.json)    |    `Z`     |
 |  `6×6×7`   |    [183](schemes/results/ZT/6x6x7_m183_ZT.json)    |   `Z/Q`    |
 |  `6×8×10`  |   [329](schemes/results/ZT/6x8x10_m329_ZT.json)    |    `Z`     |
@@ -951,8 +953,8 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `5×8×14`  |   391 (?)   |   391 (?)    |     387      |   2.824818687   |
 |  `5×8×15`  |   423 (?)   |   421 (?)    |     419      |   2.831610434   |
 |  `5×8×16`  |   449 (?)   |   445 (?)    |     445      |   2.831279571   |
-|  `5×9×9`   |   295 (?)   |   295 (?)    |     294      |   2.839950038   |
-|  `5×9×10`  |   323 (?)   |   323 (?)    |     322      |   2.835644554   |
+|  `5×9×9`   |   293 (?)   |   293 (?)    |  293 (294)   |   2.838247561   |
+|  `5×9×10`  |   322 (?)   |   322 (?)    |     322      |   2.835644554   |
 |  `5×9×11`  |   355 (?)   |   353 (?)    |     353      |   2.836528379   |
 |  `5×9×12`  |   381 (?)   |   377 (?)    |     377      |   2.828664069   |
 |  `5×9×13`  |   417 (?)   |   412 (?)    |     411      |   2.833785246   |
@@ -1276,9 +1278,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (29 better Strassen)
-* `ZT` schemes: 275 (40.44%)
+* `ZT` schemes: 277 (40.74%)
 * `Z` schemes: 117 (17.21%)
-* `Q` schemes: 288 (42.35%)
+* `Q` schemes: 286 (42.06%)
 
 
 ## License and Citation
