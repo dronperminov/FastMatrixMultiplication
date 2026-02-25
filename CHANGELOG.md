@@ -3,7 +3,10 @@
 ## 25.02.2026
 ### Rank improvement
 * `5x5x9`: found [scheme](schemes/results/ZT/5x5x9_m161_ZT.json) with `161` multiplications (`ZT`);
+* `5x9x9`: found [scheme](schemes/results/ZT/5x9x9_m293_ZT.json) with `293` multiplications (`ZT`);
 
+### Ternary coefficient rediscovery (`ZT`)
+* `5x9x10`: found [scheme](schemes/results/ZT/5x9x10_m322_ZT.json) with `322` multiplications;
 
 ## 24.02.2026
 ### Rank improvement
