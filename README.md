@@ -47,7 +47,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `4×6×13`  |  228 (`Z`)  |    [227](schemes/results/ZT/4x6x13_m227_ZT.json) (`ZT`)    |   2.833857047   |
 |  `4×7×11`  |  227 (`Z`)  |    [226](schemes/results/ZT/4x7x11_m226_ZT.json) (`ZT`)    |   2.837927019   |
 |  `4×9×11`  | 280 (`ZT`)  |    [279](schemes/results/ZT/4x9x11_m279_ZT.json) (`ZT`)    |   2.824354701   |
-|  `5×5×9`   |  167 (`Z`)  |    [163](schemes/results/ZT/5x5x9_m163_ZT.json) (`ZT`)     |   2.821448915   |
+|  `5×5×9`   |  167 (`Z`)  |    [161](schemes/results/ZT/5x5x9_m161_ZT.json) (`ZT`)     |   2.814610506   |
 |  `5×5×10`  |  184 (`Q`)  |    [180](schemes/results/ZT/5x5x10_m180_ZT.json) (`ZT`)    |   2.821512419   |
 |  `5×5×11`  |  202 (`Q`)  |    [198](schemes/results/ZT/5x5x11_m198_ZT.json) (`ZT`)    |   2.824541149   |
 |  `5×5×12`  |  220 (`Z`)  |    [216](schemes/results/ZT/5x5x12_m216_ZT.json) (`ZT`)    |   2.827217780   |
@@ -913,7 +913,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `5×5×6`   |   110 (?)   |     110      |     110      |   2.814302034   |
 |  `5×5×7`   |  127 (134)  |     127      |     127      |   2.813778022   |
 |  `5×5×8`   |   144 (?)   |     144      |     144      |   2.813995249   |
-|  `5×5×9`   |   163 (?)   |  163 (167)   |  163 (167)   |   2.821448915   |
+|  `5×5×9`   |   161 (?)   |  161 (167)   |  161 (167)   |   2.814610506   |
 |  `5×5×10`  |   180 (?)   |   180 (?)    |  180 (184)   |   2.821512419   |
 |  `5×5×11`  |   198 (?)   |   198 (?)    |  198 (202)   |   2.824541149   |
 |  `5×5×12`  |   216 (?)   |  216 (220)   |  216 (220)   |   2.827217780   |
