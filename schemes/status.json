@@ -20388,13 +20388,13 @@
     "ranks": {
       "Z": 207,
       "Z2": 207,
-      "Q": 207,
+      "Q": 206,
       "ZT": 207
     },
     "omegas": {
       "Z": 2.8391754628776296,
       "Z2": 2.8391754628776296,
-      "Q": 2.8391754628776296,
+      "Q": 2.8365972169358127,
       "ZT": 2.8391754628776296
     },
     "complexities": {
@@ -20429,6 +20429,18 @@
           "complexity": 2472,
           "source": "schemes/results/ZT/4x5x14_m207_ZT.json",
           "path": "schemes/status/ZT/4x5x14_m207_ZT.json"
+        }
+      ],
+      "Q": [
+        {
+          "rank": 206,
+          "omega": 2.8365972169358127,
+          "complexity": 2894,
+          "source": "schemes/results/Q/4x5x14_m206_Q.json",
+          "path": "schemes/status/Q/4x5x14_m206_Q.json",
+          "duplicates": [
+            "schemes/results/Q/4x5x14_m206_Q.m"
+          ]
         }
       ]
     }
@@ -32049,22 +32061,22 @@
   },
   "5x6x9": {
     "ranks": {
-      "Z": 197,
-      "Z2": 197,
-      "Q": 197,
-      "ZT": 197
+      "Z": 194,
+      "Z2": 194,
+      "Q": 194,
+      "ZT": 194
     },
     "omegas": {
-      "Z": 2.8310854919999016,
-      "Z2": 2.8310854919999016,
-      "Q": 2.8310854919999016,
-      "ZT": 2.8310854919999016
+      "Z": 2.822862333874068,
+      "Z2": 2.822862333874068,
+      "Q": 2.822862333874068,
+      "ZT": 2.822862333874068
     },
     "complexities": {
-      "Z": 2328,
-      "Z2": 2328,
-      "Q": 2328,
-      "ZT": 2328
+      "Z": 2763,
+      "Z2": 2434,
+      "Q": 2763,
+      "ZT": 2763
     },
     "schemes": {
       "Z": [
@@ -32086,6 +32098,36 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 194,
+          "omega": 2.822862333874068,
+          "complexity": 2763,
+          "source": "schemes/results/ZT/5x6x9_m194_ZT.json",
+          "path": "schemes/status/ZT/5x6x9_m194_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/5x6x9_m194_ZT.m"
+          ]
+        },
+        {
+          "rank": 195,
+          "omega": 2.8256174314023035,
+          "complexity": 2742,
+          "source": "schemes/results/ZT/5x6x9_m195_ZT.json",
+          "path": "schemes/status/ZT/5x6x9_m195_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/5x6x9_m195_ZT.m"
+          ]
+        },
+        {
+          "rank": 196,
+          "omega": 2.82835843629845,
+          "complexity": 2719,
+          "source": "schemes/results/ZT/5x6x9_m196_ZT.json",
+          "path": "schemes/status/ZT/5x6x9_m196_ZT.json",
+          "duplicates": [
+            "schemes/results/ZT/5x6x9_m196_ZT.m"
+          ]
+        },
         {
           "rank": 197,
           "omega": 2.8310854919999016,
