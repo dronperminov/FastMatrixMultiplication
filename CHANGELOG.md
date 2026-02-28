@@ -1,5 +1,11 @@
 # Changelog
 
+## 28.02.2026
+### Rank improvement
+* `4x5x14`: found [scheme](schemes/results/Q/4x5x14_m206_Q.json) with `206` multiplications (`Q`);
+* `5x6x9`: found [scheme](schemes/results/ZT/5x6x9_m194_ZT.json) with `194` multiplications (`ZT`);
+
+
 ## 27.02.2026
 ### Rank improvement
 * `4x5x13`: found [scheme](schemes/results/ZT/4x5x13_m191_ZT.json) with `191` multiplications (`ZT`);

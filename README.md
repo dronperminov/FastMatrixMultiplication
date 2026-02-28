@@ -41,7 +41,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `4×5×11`  |  165 (`Z`)  |    [160](schemes/results/ZT/4x5x11_m160_ZT.json) (`ZT`)    |   2.822872235   |
 |  `4×5×12`  |  180 (`Z`)  |    [174](schemes/results/ZT/4x5x12_m174_ZT.json) (`ZT`)    |   2.823971094   |
 |  `4×5×13`  |  194 (`Z`)  |    [191](schemes/results/ZT/4x5x13_m191_ZT.json) (`ZT`)    |   2.833613095   |
-|  `4×5×14`  |  208 (`Z`)  |    [207](schemes/results/ZT/4x5x14_m207_ZT.json) (`ZT`)    |   2.839175463   |
+|  `4×5×14`  |  208 (`Z`)  |     [206](schemes/results/Q/4x5x14_m206_Q.json) (`Q`)      |   2.836597217   |
 |  `4×5×15`  |  226 (`Z`)  |    [221](schemes/results/ZT/4x5x15_m221_ZT.json) (`ZT`)    |   2.839254157   |
 |  `4×5×16`  |  240 (`Q`)  |    [235](schemes/results/ZT/4x5x16_m235_ZT.json) (`ZT`)    |   2.839432229   |
 |  `4×6×13`  |  228 (`Z`)  |    [227](schemes/results/ZT/4x6x13_m227_ZT.json) (`ZT`)    |   2.833857047   |
@@ -55,6 +55,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `5×5×14`  |  254 (`Z`)  |    [248](schemes/results/ZT/5x5x14_m248_ZT.json) (`ZT`)    |   2.823570328   |
 |  `5×5×15`  |  271 (`Q`)  |    [266](schemes/results/ZT/5x5x15_m266_ZT.json) (`ZT`)    |   2.826168043   |
 |  `5×5×16`  |  288 (`Q`)  |    [284](schemes/results/ZT/5x5x16_m284_ZT.json) (`ZT`)    |   2.828510889   |
+|  `5×6×9`   |  197 (`Z`)  |    [194](schemes/results/ZT/5x6x9_m194_ZT.json) (`ZT`)     |   2.822862334   |
 |  `5×6×10`  |  218 (`Z`)  |    [217](schemes/results/ZT/5x6x10_m217_ZT.json) (`ZT`)    |   2.829647192   |
 |  `5×7×8`   |  205 (`Q`)  |    [204](schemes/results/ZT/5x7x8_m204_ZT.json) (`ZT`)     |   2.831402964   |
 |  `5×9×9`   |  294 (`Q`)  |    [293](schemes/results/ZT/5x9x9_m293_ZT.json) (`ZT`)     |   2.838247561   |
@@ -165,7 +166,6 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `5×6×6`   |    [130](schemes/results/ZT/5x6x6_m130_ZT.json)    |   `Z/Q`    |
 |  `5×6×7`   |    [150](schemes/results/ZT/5x6x7_m150_ZT.json)    |   `Z/Q`    |
 |  `5×6×8`   |    [170](schemes/results/ZT/5x6x8_m170_ZT.json)    |   `Z/Q`    |
-|  `5×6×9`   |    [197](schemes/results/ZT/5x6x9_m197_ZT.json)    |    `Z`     |
 |  `5×6×16`  |   [340](schemes/results/ZT/5x6x16_m340_ZT.json)    |    `Q`     |
 |  `5×7×7`   |    [176](schemes/results/ZT/5x7x7_m176_ZT.json)    |   `Z/Q`    |
 |  `5×7×10`  |   [254](schemes/results/ZT/5x7x10_m254_ZT.json)    |    `Z`     |
@@ -842,7 +842,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `4×5×11`  |   160 (?)   |  160 (165)   |  160 (165)   |   2.822872235   |
 |  `4×5×12`  |   174 (?)   |  174 (180)   |  174 (180)   |   2.823971094   |
 |  `4×5×13`  |   191 (?)   |  191 (194)   |  191 (194)   |   2.833613095   |
-|  `4×5×14`  |   207 (?)   |  207 (208)   |  207 (208)   |   2.839175463   |
+|  `4×5×14`  |   207 (?)   |  207 (208)   |  206 (208)   |   2.836597217   |
 |  `4×5×15`  |   221 (?)   |  221 (226)   |  221 (226)   |   2.839254157   |
 |  `4×5×16`  |   235 (?)   |   235 (?)    |  235 (240)   |   2.839432229   |
 |  `4×6×6`   |     105     |     105      |     105      |   2.809337134   |
@@ -926,7 +926,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `5×6×6`   |   130 (?)   |     130      |     130      |   2.812001673   |
 |  `5×6×7`   |   150 (?)   |     150      |     150      |   2.811221917   |
 |  `5×6×8`   |  170 (176)  |     170      |     170      |   2.811240720   |
-|  `5×6×9`   |   197 (?)   |     197      |     197      |   2.831085492   |
+|  `5×6×9`   |   194 (?)   |  194 (197)   |  194 (197)   |   2.822862334   |
 |  `5×6×10`  |   217 (?)   |  217 (218)   |  217 (218)   |   2.829647192   |
 |  `5×6×11`  |   240 (?)   |   238 (?)    |     236      |   2.826562083   |
 |  `5×6×12`  |   258 (?)   |   258 (?)    |     250      |   2.814150526   |
@@ -1278,9 +1278,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (29 better Strassen)
-* `ZT` schemes: 277 (40.74%)
+* `ZT` schemes: 276 (40.59%)
 * `Z` schemes: 117 (17.21%)
-* `Q` schemes: 286 (42.06%)
+* `Q` schemes: 287 (42.21%)
 
 
 ## License and Citation
