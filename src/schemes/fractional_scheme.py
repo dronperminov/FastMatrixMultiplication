@@ -65,6 +65,14 @@ class FractionalScheme:
     def fractions_count(self) -> int:
         return sum(value.denominator != 1 for p in range(3) for index in range(self.m) for value in self.uvw[p][index])
 
+    def weight(self) -> tuple:
+        f = self.fractions_count()
+        w = sum(abs(value.numerator) * value.denominator for matrix in self.uvw for row in matrix for value in row)
+        max_value = max(abs(value.numerator) for matrix in self.uvw for row in matrix for value in row if value.denominator == 1)
+        count = sum(1 for matrix in self.uvw for row in matrix for value in row if value.denominator == 1 and abs(value.numerator) == max_value)
+
+        return f, max_value, count, w
+
     def unique_values(self) -> List[str]:
         unique_values = sorted(set((value.numerator, value.denominator) for matrix in self.uvw for row in matrix for value in row), key=lambda v: v[0] / max(1, v[1]))
         return [f"{num} / {den}" if den > 1 else str(num) for num, den in unique_values]
