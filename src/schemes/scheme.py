@@ -473,6 +473,19 @@ class Scheme:
 
         return "Z"
 
+    def get_coefficient_set(self) -> List[Fraction]:
+        return sorted({Fraction(value) for matrix in [self.u, self.v, self.w] for row in matrix for value in row})
+
+    def get_coefficients_count(self) -> Dict[Fraction, int]:
+        coefficients = defaultdict(int)
+        for matrix in [self.u, self.v, self.w]:
+            for row in matrix:
+                for value in row:
+                    coefficients[value] += 1
+
+        values = sorted(coefficients)
+        return {value: coefficients[value] for value in values}
+
     def double(self, p: int) -> None:
         n = [self.n[0], self.n[1], self.n[2]]
         n[p] *= 2
