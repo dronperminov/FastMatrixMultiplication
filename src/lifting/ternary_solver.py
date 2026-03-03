@@ -19,8 +19,6 @@ class TernarySolver:
         self.v = [[self.model.new_int_var(0, 1, f'v{index}_{i}') if scheme.v[index][i] else 0 for i in range(self.nn[1])] for index in range(self.m)]
         self.w = [[self.model.new_int_var(0, 1, f'w{index}_{i}') if scheme.w[index][i] else 0 for i in range(self.nn[2])] for index in range(self.m)]
 
-        self.uv = self.__init_uv_constraints()
-        self.uvw = self.__init_uvw_constraints()
         self.__add_equation_constraints()
         self.__add_sign_symmetry_constraints()
 
@@ -48,34 +46,29 @@ class TernarySolver:
     def __add_equation_constraints(self) -> None:
         for i in range(self.nn[0]):
             for j in range(self.nn[1]):
+                uv = [self.__multiply_uv(index=index, i=i, j=j) for index in range(self.m)]
+
                 for k in range(self.nn[2]):
+                    uvw = [self.__multiply_uvw(uv=uv[index], index=index, i=i, j=j, k=k) for index in range(self.m)]
+
                     i1, i2, j1, j2, k1, k2 = i // self.n[1], i % self.n[1], j // self.n[2], j % self.n[2], k // self.n[0], k % self.n[0]
                     target = (i2 == j1) and (i1 == k2) and (j2 == k1)
-                    self.model.Add(sum(self.uvw[index][i][j][k] for index in range(self.m)) == target)
+                    self.model.Add(sum(uvw[index] for index in range(self.m)) == target)
 
-    def __init_uv_constraints(self) -> List[List[List[Union[IntVar, int]]]]:
-        uv = [[[0 for _ in range(self.scheme.nn[1])] for _ in range(self.nn[0])] for _ in range(self.m)]
+    def __multiply_uv(self, index: int, i: int, j: int) -> Union[IntVar, int]:
+        if type(self.u[index][i]) is not IntVar or type(self.v[index][j]) is not IntVar:
+            return 0
 
-        for index in range(self.m):
-            for i in range(self.nn[0]):
-                for j in range(self.nn[1]):
-                    if type(self.u[index][i]) is IntVar and type(self.v[index][j]) is IntVar:
-                        uv[index][i][j] = self.model.new_int_var(-1, 1, f"uv{index}_{i}_{j}")
-                        self.model.AddMultiplicationEquality(uv[index][i][j], self.u[index][i] * 2 - 1, self.v[index][j] * 2 - 1)
-
+        uv = self.model.new_int_var(-1, 1, f"uv{index}_{i}_{j}")
+        self.model.AddMultiplicationEquality(uv, self.u[index][i] * 2 - 1, self.v[index][j] * 2 - 1)
         return uv
 
-    def __init_uvw_constraints(self) -> List[List[List[List[Union[IntVar, int]]]]]:
-        uvw = [[[[0 for _ in range(self.scheme.nn[2])] for _ in range(self.scheme.nn[1])] for _ in range(self.nn[0])] for _ in range(self.m)]
+    def __multiply_uvw(self, uv: Union[IntVar, int], index: int, i: int, j: int, k: int) -> Union[IntVar, int]:
+        if type(uv) is not IntVar or type(self.w[index][k]) is not IntVar:
+            return 0
 
-        for i in range(self.nn[0]):
-            for j in range(self.nn[1]):
-                for k in range(self.nn[2]):
-                    for index in range(self.m):
-                        if type(self.uv[index][i][j]) is IntVar and type(self.w[index][k]) is IntVar:
-                            uvw[index][i][j][k] = self.model.new_int_var(-1, 1, f"uvw{index}_{i}_{j}_{k}")
-                            self.model.AddMultiplicationEquality(uvw[index][i][j][k], self.uv[index][i][j], self.w[index][k] * 2 - 1)
-
+        uvw = self.model.new_int_var(-1, 1, f"uvw{index}_{i}_{j}_{k}")
+        self.model.AddMultiplicationEquality(uvw, uv, self.w[index][k] * 2 - 1)
         return uvw
 
     def __add_sign_symmetry_constraints(self) -> None:
