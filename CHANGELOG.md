@@ -1,5 +1,10 @@
 # Changelog
 
+## 06.03.2026
+### Rank improvement
+* `4x7x8`: found [scheme](schemes/results/Z/4x7x8_m163_Z.json) with `163` multiplications (`Z`);
+
+
 ## 02.03.2026
 ### Rank improvement
 * `5x5x13`: found [scheme](schemes/results/ZT/5x5x13_m228_ZT.json) with `228` multiplications (`ZT`);
