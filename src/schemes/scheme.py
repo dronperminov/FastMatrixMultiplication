@@ -206,9 +206,9 @@ class Scheme:
     def from_exp(cls, path: str, validate: bool = True) -> "Scheme":
         # TODO: fractions
         with open(path, "r") as f:
-            text = f.read()
+            text = f.read().replace(" ", "")
             z2 = re.search(r"-[abc]", text) is None
-            lines = [line.replace(" ", "") for line in text.splitlines() if line.strip()]
+            lines = [line for line in text.splitlines() if line.strip()]
 
         m = len(lines)
         n1, n2, n3 = 0, 0, 0
