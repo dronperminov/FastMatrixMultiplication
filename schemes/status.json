@@ -25374,6 +25374,13 @@
           "complexity": 1013,
           "source": "schemes/known/fmm_add_reduction/MoosbauerPooleKemper-555-93-mod0.exp",
           "path": "schemes/status/ZT/5x5x5_m93_ZT_v2.json"
+        },
+        {
+          "rank": 93,
+          "omega": 2.8162624094633077,
+          "complexity": 1039,
+          "source": "schemes/known/meta_flip_graph/structured/k66ce4c614c48bda5-555-93-mod0.exp",
+          "path": "schemes/status/ZT/5x5x5_m93_ZT_v4.json"
         }
       ]
     }
@@ -36296,6 +36303,13 @@
           "complexity": 2232,
           "source": "schemes/known/fmm_add_reduction/MoosbauerPooleKemper-666-153-mod0.exp",
           "path": "schemes/status/ZT/6x6x6_m153_ZT.json"
+        },
+        {
+          "rank": 153,
+          "omega": 2.807540860135486,
+          "complexity": 2232,
+          "source": "schemes/known/meta_flip_graph/structured/666r153.exp",
+          "path": "schemes/status/ZT/6x6x6_m153_ZT_v4.json"
         }
       ]
     }
@@ -42762,13 +42776,13 @@
   },
   "7x13x16": {
     "ranks": {
-      "Q": 968,
+      "Q": 966,
       "ZT": 972,
       "Z": 970,
       "Z2": 970
     },
     "omegas": {
-      "Q": 2.831858704012615,
+      "Q": 2.8310068054341806,
       "ZT": 2.8335572334952226,
       "Z": 2.8327088442852,
       "Z2": 2.8327088442852
@@ -42781,6 +42795,16 @@
     },
     "schemes": {
       "Q": [
+        {
+          "rank": 966,
+          "omega": 2.8310068054341806,
+          "complexity": 22220,
+          "source": "schemes/results/Q/7x13x16_m966_Q.json",
+          "path": "schemes/status/Q/7x13x16_m966_Q.json",
+          "duplicates": [
+            "schemes/results/Q/7x13x16_m966_Q.m"
+          ]
+        },
         {
           "rank": 968,
           "omega": 2.831858704012615,
@@ -42935,13 +42959,13 @@
   },
   "7x14x16": {
     "ranks": {
-      "Q": 1034,
+      "Q": 1030,
       "ZT": 1040,
       "Z": 1036,
       "Z2": 1036
     },
     "omegas": {
-      "Q": 2.8302291680257388,
+      "Q": 2.8286487626280006,
       "ZT": 2.832588349624513,
       "Z": 2.8310170795407665,
       "Z2": 2.8310170795407665
@@ -42954,6 +42978,16 @@
     },
     "schemes": {
       "Q": [
+        {
+          "rank": 1030,
+          "omega": 2.8286487626280006,
+          "complexity": 28688,
+          "source": "schemes/results/Q/7x14x16_m1030_Q.json",
+          "path": "schemes/status/Q/7x14x16_m1030_Q.json",
+          "duplicates": [
+            "schemes/results/Q/7x14x16_m1030_Q.m"
+          ]
+        },
         {
           "rank": 1034,
           "omega": 2.8302291680257388,
