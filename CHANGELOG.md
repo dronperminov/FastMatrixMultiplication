@@ -4,6 +4,15 @@
 ### Rank improvement
 * `10x10x12`: found [scheme](schemes/results/ZT/10x10x12_m768_ZT.json) with `768` multiplications (`ZT`);
 
+### Ternary coefficient rediscovery (`ZT`)
+* `2x5x7`: found [scheme](schemes/results/ZT/2x5x7_m55_ZT.json) with `55` multiplications;
+* `2x5x13`: found [scheme](schemes/results/ZT/2x5x13_m102_ZT.json) with `102` multiplications;
+* `2x5x14`: found [scheme](schemes/results/ZT/2x5x14_m110_ZT.json) with `110` multiplications;
+* `2x7x10`: found [scheme](schemes/results/ZT/2x7x10_m110_ZT.json) with `110` multiplications;
+* `4x10x13`: found [scheme](schemes/results/ZT/4x10x13_m361_ZT.json) with `361` multiplications;
+* `4x10x14`: found [scheme](schemes/results/ZT/4x10x14_m385_ZT.json) with `385` multiplications;
+* `6x14x15`: found [scheme](schemes/results/ZT/6x14x15_m825_ZT.json) with `825` multiplications;
+
 
 ## 08.03.2026
 ### Rank improvement
