@@ -93,6 +93,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `9×15×15`  | 1290 (`Q`)  |    [1284](schemes/results/Z/9x15x15_m1284_Z.json) (`Z`)    |   2.820476797   |
 | `9×15×16`  | 1350 (`Z`)  |    [1341](schemes/results/Q/9x15x16_m1341_Q.json) (`Q`)    |   2.813740131   |
 | `9×16×16`  | 1444 (`ZT`) |    [1431](schemes/results/Q/9x16x16_m1431_Q.json) (`Q`)    |   2.815455240   |
+| `10×10×12` |  770 (`Z`)  |   [768](schemes/results/ZT/10x10x12_m768_ZT.json) (`ZT`)   |   2.811164062   |
 | `10×11×15` | 1067 (`Q`)  |  [1055](schemes/results/ZT/10x11x15_m1055_ZT.json) (`ZT`)  |   2.818897479   |
 | `10×13×16` | 1332 (`Z`)  |  [1326](schemes/results/ZT/10x13x16_m1326_ZT.json) (`ZT`)  |   2.823222352   |
 | `11×11×15` | 1170 (`Z`)  |  [1169](schemes/results/ZT/11x11x15_m1169_ZT.json) (`ZT`)  |   2.824115356   |
@@ -209,7 +210,6 @@ with coefficients restricted to the ternary set were previously unknown.
 | `8×14×14`  |  [1008](schemes/results/ZT/8x14x14_m1008_ZT.json)  |    `Z`     |
 | `10×10×10` |  [651](schemes/results/ZT/10x10x10_m651_ZT.json)   |    `Z`     |
 | `10×10×11` |  [719](schemes/results/ZT/10x10x11_m719_ZT.json)   |    `Z`     |
-| `10×10×12` |  [770](schemes/results/ZT/10x10x12_m770_ZT.json)   |    `Z`     |
 | `10×10×13` |  [838](schemes/results/ZT/10x10x13_m838_ZT.json)   |    `Z`     |
 | `10×10×14` |  [889](schemes/results/ZT/10x10x14_m889_ZT.json)   |    `Z`     |
 | `10×10×15` |  [957](schemes/results/ZT/10x10x15_m957_ZT.json)   |    `Q`     |
@@ -1196,7 +1196,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `9×16×16`  | 1438 (1444) | 1438 (1444)  | 1431 (1444)  |   2.815455240   |
 | `10×10×10` |   651 (?)   |     651      |     651      |   2.813580989   |
 | `10×10×11` |   719 (?)   |     719      |     719      |   2.817849439   |
-| `10×10×12` |   770 (?)   |     770      |     770      |   2.812264522   |
+| `10×10×12` |   768 (?)   |  768 (770)   |  768 (770)   |   2.811164062   |
 | `10×10×13` |   838 (?)   |     838      |     838      |   2.816278610   |
 | `10×10×14` |   889 (?)   |     889      |     889      |   2.811934283   |
 | `10×10×15` |   957 (?)   |   957 (?)    |     957      |   2.815641959   |

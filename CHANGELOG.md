@@ -1,5 +1,10 @@
 # Changelog
 
+## 10.03.2026
+### Rank improvement
+* `10x10x12`: found [scheme](schemes/results/ZT/10x10x12_m768_ZT.json) with `768` multiplications (`ZT`);
+
+
 ## 08.03.2026
 ### Rank improvement
 * `7x13x16`: found [scheme](schemes/results/Q/7x13x16_m966_Q.json) with `966` multiplications (`Q`);
