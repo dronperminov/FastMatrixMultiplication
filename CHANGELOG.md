@@ -8,9 +8,12 @@
 * `2x5x7`: found [scheme](schemes/results/ZT/2x5x7_m55_ZT.json) with `55` multiplications;
 * `2x5x13`: found [scheme](schemes/results/ZT/2x5x13_m102_ZT.json) with `102` multiplications;
 * `2x5x14`: found [scheme](schemes/results/ZT/2x5x14_m110_ZT.json) with `110` multiplications;
+* `2×6×7`: found [scheme](schemes/results/ZT/2x6x7_m66_ZT.json) with `66` multiplications;
 * `2x7x10`: found [scheme](schemes/results/ZT/2x7x10_m110_ZT.json) with `110` multiplications;
+* `2×7×11`: found [scheme](schemes/results/ZT/2x7x11_m121_ZT.json) with `121` multiplications;
 * `4x10x13`: found [scheme](schemes/results/ZT/4x10x13_m361_ZT.json) with `361` multiplications;
 * `4x10x14`: found [scheme](schemes/results/ZT/4x10x14_m385_ZT.json) with `385` multiplications;
+* `4×11×14`: found [scheme](schemes/results/ZT/4x11x14_m429_ZT.json) with `429` multiplications;
 * `6x14x15`: found [scheme](schemes/results/ZT/6x14x15_m825_ZT.json) with `825` multiplications;
 
 
