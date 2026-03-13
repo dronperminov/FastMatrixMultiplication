@@ -1,5 +1,13 @@
 # Changelog
 
+# 13.03.2026
+### Rank improvement
+* `3×5×9`: found [scheme](schemes/results/ZT/3x5x9_m102_ZT.json) with `102` multiplications (`ZT`);
+* `3×5×10`: found [scheme](schemes/results/ZT/3x5x10_m114_ZT.json) with `114` multiplications (`ZT`);
+* `3×9×11`: found [scheme](schemes/results/Q/3x9x11_m222_Q.json) with `222` multiplications (`Q`);
+* `3×10×11`: found [scheme](schemes/results/Q/3x10x11_m248_Q.json) with `248` multiplications (`Q`);
+
+
 ## 11.03.2026
 ### Ternary coefficient rediscovery (`ZT`)
 * `2×5×8`: found [scheme](schemes/results/ZT/2x5x8_m63_ZT.json) with `63` multiplications;
