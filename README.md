@@ -146,6 +146,7 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `2×5×16`  |   [126](schemes/results/ZT/2x5x16_m126_ZT.json)    |    `Q`     |
 |  `2×6×6`   |     [56](schemes/results/ZT/2x6x6_m56_ZT.json)     |    `Z`     |
 |  `2×6×7`   |     [66](schemes/results/ZT/2x6x7_m66_ZT.json)     |   `Z/Q`    |
+|  `2×6×8`   |     [75](schemes/results/ZT/2x6x8_m75_ZT.json)     |    `Q`     |
 |  `2×6×9`   |     [86](schemes/results/ZT/2x6x9_m86_ZT.json)     |    `Z`     |
 |  `2×6×11`  |   [103](schemes/results/ZT/2x6x11_m103_ZT.json)    |    `Z`     |
 |  `2×6×12`  |   [112](schemes/results/ZT/2x6x12_m112_ZT.json)    |    `Z`     |
@@ -160,6 +161,9 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `2×7×13`  |   [142](schemes/results/ZT/2x7x13_m142_ZT.json)    |    `Q`     |
 |  `2×7×14`  |   [152](schemes/results/ZT/2x7x14_m152_ZT.json)    |    `Q`     |
 |  `2×7×15`  |   [164](schemes/results/ZT/2x7x15_m164_ZT.json)    |    `Q`     |
+|  `2×8×11`  |   [138](schemes/results/ZT/2x8x11_m138_ZT.json)    |    `Z`     |
+|  `2×8×12`  |   [150](schemes/results/ZT/2x8x12_m150_ZT.json)    |    `Z`     |
+|  `2×8×14`  |   [175](schemes/results/ZT/2x8x14_m175_ZT.json)    |    `Q`     |
 |  `2×8×15`  |   [188](schemes/results/ZT/2x8x15_m188_ZT.json)    |    `Z`     |
 |  `3×3×7`   |     [49](schemes/results/ZT/3x3x7_m49_ZT.json)     |    `Q`     |
 |  `3×3×9`   |     [63](schemes/results/ZT/3x3x9_m63_ZT.json)     |    `Q`     |
@@ -213,6 +217,7 @@ with coefficients restricted to the ternary set were previously unknown.
 | `4×11×11`  |   [340](schemes/results/ZT/4x11x11_m340_ZT.json)   |    `Z`     |
 | `4×11×12`  |   [365](schemes/results/ZT/4x11x12_m365_ZT.json)   |    `Z`     |
 | `4×11×14`  |   [429](schemes/results/ZT/4x11x14_m429_ZT.json)   |    `Q`     |
+| `4×11×16`  |   [489](schemes/results/ZT/4x11x16_m489_ZT.json)   |    `Q`     |
 | `4×14×14`  |   [532](schemes/results/ZT/4x14x14_m532_ZT.json)   |    `Q`     |
 |  `5×5×6`   |    [110](schemes/results/ZT/5x5x6_m110_ZT.json)    |   `Z/Q`    |
 |  `5×5×7`   |    [127](schemes/results/ZT/5x5x7_m127_ZT.json)    |   `Z/Q`    |
@@ -239,6 +244,7 @@ with coefficients restricted to the ternary set were previously unknown.
 | `5×10×14`  |   [481](schemes/results/ZT/5x10x14_m481_ZT.json)   |    `Q`     |
 | `5×10×15`  |   [519](schemes/results/ZT/5x10x15_m519_ZT.json)   |    `Q`     |
 | `5×10×16`  |   [549](schemes/results/ZT/5x10x16_m549_ZT.json)   |    `Q`     |
+| `5×11×16`  |   [609](schemes/results/ZT/5x11x16_m609_ZT.json)   |    `Q`     |
 | `5×15×16`  |   [813](schemes/results/ZT/5x15x16_m813_ZT.json)   |    `Z`     |
 | `5×14×14`  |   [672](schemes/results/ZT/5x14x14_m672_ZT.json)   |    `Q`     |
 |  `6×6×7`   |    [183](schemes/results/ZT/6x6x7_m183_ZT.json)    |   `Z/Q`    |
@@ -333,19 +339,15 @@ Implementations restricted to integer coefficients were previously unknown.
 
 |   Format   |                       Rank                       |
 |:----------:|:------------------------------------------------:|
-|  `2×6×8`   |     [75](schemes/results/Z/2x6x8_m75_Z.json)     |
 |  `2×7×9`   |     [99](schemes/results/Z/2x7x9_m99_Z.json)     |
 |  `2×7×16`  |   [175](schemes/results/Z/2x7x16_m175_Z.json)    |
 |  `2×8×9`   |    [113](schemes/results/Z/2x8x9_m113_Z.json)    |
-|  `2×8×14`  |   [175](schemes/results/Z/2x8x14_m175_Z.json)    |
 | `2×11×12`  |   [204](schemes/results/Z/2x11x12_m204_Z.json)   |
 | `2×11×13`  |   [221](schemes/results/Z/2x11x13_m221_Z.json)   |
 | `2×11×14`  |   [238](schemes/results/Z/2x11x14_m238_Z.json)   |
 | `2×13×15`  |   [300](schemes/results/Z/2x13x15_m300_Z.json)   |
 | `2×13×16`  |   [320](schemes/results/Z/2x13x16_m320_Z.json)   |
 | `2×15×16`  |   [368](schemes/results/Z/2x15x16_m368_Z.json)   |
-| `4×11×16`  |   [489](schemes/results/Z/4x11x16_m489_Z.json)   |
-| `5×11×16`  |   [609](schemes/results/Z/5x11x16_m609_Z.json)   |
 
 ## Methodology & instruments
 The research employs a multi-stage approach using custom-built tools:
@@ -684,7 +686,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `2×5×16`  |   126 (?)   |   126 (?)    |     126      |   2.858787945   |
 |  `2×6×6`   |   56 (?)    |      56      |      56      |   2.823707705   |
 |  `2×6×7`   |   66 (?)    |      66      |      66      |   2.836714944   |
-|  `2×6×8`   |   76 (?)    |    75 (?)    |      75      |   2.837746771   |
+|  `2×6×8`   |   75 (?)    |    75 (?)    |      75      |   2.837746771   |
 |  `2×6×9`   |   86 (?)    |      86      |      86      |   2.854051123   |
 |  `2×6×10`  |     94      |      94      |      94      |   2.846978142   |
 |  `2×6×11`  |   103 (?)   |     103      |     103      |   2.847583659   |
@@ -706,10 +708,10 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `2×8×8`   |     100     |     100      |     100      |   2.847366938   |
 |  `2×8×9`   |   114 (?)   |   113 (?)    |     113      |   2.853661214   |
 |  `2×8×10`  |   126 (?)   |     125      |     125      |   2.854077858   |
-|  `2×8×11`  |   139 (?)   |     138      |     138      |   2.858873767   |
-|  `2×8×12`  |   151 (?)   |     150      |     150      |   2.859138205   |
+|  `2×8×11`  |   138 (?)   |     138      |     138      |   2.858873767   |
+|  `2×8×12`  |   150 (?)   |     150      |     150      |   2.859138205   |
 |  `2×8×13`  |   163 (?)   |   163 (?)    |  163 (164)   |   2.862977345   |
-|  `2×8×14`  |   176 (?)   |   175 (?)    |     175      |   2.863150652   |
+|  `2×8×14`  |   175 (?)   |   175 (?)    |     175      |   2.863150652   |
 |  `2×8×15`  |   188 (?)   |     188      |     188      |   2.866331117   |
 |  `2×8×16`  |     200     |     200      |     200      |   2.866446071   |
 |  `2×9×9`   |     126     |     126      |     126      |   2.851807566   |
@@ -736,14 +738,14 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `2×12×12`  |     222     |     222      |     222      |   2.862112883   |
 | `2×12×13`  |   243 (?)   |     241      |     241      |   2.865119566   |
 | `2×12×14`  |   262 (?)   |     259      |     259      |   2.865766826   |
-| `2×12×15`  |   282 (?)   |     278      |     278      |   2.868257722   |
+| `2×12×15`  |   281 (?)   |     278      |     278      |   2.868257722   |
 | `2×12×16`  |   299 (?)   |   298 (?)    |  298 (300)   |   2.872173939   |
 | `2×13×13`  |     260     |     260      |     260      |   2.864831429   |
 | `2×13×14`  |   283 (?)   |   283 (?)    |     280      |   2.866530057   |
 | `2×13×15`  |   305 (?)   |   300 (?)    |     300      |   2.868073511   |
 | `2×13×16`  |   325 (?)   |   320 (?)    |     320      |   2.869485347   |
 | `2×14×14`  |     301     |     301      |     301      |   2.867288565   |
-| `2×14×15`  |   328 (?)   |     323      |     323      |   2.869573850   |
+| `2×14×15`  |   327 (?)   |     323      |     323      |   2.869573850   |
 | `2×14×16`  |   350 (?)   |     344      |     344      |   2.870191390   |
 | `2×15×15`  |     345     |     345      |     345      |   2.869524113   |
 | `2×15×16`  |   375 (?)   |   368 (?)    |     368      |   2.870888061   |
@@ -928,7 +930,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `4×11×13`  |   401 (?)   |   401 (?)    |     400      |   2.830997032   |
 | `4×11×14`  |   429 (?)   |   429 (?)    |     429      |   2.831024692   |
 | `4×11×15`  |   463 (?)   |   463 (?)    |     452      |   2.825072241   |
-| `4×11×16`  |   490 (?)   |   489 (?)    |     489      |   2.833264518   |
+| `4×11×16`  |   489 (?)   |   489 (?)    |     489      |   2.833264518   |
 | `4×12×12`  |     390     |     390      |     390      |   2.815943526   |
 | `4×12×13`  |   430 (?)   |   430 (?)    |     426      |   2.822077950   |
 | `4×12×14`  |   462 (?)   |   462 (?)    |     456      |   2.821313298   |
@@ -1005,13 +1007,13 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `5×11×12`  |   461 (?)   |   461 (?)    |     455      |   2.828129078   |
 | `5×11×13`  |   503 (?)   |   503 (?)    |     498      |   2.834905546   |
 | `5×11×14`  |   537 (?)   |   537 (?)    |     533      |   2.833953893   |
-| `5×11×15`  |   578 (?)   |   577 (?)    |     575      |   2.838722531   |
-| `5×11×16`  |   611 (?)   |   609 (?)    |     609      |   2.837120407   |
+| `5×11×15`  |   577 (?)   |   577 (?)    |     575      |   2.838722531   |
+| `5×11×16`  |   609 (?)   |   609 (?)    |     609      |   2.837120407   |
 | `5×12×12`  |   498 (?)   |   498 (?)    |     488      |   2.822653463   |
 | `5×12×13`  |   541 (?)   |   541 (?)    |     536      |   2.830991200   |
 | `5×12×14`  |   582 (?)   |   582 (?)    |     574      |   2.830350615   |
 | `5×12×15`  |   621 (?)   |   621 (?)    |     615      |   2.832071274   |
-| `5×12×16`  |   659 (?)   |   657 (?)    |     656      |   2.833649544   |
+| `5×12×16`  |   657 (?)   |   657 (?)    |     656      |   2.833649544   |
 | `5×13×13`  |   593 (?)   |   593 (?)    |  587 (588)   |   2.837827448   |
 | `5×13×14`  |   632 (?)   |   632 (?)    |  628 (630)   |   2.836688582   |
 | `5×13×15`  |   675 (?)   |   675 (?)    |     672      |   2.837770064   |
@@ -1311,8 +1313,8 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (29 better Strassen)
-* `ZT` schemes: 363 (53.38%)
-* `Z` schemes: 30 (4.41%)
+* `ZT` schemes: 369 (54.26%)
+* `Z` schemes: 24 (3.53%)
 * `Q` schemes: 287 (42.21%)
 
 

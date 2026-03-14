@@ -1,5 +1,15 @@
 # Changelog
 
+## 15.03.2026
+### Ternary coefficient rediscovery
+* `2×6×8`: found [scheme](schemes/results/ZT/2x6x8_m75_ZT.json) with `75` multiplications;
+* `2×8×11`: found [scheme](schemes/results/ZT/2x8x11_m138_ZT.json) with `138` multiplications;
+* `2×8×12`: found [scheme](schemes/results/ZT/2x8x12_m150_ZT.json) with `150` multiplications;
+* `2×8×14`: found [scheme](schemes/results/ZT/2x8x14_m175_ZT.json) with `175` multiplications;
+* `4×11×16`: found [scheme](schemes/results/ZT/4x11x16_m489_ZT.json) with `489` multiplications;
+* `5×11×16`: found [scheme](schemes/results/ZT/5x11x16_m609_ZT.json) with `609` multiplications;
+
+
 ## 14.03.2026
 ### Ternary coefficient rediscovery
 * `2×7×7`: found [scheme](schemes/results/ZT/2x7x7_m76_ZT.json) with `76` multiplications;
