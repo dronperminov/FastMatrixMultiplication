@@ -168,6 +168,7 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `2×7×13`  |   [142](schemes/results/ZT/2x7x13_m142_ZT.json)    |    `Q`     |
 |  `2×7×14`  |   [152](schemes/results/ZT/2x7x14_m152_ZT.json)    |    `Q`     |
 |  `2×7×15`  |   [164](schemes/results/ZT/2x7x15_m164_ZT.json)    |    `Q`     |
+|  `2×8×9`   |    [113](schemes/results/ZT/2x8x9_m113_ZT.json)    |    `Q`     |
 |  `2×8×11`  |   [138](schemes/results/ZT/2x8x11_m138_ZT.json)    |    `Z`     |
 |  `2×8×12`  |   [150](schemes/results/ZT/2x8x12_m150_ZT.json)    |    `Z`     |
 |  `2×8×14`  |   [175](schemes/results/ZT/2x8x14_m175_ZT.json)    |    `Q`     |
@@ -351,7 +352,6 @@ Implementations restricted to integer coefficients were previously unknown.
 |:----------:|:------------------------------------------------:|
 |  `2×7×9`   |     [99](schemes/results/Z/2x7x9_m99_Z.json)     |
 |  `2×7×16`  |   [175](schemes/results/Z/2x7x16_m175_Z.json)    |
-|  `2×8×9`   |    [113](schemes/results/Z/2x8x9_m113_Z.json)    |
 | `2×11×12`  |   [204](schemes/results/Z/2x11x12_m204_Z.json)   |
 | `2×11×13`  |   [221](schemes/results/Z/2x11x13_m221_Z.json)   |
 | `2×11×14`  |   [238](schemes/results/Z/2x11x14_m238_Z.json)   |
@@ -716,7 +716,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `2×7×15`  |   164 (?)   |   164 (?)    |     164      |   2.861285133   |
 |  `2×7×16`  |   176 (?)   |   175 (?)    |     175      |   2.863150652   |
 |  `2×8×8`   |     100     |     100      |     100      |   2.847366938   |
-|  `2×8×9`   |   114 (?)   |   113 (?)    |     113      |   2.853661214   |
+|  `2×8×9`   |   113 (?)   |   113 (?)    |     113      |   2.853661214   |
 |  `2×8×10`  |   126 (?)   |     125      |     125      |   2.854077858   |
 |  `2×8×11`  |   138 (?)   |     138      |     138      |   2.858873767   |
 |  `2×8×12`  |   150 (?)   |     150      |     150      |   2.859138205   |
@@ -1323,8 +1323,8 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (29 better Strassen)
-* `ZT` schemes: 374 (55.00%)
-* `Z` schemes: 24 (3.53%)
+* `ZT` schemes: 375 (55.15%)
+* `Z` schemes: 23 (3.38%)
 * `Q` schemes: 282 (41.47%)
 
 
