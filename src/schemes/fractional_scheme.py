@@ -4,6 +4,7 @@ import math
 import random
 import re
 from fractions import Fraction
+from itertools import combinations
 from typing import List, Optional, Tuple
 
 from src.schemes.scheme import Scheme
@@ -25,6 +26,11 @@ class FractionalScheme:
 
         if validate:
             self.__validate()
+
+    def copy(self) -> "FractionalScheme":
+        n1, n2, n3 = self.n
+        uvw = [[[Fraction(self.uvw[i][index][j]) for j in range(self.nn[i])] for index in range(self.m)] for i in range(3)]
+        return FractionalScheme(n1=n1, n2=n2, n3=n3, m=self.m, u=uvw[0], v=uvw[1], w=uvw[2], validate=False)
 
     def try_flip(self) -> bool:
         candidates = self.__find_flip_candidates()
@@ -66,12 +72,13 @@ class FractionalScheme:
         return sum(value.denominator != 1 for p in range(3) for index in range(self.m) for value in self.uvw[p][index])
 
     def weight(self) -> tuple:
+        max_den = max(value.denominator for matrix in self.uvw for row in matrix for value in row)
         f = self.fractions_count()
         w = sum(abs(value.numerator) * value.denominator for matrix in self.uvw for row in matrix for value in row)
         max_value = max(abs(value.numerator) for matrix in self.uvw for row in matrix for value in row if value.denominator == 1)
         count = sum(1 for matrix in self.uvw for row in matrix for value in row if value.denominator == 1 and abs(value.numerator) == max_value)
 
-        return f, max_value, count, w
+        return max_den, f, max_value, count, w
 
     def unique_values(self) -> List[str]:
         unique_values = sorted(set((value.numerator, value.denominator) for matrix in self.uvw for row in matrix for value in row), key=lambda v: v[0] / max(1, v[1]))
@@ -171,6 +178,50 @@ class FractionalScheme:
 
         return False
 
+    def omega(self) -> float:
+        return 3 * math.log(self.m) / math.log(self.n[0] * self.n[1] * self.n[2])
+
+    def get_ring(self) -> str:
+        integer = False
+
+        for p in range(3):
+            for index in range(self.m):
+                for value in self.uvw[p][index]:
+                    if value.denominator > 1:
+                        return "Q"
+
+                    if abs(value.numerator) > 1:
+                        integer = True
+
+        return "Z" if integer else "ZT"
+
+    def get_flips(self) -> List[Tuple[int, int, int]]:
+        flips = []
+
+        for index1, index2 in combinations(range(self.m), r=2):
+            for p in range(3):
+                if self.__get_linearly_dependent(p, index1, index2) is not None:
+                    flips.append((p, index1, index2))
+
+        return flips
+
+    def fix_fractions(self) -> None:
+        for index in range(self.m):
+            lcm = [math.lcm(*[self.uvw[i][index][j].denominator for j in range(self.nn[i])]) for i in range(3)]
+            gcd = [math.gcd(*[self.uvw[i][index][j].numerator for j in range(self.nn[i])]) for i in range(3)]
+
+            lcm_p = lcm[0] * lcm[1] * lcm[2]
+            gcd_p = gcd[0] * gcd[1] * gcd[2]
+
+            if lcm_p == 1 or gcd_p % lcm_p != 0:
+                continue
+
+            alpha = Fraction(lcm[0], math.gcd(lcm_p, gcd[0]))
+            beta = Fraction(lcm[1], math.gcd(lcm_p, gcd[1]))
+            gamma = Fraction(lcm[2], math.gcd(lcm_p, gcd[2]))
+
+            self.scale(index, alpha, beta, gamma)
+
     def canonize(self) -> None:
         for index in range(self.m):
             v_lcm = math.lcm(*[v.denominator for v in self.uvw[1][index]])
@@ -194,9 +245,6 @@ class FractionalScheme:
         return equation == target
 
     def __get_linearly_dependent(self, p: int, index1: int, index2: int) -> Optional[Fraction]:
-        if self.uvw[p][index1] == self.uvw[p][index2]:
-            return Fraction(1)
-
         k = None
 
         for v1, v2 in zip(self.uvw[p][index1], self.uvw[p][index2]):
