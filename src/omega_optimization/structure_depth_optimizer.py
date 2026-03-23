@@ -1,6 +1,6 @@
 import itertools
 import math
-from functools import cache
+from functools import lru_cache
 from typing import List, Tuple
 
 from src.utils.find_root import find_root_bisection, find_root_newton
@@ -14,6 +14,8 @@ class StructureDepthOptimizer:
         self.structure = structure
         self.structure_normalized = [(si, (ni / n, mi / m, pi / p)) for si, (ni, mi, pi) in self.structure]
         self.eps = eps
+        self.T = lru_cache(maxsize=None)(self.__T)
+        self.get_heuristic = lru_cache(maxsize=None)(self.__get_heuristic)
 
         self.rank = sum(si * ni * mi * pi for si, (ni, mi, pi) in structure)
         self.omega = 3*math.log(self.rank) / math.log(n*m*p)
@@ -33,8 +35,7 @@ class StructureDepthOptimizer:
     def optimize(self, depth: int, x0: float = 2.8) -> float:
         return find_root_newton(lambda w: self.f(w, depth=depth), x0=x0, eps=self.eps)
 
-    @cache
-    def T(self, a: float, b: float, c: float, w: float, depth: int) -> Tuple[float, float]:
+    def __T(self, a: float, b: float, c: float, w: float, depth: int) -> Tuple[float, float]:
         if depth == 0:
             fx = a ** (w - 2) * b * c + a * b ** (w - 2) * c + a * b * c ** (w - 2)
             df = math.log(a) * a ** (w - 2) * b * c + a * math.log(b) * b ** (w - 2) * c + a * b * math.log(c) * c ** (w - 2)
@@ -43,7 +44,7 @@ class StructureDepthOptimizer:
         if a == b == c and a < 1:
             return 3 * a ** w, 3 * math.log(a) * a ** w
 
-        best_i = self.__get_heuristic(a=a, b=b, c=c)
+        best_i = self.get_heuristic(a=a, b=b, c=c)
         v_fx, v_df = 0, 0
         for si, (ni, mi, pi) in self.structure_normalized:
             n, m, p = list(itertools.permutations([ni, mi, pi], r=3))[best_i]
@@ -67,7 +68,6 @@ class StructureDepthOptimizer:
     def f3(self, w: float) -> float:
         return sum(si * (ni / self.n) * (mi / self.m) * (pi / self.p) ** (w - 2) for si, (ni, mi, pi) in self.structure) - 1
 
-    @cache
     def __get_heuristic(self, a: float, b: float, c: float) -> int:
         heuristic_v = [0.0 for _ in range(6)]
 
