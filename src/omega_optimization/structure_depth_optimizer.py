@@ -6,7 +6,7 @@ from typing import List, Tuple
 from src.utils.find_root import find_root_bisection, find_root_newton
 
 
-class StructureOmegaOptimizer:
+class StructureDepthOptimizer:
     def __init__(self, n: int, m: int, p: int, structure: List[Tuple[int, Tuple[int, int, int]]], eps: float = 1e-15) -> None:
         self.n = n
         self.m = m

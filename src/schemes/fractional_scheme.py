@@ -126,6 +126,14 @@ class FractionalScheme:
         return FractionalScheme.from_json(path=path, validate=validate)
 
     @classmethod
+    def from_scheme(cls, scheme: Scheme) -> "FractionalScheme":
+        n1, n2, n3 = scheme.n
+        u = [[Fraction(value) for value in row] for row in scheme.u]
+        v = [[Fraction(value) for value in row] for row in scheme.v]
+        w = [[Fraction(value) for value in row] for row in scheme.w]
+        return FractionalScheme(n1=n1, n2=n2, n3=n3, m=scheme.m, u=u, v=v, w=w, validate=False)
+
+    @classmethod
     def from_json(cls, path: str, validate: bool = True) -> "FractionalScheme":
         with open(path, "r") as f:
             data = json.load(f)
