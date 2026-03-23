@@ -19,6 +19,7 @@ class StructureDepthOptimizer:
 
         self.rank = sum(si * ni * mi * pi for si, (ni, mi, pi) in structure)
         self.omega = 3*math.log(self.rank) / math.log(n*m*p)
+        self.structure_omega = find_root_bisection(self.f0, 2.5, 3.0, eps=eps)
         self.w1, self.w2, self.w3 = self.__get_exponents()
 
     def show(self) -> None:
@@ -26,6 +27,7 @@ class StructureDepthOptimizer:
         print(f"- structure: {self.structure}")
         print(f"- rank: {self.rank}")
         print(f"- omega (rank): {self.omega}")
+        print(f"- omega (structure): {self.structure_omega}")
         print(f"- eps: {self.eps}")
         print(f"- w1: {self.w1}")
         print(f"- w2: {self.w2}")
@@ -58,6 +60,16 @@ class StructureDepthOptimizer:
     def f(self, w: float, depth: int) -> Tuple[float, float]:
         fx, df = self.T(1.0, 1.0, 1.0, w=w, depth=depth)
         return fx - 3, df
+
+    def f0(self, omega: float) -> float:
+        score = -math.pow(self.n * self.m * self.p, omega)
+
+        for s_a, (n_a, m_a, p_a) in self.structure:
+            for s_b, (n_b, m_b, p_b) in self.structure:
+                for s_c, (n_c, m_c, p_c) in self.structure:
+                    score += s_a * s_b * s_c * math.pow(n_a * m_b * p_c, omega - 2) * n_b * n_c * m_a * m_c * p_a * p_b
+
+        return score
 
     def f1(self, w: float) -> float:
         return sum(si * (ni / self.n) ** (w - 2) * (mi / self.m) * (pi / self.p) for si, (ni, mi, pi) in self.structure) - 1
