@@ -106,6 +106,27 @@ class Scheme:
         with open(path, "w", encoding="utf-8") as f:
             f.write(f"{n1} {n2} {n3} {self.m}\n{u}\n{v}\n{w}\n")
 
+    def save_tensor_mpl(self, path: str) -> None:
+        n1, n2, n3 = self.n
+        a = [[f"A_{i + 1}_{j + 1}" for j in range(n2)] for i in range(n1)]
+        b = [[f"B_{i + 1}_{j + 1}" for j in range(n3)] for i in range(n2)]
+        c = [[f"C_{i + 1}_{j + 1}" for j in range(n1)] for i in range(n3)]
+        triads = []
+
+        for index in range(self.m):
+            ta = pretty_matrix([[self.__pretty_value(self.u[index][i * n2 + j]) for j in range(n2)] for i in range(n1)], "", "", "").replace(" ", "")
+            tb = pretty_matrix([[self.__pretty_value(self.v[index][i * n3 + j]) for j in range(n3)] for i in range(n2)], "", "", "").replace(" ", "")
+            tc = pretty_matrix([[self.__pretty_value(self.w[index][i * n1 + j]) for j in range(n1)] for i in range(n3)], "", "", "").replace(" ", "")
+            triads.append(f'Triad([Matrix({n1}, {n2}, {ta}), Matrix({n2}, {n3}, {tb}), Matrix({n3}, {n1}, {tc})])')
+
+        triads = ", ".join(triads)
+        with open(path, "w") as f:
+            f.write(f'A:=Matrix({n1}, {n2}, {pretty_matrix(a, "", "", "").replace(" ", "")}):\n')
+            f.write(f'B:=Matrix({n2}, {n3}, {pretty_matrix(b, "", "", "").replace(" ", "")}):\n')
+            f.write(f'C:=Matrix({n3}, {n1}, {pretty_matrix(c, "", "", "").replace(" ", "")}):\n')
+            f.write(f"Tensor:=TriadSet([{triads}]):\n")
+            f.write(f"map(expand,A.B-add(LinearAlgebra:-Trace(LinearAlgebra:-Transpose(op([1,i,1,1],Tensor)).A)*LinearAlgebra:-Trace(LinearAlgebra:-Transpose(op([1,i,1,2],Tensor)).B)*LinearAlgebra:-Transpose(op([1,i,1,3],Tensor)),i=1..{self.m}));\n")
+
     @classmethod
     def load(cls, path: str, validate: bool = True) -> "Scheme":
         lower_path = path.lower()
@@ -1043,3 +1064,12 @@ class Scheme:
 
     def __get_column(self, matrix: List[List[int]], index: int, column: int, n1: int, n2: int) -> List[int]:
         return [matrix[index][i * n2 + column] for i in range(n1)]
+
+    def __pretty_value(self, value: Union[int, Fraction, bool]) -> str:
+        if isinstance(value, bool):
+            return "1" if value else "0"
+
+        if isinstance(value, Fraction):
+            return f"{value.numerator}/{value.denominator}" if value.denominator > 1 else str(value.numerator)
+
+        return str(value)

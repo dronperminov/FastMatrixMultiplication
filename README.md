@@ -632,6 +632,7 @@ scheme.show_tensors()  # print the scheme in (a)×(b)×(c) format
 scheme.save("scheme.json")  # save in json format
 scheme.save_maple("scheme.m")  # save in maple format
 scheme.save_txt("scheme.txt")  # save in txt format
+scheme.save_tensor_mpl("scheme.tensor.mpl")  # save in tensor.mpl format
 ```
 
 

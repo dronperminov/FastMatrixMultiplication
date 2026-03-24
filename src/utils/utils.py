@@ -16,9 +16,9 @@ def format_value(value: Union[int, str, Fraction]) -> str:
     return str(value)
 
 
-def pretty_matrix(matrix: Iterable[Iterable], name: str, indent: str = "") -> str:
-    rows = [f'{"," if i > 0 else ""}\n{indent}    [{", ".join(format_value(value) for value in row)}]' for i, row in enumerate(matrix)]
-    return f'{name} [{"".join(rows)}\n{indent}]'
+def pretty_matrix(matrix: Iterable[Iterable], name: str, indent: str = "", delimiter = "\n") -> str:
+    rows = [f'{"," if i > 0 else ""}{delimiter}{indent}{indent}[{", ".join(format_value(value) for value in row)}]' for i, row in enumerate(matrix)]
+    return f'{name} [{"".join(rows)}{delimiter}{indent}]'
 
 
 def pretty_time(seconds: float) -> str:
