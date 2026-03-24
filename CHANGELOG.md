@@ -1,6 +1,13 @@
 # Changelog
 
 ## 24.03.2026
+### Rank improvement
+* `3×9×14`: found [scheme](schemes/results/ZT/3x9x14_m281_ZT.json) with `281` multiplications (`ZT`);
+* `3×13×14`: found [scheme](schemes/results/Q/3x13x14_m407_Q.json) with `407` multiplications (`Q`);
+* `3×14×14`: found [scheme](schemes/results/ZT/3x14x14_m439_ZT.json) with `439` multiplications (`ZT`);
+* `3×14×15`: found [scheme](schemes/results/Q/3x14x15_m469_Q.json) with `469` multiplications (`Q`);
+* `3×14×16`: found [scheme](schemes/results/ZT/3x14x16_m501_ZT.json) with `501` multiplications (`ZT`);
+
 ### Ternary coefficient rediscovery (`ZT`)
 * `4×7×8`: found [scheme](schemes/results/ZT/4x7x8_m163_ZT.json) with `163` multiplications;
 
