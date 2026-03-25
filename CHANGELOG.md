@@ -10,6 +10,10 @@
 * `4×12×16`: found [scheme](schemes/results/ZT/4x12x16_m516_ZT.json) with `516` multiplications (`ZT`);
 * `4×15×15`: found [scheme](schemes/results/Z/4x15x15_m599_Z.json) with `599` multiplications (`Z`);
 * `4×15×16`: found [scheme](schemes/results/Q/4x15x16_m636_Q.json) with `636` multiplications (`Q`);
+* `5×5×12`: found [scheme](schemes/results/ZT/5x5x12_m207_ZT.json) with `207` multiplications (`ZT`);
+* `5×5×14`: found [scheme](schemes/results/ZT/5x5x14_m247_ZT.json) with `247` multiplications (`ZT`);
+* `5×5×15`: found [scheme](schemes/results/ZT/5x5x15_m265_ZT.json) with `265` multiplications (`ZT`);
+* `5×5×16`: found [scheme](schemes/results/ZT/5x5x16_m283_ZT.json) with `283` multiplications (`ZT`);
 * `5×13×13`: found [scheme](schemes/results/Q/5x13x13_m587_Q.json) with `587` multiplications (`Q`);
 * `5×13×14`: found [scheme](schemes/results/Q/5x13x14_m628_Q.json) with `628` multiplications (`Q`);
 * `5×14×14`: found [scheme](schemes/results/ZT/5x14x14_m672_ZT.json) with `672` multiplications (`ZT/Z`);
