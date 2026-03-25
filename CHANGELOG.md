@@ -23,13 +23,13 @@
 * `6×15×15`: found [scheme](schemes/results/ZT/6x15x15_m868_ZT.json) with `868` multiplications (`ZT`);
 * `6×15×16`: found [scheme](schemes/results/Q/6x15x16_m922_Q.json) with `922` multiplications (`Q`);
 * `6×16×16`: found [scheme](schemes/results/Z/6x16x16_m985_Z.json) with `985` multiplications (`Z`);
-* `7×10×15`: found [scheme](schemes/results/ZT/7x10x15_m703_ZT.json) (`Zwith `703` multiplications T/Z`);
-* `7×10×16`: found [scheme](schemes/results/ZT/7x10x16_m742_ZT.json) (`Zwith `742` multiplications T/Z`);
+* `7×10×15`: found [scheme](schemes/results/ZT/7x10x15_m703_ZT.json) with `703` multiplications (`ZT/Z`);
+* `7×10×16`: found [scheme](schemes/results/ZT/7x10x16_m742_ZT.json) with `742` multiplications (`ZT/Z`);
 * `7×11×15`: found [scheme](schemes/results/Q/7x11x15_m777_Q.json) with `777` multiplications (`Q`);
-* `7×11×16`: found [scheme](schemes/results/ZT/7x11x16_m822_ZT.json) (`Zwith `822` multiplications T/Z`);
+* `7×11×16`: found [scheme](schemes/results/ZT/7x11x16_m822_ZT.json) with `822` multiplications (`ZT/Z`);
 * `7×13×13`: found [scheme](schemes/results/Q/7x13x13_m794_Q.json) with `794` multiplications (`Q`);
 * `7×13×14`: found [scheme](schemes/results/Q/7x13x14_m850_Q.json) with `850` multiplications (`Q`);
-* `7×14×14`: found [scheme](schemes/results/ZT/7x14x14_m909_ZT.json) (`Zwith `909` multiplications T/Z`);
+* `7×14×14`: found [scheme](schemes/results/ZT/7x14x14_m909_ZT.json) with `909` multiplications (`ZT/Z`);
 * `8×8×15`: found [scheme](schemes/results/Q/8x8x15_m628_Q.json) with `628` multiplications (`Q`);
 * `8×9×15`: found [scheme](schemes/results/Z/8x9x15_m703_Z.json) with `703` multiplications (`Z`);
 * `8×10×12`: found [scheme](schemes/results/Q/8x10x12_m628_Q.json) with `628` multiplications (`Q`);
@@ -38,6 +38,7 @@
 * `8×11×16`: found [scheme](schemes/results/ZT/8x11x16_m914_ZT.json) with `914` multiplications (`ZT`);
 * `8×12×15`: found [scheme](schemes/results/ZT/8x12x15_m914_ZT.json) with `914` multiplications (`ZT`);
 * `8×15×15`: found [scheme](schemes/results/Z/8x15x15_m1137_Z.json) with `1137` multiplications (`Z`);
+* `9×9×9`: found [scheme](schemes/results/ZT/9x9x9_m486_ZT.json) with `486` multiplications (`ZT`);
 * `9×9×14`: found [scheme](schemes/results/Z/9x9x14_m725_Z.json) with `725` multiplications (`Z`);
 * `9×10×15`: found [scheme](schemes/results/Z/9x10x15_m866_Z.json) with `866` multiplications (`Z`);
 * `9×10×16`: found [scheme](schemes/results/ZT/9x10x16_m924_ZT.json) with `924` multiplications (`ZT`);

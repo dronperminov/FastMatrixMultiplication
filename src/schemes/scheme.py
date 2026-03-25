@@ -31,7 +31,7 @@ class Scheme:
             self.__validate()
 
     @classmethod
-    def naive(cls, n1: int, n2: int, n3: int, z2: bool) -> "Scheme":
+    def naive(cls, n1: int, n2: int, n3: int, z2: bool = False) -> "Scheme":
         m = n1 * n2 * n3
         u = [[0 for _ in range(n1 * n2)] for _ in range(m)]
         v = [[0 for _ in range(n2 * n3)] for _ in range(m)]
@@ -705,7 +705,7 @@ class Scheme:
 
         assert sorted(self.n) == self.n
 
-    def set_sizes(self, n1: int, n2: int, n3: int) -> None:
+    def set_sizes(self, n1: int, n2: int, n3: int) -> "Scheme":
         if self.n == [n1, n3, n2]:
             self.swap(1, 2)
         elif self.n == [n2, n1, n3]:
@@ -720,6 +720,7 @@ class Scheme:
             self.swap(0, 2)
 
         assert self.n == [n1, n2, n3]
+        return self
 
     def modify_to_sizes(self, n1: int, n2: int, n3: int) -> None:
         n = [n1, n2, n3]

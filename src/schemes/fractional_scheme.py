@@ -5,7 +5,7 @@ import random
 import re
 from fractions import Fraction
 from itertools import combinations
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Union
 
 from src.schemes.scheme import Scheme
 from src.utils.algebra import inverse_fraction_matrix
@@ -203,13 +203,14 @@ class FractionalScheme:
 
         return "Z" if integer else "ZT"
 
-    def get_flips(self) -> List[Tuple[int, int, int]]:
+    def get_flips(self, with_scales: bool = False) -> List[Union[Tuple[int, int, int], Tuple[int, int, int, int]]]:
         flips = []
 
         for index1, index2 in combinations(range(self.m), r=2):
             for p in range(3):
-                if self.__get_linearly_dependent(p, index1, index2) is not None:
-                    flips.append((p, index1, index2))
+                scale = self.__get_linearly_dependent(p, index1, index2)
+                if scale is not None:
+                    flips.append((p, index1, index2, scale) if with_scales else (p, index1, index2))
 
         return flips
 
