@@ -10,10 +10,13 @@
 * `10×16×16`: found [scheme](schemes/results/Z/10x16x16_m1584_Z.json) with `1584` multiplications (`Z`);
 * `10×15×15`: found [scheme](schemes/results/Q/10x15x15_m1385_Q.json) with `1385` multiplications (`Q`);
 * `12×12×16`: found [scheme](schemes/results/Q/12x12x16_m1389_Q.json) with `1389` multiplications (`Q`);
+* `12×13×15`: found [scheme](schemes/results/Q/12x13x15_m1442_Q.json) with `1442` multiplications (`Q`);
+* `13×15×15`: found [scheme](schemes/results/Z/13x15x15_m1797_Z.json) with `1797` multiplications (`Z`);
 * `14×15×15`: found [scheme](schemes/results/Q/14x15x15_m1890_Q.json) with `1890` multiplications (`Q`);
 
 ### Ternary coefficient rediscovery (`ZT`)
 * `3×7×13`: rediscovered [scheme](schemes/results/ZT/3x7x13_m204_ZT.json) with `204` multiplications;
+
 
 ## 25.03.2026
 ### Rank improvement
