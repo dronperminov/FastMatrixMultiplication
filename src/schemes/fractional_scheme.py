@@ -203,7 +203,7 @@ class FractionalScheme:
 
         return "Z" if integer else "ZT"
 
-    def get_flips(self, with_scales: bool = False) -> List[Union[Tuple[int, int, int], Tuple[int, int, int, int]]]:
+    def get_flips(self, with_scales: bool = False) -> List[Union[Tuple[int, int, int], Tuple[int, int, int, Fraction]]]:
         flips = []
 
         for index1, index2 in combinations(range(self.m), r=2):
