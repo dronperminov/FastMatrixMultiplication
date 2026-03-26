@@ -12,6 +12,9 @@
 * `12×12×16`: found [scheme](schemes/results/Q/12x12x16_m1389_Q.json) with `1389` multiplications (`Q`);
 * `14×15×15`: found [scheme](schemes/results/Q/14x15x15_m1890_Q.json) with `1890` multiplications (`Q`);
 
+### Ternary coefficient rediscovery (`ZT`)
+* `3×7×13`: rediscovered [scheme](schemes/results/ZT/3x7x13_m204_ZT.json) with `204` multiplications;
+
 ## 25.03.2026
 ### Rank improvement
 * `3×7×14`: found [scheme](schemes/results/ZT/3x7x14_m219_ZT.json) with `219` multiplications (`ZT`);
