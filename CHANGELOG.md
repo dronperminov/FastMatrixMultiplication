@@ -4,11 +4,13 @@
 ### Rank improvement
 * `4×6×16`: found [scheme](schemes/results/ZT/4x6x16_m276_ZT.json) with `276` multiplications (`ZT`)
 * `4×9×16`: found [scheme](schemes/results/ZT/4x9x16_m398_ZT.json) with `398` multiplications (`ZT`)
-* `5×5×12`: found [scheme](schemes/results/ZT/5x5x12_m206_ZT.json) with `206` multiplications (`ZT`);
-* `5×5×14`: found [scheme](schemes/results/ZT/5x5x14_m246_ZT.json) with `246` multiplications (`ZT`);
-* `5×5×15`: found [scheme](schemes/results/ZT/5x5x15_m264_ZT.json) with `264` multiplications (`ZT`);
-* `5×5×16`: found [scheme](schemes/results/ZT/5x5x16_m282_ZT.json) with `282` multiplications (`ZT`);
-* `5×10×12`: found [scheme](schemes/results/ZT/5x10x12_m412_ZT.json) with `412` multiplications (`ZT`);
+* `5×5×12`: found [scheme](schemes/results/ZT/5x5x12_m204_ZT.json) with `204` multiplications (`ZT`);
+* `5×5×14`: found [scheme](schemes/results/ZT/5x5x14_m244_ZT.json) with `244` multiplications (`ZT`);
+* `5×5×15`: found [scheme](schemes/results/ZT/5x5x15_m262_ZT.json) with `262` multiplications (`ZT`);
+* `5×5×16`: found [scheme](schemes/results/ZT/5x5x16_m280_ZT.json) with `280` multiplications (`ZT`);
+* `5×10×12`: found [scheme](schemes/results/ZT/5x10x12_m408_ZT.json) with `408` multiplications (`ZT`);
+* `5×11×12`: found [scheme](schemes/results/Q/5x11x12_m454_Q.json) with `454` multiplications (`Q`);
+* `5×12×15`: found [scheme](schemes/results/ZT/5x12x15_m612_ZT.json) with `612` multiplications (`ZT`);
 * `9×14×16`: found [scheme](schemes/results/Q/9x14x16_m1254_Q.json) with `1254` multiplications (`Q`)
 
 
