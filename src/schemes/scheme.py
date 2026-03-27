@@ -410,6 +410,17 @@ class Scheme:
         w_ones = sum(bool(value) for row in self.w for value in row)
         return u_ones + v_ones + w_ones - self.m * 2 - self.nn[2]
 
+    def frobenius_norm(self) -> float:
+        norm = 0
+
+        for index in range(self.m):
+            u = np.array([[float(self.u[index][i * self.n[1] + j]) for j in range(self.n[1])] for i in range(self.n[0])])
+            v = np.array([[float(self.v[index][i * self.n[2] + j]) for j in range(self.n[2])] for i in range(self.n[1])])
+            w = np.array([[float(self.w[index][i * self.n[0] + j]) for j in range(self.n[0])] for i in range(self.n[2])])
+            norm += math.sqrt(np.trace(u @ u.T) * np.trace(v @ v.T) * np.trace(w @ w.T))
+
+        return norm
+
     def get_key(self, sort: bool) -> str:
         n = sorted(self.n) if sort else self.n
         return f"{n[0]}x{n[1]}x{n[2]}"
