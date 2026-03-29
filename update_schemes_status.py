@@ -5,6 +5,7 @@ from collections import defaultdict
 from collections.abc import Set
 from typing import Dict, List, Optional
 
+from entities.fraction_json_encoder import FractionJsonEncoder
 from src.schemes.scheme import Scheme
 
 
@@ -20,7 +21,7 @@ def init_status(n_max: int) -> dict:
     for n1 in range(2, n_max + 1):
         for n2 in range(n1, n_max + 1):
             for n3 in range(n2, n_max + 1):
-                status[f"{n1}x{n2}x{n3}"] = current_status.get(f"{n1}x{n2}x{n3}", {"ranks": {}, "omegas": {}, "complexities": {}, "schemes": defaultdict(list)})
+                status[f"{n1}x{n2}x{n3}"] = current_status.get(f"{n1}x{n2}x{n3}", {"ranks": {}, "omegas": {}, "schemes": defaultdict(list)})
 
     return status
 
@@ -38,21 +39,16 @@ def find_duplicate(data: List[dict], scheme: Scheme) -> Optional[dict]:
 
 def postprocess_size(data: dict, ring2equal_rings: Dict[str, List[str]]) -> None:
     data["ranks"] = {}
-    data["complexities"] = {}
     data["omegas"] = {}
 
     for ring, schemes in data["schemes"].items():
-        schemes = sorted(schemes, key=lambda info: (info["rank"], info["complexity"], not info["source"].startswith("schemes/known/")))
+        schemes = sorted(schemes, key=lambda info: (info["rank"], info["complexity"], len(info["buds"]), not info["source"].startswith("schemes/known/")))
         rank = schemes[0]["rank"]
-        complexity = schemes[0]["complexity"]
         omega = schemes[0]["omega"]
 
         for equal_ring in ring2equal_rings[ring]:
             if equal_ring not in data["ranks"] or rank < data["ranks"][equal_ring]:
                 data["ranks"][equal_ring] = rank
-
-            if equal_ring not in data["complexities"] or complexity < data["complexities"][equal_ring]:
-                data["complexities"][equal_ring] = complexity
 
             if equal_ring not in data["omegas"] or omega < data["omegas"][equal_ring]:
                 data["omegas"][equal_ring] = omega
@@ -110,10 +106,17 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
                         assert not isinstance(value, float)
 
             ring = scheme.get_ring()
+            if ring == "Z2":
+                print("Skip Z2 scheme")
+                continue
+
             size = scheme.get_key(sort=False)
             size_key = scheme.get_key(sort=True)
             omega = scheme.omega()
             complexity = scheme.complexity()
+            buds = scheme.get_buds(with_scales=True)
+            buds_count = [sum(1 for p, _, _, _ in buds if p == target_p) for target_p in range(3)]
+            values = scheme.get_unique_values()
             output_path = f"schemes/status/{ring}/{size}_m{scheme.m}_{ring}.json"
 
             print(f"  - size: {size}")
@@ -121,6 +124,8 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
             print(f"  - ring: {ring}")
             print(f"  - omega: {omega}")
             print(f"  - complexity: {complexity}")
+            print(f"  - values: {values}")
+            print(f"  - buds: {sum(buds_count)} ({buds_count[0]} / {buds_count[1]} / {buds_count[2]})")
 
             if os.path.exists(output_path):
                 count = sum(1 for data in status[size_key]["schemes"][ring] if data["rank"] == scheme.m)
@@ -138,7 +143,16 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
             if ring not in status[size_key]["schemes"]:
                 status[size_key]["schemes"][ring] = []
 
-            status[size_key]["schemes"][ring].append({"rank": scheme.m, "omega": omega, "complexity": complexity, "source": input_path, "path": output_path})
+            status[size_key]["schemes"][ring].append({
+                "rank": scheme.m,
+                "omega": omega,
+                "complexity": complexity,
+                "values": values,
+                "buds_count": {"u": buds_count[0], "v": buds_count[1], "w": buds_count[2]},
+                "buds": buds,
+                "source": input_path,
+                "path": output_path
+            })
             scheme.save(output_path)
             print(f'  - saved to "{output_path}"')
 
@@ -148,7 +162,7 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
         status = {key: value for key, value in status.items() if value["ranks"]}
 
         with open("schemes/status.json", "w", encoding="utf-8") as f:
-            json.dump(status, f, indent=2, ensure_ascii=False, sort_keys=False)
+            json.dump(status, f, indent=2, ensure_ascii=False, sort_keys=False, cls=FractionJsonEncoder)
 
     for data in status.values():
         for scheme_datas in data["schemes"].values():
@@ -213,27 +227,20 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
     print("|:----------:|:-----------:|:----------------------------------------------------------:|:---------------:|")
 
     excluded = {
-        "2x8x13", "2x10x15", "2x12x16",
-        "5x13x13", "5x13x14", "5x14x14",
-        "6x13x13", "6x13x14",
-        "7x10x15", "7x10x16", "7x11x15", "7x11x16", "7x13x13", "7x13x14", "7x14x14",
-        "8x10x15", "8x10x16", "8x11x16",
-        "9x10x16",
-        "10x11x16", "10x12x15", "10x12x16",
-        "11x11x15", "11x11x16"
+        "2x8x13", "2x10x15", "2x12x16"
     }
 
     strassen = math.log(7, 2)
 
     for size, data in status.items():
         n1, n2, n3 = map(int, size.split("x"))
-        min_rank = min(rank for ring, rank in data["ranks"].items() if ring != "Z2")
-        min_known_rank = min(scheme["rank"] for ring, schemes in data["schemes"].items() for scheme in schemes if ring != "Z2" and "known" in scheme["source"])
+        min_rank = data["ranks"]["Q"]
+        min_known_rank = min(scheme["rank"] for schemes in data["schemes"].values() for scheme in schemes if "known" in scheme["source"])
 
         if min_rank >= min_known_rank or size in excluded:
             continue
 
-        ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items() if ring != "Z2"}
+        ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items()}
         ring2known_rank = {ring: min(ranks) for ring, ranks in ring2known_ranks.items() if ranks}
         known_rings = [ring for ring in ["ZT", "Z", "Q"] if ring2known_rank.get(ring) == min_known_rank]
         rings = [ring for ring in ["ZT", "Z", "Q"] if ring in data["schemes"] and data["schemes"][ring][0]["rank"] == min_rank]
@@ -254,10 +261,10 @@ def plot_zt_table(status: Dict[str, dict]) -> None:
     print("|:----------:|:--------------------------------------------------:|:----------:|")
 
     for size, data in status.items():
-        ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items() if ring != "Z2"}
+        ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items()}
         ring2known_rank = {ring: min(ranks) for ring, ranks in ring2known_ranks.items() if ranks}
         min_known_rank = min(min(ranks) for ranks in ring2known_ranks.values() if ranks)
-        min_rank = min(rank for ring, rank in data["ranks"].items() if ring != "Z2")
+        min_rank = data["ranks"]["Q"]
 
         zt_rank = data["ranks"].get("ZT")
         if zt_rank != min_rank or zt_rank != min_known_rank or zt_rank == ring2known_rank.get("ZT"):
@@ -342,7 +349,7 @@ def main():
         "schemes/results"
     ]
 
-    ring2equal_rings = {"Q": ["Q"], "Z2": ["Z2"], "Z": ["Z", "Z2", "Q"], "ZT": ["ZT", "Z", "Z2", "Q"]}
+    ring2equal_rings = {"Q": ["Q"], "Z": ["Z", "Q"], "ZT": ["ZT", "Z", "Q"]}
     extensions = [".exp", ".m", "tensor.mpl", "lrp.mpl", ".json"]
     n_max = 16
 

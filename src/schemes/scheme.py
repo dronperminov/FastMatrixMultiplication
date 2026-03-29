@@ -6,7 +6,7 @@ import re
 from collections import defaultdict
 from fractions import Fraction
 from itertools import permutations
-from typing import Dict, List, Tuple, Union
+from typing import Dict, List, Tuple, Union, Optional
 
 import numpy as np
 
@@ -409,6 +409,21 @@ class Scheme:
         v_ones = sum(bool(value) for row in self.v for value in row)
         w_ones = sum(bool(value) for row in self.w for value in row)
         return u_ones + v_ones + w_ones - self.m * 2 - self.nn[2]
+
+    def get_unique_values(self) -> List[Union[int, Fraction]]:
+        values = sorted({Fraction(value) for matrix in [self.u, self.v, self.w] for row in matrix for value in row})
+        return [value.numerator if value.denominator == 1 else value for value in values]
+
+    def get_buds(self, with_scales: bool = False) -> List[Union[Tuple[int, int, int], Tuple[int, int, int, Fraction]]]:
+        buds = []
+
+        for p in range(3):
+            for index1, index2 in itertools.combinations(range(self.m), r=2):
+                scale = self.__get_linearly_dependent(p, index1, index2)
+                if scale is not None:
+                    buds.append((p, index1, index2, scale) if with_scales else (p, index1, index2))
+
+        return buds
 
     def frobenius_norm(self) -> float:
         norm = 0
@@ -836,6 +851,23 @@ class Scheme:
             equation = abs(equation) % 2
 
         return equation == target
+
+    def __get_linearly_dependent(self, p: int, index1: int, index2: int) -> Optional[Fraction]:
+        k = None
+        uvw = [self.u, self.v, self.w]
+        for v1, v2 in zip(uvw[p][index1], uvw[p][index2]):
+            if (v1 == 0) != (v2 == 0):
+                return None
+
+            if v1 == 0:
+                continue
+
+            if k is None:
+                k = Fraction(v2) / Fraction(v1)
+            elif Fraction(v2) / Fraction(v1) != k:
+                return None
+
+        return k
 
     @staticmethod
     def __parse_value(value: Union[str, int]) -> Union[int, Fraction]:
