@@ -190,6 +190,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `13×14×16` | 1825 (`Q`)  |   [1806](schemes/results/Q/13x14x16_m1806_Q.json) (`Q`)    |   2.820327226   |
 | `13×15×15` | 1803 (`Z`)  |   [1797](schemes/results/Z/13x15x15_m1797_Z.json) (`Z`)    |   2.816875265   |
 | `13×15×16` | 1932 (`Z`)  |   [1908](schemes/results/Q/13x15x16_m1908_Q.json) (`Q`)    |   2.816628414   |
+| `14×14×15` | 1813 (`Z`)  |  [1812](schemes/results/ZT/14x14x15_m1812_ZT.json) (`ZT`)  |   2.818193695   |
 | `14×14×16` | 1939 (`Q`)  |   [1938](schemes/results/Q/14x14x16_m1938_Q.json) (`Q`)    |   2.820652346   |
 | `14×15×15` | 1905 (`Z`)  |   [1890](schemes/results/Q/14x15x15_m1890_Q.json) (`Q`)    |   2.809752096   |
 | `15×15×16` | 2173 (`Q`)  |   [2132](schemes/results/Z/15x15x16_m2132_Z.json) (`Z`)    |   2.808074285   |
@@ -383,7 +384,6 @@ with coefficients restricted to the ternary set were previously unknown.
 | `11×12×14` | [1182](schemes/results/ZT/11x12x14_m1182_ZT.json)  |    `Z`     |
 | `11×13×15` | [1377](schemes/results/ZT/11x13x15_m1377_ZT.json)  |    `Z`     |
 | `13×13×15` | [1605](schemes/results/ZT/13x13x15_m1605_ZT.json)  |    `Z`     |
-| `14×14×15` | [1813](schemes/results/ZT/14x14x15_m1813_ZT.json)  |    `Z`     |
 | `15×15×15` | [2058](schemes/results/ZT/15x15x15_m2058_ZT.json)  |    `Q`     |
 
 
@@ -1355,7 +1355,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `13×15×16` |  1926 (?)   | 1926 (1932)  | 1908 (1932)  |   2.816628414   |
 | `13×16×16` |  2038 (?)   |   2038 (?)   |     2022     |   2.815680662   |
 | `14×14×14` |  1725 (?)   |   1725 (?)   |     1719     |   2.822787486   |
-| `14×14×15` |  1813 (?)   |     1813     |     1813     |   2.818400950   |
+| `14×14×15` |  1812 (?)   | 1812 (1813)  | 1812 (1813)  |   2.818193695   |
 | `14×14×16` |  1943 (?)   |   1943 (?)   | 1938 (1939)  |   2.820652346   |
 | `14×15×15` |  1905 (?)   | 1895 (1905)  | 1890 (1905)  |   2.809752096   |
 | `14×15×16` |  2043 (?)   |   2043 (?)   |     2016     |   2.811264261   |

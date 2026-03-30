@@ -1,5 +1,10 @@
 # Changelog
 
+## 30.03.2026
+### Rank improvement
+* `14×14×15`: found [scheme](schemes/results/ZT/14x14x15_m1812_ZT.json) with `1812` multiplications (`ZT`);
+
+
 ## 28.03.2026
 ### Ternary coefficient rediscovery (`ZT`)
 * `4×15×15`: rediscovered [scheme](schemes/results/ZT/4x15x15_m599_ZT.json) with `599` multiplications;
