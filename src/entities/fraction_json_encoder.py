@@ -5,8 +5,8 @@ from fractions import Fraction
 class FractionJsonEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, Fraction):
-            if obj.numerator % obj.denominator == 0:
-                return str(obj.numerator // obj.denominator)
+            if obj.denominator == 1:
+                return obj.numerator
 
             return f"{obj.numerator}/{obj.denominator}"
 

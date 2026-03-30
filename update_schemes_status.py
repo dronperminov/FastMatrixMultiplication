@@ -6,6 +6,7 @@ from collections.abc import Set
 from typing import Dict, List, Optional
 
 from entities.fraction_json_encoder import FractionJsonEncoder
+from entities.json_depth_stringifier import JsonDepthStringifier
 from src.schemes.scheme import Scheme
 
 
@@ -42,7 +43,7 @@ def postprocess_size(data: dict, ring2equal_rings: Dict[str, List[str]]) -> None
     data["omegas"] = {}
 
     for ring, schemes in data["schemes"].items():
-        schemes = sorted(schemes, key=lambda info: (info["rank"], info["complexity"], len(info["buds"]), not info["source"].startswith("schemes/known/")))
+        schemes = sorted(schemes, key=lambda info: (info["rank"], info["complexity"], sum(info["buds_count"].values()), not info["source"].startswith("schemes/known/")))
         rank = schemes[0]["rank"]
         omega = schemes[0]["omega"]
 
@@ -114,8 +115,8 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
             size_key = scheme.get_key(sort=True)
             omega = scheme.omega()
             complexity = scheme.complexity()
-            buds = scheme.get_buds(with_scales=True)
-            buds_count = [sum(1 for p, _, _, _ in buds if p == target_p) for target_p in range(3)]
+            buds = scheme.get_buds()
+            buds_count = [sum(1 for p, _, _ in buds if p == target_p) for target_p in range(3)]
             values = scheme.get_unique_values()
             output_path = f"schemes/status/{ring}/{size}_m{scheme.m}_{ring}.json"
 
@@ -149,7 +150,6 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
                 "complexity": complexity,
                 "values": values,
                 "buds_count": {"u": buds_count[0], "v": buds_count[1], "w": buds_count[2]},
-                "buds": buds,
                 "source": input_path,
                 "path": output_path
             })
@@ -159,10 +159,10 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
         for data in status.values():
             postprocess_size(data=data, ring2equal_rings=ring2equal_rings)
 
-        status = {key: value for key, value in status.items() if value["ranks"]}
-
-        with open("schemes/status.json", "w", encoding="utf-8") as f:
-            json.dump(status, f, indent=2, ensure_ascii=False, sort_keys=False, cls=FractionJsonEncoder)
+    status = {key: value for key, value in status.items() if value["ranks"]}
+    stringifier = JsonDepthStringifier()
+    with open("schemes/status.json", "w", encoding="utf-8") as f:
+        f.write(stringifier.stringify(status, depth=0, max_depth=5, indent=2))
 
     for data in status.values():
         for scheme_datas in data["schemes"].values():
