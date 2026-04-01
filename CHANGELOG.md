@@ -6,6 +6,7 @@
 * `4×16×16`: found [scheme](schemes/results/Q/4x16x16_m672_Q.json) with `672` multiplications (`Q`);
 * `6×16×16`: found [scheme](schemes/results/Z/6x16x16_m982_Z.json) with `982` multiplications (`Z`);
 * `8×8×16`: found [scheme](schemes/results/Q/8x8x16_m668_Q.json) with `668` multiplications (`Q`);
+* `10×14×15`: found [scheme](schemes/results/ZT/10x14x15_m1326_ZT.json) with `1326` (`ZT`);
 * `10×16×16`: found [scheme](schemes/results/Z/10x16x16_m1578_Z.json) with `1578` multiplications (`Z`);
 * `12×14×16`: found [scheme](schemes/results/Q/12x14x16_m1632_Q.json) with `1632` multiplications (`Q`);
 

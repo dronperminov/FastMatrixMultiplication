@@ -166,6 +166,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `10×12×15` | 1140 (`ZT`) |   [1122](schemes/results/Z/10x12x15_m1122_Z.json) (`Z`)    |   2.810818006   |
 | `10×12×16` | 1216 (`Q`)  |  [1190](schemes/results/ZT/10x12x16_m1190_ZT.json) (`ZT`)  |   2.810171910   |
 | `10×13×16` | 1332 (`Z`)  |  [1326](schemes/results/ZT/10x13x16_m1326_ZT.json) (`ZT`)  |   2.823222352   |
+| `10×14×15` | 1327 (`Z`)  |  [1326](schemes/results/ZT/10x14x15_m1326_ZT.json) (`ZT`)  |   2.819690617   |
 | `10×15×15` | 1395 (`Z`)  |   [1385](schemes/results/Q/10x15x15_m1385_Q.json) (`Q`)    |   2.811406977   |
 | `10×15×16` | 1497 (`Z`)  |   [1484](schemes/results/Z/10x15x16_m1484_Z.json) (`Z`)    |   2.814706248   |
 | `10×16×16` | 1586 (`ZT`) |   [1578](schemes/results/Z/10x16x16_m1578_Z.json) (`Z`)    |   2.815036821   |
@@ -378,7 +379,6 @@ with coefficients restricted to the ternary set were previously unknown.
 | `10×13×14` | [1154](schemes/results/ZT/10x13x14_m1154_ZT.json)  |    `Z`     |
 | `10×13×15` | [1242](schemes/results/ZT/10x13x15_m1242_ZT.json)  |    `Z`     |
 | `10×14×14` | [1232](schemes/results/ZT/10x14x14_m1232_ZT.json)  |    `Z`     |
-| `10×14×15` | [1327](schemes/results/ZT/10x14x15_m1327_ZT.json)  |    `Z`     |
 | `10×14×16` | [1423](schemes/results/ZT/10x14x16_m1423_ZT.json)  |    `Z`     |
 | `11×11×11` |  [873](schemes/results/ZT/11x11x11_m873_ZT.json)   |    `Z`     |
 | `11×11×12` |  [936](schemes/results/ZT/11x11x12_m936_ZT.json)   |    `Z`     |
@@ -1306,7 +1306,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `10×13×15` |  1242 (?)   |     1242     |     1242     |   2.821357792   |
 | `10×13×16` |  1326 (?)   | 1326 (1332)  | 1326 (1332)  |   2.823222352   |
 | `10×14×14` |  1232 (?)   |     1232     |     1232     |   2.816254849   |
-| `10×14×15` |  1327 (?)   |     1327     |     1327     |   2.819986261   |
+| `10×14×15` |  1326 (?)   | 1326 (1327)  | 1326 (1327)  |   2.819690617   |
 | `10×14×16` |  1423 (?)   |     1423     |     1423     |   2.823556539   |
 | `10×15×15` |  1395 (?)   | 1389 (1395)  | 1385 (1395)  |   2.811406977   |
 | `10×15×16` |  1488 (?)   | 1484 (1497)  | 1484 (1497)  |   2.814706248   |
