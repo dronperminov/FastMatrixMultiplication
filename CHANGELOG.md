@@ -1,5 +1,11 @@
 # Changelog
 
+## 02.04.2026
+### Rank improvement
+* `9×10×15`: found [scheme](schemes/results/Z/9x10x15_m865_Z.json) with `865` multiplications (`Z`);
+* `9×16×16`: found [scheme](schemes/results/ZT/9x16x16_m1429_ZT.json) with `1429` multiplications (`ZT`);
+
+
 ## 01.04.2026
 ### Rank improvement
 * `4×12×12`: found [scheme](schemes/results/ZT/4x12x12_m389_ZT.json) with `389` multiplications (`ZT`);
