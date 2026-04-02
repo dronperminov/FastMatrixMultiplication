@@ -44,7 +44,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `3×9×14`  |  283 (`Q`)  |    [281](schemes/results/ZT/3x9x14_m281_ZT.json) (`ZT`)    |   2.850103717   |
 | `3×10×11`  |  249 (`Q`)  |     [248](schemes/results/Q/3x10x11_m248_Q.json) (`Q`)     |   2.852219687   |
 | `3×10×14`  |  314 (`Q`)  |   [312](schemes/results/ZT/3x10x14_m312_ZT.json) (`ZT`)    |   2.852364741   |
-| `3×10×16`  |  360 (`Q`)  |     [357](schemes/results/Z/3x10x16_m357_Z.json) (`Z`)     |   2.856141604   |
+| `3×10×16`  |  360 (`Q`)  |   [355](schemes/results/ZT/3x10x16_m355_ZT.json) (`ZT`)    |   2.853411678   |
 | `3×11×14`  |  346 (`Q`)  |     [345](schemes/results/Q/3x11x14_m345_Q.json) (`Q`)     |   2.857215849   |
 | `3×13×13`  |  379 (`Q`)  |     [378](schemes/results/Q/3x13x13_m378_Q.json) (`Q`)     |   2.858577688   |
 | `3×13×14`  |  408 (`Q`)  |     [407](schemes/results/Q/3x13x14_m407_Q.json) (`Q`)     |   2.860150618   |
@@ -52,6 +52,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `3×14×14`  |  440 (`Q`)  |  [438](schemes/results/ZT/3x14x14_m438_ZT.json) (`ZT/Q`)   |   2.861445516   |
 | `3×14×15`  |  470 (`Q`)  |     [469](schemes/results/Q/3x14x15_m469_Q.json) (`Q`)     |   2.862645108   |
 | `3×14×16`  |  502 (`Q`)  |  [500](schemes/results/ZT/3x14x16_m500_ZT.json) (`ZT/Q`)   |   2.863761055   |
+| `3×15×16`  |  536 (`Q`)  |   [535](schemes/results/ZT/3x15x16_m535_ZT.json) (`ZT`)    |   2.864581338   |
 | `3×16×16`  |  574 (`Q`)  |     [571](schemes/results/Q/3x16x16_m571_Q.json) (`Q`)     |   2.866160489   |
 |  `4×4×10`  |  120 (`Q`)  |    [115](schemes/results/ZT/4x4x10_m115_ZT.json) (`ZT`)    | **2.804789925** |
 |  `4×4×12`  |  142 (`Q`)  |    [141](schemes/results/ZT/4x4x12_m141_ZT.json) (`ZT`)    |   2.823831239   |
@@ -159,7 +160,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `9×14×16`  | 1260 (`Q`)  |    [1254](schemes/results/Q/9x14x16_m1254_Q.json) (`Q`)    |   2.812806553   |
 | `9×15×15`  | 1290 (`Q`)  |  [1276](schemes/results/ZT/9x15x15_m1276_ZT.json) (`ZT`)   |   2.818014002   |
 | `9×15×16`  | 1350 (`Z`)  |    [1341](schemes/results/Q/9x15x16_m1341_Q.json) (`Q`)    |   2.813740131   |
-| `9×16×16`  | 1444 (`ZT`) |  [1429](schemes/results/ZT/9x16x16_m1429_ZT.json) (`ZT`)   |   2.814913314   |
+| `9×16×16`  | 1444 (`ZT`) |    [1426](schemes/results/Z/9x16x16_m1426_Z.json) (`Z`)    |   2.814099002   |
 | `10×10×12` |  770 (`Z`)  |   [768](schemes/results/ZT/10x10x12_m768_ZT.json) (`ZT`)   |   2.811164062   |
 | `10×11×15` | 1067 (`Q`)  |  [1055](schemes/results/ZT/10x11x15_m1055_ZT.json) (`ZT`)  |   2.818897479   |
 | `10×11×16` | 1136 (`Q`)  |  [1112](schemes/results/ZT/10x11x16_m1112_ZT.json) (`ZT`)  |   2.815676689   |
@@ -890,7 +891,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `3×10×13`  |   294 (?)   |   294 (?)    |     291      |   2.852757491   |
 | `3×10×14`  |   312 (?)   |   312 (?)    |  312 (314)   |   2.852364741   |
 | `3×10×15`  |   338 (?)   |   338 (?)    |     336      |   2.856543829   |
-| `3×10×16`  |   358 (?)   |   357 (?)    |  357 (360)   |   2.856141604   |
+| `3×10×16`  |   355 (?)   |   355 (?)    |  355 (360)   |   2.853411678   |
 | `3×11×11`  |   276 (?)   |   276 (?)    |     274      |   2.856843143   |
 | `3×11×12`  |   298 (?)   |   298 (?)    |     296      |   2.854020431   |
 | `3×11×13`  |   322 (?)   |   322 (?)    |     321      |   2.856462333   |
@@ -910,7 +911,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `3×14×15`  |   470 (?)   |   470 (?)    |  469 (470)   |   2.862645108   |
 | `3×14×16`  |   500 (?)   |   500 (?)    |  500 (502)   |   2.863761055   |
 | `3×15×15`  |   506 (?)   |   506 (?)    |     503      |   2.864557717   |
-| `3×15×16`  |   538 (?)   |   537 (?)    |     536      |   2.865432840   |
+| `3×15×16`  |   535 (?)   |   535 (?)    |  535 (536)   |   2.864581338   |
 | `3×16×16`  |   574 (?)   |   573 (?)    |  571 (574)   |   2.866160489   |
 |  `4×4×4`   |     49      |      49      |      48      | **2.792481250** |
 |  `4×4×5`   |     61      |      61      |      61      |   2.814364818   |
@@ -1282,7 +1283,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `9×14×16`  |  1270 (?)   |   1270 (?)   | 1254 (1260)  |   2.812806553   |
 | `9×15×15`  |  1276 (?)   |   1276 (?)   | 1276 (1290)  |   2.818014002   |
 | `9×15×16`  |  1344 (?)   | 1344 (1350)  | 1341 (1350)  |   2.813740131   |
-| `9×16×16`  | 1429 (1444) | 1429 (1444)  | 1429 (1444)  |   2.814913314   |
+| `9×16×16`  | 1429 (1444) | 1426 (1444)  | 1426 (1444)  |   2.814099002   |
 | `10×10×10` |   651 (?)   |     651      |     651      |   2.813580989   |
 | `10×10×11` |   719 (?)   |     719      |     719      |   2.817849439   |
 | `10×10×12` |   768 (?)   |  768 (770)   |  768 (770)   |   2.811164062   |
@@ -1370,9 +1371,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (31 better Strassen)
-* `ZT` schemes: 365 (53.68%)
+* `ZT` schemes: 366 (53.82%)
 * `Z` schemes: 34 (5.00%)
-* `Q` schemes: 281 (41.32%)
+* `Q` schemes: 280 (41.18%)
 
 
 ## License and Citation
