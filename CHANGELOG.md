@@ -3,7 +3,9 @@
 ## 03.04.2026
 ### Rank improvement
 * `3×10×16`: found [scheme](schemes/results/ZT/3x10x16_m355_ZT.json) with `355` multiplications (`ZT`);
+* `3×13×16`: found [scheme](schemes/results/Q/3x13x16_m464_Q.json) with `464` multiplications (`Q`);
 * `3×15×16`: found [scheme](schemes/results/ZT/3x15x16_m535_ZT.json) with `535` multiplications (`ZT`);
+* `3×16×16`: found [scheme](schemes/results/Q/3x16x16_m569_Q.json) with `569` multiplications (`Q`);
 * `9×16×16`: found [scheme](schemes/results/Z/9x16x16_m1426_Z.json) with `1426` multiplications (`Z`);
 
 
