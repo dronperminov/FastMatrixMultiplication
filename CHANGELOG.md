@@ -6,7 +6,26 @@
 * `3×13×16`: found [scheme](schemes/results/Q/3x13x16_m464_Q.json) with `464` multiplications (`Q`);
 * `3×15×16`: found [scheme](schemes/results/ZT/3x15x16_m535_ZT.json) with `535` multiplications (`ZT`);
 * `3×16×16`: found [scheme](schemes/results/Q/3x16x16_m569_Q.json) with `569` multiplications (`Q`);
+* `4×11×16`: found [scheme](schemes/results/ZT/4x11x16_m484_ZT.json) with `484` multiplications (`ZT`);
+* `4×14×16`: found [scheme](schemes/results/ZT/4x14x16_m604_ZT.json) with `604` multiplications (`ZT`);
+* `7×14×16`: found [scheme](schemes/results/Q/7x14x16_m1024_Q.json) with `1024` multiplications (`Q`);
+* `7×15×16`: found [scheme](schemes/results/Q/7x15x16_m1090_Q.json) with `1090` multiplications (`Q`);
+* `8×14×14`: found [scheme](schemes/results/Q/8x14x14_m1004_Q.json) with `1004` multiplications (`Q`);
+* `8×14×15`: found [scheme](schemes/results/Q/8x14x15_m1064_Q.json) with `1064` multiplications (`Q`);
+* `8×14×16`: found [scheme](schemes/results/Q/8x14x16_m1116_Q.json) with `1116` multiplications (`Q`);
+* `8×15×15`: found [scheme](schemes/results/Q/8x15x15_m1130_Q.json) with `1130` multiplications (`Q`);
+* `8×15×16`: found [scheme](schemes/results/Q/8x15x16_m1188_Q.json) with `1188` multiplications (`Q`);
 * `9×16×16`: found [scheme](schemes/results/Z/9x16x16_m1426_Z.json) with `1426` multiplications (`Z`);
+* `10×14×16`: found [scheme](schemes/results/Q/10x14x16_m1412_Q.json) with `1412` multiplications (`Q`);
+* `11×11×12`: found [scheme](schemes/results/Q/11x11x12_m922_Q.json) with `922` multiplications (`Q`);
+* `11×12×12`: found [scheme](schemes/results/Q/11x12x12_m980_Q.json) with `980` multiplications (`Q`);
+* `11×12×13`: found [scheme](schemes/results/Q/11x12x13_m1082_Q.json) with `1082` multiplications (`Q`);
+* `11×12×14`: found [scheme](schemes/results/Q/11x12x14_m1170_Q.json) with `1170` multiplications (`Q`);
+* `11×13×15`: found [scheme](schemes/results/Q/11x13x15_m1371_Q.json) with `1371` multiplications (`Q`);
+* `11×13×16`: found [scheme](schemes/results/Q/11x13x16_m1446_Q.json) with `1446` multiplications (`Q`);
+* `11×14×15`: found [scheme](schemes/results/Q/11x14x15_m1454_Q.json) with `1454` multiplications (`Q`);
+* `11×14×16`: found [scheme](schemes/results/Q/11x14x16_m1530_Q.json) with `1530` multiplications (`Q`);
+* `12×14×14`: found [scheme](schemes/results/Q/12x14x14_m1470_Q.json) with `1470` multiplications (`Q`);
 
 
 ## 02.04.2026
