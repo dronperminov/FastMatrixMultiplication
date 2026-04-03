@@ -1418,7 +1418,7 @@ This project is for research purposes. Please use the following citation when re
 ```
 
 ```bibtex
-@article{perminov202558,
+@article{perminov2026fast,
     title={Fast Matrix Multiplication in Small Formats: Discovering New Schemes with an Open-Source Flip Graph Framework},
     author={Perminov, Andrew I},
     journal={arXiv preprint arXiv:2603.02398},
