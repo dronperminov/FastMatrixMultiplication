@@ -28,6 +28,7 @@
 * `12×14×14`: found [scheme](schemes/results/Q/12x14x14_m1470_Q.json) with `1470` multiplications (`Q`);
 
 ### Ternary coefficient rediscovery (`ZT`)
+* `2×4×9`: rediscovered [scheme](schemes/results/ZT/2x4x9_m58_ZT.json) with `58` multiplications;
 * `3×10×15`: rediscovered [scheme](schemes/results/ZT/3x10x15_m336_ZT.json) with `336` multiplications;
 
 
