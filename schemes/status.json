@@ -12929,13 +12929,13 @@
   "3x10x15": {
     "ranks": {
       "Q": 336,
-      "Z": 338,
-      "ZT": 338
+      "Z": 336,
+      "ZT": 336
     },
     "omegas": {
       "Q": 2.856543828592568,
-      "Z": 2.859458132902263,
-      "ZT": 2.859458132902263
+      "Z": 2.856543828592568,
+      "ZT": 2.856543828592568
     },
     "schemes": {
       "Q": [
@@ -12962,6 +12962,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 336,
+          "omega": 2.856543828592568,
+          "complexity": 5239,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 158, "v": 4, "w": 166},
+          "source": "schemes/results/ZT/3x10x15_m336_ZT.json",
+          "path": "schemes/status/ZT/3x10x15_m336_ZT.json",
+          "duplicates": ["schemes/results/ZT/3x10x15_m336_ZT.m"]
+        },
         {
           "rank": 338,
           "omega": 2.859458132902263,
