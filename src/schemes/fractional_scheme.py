@@ -80,7 +80,7 @@ class FractionalScheme:
 
         return max_den, f, max_value, count, w
 
-    def unique_values(self) -> List[str]:
+    def get_unique_values(self) -> List[str]:
         unique_values = sorted(set((value.numerator, value.denominator) for matrix in self.uvw for row in matrix for value in row), key=lambda v: v[0] / max(1, v[1]))
         return [f"{num} / {den}" if den > 1 else str(num) for num, den in unique_values]
 
@@ -203,16 +203,16 @@ class FractionalScheme:
 
         return "Z" if integer else "ZT"
 
-    def get_flips(self, with_scales: bool = False) -> List[Union[Tuple[int, int, int], Tuple[int, int, int, Fraction]]]:
-        flips = []
+    def get_buds(self, with_scales: bool = False) -> List[Union[Tuple[int, int, int], Tuple[int, int, int, Fraction]]]:
+        buds = []
 
         for index1, index2 in combinations(range(self.m), r=2):
             for p in range(3):
                 scale = self.__get_linearly_dependent(p, index1, index2)
                 if scale is not None:
-                    flips.append((p, index1, index2, scale) if with_scales else (p, index1, index2))
+                    buds.append((p, index1, index2, scale) if with_scales else (p, index1, index2))
 
-        return flips
+        return buds
 
     def fix_fractions(self) -> None:
         for index in range(self.m):

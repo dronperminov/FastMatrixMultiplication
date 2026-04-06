@@ -14,7 +14,7 @@ def analyze_scheme(path: str, depths: List[int], max_iterations: int, eps: float
     n1, n2, n3 = scheme.n
     ring = scheme.get_ring()
 
-    flips = scheme.get_flips()
+    flips = scheme.get_buds()
     structure_optimizer = FlipStructureOptimizer(n=n1, m=n2, p=n3, rank=scheme.m, flips=flips)
     structure_omega, structure = structure_optimizer.optimize(iterations=max_iterations, eps=eps)
 
