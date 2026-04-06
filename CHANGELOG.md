@@ -1,5 +1,10 @@
 # Changelog
 
+## 06.04.2026
+### Rank improvement
+* `3×10×15`: found [scheme](schemes/results/ZT/3x10x15_m335_ZT.json) with `335` multiplications (`ZT`);
+
+
 ## 03.04.2026
 ### Rank improvement
 * `3×10×16`: found [scheme](schemes/results/ZT/3x10x16_m355_ZT.json) with `355` multiplications (`ZT`);

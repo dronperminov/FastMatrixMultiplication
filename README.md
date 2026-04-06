@@ -44,6 +44,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `3×9×14`  |  283 (`Q`)  |    [281](schemes/results/ZT/3x9x14_m281_ZT.json) (`ZT`)    |   2.850103717   |
 | `3×10×11`  |  249 (`Q`)  |     [248](schemes/results/Q/3x10x11_m248_Q.json) (`Q`)     |   2.852219687   |
 | `3×10×14`  |  314 (`Q`)  |   [312](schemes/results/ZT/3x10x14_m312_ZT.json) (`ZT`)    |   2.852364741   |
+| `3×10×15`  |  336 (`Q`)  |   [335](schemes/results/ZT/3x10x15_m335_ZT.json) (`ZT`)    |   2.855080165   |
 | `3×10×16`  |  360 (`Q`)  |   [355](schemes/results/ZT/3x10x16_m355_ZT.json) (`ZT`)    |   2.853411678   |
 | `3×11×14`  |  346 (`Q`)  |     [345](schemes/results/Q/3x11x14_m345_Q.json) (`Q`)     |   2.857215849   |
 | `3×13×13`  |  379 (`Q`)  |     [378](schemes/results/Q/3x13x13_m378_Q.json) (`Q`)     |   2.858577688   |
@@ -284,7 +285,6 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `3×8×12`  |   [216](schemes/results/ZT/3x8x12_m216_ZT.json)    |    `Q`     |
 |  `3×8×15`  |   [270](schemes/results/ZT/3x8x15_m270_ZT.json)    |    `Z`     |
 |  `3×8×16`  |   [288](schemes/results/ZT/3x8x16_m288_ZT.json)    |    `Q`     |
-| `3×10×15`  |   [336](schemes/results/ZT/3x10x15_m336_ZT.json)   |    `Q`     |
 |  `4×4×6`   |     [73](schemes/results/ZT/4x4x6_m73_ZT.json)     |   `Z/Q`    |
 |  `4×4×8`   |     [96](schemes/results/ZT/4x4x8_m96_ZT.json)     |    `Q`     |
 |  `4×4×11`  |   [130](schemes/results/ZT/4x4x11_m130_ZT.json)    |    `Q`     |
@@ -899,7 +899,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `3×10×12`  |   270 (?)   |   270 (?)    |     268      |   2.849586221   |
 | `3×10×13`  |   294 (?)   |   294 (?)    |     291      |   2.852757491   |
 | `3×10×14`  |   312 (?)   |   312 (?)    |  312 (314)   |   2.852364741   |
-| `3×10×15`  |   336 (?)   |   336 (?)    |     336      |   2.856543829   |
+| `3×10×15`  |   335 (?)   |   335 (?)    |  335 (336)   |   2.855080165   |
 | `3×10×16`  |   355 (?)   |   355 (?)    |  355 (360)   |   2.853411678   |
 | `3×11×11`  |   276 (?)   |   276 (?)    |     274      |   2.856843143   |
 | `3×11×12`  |   298 (?)   |   298 (?)    |     296      |   2.854020431   |
@@ -919,7 +919,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `3×14×14`  |   438 (?)   |   438 (?)    |  438 (440)   |   2.861445516   |
 | `3×14×15`  |   470 (?)   |   470 (?)    |  469 (470)   |   2.862645108   |
 | `3×14×16`  |   500 (?)   |   500 (?)    |  500 (502)   |   2.863761055   |
-| `3×15×15`  |   505 (?)   |   505 (?)    |     503      |   2.864557717   |
+| `3×15×15`  |   504 (?)   |   504 (?)    |     503      |   2.864557717   |
 | `3×15×16`  |   535 (?)   |   535 (?)    |  535 (536)   |   2.864581338   |
 | `3×16×16`  |   571 (?)   |   571 (?)    |  569 (574)   |   2.864576103   |
 |  `4×4×4`   |     49      |      49      |      48      | **2.792481250** |
