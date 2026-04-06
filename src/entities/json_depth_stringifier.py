@@ -1,6 +1,6 @@
 import json
 
-from entities.fraction_json_encoder import FractionJsonEncoder
+from src.entities.fraction_json_encoder import FractionJsonEncoder
 
 
 class JsonDepthStringifier:

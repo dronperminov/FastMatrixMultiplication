@@ -5,8 +5,7 @@ from collections import defaultdict
 from collections.abc import Set
 from typing import Dict, List, Optional
 
-from entities.fraction_json_encoder import FractionJsonEncoder
-from entities.json_depth_stringifier import JsonDepthStringifier
+from src.entities.json_depth_stringifier import JsonDepthStringifier
 from src.schemes.scheme import Scheme
 
 
