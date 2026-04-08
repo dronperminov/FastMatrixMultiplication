@@ -116,6 +116,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `6×16×16`  | 988 (`ZT`)  |  [982](schemes/results/ZT/6x16x16_m982_ZT.json) (`ZT/Z`)   |   2.817084864   |
 |  `7×7×10`  |  346 (`Z`)  |     [345](schemes/results/Q/7x7x10_m345_Q.json) (`Q`)      |   2.830075228   |
 |  `7×8×15`  |  571 (`Q`)  |     [570](schemes/results/Q/7x8x15_m570_Q.json) (`Q`)      |   2.827234938   |
+|  `7×9×9`   |  398 (`Q`)  |    [396](schemes/results/ZT/7x9x9_m396_ZT.json) (`ZT`)     |   2.830161790   |
 |  `7×9×11`  |  480 (`Q`)  |    [478](schemes/results/ZT/7x9x11_m478_ZT.json) (`ZT`)    |   2.829651018   |
 |  `7×9×15`  |  639 (`Z`)  |     [634](schemes/results/Q/7x9x15_m634_Q.json) (`Q`)      |   2.825226157   |
 | `7×10×15`  |  711 (`Q`)  |  [703](schemes/results/ZT/7x10x15_m703_ZT.json) (`ZT/Z`)   |   2.826988027   |
@@ -1176,7 +1177,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `7×8×14`  |   532 (?)   |   532 (?)    |     529      |   2.822900761   |
 |  `7×8×15`  |   572 (?)   |   572 (?)    |  570 (571)   |   2.827234938   |
 |  `7×8×16`  |   603 (?)   |   603 (?)    |     603      |   2.825230941   |
-|  `7×9×9`   |   399 (?)   |   399 (?)    |     398      |   2.832545469   |
+|  `7×9×9`   |   396 (?)   |   396 (?)    |  396 (398)   |   2.830161790   |
 |  `7×9×10`  |   437 (?)   |     437      |     437      |   2.829753712   |
 |  `7×9×11`  |   478 (?)   |   478 (?)    |  478 (480)   |   2.829651018   |
 |  `7×9×12`  |   513 (?)   |   513 (?)    |     510      |   2.821833950   |
@@ -1380,9 +1381,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (32 better Strassen)
-* `ZT` schemes: 361 (53.09%)
+* `ZT` schemes: 362 (53.24%)
 * `Z` schemes: 33 (4.85%)
-* `Q` schemes: 286 (42.06%)
+* `Q` schemes: 285 (41.91%)
 
 
 ## License and Citation
