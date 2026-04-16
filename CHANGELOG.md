@@ -1,6 +1,44 @@
 # Changelog
 
 ## 16.04.2026
+### Rank improvement
+* `4×7×12`: found [scheme](schemes/results/ZT/4x7x12_m242_ZT.json) with `242` multiplications (`ZT`);
+* `4×7×15`: found [scheme](schemes/results/Q/4x7x15_m305_Q.json) with `305` multiplications (`Q`);
+* `4×9×10`: found [scheme](schemes/results/ZT/4x9x10_m252_ZT.json) with `252` multiplications (`ZT`);
+* `4×9×14`: found [scheme](schemes/results/ZT/4x9x14_m351_ZT.json) with `351` multiplications (`ZT`);
+* `4×10×15`: found [scheme](schemes/results/Q/4x10x15_m414_Q.json) with `414` multiplications (`Q`);
+* `4×14×15`: found [scheme](schemes/results/Q/4x14x15_m558_Q.json) with `558` multiplications (`Q`);
+* `4×15×16`: found [scheme](schemes/results/Q/4x15x16_m632_Q.json) with `632` multiplications (`Q`);
+* `6×7×9`: found [scheme](schemes/results/ZT/6x7x9_m266_ZT.json) with `266` multiplications (`ZT`);
+* `6×9×14`: found [scheme](schemes/results/Q/6x9x14_m494_Q.json) with `494` multiplications (`Q`);
+* `6×9×16`: found [scheme](schemes/results/Q/6x9x16_m552_Q.json) with `552` multiplications (`Q`);
+* `6×12×14`: found [scheme](schemes/results/Z/6x12x14_m654_Z.json) with `654` multiplications (`Z`);
+* `6×12×16`: found [scheme](schemes/results/Z/6x12x16_m736_Z.json) with `736` multiplications (`Z`);
+* `6×14×15`: found [scheme](schemes/results/Z/6x14x15_m814_Z.json) with `814` multiplications (`Z`);
+* `6×15×16`: found [scheme](schemes/results/Z/6x15x16_m920_Z.json) with `920` multiplications (`Z`);
+* `7×8×9`: found [scheme](schemes/results/Z/7x8x9_m348_Z.json) with `348` multiplications (`Z`);
+* `7×8×15`: found [scheme](schemes/results/Q/7x8x15_m560_Q.json) with `560` multiplications (`Q`);
+* `7×9×10`: found [scheme](schemes/results/ZT/7x9x10_m434_ZT.json) with `434` multiplications (`ZT`);
+* `7×9×12`: found [scheme](schemes/results/Q/7x9x12_m508_Q.json) with `508` multiplications (`Q`);
+* `7×10×12`: found [scheme](schemes/results/Q/7x10x12_m560_Q.json) with `560` multiplications (`Q`);
+* `7×10×15`: found [scheme](schemes/results/Z/7x10x15_m697_Z.json) with `697` multiplications (`Z`);
+* `7×12×15`: found [scheme](schemes/results/Z/7x12x15_m819_Z.json) with `819` multiplications (`Z`);
+* `7×14×15`: found [scheme](schemes/results/Z/7x14x15_m956_Z.json) with `956` multiplications (`Z`);
+* `8×9×10`: found [scheme](schemes/results/Z/8x9x10_m482_Z.json) with `482` multiplications (`Z`);
+* `8×9×14`: found [scheme](schemes/results/Z/8x9x14_m654_Z.json) with `654` multiplications (`Z`);
+* `8×9×16`: found [scheme](schemes/results/Z/8x9x16_m736_Z.json) with `736` multiplications (`Z`);
+* `8×10×12`: found [scheme](schemes/results/Q/8x10x12_m624_Q.json) with `624` multiplications (`Q`);
+* `8×10×15`: found [scheme](schemes/results/Q/8x10x15_m778_Q.json) with `778` multiplications (`Q`);
+* `8×12×14`: found [scheme](schemes/results/Q/8x12x14_m846_Q.json) with `846` multiplications (`Q`);
+* `8×14×15`: found [scheme](schemes/results/Q/8x14x15_m1063_Q.json) with `1063` multiplications (`Q`);
+* `9×10×12`: found [scheme](schemes/results/Q/9x10x12_m676_Q.json) with `676` multiplications (`Q`);
+* `9×10×14`: found [scheme](schemes/results/Q/9x10x14_m812_Q.json) with `812` multiplications (`Q`);
+* `9×10×16`: found [scheme](schemes/results/Z/9x10x16_m920_Z.json) with `920` multiplications (`Z`);
+* `9×12×14`: found [scheme](schemes/results/Q/9x12x14_m944_Q.json) with `944` multiplications (`Q`);
+* `9×14×14`: found [scheme](schemes/results/Q/9x14x14_m1104_Q.json) with `1104` multiplications (`Q`);
+* `10×14×15`: found [scheme](schemes/results/ZT/10x14x15_m1316_ZT.json) with `1316` multiplications (`ZT`);
+* `14×14×15`: found [scheme](schemes/results/Z/14x14x15_m1799_Z.json) with `1799` multiplications (`Z`);
+
 ### Ternary coefficient rediscovery (`ZT`)
 * `2×4×13`: rediscovered [scheme](schemes/results/ZT/2x4x13_m83_ZT.json) with `83` multiplications;
 
