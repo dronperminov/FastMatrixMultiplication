@@ -1668,13 +1668,13 @@
   "2x4x13": {
     "ranks": {
       "Q": 83,
-      "ZT": 84,
-      "Z": 84
+      "ZT": 83,
+      "Z": 83
     },
     "omegas": {
       "Q": 2.8543079407550693,
-      "ZT": 2.8620438471247907,
-      "Z": 2.8620438471247907
+      "ZT": 2.8543079407550693,
+      "Z": 2.8543079407550693
     },
     "schemes": {
       "Q": [
@@ -1689,6 +1689,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 83,
+          "omega": 2.8543079407550693,
+          "complexity": 599,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 25, "v": 0, "w": 0},
+          "source": "schemes/results/ZT/2x4x13_m83_ZT.json",
+          "path": "schemes/status/ZT/2x4x13_m83_ZT.json",
+          "duplicates": ["schemes/results/ZT/2x4x13_m83_ZT.m"]
+        },
         {
           "rank": 84,
           "omega": 2.8620438471247907,
