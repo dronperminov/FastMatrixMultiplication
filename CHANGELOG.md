@@ -1,5 +1,60 @@
 # Changelog
 
+## 17.04.2026
+### Rank improvement
+* `4×9×11`: found [scheme](schemes/results/ZT/4x9x11_m276_ZT.json) with `276` multiplications (`ZT`);
+* `4×9×13`: found [scheme](schemes/results/ZT/4x9x13_m325_ZT.json) with `325` multiplications (`ZT`);
+* `4×9×14`: found [scheme](schemes/results/Z/4x9x14_m350_Z.json) with `350` multiplications (`Z`);
+* `4×11×12`: found [scheme](schemes/results/Q/4x11x12_m362_Q.json) with `362` multiplications (`Q`);
+* `4×12×13`: found [scheme](schemes/results/Q/4x12x13_m422_Q.json) with `422` multiplications (`Q`);
+* `4×12×14`: found [scheme](schemes/results/Z/4x12x14_m455_Z.json) with `455` multiplications (`Z`);
+* `4×13×15`: found [scheme](schemes/results/Q/4x13x15_m523_Q.json) with `523` multiplications (`Q`);
+* `4×14×15`: found [scheme](schemes/results/Q/4x14x15_m557_Q.json) with `557` multiplications (`Q`);
+* `6×7×9`: found [scheme](schemes/results/ZT/6x7x9_m264_ZT.json) with `264` multiplications (`ZT`);
+* `6×9×9`: found [scheme](schemes/results/Q/6x9x9_m332_Q.json) with `332` multiplications (`Q`);
+* `6×9×10`: found [scheme](schemes/results/Q/6x9x10_m368_Q.json) with `368` multiplications (`Q`);
+* `6×9×12`: found [scheme](schemes/results/Q/6x9x12_m429_Q.json) with `429` multiplications (`Q`);
+* `6×9×13`: found [scheme](schemes/results/Q/6x9x13_m470_Q.json) with `470` multiplications (`Q`);
+* `6×11×15`: found [scheme](schemes/results/ZT/6x11x15_m653_ZT.json) with `653` multiplications (`ZT`);
+* `6×13×15`: found [scheme](schemes/results/Z/6x13x15_m763_Z.json) with `763` multiplications (`Z`);
+* `6×14×16`: found [scheme](schemes/results/Z/6x14x16_m874_Z.json) with `874` multiplications (`Z`);
+* `7×8×9`: found [scheme](schemes/results/ZT/7x8x9_m347_ZT.json) with `347` multiplications (`ZT/Z`);
+* `7×8×12`: found [scheme](schemes/results/Z/7x8x12_m452_Z.json) with `452` multiplications (`Z`);
+* `7×8×15`: found [scheme](schemes/results/Q/7x8x15_m557_Q.json) with `557` multiplications (`Q`);
+* `7×9×10`: found [scheme](schemes/results/Z/7x9x10_m433_Z.json) with `433` multiplications (`Z`);
+* `7×10×12`: found [scheme](schemes/results/Q/7x10x12_m557_Q.json) with `557` multiplications (`Q`);
+* `7×10×15`: found [scheme](schemes/results/Z/7x10x15_m694_Z.json) with `694` multiplications (`Z`);
+* `7×12×15`: found [scheme](schemes/results/Z/7x12x15_m815_Z.json) with `815` multiplications (`Z`);
+* `7×14×15`: found [scheme](schemes/results/Z/7x14x15_m952_Z.json) with `952` multiplications (`Z`);
+* `7×15×16`: found [scheme](schemes/results/Z/7x15x16_m1089_Z.json) with `1089` multiplications (`Z`);
+* `8×9×11`: found [scheme](schemes/results/Z/8x9x11_m527_Z.json) with `527` multiplications (`Z`);
+* `8×9×13`: found [scheme](schemes/results/Z/8x9x13_m617_Z.json) with `617` multiplications (`Z`);
+* `8×11×15`: found [scheme](schemes/results/Q/8x11x15_m853_Q.json) with `853` multiplications (`Q`);
+* `8×12×13`: found [scheme](schemes/results/Q/8x12x13_m788_Q.json) with `788` multiplications (`Q`);
+* `8×12×14`: found [scheme](schemes/results/Q/8x12x14_m843_Q.json) with `843` multiplications (`Q`);
+* `8×13×15`: found [scheme](schemes/results/Q/8x13x15_m993_Q.json) with `993` multiplications (`Q`);
+* `9×10×13`: found [scheme](schemes/results/Z/9x10x13_m763_Z.json) with `763` multiplications (`Z`);
+* `9×11×12`: found [scheme](schemes/results/Q/9x11x12_m742_Q.json) with `742` multiplications (`Q`);
+* `9×11×16`: found [scheme](schemes/results/Q/9x11x16_m1005_Q.json) with `1005` multiplications (`Q`);
+* `9×12×13`: found [scheme](schemes/results/Q/9x12x13_m878_Q.json) with `878` multiplications (`Q`);
+* `9×12×14`: found [scheme](schemes/results/Q/9x12x14_m942_Q.json) with `942` multiplications (`Q`);
+* `9×12×15`: found [scheme](schemes/results/Q/9x12x15_m996_Q.json) with `996` multiplications (`Q`);
+* `9×13×14`: found [scheme](schemes/results/Q/9x13x14_m1030_Q.json) with `1030` multiplications (`Q`);
+* `9×13×16`: found [scheme](schemes/results/Q/9x13x16_m1182_Q.json) with `1182` multiplications (`Q`);
+* `9×14×14`: found [scheme](schemes/results/Q/9x14x14_m1101_Q.json) with `1101` multiplications (`Q`);
+* `9×15×16`: found [scheme](schemes/results/Z/9x15x16_m1320_Z.json) with `1320` multiplications (`Z`);
+* `10×11×15`: found [scheme](schemes/results/Z/10x11x15_m1050_Z.json) with `1050` multiplications (`Z`);
+* `10×12×16`: found [scheme](schemes/results/Q/10x12x16_m1176_Q.json) with `1176` multiplications (`Q`);
+* `10×13×15`: found [scheme](schemes/results/Z/10x13x15_m1230_Z.json) with `1230` multiplications (`Z`);
+* `10×15×16`: found [scheme](schemes/results/Q/10x15x16_m1482_Q.json) with `1482` multiplications (`Q`);
+* `11×12×14`: found [scheme](schemes/results/Q/11x12x14_m1154_Q.json) with `1154` multiplications (`Q`);
+* `11×12×15`: found [scheme](schemes/results/Z/11x12x15_m1235_Z.json) with `1235` multiplications (`Z`);
+* `11×14×15`: found [scheme](schemes/results/Z/11x14x15_m1432_Z.json) with `1432` multiplications (`Z`);
+* `11×15×16`: found [scheme](schemes/results/Z/11x15x16_m1629_Z.json) with `1629` multiplications (`Z`);
+* `12×13×14`: found [scheme](schemes/results/Q/12x13x14_m1370_Q.json) with `1370` multiplications (`Q`);
+* `13×14×15`: found [scheme](schemes/results/Z/13x14x15_m1681_Z.json) with `1681` multiplications (`Z`);
+
+
 ## 16.04.2026
 ### Rank improvement
 * `4×7×12`: found [scheme](schemes/results/ZT/4x7x12_m242_ZT.json) with `242` multiplications (`ZT`);
