@@ -33734,12 +33734,12 @@
   "6x12x15": {
     "ranks": {
       "Z": 703,
-      "Q": 703,
+      "Q": 698,
       "ZT": 704
     },
     "omegas": {
       "Z": 2.815586170448653,
-      "Q": 2.815586170448653,
+      "Q": 2.8125204243018547,
       "ZT": 2.8161967024798322
     },
     "schemes": {
@@ -33784,6 +33784,18 @@
           "source": "schemes/results/ZT/6x12x15_m705_ZT.json",
           "path": "schemes/status/ZT/6x12x15_m705_ZT.json",
           "duplicates": ["schemes/results/ZT/6x12x15_m705_ZT.m"]
+        }
+      ],
+      "Q": [
+        {
+          "rank": 698,
+          "omega": 2.8125204243018547,
+          "complexity": 50019,
+          "values": [-2, "-9/8", -1, "-7/8", "-1/4", "-1/8", 0, "1/8", "1/4", "7/8", 1, "9/8", 2],
+          "buds_count": {"u": 18, "v": 0, "w": 18},
+          "source": "schemes/results/Q/6x12x15_m698_Q.json",
+          "path": "schemes/status/Q/6x12x15_m698_Q.json",
+          "duplicates": ["schemes/results/Q/6x12x15_m698_Q.m"]
         }
       ]
     }

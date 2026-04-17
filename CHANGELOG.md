@@ -16,6 +16,7 @@
 * `6×9×12`: found [scheme](schemes/results/Q/6x9x12_m429_Q.json) with `429` multiplications (`Q`);
 * `6×9×13`: found [scheme](schemes/results/Q/6x9x13_m470_Q.json) with `470` multiplications (`Q`);
 * `6×11×15`: found [scheme](schemes/results/ZT/6x11x15_m653_ZT.json) with `653` multiplications (`ZT`);
+* `6×12×15`: found [scheme](schemes/results/Q/6x12x15_m698_Q.json) with `698` multiplications (`Q`);
 * `6×13×15`: found [scheme](schemes/results/Z/6x13x15_m763_Z.json) with `763` multiplications (`Z`);
 * `6×14×16`: found [scheme](schemes/results/Z/6x14x16_m874_Z.json) with `874` multiplications (`Z`);
 * `7×8×9`: found [scheme](schemes/results/ZT/7x8x9_m347_ZT.json) with `347` multiplications (`ZT/Z`);
