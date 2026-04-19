@@ -1,5 +1,19 @@
 # Changelog
 
+## 19.04.2026
+### Ternary coefficient rediscovery (`ZT`)
+* `6×12×16`: rediscovered [scheme](schemes/results/ZT/6x12x16_m736_ZT.json) with `736` multiplications;
+* `7×8×12`: rediscovered [scheme](schemes/results/ZT/7x8x12_m452_ZT.json) with `452` multiplications;
+* `7×15×16`: rediscovered [scheme](schemes/results/ZT/7x15x16_m1089_ZT.json) with `1089` multiplications;
+* `8×9×10`: rediscovered [scheme](schemes/results/ZT/8x9x10_m482_ZT.json) with `482` multiplications;
+* `8×9×15`: rediscovered [scheme](schemes/results/ZT/8x9x15_m703_ZT.json) with `703` multiplications;
+* `8×14×15`: rediscovered [scheme](schemes/results/ZT/8x14x15_m1063_ZT.json) with `1063` multiplications;
+* `9×9×14`: rediscovered [scheme](schemes/results/ZT/9x9x14_m725_ZT.json) with `725` multiplications;
+* `10×12×15`: rediscovered [scheme](schemes/results/ZT/10x12x15_m1122_ZT.json) with `1122` multiplications;
+* `13×15×16`: rediscovered [scheme](schemes/results/ZT/13x15x16_m1908_ZT.json) with `1908` multiplications;
+* `15×15×16`: rediscovered [scheme](schemes/results/ZT/15x15x16_m2132_ZT.json) with `2132` multiplications;
+
+
 ## 18.04.2026
 ### Rank improvement
 * `5×12×16`: found [scheme](schemes/results/Q/5x12x16_m655_Q.json) with `655` multiplications (`Q`);
