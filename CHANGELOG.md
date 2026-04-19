@@ -1,6 +1,9 @@
 # Changelog
 
 ## 19.04.2026
+### Rank improvement
+* `8×9×15`: found [scheme](schemes/results/ZT/8x9x15_m700_ZT.json) with `700` multiplications (`ZT`);
+
 ### Ternary coefficient rediscovery (`ZT`)
 * `6×12×16`: rediscovered [scheme](schemes/results/ZT/6x12x16_m736_ZT.json) with `736` multiplications;
 * `7×8×12`: rediscovered [scheme](schemes/results/ZT/7x8x12_m452_ZT.json) with `452` multiplications;
