@@ -1,5 +1,31 @@
 # Changelog
 
+## 22.04.2026
+### Rank improvement
+* `4×9×10`: found [scheme](schemes/results/ZT/4x9x10_m251_ZT.json) with `251` multiplications (`ZT`);
+* `4×9×11`: found [scheme](schemes/results/ZT/4x9x11_m275_ZT.json) with `275` multiplications (`ZT`);
+* `4×10×15`: found [scheme](schemes/results/Q/4x10x15_m413_Q.json) with `413` multiplications (`Q`);
+* `4×11×15`: found [scheme](schemes/results/Q/4x11x15_m449_Q.json) with `449` multiplications (`Q`);
+* `4×15×15`: found [scheme](schemes/results/Q/4x15x15_m597_Q.json) with `597` multiplications (`Q`);
+* `6×9×11`: found [scheme](schemes/results/Q/6x9x11_m404_Q.json) with `404` multiplications (`Q`);
+* `6×9×15`: found [scheme](schemes/results/Q/6x9x15_m530_Q.json) with `530` multiplications (`Q`);
+* `6×12×15`: found [scheme](schemes/results/Q/6x12x15_m686_Q.json) with `686` multiplications (`Q`);
+* `8×9×15`: found [scheme](schemes/results/Z/8x9x15_m699_Z.json) with `699` multiplications (`Z`);
+* `8×11×12`: found [scheme](schemes/results/Q/8x11x12_m676_Q.json) with `676` multiplications (`Q`);
+* `8×11×15`: found [scheme](schemes/results/Q/8x11x15_m849_Q.json) with `849` multiplications (`Q`);
+* `8×12×15`: found [scheme](schemes/results/Q/8x12x15_m910_Q.json) with `910` multiplications (`Q`);
+* `9×9×14`: found [scheme](schemes/results/Q/9x9x14_m724_Q.json) with `724` multiplications (`Q`);
+* `9×10×12`: found [scheme](schemes/results/Q/9x10x12_m672_Q.json) with `672` multiplications (`Q`);
+* `9×10×13`: found [scheme](schemes/results/Q/9x10x13_m762_Q.json) with `762` multiplications (`Q`);
+* `9×10×16`: found [scheme](schemes/results/Q/9x10x16_m919_Q.json) with `919` multiplications (`Q`);
+* `9×11×12`: found [scheme](schemes/results/Q/9x11x12_m738_Q.json) with `738` multiplications (`Q`);
+* `9×11×14`: found [scheme](schemes/results/Q/9x11x14_m882_Q.json) with `882` multiplications (`Q`);
+* `10×11×12`: found [scheme](schemes/results/Q/10x11x12_m849_Q.json) with `849` multiplications (`Q`);
+* `10×12×12`: found [scheme](schemes/results/ZT/10x12x12_m906_ZT.json) with `906` multiplications (`ZT`);
+* `10×14×15`: found [scheme](schemes/results/Z/10x14x15_m1315_Z.json) with `1315` multiplications (`Z`);
+* `12×14×16`: found [scheme](schemes/results/Q/12x14x16_m1625_Q.json) with `1625` multiplications (`Q`);
+
+
 ## 21.04.2026
 ### Rank improvement
 * `6×10×15`: found [scheme](schemes/results/ZT/6x10x15_m594_ZT.json) with `594` multiplications (`ZT`);
