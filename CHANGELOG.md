@@ -1,5 +1,24 @@
 # Changelog
 
+## 23.04.2026
+### Rank improvement
+* `4×9×10`: found [scheme](schemes/results/ZT/4x9x10_m250_ZT.json) with `250` multiplications (`ZT`);
+* `4×12×16`: found [scheme](schemes/results/Q/4x12x16_m515_Q.json) with `515` multiplications (`Q`);
+* `4×13×15`: found [scheme](schemes/results/Q/4x13x15_m521_Q.json) with `521` multiplications (`Q`);
+* `6×9×10`: found [scheme](schemes/results/Q/6x9x10_m367_Q.json) with `367` multiplications (`Q`);
+* `8×12×13`: found [scheme](schemes/results/Q/8x12x13_m784_Q.json) with `784` multiplications (`Q`);
+* `8×13×15`: found [scheme](schemes/results/Q/8x13x15_m992_Q.json) with `992` multiplications (`Q`);
+* `9×10×12`: found [scheme](schemes/results/Q/9x10x12_m668_Q.json) with `668` multiplications (`Q`);
+* `9×10×13`: found [scheme](schemes/results/Q/9x10x13_m758_Q.json) with `758` multiplications (`Q`);
+* `9×10×14`: found [scheme](schemes/results/Q/9x10x14_m808_Q.json) with `808` multiplications (`Q`);
+* `9×10×16`: found [scheme](schemes/results/Q/9x10x16_m916_Q.json) with `916` multiplications (`Q`);
+* `9×11×16`: found [scheme](schemes/results/Q/9x11x16_m1003_Q.json) with `1003` multiplications (`Q`);
+* `9×12×14`: found [scheme](schemes/results/Q/9x12x14_m940_Q.json) with `940` multiplications (`Q`);
+* `9×13×14`: found [scheme](schemes/results/Q/9x13x14_m1026_Q.json) with `1026` multiplications (`Q`);
+* `10×12×12`: found [scheme](schemes/results/Z/10x12x12_m902_Z.json) with `902` multiplications (`Z`);
+* `10×14×15`: found [scheme](schemes/results/Z/10x14x15_m1314_Z.json) with `1314` multiplications (`Z`);
+* `11×12×14`: found [scheme](schemes/results/Q/11x12x14_m1153_Q.json) with `1153` multiplications (`Q`);
+
 ## 22.04.2026
 ### Rank improvement
 * `4×9×10`: found [scheme](schemes/results/ZT/4x9x10_m251_ZT.json) with `251` multiplications (`ZT`);
