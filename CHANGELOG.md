@@ -1,6 +1,9 @@
 # Changelog
 
 # 24.04.2026
+### Rank improvement
+* `9×9×15`: found [scheme](schemes/results/Q/9x9x15_m766_Q.json) with `766` multiplications (`Q`);
+
 ### Ternary coefficient rediscovery (`ZT`)
 * `10×12×12`: rediscovered [scheme](schemes/results/ZT/10x12x12_m902_ZT.json) with `902` multiplications;
 
@@ -23,6 +26,7 @@
 * `10×12×12`: found [scheme](schemes/results/Z/10x12x12_m902_Z.json) with `902` multiplications (`Z`);
 * `10×14×15`: found [scheme](schemes/results/Z/10x14x15_m1314_Z.json) with `1314` multiplications (`Z`);
 * `11×12×14`: found [scheme](schemes/results/Q/11x12x14_m1153_Q.json) with `1153` multiplications (`Q`);
+
 
 ## 22.04.2026
 ### Rank improvement

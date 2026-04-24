@@ -187,7 +187,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `8×15×16`  | 1198 (`Q`)  |    [1185](schemes/results/Q/8x15x16_m1185_Q.json) (`Q`)    |   2.808501081   |
 |  `9×9×9`   | 498 (`ZT`)  |    [486](schemes/results/ZT/9x9x9_m486_ZT.json) (`ZT`)     |   2.815464877   |
 |  `9×9×14`  |  726 (`Q`)  |     [724](schemes/results/Q/9x9x14_m724_Q.json) (`Q`)      |   2.808609649   |
-|  `9×9×15`  |  783 (`Q`)  |     [772](schemes/results/Q/9x9x15_m772_Q.json) (`Q`)      |   2.808441459   |
+|  `9×9×15`  |  783 (`Q`)  |     [766](schemes/results/Q/9x9x15_m766_Q.json) (`Q`)      | **2.805145838** |
 | `9×10×10`  |  600 (`Z`)  |   [597](schemes/results/ZT/9x10x10_m597_ZT.json) (`ZT`)    |   2.818970672   |
 | `9×10×12`  |  684 (`Q`)  |     [668](schemes/results/Q/9x10x12_m668_Q.json) (`Q`)     | **2.793651686** |
 | `9×10×13`  |  772 (`Z`)  |     [758](schemes/results/Q/9x10x13_m758_Q.json) (`Q`)     |   2.815672846   |
@@ -1297,7 +1297,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `9×9×12`  |   626 (?)   |   626 (?)    |     600      | **2.789620062** |
 |  `9×9×13`  |   683 (?)   |   683 (?)    |     681      |   2.812123330   |
 |  `9×9×14`  |   725 (?)   |   725 (?)    |  724 (726)   |   2.808609649   |
-|  `9×9×15`  |   798 (?)   |   798 (?)    |  772 (783)   |   2.808441459   |
+|  `9×9×15`  |   798 (?)   |   798 (?)    |  766 (783)   | **2.805145838** |
 |  `9×9×16`  |   833 (?)   |   833 (?)    |     825      |   2.810945122   |
 | `9×10×10`  |   597 (?)   |  597 (600)   |  597 (600)   |   2.818970672   |
 | `9×10×11`  |   661 (?)   |   661 (?)    |     651      |   2.817680531   |
@@ -1413,9 +1413,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `16×16×16` |  2401 (?)   |   2401 (?)   |     2304     | **2.792481250** |
 
 ### Coefficient set status
-* total schemes: 680 (43 better Strassen)
-* `ZT` schemes: 344 (50.59%)
-* `Z` schemes: 49 (7.21%)
+* total schemes: 680 (44 better Strassen)
+* `ZT` schemes: 345 (50.74%)
+* `Z` schemes: 48 (7.06%)
 * `Q` schemes: 287 (42.21%)
 
 
