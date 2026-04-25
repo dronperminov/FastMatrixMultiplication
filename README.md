@@ -82,7 +82,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `4×9×14`  |  355 (`Z`)  |   [350](schemes/results/ZT/4x9x14_m350_ZT.json) (`ZT/Z`)   |   2.824199930   |
 |  `4×9×16`  | 400 (`ZT`)  |    [398](schemes/results/ZT/4x9x16_m398_ZT.json) (`ZT`)    |   2.825527347   |
 | `4×10×15`  |  417 (`Q`)  |     [413](schemes/results/Q/4x10x15_m413_Q.json) (`Q`)     |   2.824846255   |
-| `4×11×12`  |  365 (`Z`)  |     [362](schemes/results/Q/4x11x12_m362_Q.json) (`Q`)     |   2.819374888   |
+| `4×11×12`  |  365 (`Z`)  |  [362](schemes/results/ZT/4x11x12_m362_ZT.json) (`ZT/Q`)   |   2.819374888   |
 | `4×11×15`  |  452 (`Q`)  |     [449](schemes/results/Q/4x11x15_m449_Q.json) (`Q`)     |   2.821995048   |
 | `4×11×16`  |  489 (`Q`)  |   [484](schemes/results/ZT/4x11x16_m484_ZT.json) (`ZT`)    |   2.828562094   |
 | `4×12×12`  | 390 (`ZT`)  |   [389](schemes/results/ZT/4x12x12_m389_ZT.json) (`ZT`)    |   2.814731749   |
@@ -1027,7 +1027,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `4×10×15`  |   417 (?)   |   417 (?)    |  413 (417)   |   2.824846255   |
 | `4×10×16`  |   441 (?)   |   441 (?)    |     441      |   2.827087301   |
 | `4×11×11`  |   340 (?)   |     340      |     340      |   2.828630974   |
-| `4×11×12`  |   365 (?)   |     365      |  362 (365)   |   2.819374888   |
+| `4×11×12`  |   362 (?)   |  362 (365)   |  362 (365)   |   2.819374888   |
 | `4×11×13`  |   401 (?)   |   401 (?)    |     400      |   2.830997032   |
 | `4×11×14`  |   429 (?)   |   429 (?)    |     429      |   2.831024692   |
 | `4×11×15`  |   458 (?)   |   458 (?)    |  449 (452)   |   2.821995048   |
@@ -1414,9 +1414,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (44 better Strassen)
-* `ZT` schemes: 345 (50.74%)
+* `ZT` schemes: 346 (50.88%)
 * `Z` schemes: 48 (7.06%)
-* `Q` schemes: 287 (42.21%)
+* `Q` schemes: 286 (42.06%)
 
 
 ## License and Citation

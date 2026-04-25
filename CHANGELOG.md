@@ -1,6 +1,11 @@
 # Changelog
 
-# 24.04.2026
+## 25.04.2026
+### Ternary coefficient rediscovery (`ZT`)
+* `4×11×12`: rediscovered [scheme](schemes/results/ZT/4x11x12_m362_ZT.json) with `362` multiplications;
+
+
+## 24.04.2026
 ### Rank improvement
 * `9×9×15`: found [scheme](schemes/results/Q/9x9x15_m766_Q.json) with `766` multiplications (`Q`);
 
