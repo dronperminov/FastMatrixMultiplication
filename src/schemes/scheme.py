@@ -321,15 +321,15 @@ class Scheme:
 
         for index, u_indices in enumerate(data["u"]):
             for variable, value in cls.__replace_fresh_vars(u_indices, u_vars, value=1):
-                u[index][variable] = value
+                u[index][variable] += value
 
         for index, v_indices in enumerate(data["v"]):
             for variable, value in cls.__replace_fresh_vars(v_indices, v_vars, value=1):
-                v[index][variable] = value
+                v[index][variable] += value
 
         for i, w_indices in enumerate(data["w"]):
             for variable, value in cls.__replace_fresh_vars(w_indices, w_vars, value=1):
-                w[variable][i] = value
+                w[variable][i] += value
 
         return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=z2, validate=validate)
 
@@ -985,6 +985,18 @@ class Scheme:
         matrix = [0 for _ in range(nn)]
         matrix[index] = 1
         return matrix
+
+    def reduce_add(self, i: int, index1: int, index2: int) -> None:
+        uvw = [self.u, self.v, self.w]
+        for index in range(self.nn[i]):
+            uvw[i][index1][index] += uvw[i][index][index2]
+        self.__remove_at(index2)
+
+    def reduce_sub(self, i: int, index1: int, index2: int) -> None:
+        uvw = [self.u, self.v, self.w]
+        for index in range(self.nn[i]):
+            uvw[i][index1][index] -= uvw[i][index2][index]
+        self.__remove_at(index2)
 
     def __get_rank(self, matrix: List[int], n1: int, n2: int) -> int:
         matrix = [[self.__map_rank_value(matrix[i * n2 + j]) for j in range(n2)] for i in range(n1)]
