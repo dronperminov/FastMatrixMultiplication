@@ -189,6 +189,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `9×9×9`   | 498 (`ZT`)  |    [486](schemes/results/ZT/9x9x9_m486_ZT.json) (`ZT`)     |   2.815464877   |
 |  `9×9×14`  |  726 (`Q`)  |     [724](schemes/results/Q/9x9x14_m724_Q.json) (`Q`)      |   2.808609649   |
 |  `9×9×15`  |  783 (`Q`)  |     [766](schemes/results/Q/9x9x15_m766_Q.json) (`Q`)      | **2.805145838** |
+|  `9×9×16`  |  825 (`Q`)  |    [824](schemes/results/ZT/9x9x16_m824_ZT.json) (`ZT`)    |   2.810437441   |
 | `9×10×10`  |  600 (`Z`)  |   [597](schemes/results/ZT/9x10x10_m597_ZT.json) (`ZT`)    |   2.818970672   |
 | `9×10×12`  |  684 (`Q`)  |     [668](schemes/results/Q/9x10x12_m668_Q.json) (`Q`)     | **2.793651686** |
 | `9×10×13`  |  772 (`Z`)  |     [758](schemes/results/Q/9x10x13_m758_Q.json) (`Q`)     |   2.815672846   |
@@ -1298,8 +1299,8 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `9×9×12`  |   626 (?)   |   626 (?)    |     600      | **2.789620062** |
 |  `9×9×13`  |   683 (?)   |   683 (?)    |     681      |   2.812123330   |
 |  `9×9×14`  |   725 (?)   |   725 (?)    |  724 (726)   |   2.808609649   |
-|  `9×9×15`  |   798 (?)   |   798 (?)    |  766 (783)   | **2.805145838** |
-|  `9×9×16`  |   833 (?)   |   833 (?)    |     825      |   2.810945122   |
+|  `9×9×15`  |   794 (?)   |   794 (?)    |  766 (783)   | **2.805145838** |
+|  `9×9×16`  |   824 (?)   |   824 (?)    |  824 (825)   |   2.810437441   |
 | `9×10×10`  |   597 (?)   |  597 (600)   |  597 (600)   |   2.818970672   |
 | `9×10×11`  |   661 (?)   |   661 (?)    |     651      |   2.817680531   |
 | `9×10×12`  |   702 (?)   |   702 (?)    |  668 (684)   | **2.793651686** |
@@ -1415,9 +1416,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (44 better Strassen)
-* `ZT` schemes: 346 (50.88%)
+* `ZT` schemes: 347 (51.03%)
 * `Z` schemes: 48 (7.06%)
-* `Q` schemes: 286 (42.06%)
+* `Q` schemes: 285 (41.91%)
 
 
 ## License and Citation
