@@ -2,7 +2,9 @@
 
 ## 30.04.2026
 ### Rank improvement
+* `6×9×13`: found [scheme](schemes/results/Q/6x9x13_m468_Q.json) with `468` multiplications (`Q`);
 * `9×9×16`: found [scheme](schemes/results/ZT/9x9x16_m824_ZT.json) with `824` multiplications (`ZT`);
+* `9×11×15`: found [scheme](schemes/results/ZT/9x11x15_m958_ZT.json) with `958` multiplications (`ZT`);
 
 
 ## 29.04.2026
