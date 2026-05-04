@@ -3,7 +3,7 @@
 ## 04.05.2026
 ### Rank improvement
 * `4×4×11`: found [scheme](schemes/results/ZT/4x4x11_m129_ZT.json) with `129` multiplications (`ZT`);
-* `4×7×8`: found [scheme](schemes/results/Z/4x7x8_m162_Z.json) with `162` multiplications (`Z`);
+* `4×7×8`: found [scheme](schemes/results/ZT/4x7x8_m162_ZT.json) with `162` multiplications (`ZT`);
 * `4×7×11`: found [scheme](schemes/results/Q/4x7x11_m225_Q.json) with `225` multiplications (`Q`);
 * `4×8×8`: found [scheme](schemes/results/ZT/4x8x8_m180_ZT.json) with `180` multiplications (`ZT`);
 * `4×12×16`: found [scheme](schemes/results/ZT/4x12x16_m513_ZT.json) with `513` multiplications (`ZT`);
@@ -22,8 +22,8 @@
 * `12×14×14`: found [scheme](schemes/results/Q/12x14x14_m1456_Q.json) with `1456` multiplications (`Q`);
 * `12×14×16`: found [scheme](schemes/results/Q/12x14x16_m1617_Q.json) with `1617` multiplications (`Q`);
 
-### Integer coefficient rediscovery (`Z`)
-* `4×7×13`: rediscovered [scheme](schemes/results/Z/4x7x13_m266_Z.json) with `266` multiplications;
+### Ternary coefficient rediscovery (`Z`)
+* `4×7×13`: rediscovered [scheme](schemes/results/ZT/4x7x13_m266_ZT.json) with `266` multiplications;
 
 
 ## 03.05.2026

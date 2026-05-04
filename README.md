@@ -73,7 +73,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `4×5×16`  |  240 (`Q`)  |    [235](schemes/results/ZT/4x5x16_m235_ZT.json) (`ZT`)    |   2.839432229   |
 |  `4×6×13`  |  228 (`Z`)  |    [227](schemes/results/ZT/4x6x13_m227_ZT.json) (`ZT`)    |   2.833857047   |
 |  `4×6×16`  | 280 (`ZT`)  |    [276](schemes/results/ZT/4x6x16_m276_ZT.json) (`ZT`)    |   2.833509566   |
-|  `4×7×8`   | 164 (`ZT`)  |      [162](schemes/results/Z/4x7x8_m162_Z.json) (`Z`)      |   2.820359805   |
+|  `4×7×8`   | 164 (`ZT`)  |   [162](schemes/results/ZT/4x7x8_m162_ZT.json) (`ZT/Z`)    |   2.820359805   |
 |  `4×7×11`  |  227 (`Z`)  |     [225](schemes/results/Q/4x7x11_m225_Q.json) (`Q`)      |   2.835605281   |
 |  `4×7×12`  |  246 (`Z`)  |    [242](schemes/results/ZT/4x7x12_m242_ZT.json) (`ZT`)    |   2.830754429   |
 |  `4×7×15`  |  307 (`Q`)  |     [305](schemes/results/Q/4x7x15_m305_Q.json) (`Q`)      |   2.841094648   |
@@ -359,6 +359,7 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `4×6×11`  |   [194](schemes/results/ZT/4x6x11_m194_ZT.json)    |    `Q`     |
 |  `4×6×15`  |   [263](schemes/results/ZT/4x6x15_m263_ZT.json)    |    `Z`     |
 |  `4×7×7`   |    [144](schemes/results/ZT/4x7x7_m144_ZT.json)    |   `Z/Q`    |
+|  `4×7×13`  |   [266](schemes/results/ZT/4x7x13_m266_ZT.json)    |    `Q`     |
 |  `4×8×13`  |   [297](schemes/results/ZT/4x8x13_m297_ZT.json)    |    `Z`     |
 |  `4×9×15`  |   [375](schemes/results/ZT/4x9x15_m375_ZT.json)    |    `Z`     |
 | `4×10×13`  |   [361](schemes/results/ZT/4x10x13_m361_ZT.json)   |    `Q`     |
@@ -453,7 +454,6 @@ Implementations restricted to integer coefficients were previously unknown.
 | `2×13×15`  |   [300](schemes/results/Z/2x13x15_m300_Z.json)   |
 | `2×13×16`  |   [320](schemes/results/Z/2x13x16_m320_Z.json)   |
 | `2×15×16`  |   [368](schemes/results/Z/2x15x16_m368_Z.json)   |
-|  `4×7×13`  |   [266](schemes/results/Z/4x7x13_m266_Z.json)    |
 
 ## Methodology & instruments
 The research employs a multi-stage approach using custom-built tools:
@@ -999,12 +999,12 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `4×6×15`  |   263 (?)   |     263      |     263      |   2.839987538   |
 |  `4×6×16`  |  276 (280)  |  276 (280)   |  276 (280)   |   2.833509566   |
 |  `4×7×7`   |   144 (?)   |     144      |     144      |   2.824766202   |
-|  `4×7×8`   |  163 (164)  |  162 (164)   |  162 (164)   |   2.820359805   |
+|  `4×7×8`   |  162 (164)  |  162 (164)   |  162 (164)   |   2.820359805   |
 |  `4×7×9`   |   187 (?)   |   187 (?)    |     186      |   2.835236653   |
 |  `4×7×10`  |   206 (?)   |   206 (?)    |     203      |   2.828786709   |
 |  `4×7×11`  |   226 (?)   |  226 (227)   |  225 (227)   |   2.835605281   |
 |  `4×7×12`  |   242 (?)   |  242 (246)   |  242 (246)   |   2.830754429   |
-|  `4×7×13`  |   267 (?)   |   266 (?)    |     266      |   2.840436133   |
+|  `4×7×13`  |   266 (?)   |   266 (?)    |     266      |   2.840436133   |
 |  `4×7×14`  |     285     |     285      |     285      |   2.839846584   |
 |  `4×7×15`  |   306 (?)   |   306 (?)    |  305 (307)   |   2.841094648   |
 |  `4×7×16`  |     324     |     324      |     324      |   2.840756417   |
@@ -1293,7 +1293,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `8×13×16`  |  1072 (?)   |   1072 (?)   |     1064     |   2.819122214   |
 | `8×14×14`  |  1008 (?)   |     1008     | 1004 (1008)  |   2.818224059   |
 | `8×14×15`  | 1063 (1080) | 1063 (1080)  | 1063 (1080)  |   2.815109808   |
-| `8×14×16`  |  1136 (?)   |   1134 (?)   | 1108 (1138)  |   2.807460911   |
+| `8×14×16`  |  1134 (?)   |   1134 (?)   | 1108 (1138)  |   2.807460911   |
 | `8×15×15`  | 1137 (1140) | 1137 (1140)  | 1130 (1140)  |   2.813661626   |
 | `8×15×16`  |  1204 (?)   |   1204 (?)   | 1185 (1198)  |   2.808501081   |
 | `8×16×16`  |  1260 (?)   |   1260 (?)   | 1230 (1248)  | **2.799393436** |
@@ -1420,8 +1420,8 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (46 better Strassen)
-* `ZT` schemes: 346 (50.88%)
-* `Z` schemes: 49 (7.21%)
+* `ZT` schemes: 348 (51.18%)
+* `Z` schemes: 47 (6.91%)
 * `Q` schemes: 285 (41.91%)
 
 
