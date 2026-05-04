@@ -699,6 +699,9 @@ class Scheme:
         # self.__validate()
 
     def swap(self, p1: int, p2: int) -> None:
+        if p1 == p2:
+            return
+
         if p1 > p2:
             p1, p2 = p2, p1
 
