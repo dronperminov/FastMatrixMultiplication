@@ -37747,17 +37747,27 @@
   },
   "7x13x16": {
     "ranks": {
-      "Q": 966,
+      "Q": 964,
       "Z": 970,
       "ZT": 970
     },
     "omegas": {
-      "Q": 2.8310068054341806,
+      "Q": 2.8301531412615755,
       "Z": 2.8327088442852,
       "ZT": 2.8327088442852
     },
     "schemes": {
       "Q": [
+        {
+          "rank": 964,
+          "omega": 2.8301531412615755,
+          "complexity": 21213,
+          "values": [-3, -2, -1, "-1/2", 0, "1/2", 1, 2, 3],
+          "buds_count": {"u": 260, "v": 8, "w": 3},
+          "source": "schemes/results/Q/7x13x16_m964_Q.json",
+          "path": "schemes/status/Q/7x13x16_m964_Q.json",
+          "duplicates": ["schemes/results/Q/7x13x16_m964_Q.m"]
+        },
         {
           "rank": 966,
           "omega": 2.8310068054341806,
