@@ -9,11 +9,13 @@
 * `4×12×16`: found [scheme](schemes/results/ZT/4x12x16_m513_ZT.json) with `513` multiplications (`ZT`);
 * `4×14×16`: found [scheme](schemes/results/Z/4x14x16_m600_Z.json) with `600` multiplications (`Z`);
 * `4×16×16`: found [scheme](schemes/results/ZT/4x16x16_m666_ZT.json) with `666` multiplications (`ZT`);
+* `6×6×13`: found [scheme](schemes/results/Q/6x6x13_m315_Q.json) with `315` multiplications (`Q`);
 * `6×16×16`: found [scheme](schemes/results/ZT/6x16x16_m972_ZT.json) with `972` multiplications (`ZT`);
 * `8×8×16`: found [scheme](schemes/results/ZT/8x8x16_m666_ZT.json) with `666` multiplications (`ZT`);
 * `8×10×16`: found [scheme](schemes/results/Q/8x10x16_m822_Q.json) with `822` multiplications (`Q`);
 * `8×14×16`: found [scheme](schemes/results/Q/8x14x16_m1108_Q.json) with `1108` multiplications (`Q`);
 * `8×16×16`: found [scheme](schemes/results/Q/8x16x16_m1230_Q.json) with `1230` multiplications (`Q`);
+* `9×9×16`: found [scheme](schemes/results/Q/9x9x16_m823_Q.json) with `823` multiplications (`Q`);
 * `10×14×16`: found [scheme](schemes/results/Q/10x14x16_m1398_Q.json) with `1398` multiplications (`Q`);
 * `10×16×16`: found [scheme](schemes/results/Q/10x16x16_m1560_Q.json) with `1560` multiplications (`Q`);
 * `12×14×14`: found [scheme](schemes/results/Q/12x14x14_m1456_Q.json) with `1456` multiplications (`Q`);
