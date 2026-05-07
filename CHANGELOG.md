@@ -7,6 +7,7 @@
 * `6×9×15`: found [scheme](schemes/results/Q/6x9x15_m529_Q.json) with `529` multiplications (`Q`);
 * `8×11×16`: found [scheme](schemes/results/Q/8x11x16_m904_Q.json) with `904` multiplications (`Q`);
 * `9×9×15`: found [scheme](schemes/results/Q/9x9x15_m760_Q.json) with `760` multiplications (`Q`);
+* `9×15×15`: found [scheme](schemes/results/Q/9x15x15_m1266_Q.json) with `1266` multiplications (`Q`);
 * `11×12×12`: found [scheme](schemes/results/Q/11x12x12_m976_Q.json) with `976` multiplications (`Q`);
 * `11×14×16`: found [scheme](schemes/results/Q/11x14x16_m1528_Q.json) with `1528` multiplications (`Q`);
 
