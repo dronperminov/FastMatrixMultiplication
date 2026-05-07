@@ -1,5 +1,13 @@
 # Changelog
 
+## 07.05.2026
+### Rank improvement
+* `4×11×16`: found [scheme](schemes/results/ZT/4x11x16_m482_ZT.json) with `482` multiplications (`ZT`);
+* `4×15×15`: found [scheme](schemes/results/Q/4x15x15_m596_Q.json) with `596` multiplications (`Q`);
+* `6×9×15`: found [scheme](schemes/results/Q/6x9x15_m529_Q.json) with `529` multiplications (`Q`);
+* `8×11×16`: found [scheme](schemes/results/Q/8x11x16_m910_Q.json) with `910` multiplications (`Q`);
+
+
 ## 04.05.2026
 ### Rank improvement
 * `4×4×11`: found [scheme](schemes/results/ZT/4x4x11_m129_ZT.json) with `129` multiplications (`ZT`);
@@ -22,7 +30,7 @@
 * `12×14×14`: found [scheme](schemes/results/Q/12x14x14_m1456_Q.json) with `1456` multiplications (`Q`);
 * `12×14×16`: found [scheme](schemes/results/Q/12x14x16_m1617_Q.json) with `1617` multiplications (`Q`);
 
-### Ternary coefficient rediscovery (`Z`)
+### Ternary coefficient rediscovery (`ZT`)
 * `4×7×13`: rediscovered [scheme](schemes/results/ZT/4x7x13_m266_ZT.json) with `266` multiplications;
 
 
