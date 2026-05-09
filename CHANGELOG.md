@@ -1,5 +1,19 @@
 # Changelog
 
+## 09.05.2026
+### Rank improvement
+* `4×13×16`: found [scheme](schemes/results/Z/4x13x16_m560_Z.json) with `560` multiplications (`Z`);
+* `6×13×16`: found [scheme](schemes/results/Z/6x13x16_m816_Z.json) with `816` multiplications (`Z`);
+* `7×12×16`: found [scheme](schemes/results/Z/7x12x16_m878_Z.json) with `878` multiplications (`Z`);
+* `7×15×16`: found [scheme](schemes/results/Q/7x15x16_m1083_Q.json) with `1083` multiplications (`Q`);
+* `8×13×16`: found [scheme](schemes/results/Q/8x13x16_m1054_Q.json) with `1054` multiplications (`Q`);
+* `10×13×16`: found [scheme](schemes/results/Q/10x13x16_m1318_Q.json) with `1318` multiplications (`Q`);
+* `12×12×13`: found [scheme](schemes/results/Q/12x12x13_m1144_Q.json) with `1144` multiplications (`Q`);
+* `12×13×16`: found [scheme](schemes/results/Z/12x13x16_m1544_Z.json) with `1544` multiplications (`Z`);
+* `13×14×16`: found [scheme](schemes/results/Q/13x14x16_m1800_Q.json) with `1800` multiplications (`Q`);
+* `14×16×16`: found [scheme](schemes/results/Q/14x16x16_m2128_Q.json) with `2128` multiplications (`Q`);
+
+
 ## 08.05.2026
 ### Rank improvement
 * `5×6×10`: found [scheme](schemes/results/ZT/5x6x10_m216_ZT.json) with `216` multiplications (`ZT`);
