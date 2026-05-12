@@ -1,5 +1,10 @@
 # Changelog
 
+## 12.05.2026
+### Rank improvement
+* `8×12×15`: found [scheme](schemes/results/Q/8x12x15_m904_Q.json) with `904` multiplications (`Q`);
+
+
 ## 10.05.2026
 ### Rank improvement
 * `4×7×8`: found [scheme](schemes/results/ZT/4x7x8_m161_ZT.json) with `161` multiplications (`ZT`);
