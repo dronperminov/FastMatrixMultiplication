@@ -40405,13 +40405,13 @@
   "8x12x16": {
     "ranks": {
       "Q": 960,
-      "ZT": 972,
-      "Z": 972
+      "ZT": 960,
+      "Z": 960
     },
     "omegas": {
       "Q": 2.807820224663118,
-      "ZT": 2.8128996686373524,
-      "Z": 2.8128996686373524
+      "ZT": 2.807820224663118,
+      "Z": 2.807820224663118
     },
     "schemes": {
       "Q": [
@@ -40426,6 +40426,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 960,
+          "omega": 2.807820224663118,
+          "complexity": 17770,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 45, "v": 0, "w": 26},
+          "source": "schemes/results/ZT/8x12x16_m960_ZT.json",
+          "path": "schemes/status/ZT/8x12x16_m960_ZT.json",
+          "duplicates": ["schemes/results/ZT/8x12x16_m960_ZT.m"]
+        },
         {
           "rank": 972,
           "omega": 2.8128996686373524,

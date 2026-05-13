@@ -8,6 +8,9 @@
 * `6×15×15`: found [scheme](schemes/results/Q/6x15x15_m859_Q.json) with `859` multiplications (`Q`);
 * `9×9×14`: found [scheme](schemes/results/Q/9x9x14_m720_Q.json) with `720` multiplications (`Q`);
 
+### Ternary coefficient rediscovery (`ZT`)
+* `8×12×16`: rediscovered [scheme](schemes/results/ZT/8x12x16_m960_ZT.json) with `960` multiplications;
+
 
 ## 12.05.2026
 ### Rank improvement

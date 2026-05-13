@@ -428,6 +428,7 @@ with coefficients restricted to the ternary set were previously unknown.
 | `8×10×13`  |   [686](schemes/results/ZT/8x10x13_m686_ZT.json)   |    `Z`     |
 | `8×10×14`  |   [728](schemes/results/ZT/8x10x14_m728_ZT.json)   |    `Z`     |
 | `8×11×14`  |   [804](schemes/results/ZT/8x11x14_m804_ZT.json)   |    `Z`     |
+| `8×12×16`  |   [960](schemes/results/ZT/8x12x16_m960_ZT.json)   |    `Q`     |
 | `8×13×14`  |   [945](schemes/results/ZT/8x13x14_m945_ZT.json)   |    `Z`     |
 | `10×10×10` |  [651](schemes/results/ZT/10x10x10_m651_ZT.json)   |    `Z`     |
 | `10×10×11` |  [719](schemes/results/ZT/10x10x11_m719_ZT.json)   |    `Z`     |
@@ -1296,7 +1297,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `8×12×13`  |   807 (?)   |   807 (?)    |  784 (798)   | **2.804375455** |
 | `8×12×14`  |   861 (?)   |     861      |  843 (861)   | **2.805742480** |
 | `8×12×15`  |  914 (915)  |  914 (915)   |  904 (915)   |   2.807944089   |
-| `8×12×16`  |   972 (?)   |   972 (?)    |     960      |   2.807820225   |
+| `8×12×16`  |   960 (?)   |   960 (?)    |     960      |   2.807820225   |
 | `8×13×13`  |   885 (?)   |   885 (?)    |     880      |   2.821307498   |
 | `8×13×14`  |   945 (?)   |     945      |     945      |   2.821953852   |
 | `8×13×15`  |    1005     |     1005     |  992 (1005)  |   2.815278496   |
