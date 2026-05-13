@@ -1,5 +1,14 @@
 # Changelog
 
+## 13.05.2026
+### Rank improvement
+* `6×12×14`: found [scheme](schemes/results/Q/6x12x14_m645_Q.json) with `645` multiplications (`Q`);
+* `6×14×14`: found [scheme](schemes/results/Q/6x14x14_m776_Q.json) with `776` multiplications (`Q`);
+* `6×14×16`: found [scheme](schemes/results/ZT/6x14x16_m864_ZT.json) with `864` multiplications (`ZT`);
+* `6×15×15`: found [scheme](schemes/results/Q/6x15x15_m859_Q.json) with `859` multiplications (`Q`);
+* `9×9×14`: found [scheme](schemes/results/Q/9x9x14_m720_Q.json) with `720` multiplications (`Q`);
+
+
 ## 12.05.2026
 ### Rank improvement
 * `8×12×15`: found [scheme](schemes/results/Q/8x12x15_m904_Q.json) with `904` multiplications (`Q`);
