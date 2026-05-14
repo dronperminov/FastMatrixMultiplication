@@ -11,9 +11,12 @@
 * `8×9×14`: rediscovered [scheme](schemes/results/ZT/8x9x14_m654_ZT.json) with `654` multiplications;
 * `8×9×15`: rediscovered [scheme](schemes/results/ZT/8x9x15_m699_ZT.json) with `699` multiplications;
 * `9×15×16`: rediscovered [scheme](schemes/results/ZT/9x15x16_m1320_ZT.json) with `1320` multiplications;
+* `9×16×16`: rediscovered [scheme](schemes/results/ZT/9x16x16_m1380_ZT.json) with `1380` multiplications;
 * `10×11×15`: rediscovered [scheme](schemes/results/ZT/10x11x15_m1050_ZT.json) with `1050` multiplications;
 * `10×13×15`: rediscovered [scheme](schemes/results/ZT/10x13x15_m1230_ZT.json) with `1230` multiplications;
 * `11×14×15`: rediscovered [scheme](schemes/results/ZT/11x14x15_m1432_ZT.json) with `1432` multiplications;
+* `12×12×16`: rediscovered [scheme](schemes/results/ZT/12x12x16_m1380_ZT.json) with `1380` multiplications;
+* `12×15×16`: rediscovered [scheme](schemes/results/ZT/12x15x16_m1725_ZT.json) with `1725` multiplications;
 * `13×14×15`: rediscovered [scheme](schemes/results/ZT/13x14x15_m1681_ZT.json) with `1681` multiplications;
 * `14×14×15`: rediscovered [scheme](schemes/results/ZT/14x14x15_m1798_ZT.json) with `1798` multiplications;
 

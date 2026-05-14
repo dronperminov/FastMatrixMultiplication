@@ -43829,17 +43829,27 @@
   },
   "9x16x16": {
     "ranks": {
-      "ZT": 1429,
+      "ZT": 1380,
       "Z": 1380,
       "Q": 1380
     },
     "omegas": {
-      "ZT": 2.8149133140309774,
+      "ZT": 2.801393711323586,
       "Z": 2.801393711323586,
       "Q": 2.801393711323586
     },
     "schemes": {
       "ZT": [
+        {
+          "rank": 1380,
+          "omega": 2.801393711323586,
+          "complexity": 28224,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 45, "v": 0, "w": 45},
+          "source": "schemes/results/ZT/9x16x16_m1380_ZT.json",
+          "path": "schemes/status/ZT/9x16x16_m1380_ZT.json",
+          "duplicates": ["schemes/results/ZT/9x16x16_m1380_ZT.m"]
+        },
         {
           "rank": 1429,
           "omega": 2.8149133140309774,
@@ -46685,12 +46695,12 @@
   "12x12x16": {
     "ranks": {
       "Q": 1380,
-      "ZT": 1398,
+      "ZT": 1380,
       "Z": 1380
     },
     "omegas": {
       "Q": 2.801393711323586,
-      "ZT": 2.8064150772792638,
+      "ZT": 2.801393711323586,
       "Z": 2.801393711323586
     },
     "schemes": {
@@ -46716,6 +46726,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 1380,
+          "omega": 2.801393711323586,
+          "complexity": 27787,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 45, "v": 45, "w": 0},
+          "source": "schemes/results/ZT/12x12x16_m1380_ZT.json",
+          "path": "schemes/status/ZT/12x12x16_m1380_ZT.json",
+          "duplicates": ["schemes/results/ZT/12x12x16_m1380_ZT.m"]
+        },
         {
           "rank": 1398,
           "omega": 2.8064150772792638,
@@ -47222,12 +47242,12 @@
   "12x15x16": {
     "ranks": {
       "Q": 1725,
-      "ZT": 1755,
+      "ZT": 1725,
       "Z": 1725
     },
     "omegas": {
       "Q": 2.8069573870519737,
-      "ZT": 2.8134510313138312,
+      "ZT": 2.8069573870519737,
       "Z": 2.8069573870519737
     },
     "schemes": {
@@ -47243,6 +47263,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 1725,
+          "omega": 2.8069573870519737,
+          "complexity": 35818,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 150, "v": 30, "w": 14},
+          "source": "schemes/results/ZT/12x15x16_m1725_ZT.json",
+          "path": "schemes/status/ZT/12x15x16_m1725_ZT.json",
+          "duplicates": ["schemes/results/ZT/12x15x16_m1725_ZT.m"]
+        },
         {
           "rank": 1755,
           "omega": 2.8134510313138312,
