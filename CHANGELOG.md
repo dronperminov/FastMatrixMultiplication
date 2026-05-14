@@ -1,5 +1,14 @@
 # Changelog
 
+## 14.05.2026
+### Ternary coefficient rediscovery (`ZT`)
+* `6×14×15`: rediscovered [scheme](schemes/results/ZT/6x14x15_m814_ZT.json) with `814` multiplications;
+* `7×12×15`: rediscovered [scheme](schemes/results/ZT/7x12x15_m815_ZT.json) with `815` multiplications;
+* `7×14×15`: rediscovered [scheme](schemes/results/ZT/7x14x15_m952_ZT.json) with `952` multiplications;
+* `8×9×14`: rediscovered [scheme](schemes/results/ZT/8x9x14_m654_ZT.json) with `654` multiplications;
+* `9×15×16`: rediscovered [scheme](schemes/results/ZT/9x15x16_m1320_ZT.json) with `1320` multiplications;
+
+
 ## 13.05.2026
 ### Rank improvement
 * `6×12×14`: found [scheme](schemes/results/Q/6x12x14_m645_Q.json) with `645` multiplications (`Q`);

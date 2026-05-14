@@ -34766,12 +34766,12 @@
     "ranks": {
       "Q": 814,
       "Z": 814,
-      "ZT": 825
+      "ZT": 814
     },
     "omegas": {
       "Q": 2.8163966492387447,
       "Z": 2.8163966492387447,
-      "ZT": 2.8220374688529395
+      "ZT": 2.8163966492387447
     },
     "schemes": {
       "Q": [
@@ -34818,6 +34818,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 814,
+          "omega": 2.8163966492387447,
+          "complexity": 13060,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 13, "v": 22, "w": 54},
+          "source": "schemes/results/ZT/6x14x15_m814_ZT.json",
+          "path": "schemes/status/ZT/6x14x15_m814_ZT.json",
+          "duplicates": ["schemes/results/ZT/6x14x15_m814_ZT.m"]
+        },
         {
           "rank": 825,
           "omega": 2.8220374688529395,
@@ -37764,12 +37774,12 @@
     "ranks": {
       "Z": 815,
       "Q": 815,
-      "ZT": 831
+      "ZT": 815
     },
     "omegas": {
       "Z": 2.816912591294395,
       "Q": 2.816912591294395,
-      "ZT": 2.825082661537222
+      "ZT": 2.816912591294395
     },
     "schemes": {
       "Z": [
@@ -37804,6 +37814,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 815,
+          "omega": 2.816912591294395,
+          "complexity": 15402,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 37},
+          "source": "schemes/results/ZT/7x12x15_m815_ZT.json",
+          "path": "schemes/status/ZT/7x12x15_m815_ZT.json",
+          "duplicates": ["schemes/results/ZT/7x12x15_m815_ZT.m"]
+        },
         {
           "rank": 831,
           "omega": 2.825082661537222,
@@ -38223,12 +38243,12 @@
     "ranks": {
       "Z": 952,
       "Q": 952,
-      "ZT": 969
+      "ZT": 952
     },
     "omegas": {
       "Z": 2.8212868812098013,
       "Q": 2.8212868812098013,
-      "ZT": 2.8285676439378933
+      "ZT": 2.8212868812098013
     },
     "schemes": {
       "Z": [
@@ -38273,6 +38293,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 952,
+          "omega": 2.8212868812098013,
+          "complexity": 21365,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 12, "v": 12, "w": 109},
+          "source": "schemes/results/ZT/7x14x15_m952_ZT.json",
+          "path": "schemes/status/ZT/7x14x15_m952_ZT.json",
+          "duplicates": ["schemes/results/ZT/7x14x15_m952_ZT.m"]
+        },
         {
           "rank": 969,
           "omega": 2.8285676439378933,
@@ -39362,12 +39392,12 @@
     "ranks": {
       "Z": 654,
       "Q": 654,
-      "ZT": 666
+      "ZT": 654
     },
     "omegas": {
       "Z": 2.8123336913104584,
       "Q": 2.8123336913104584,
-      "ZT": 2.8202210739761675
+      "ZT": 2.8123336913104584
     },
     "schemes": {
       "Z": [
@@ -39392,6 +39422,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 654,
+          "omega": 2.8123336913104584,
+          "complexity": 10686,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 33, "v": 37, "w": 0},
+          "source": "schemes/results/ZT/8x9x14_m654_ZT.json",
+          "path": "schemes/status/ZT/8x9x14_m654_ZT.json",
+          "duplicates": ["schemes/results/ZT/8x9x14_m654_ZT.m"]
+        },
         {
           "rank": 666,
           "omega": 2.8202210739761675,
@@ -43662,12 +43702,12 @@
     "ranks": {
       "Z": 1320,
       "Q": 1320,
-      "ZT": 1344
+      "ZT": 1320
     },
     "omegas": {
       "Z": 2.8075728416944536,
       "Q": 2.8075728416944536,
-      "ZT": 2.8146132789857994
+      "ZT": 2.8075728416944536
     },
     "schemes": {
       "Z": [
@@ -43704,6 +43744,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 1320,
+          "omega": 2.8075728416944536,
+          "complexity": 25501,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 48, "v": 66, "w": 24},
+          "source": "schemes/results/ZT/9x15x16_m1320_ZT.json",
+          "path": "schemes/status/ZT/9x15x16_m1320_ZT.json",
+          "duplicates": ["schemes/results/ZT/9x15x16_m1320_ZT.m"]
+        },
         {
           "rank": 1344,
           "omega": 2.8146132789857994,
