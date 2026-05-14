@@ -194,7 +194,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `8×12×13`  |  798 (`Q`)  |     [784](schemes/results/Q/8x12x13_m784_Q.json) (`Q`)     | **2.804375455** |
 | `8×12×14`  |  861 (`Z`)  |     [843](schemes/results/Q/8x12x14_m843_Q.json) (`Q`)     | **2.805742480** |
 | `8×12×15`  | 915 (`ZT`)  |     [904](schemes/results/Q/8x12x15_m904_Q.json) (`Q`)     |   2.807944089   |
-| `8×13×15`  | 1005 (`ZT`) |     [992](schemes/results/Q/8x13x15_m992_Q.json) (`Q`)     |   2.815278496   |
+| `8×13×15`  | 1005 (`ZT`) |  [992](schemes/results/ZT/8x13x15_m992_ZT.json) (`ZT/Q`)   |   2.815278496   |
 | `8×13×16`  | 1064 (`Q`)  |    [1054](schemes/results/Q/8x13x16_m1054_Q.json) (`Q`)    |   2.815302758   |
 | `8×14×14`  | 1008 (`Z`)  |    [1004](schemes/results/Q/8x14x14_m1004_Q.json) (`Q`)    |   2.818224059   |
 | `8×14×15`  | 1080 (`ZT`) | [1063](schemes/results/ZT/8x14x15_m1063_ZT.json) (`ZT/Q`)  |   2.815109808   |
@@ -1300,7 +1300,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `8×12×16`  |   960 (?)   |   960 (?)    |     960      |   2.807820225   |
 | `8×13×13`  |   885 (?)   |   885 (?)    |     880      |   2.821307498   |
 | `8×13×14`  |   945 (?)   |     945      |     945      |   2.821953852   |
-| `8×13×15`  |    1005     |     1005     |  992 (1005)  |   2.815278496   |
+| `8×13×15`  | 992 (1005)  |  992 (1005)  |  992 (1005)  |   2.815278496   |
 | `8×13×16`  |  1072 (?)   |   1072 (?)   | 1054 (1064)  |   2.815302758   |
 | `8×14×14`  |  1008 (?)   |     1008     | 1004 (1008)  |   2.818224059   |
 | `8×14×15`  | 1063 (1080) | 1063 (1080)  | 1063 (1080)  |   2.815109808   |
@@ -1431,9 +1431,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (51 better Strassen)
-* `ZT` schemes: 361 (53.09%)
+* `ZT` schemes: 362 (53.24%)
 * `Z` schemes: 30 (4.41%)
-* `Q` schemes: 289 (42.50%)
+* `Q` schemes: 288 (42.35%)
 
 
 ## License and Citation

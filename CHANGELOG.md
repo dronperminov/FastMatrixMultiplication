@@ -10,6 +10,7 @@
 * `8×9×13`: rediscovered [scheme](schemes/results/ZT/8x9x13_m617_ZT.json) with `617` multiplications;
 * `8×9×14`: rediscovered [scheme](schemes/results/ZT/8x9x14_m654_ZT.json) with `654` multiplications;
 * `8×9×15`: rediscovered [scheme](schemes/results/ZT/8x9x15_m699_ZT.json) with `699` multiplications;
+* `8×13×15`: rediscovered [scheme](schemes/results/ZT/8x13x15_m992_ZT.json) with `992` multiplications;
 * `9×15×16`: rediscovered [scheme](schemes/results/ZT/9x15x16_m1320_ZT.json) with `1320` multiplications;
 * `9×16×16`: rediscovered [scheme](schemes/results/ZT/9x16x16_m1380_ZT.json) with `1380` multiplications;
 * `10×11×15`: rediscovered [scheme](schemes/results/ZT/10x11x15_m1050_ZT.json) with `1050` multiplications;
