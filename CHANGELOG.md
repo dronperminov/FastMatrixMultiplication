@@ -2,11 +2,20 @@
 
 ## 14.05.2026
 ### Ternary coefficient rediscovery (`ZT`)
+* `6×13×15`: rediscovered [scheme](schemes/results/ZT/6x13x15_m763_ZT.json) with `763` multiplications;
 * `6×14×15`: rediscovered [scheme](schemes/results/ZT/6x14x15_m814_ZT.json) with `814` multiplications;
+* `6×15×16`: rediscovered [scheme](schemes/results/ZT/6x15x16_m920_ZT.json) with `920` multiplications;
 * `7×12×15`: rediscovered [scheme](schemes/results/ZT/7x12x15_m815_ZT.json) with `815` multiplications;
 * `7×14×15`: rediscovered [scheme](schemes/results/ZT/7x14x15_m952_ZT.json) with `952` multiplications;
+* `8×9×13`: rediscovered [scheme](schemes/results/ZT/8x9x13_m617_ZT.json) with `617` multiplications;
 * `8×9×14`: rediscovered [scheme](schemes/results/ZT/8x9x14_m654_ZT.json) with `654` multiplications;
+* `8×9×15`: rediscovered [scheme](schemes/results/ZT/8x9x15_m699_ZT.json) with `699` multiplications;
 * `9×15×16`: rediscovered [scheme](schemes/results/ZT/9x15x16_m1320_ZT.json) with `1320` multiplications;
+* `10×11×15`: rediscovered [scheme](schemes/results/ZT/10x11x15_m1050_ZT.json) with `1050` multiplications;
+* `10×13×15`: rediscovered [scheme](schemes/results/ZT/10x13x15_m1230_ZT.json) with `1230` multiplications;
+* `11×14×15`: rediscovered [scheme](schemes/results/ZT/11x14x15_m1432_ZT.json) with `1432` multiplications;
+* `13×14×15`: rediscovered [scheme](schemes/results/ZT/13x14x15_m1681_ZT.json) with `1681` multiplications;
+* `14×14×15`: rediscovered [scheme](schemes/results/ZT/14x14x15_m1798_ZT.json) with `1798` multiplications;
 
 
 ## 13.05.2026
