@@ -2,6 +2,7 @@
 
 ## 15.05.2026
 ### Ternary coefficient rediscovery (`ZT`)
+* `10×14×15`: rediscovered [scheme](schemes/results/ZT/10x14x15_m1314_ZT.json) with `1314` multiplications;
 * `13×15×15`: rediscovered [scheme](schemes/results/ZT/13x15x15_m1797_ZT.json) with `1797` multiplications;
 
 
