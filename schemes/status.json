@@ -21847,17 +21847,27 @@
   },
   "4x13x16": {
     "ranks": {
-      "ZT": 568,
+      "ZT": 560,
       "Z": 560,
       "Q": 560
     },
     "omegas": {
-      "ZT": 2.8296904218867907,
+      "ZT": 2.8233616048988,
       "Z": 2.8233616048988,
       "Q": 2.8233616048988
     },
     "schemes": {
       "ZT": [
+        {
+          "rank": 560,
+          "omega": 2.8233616048988,
+          "complexity": 15833,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 107, "v": 16, "w": 3},
+          "source": "schemes/results/ZT/4x13x16_m560_ZT.json",
+          "path": "schemes/status/ZT/4x13x16_m560_ZT.json",
+          "duplicates": ["schemes/results/ZT/4x13x16_m560_ZT.m"]
+        },
         {
           "rank": 568,
           "omega": 2.8296904218867907,
