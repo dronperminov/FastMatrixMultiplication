@@ -4774,12 +4774,12 @@
     "ranks": {
       "Z": 125,
       "Q": 125,
-      "ZT": 126
+      "ZT": 125
     },
     "omegas": {
       "Z": 2.854077858068304,
       "Q": 2.854077858068304,
-      "ZT": 2.8587879448195754
+      "ZT": 2.854077858068304
     },
     "schemes": {
       "Z": [
@@ -4794,6 +4794,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 125,
+          "omega": 2.854077858068304,
+          "complexity": 1374,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/results/ZT/2x8x10_m125_ZT.json",
+          "path": "schemes/status/ZT/2x8x10_m125_ZT.json",
+          "duplicates": ["schemes/results/ZT/2x8x10_m125_ZT.m"]
+        },
         {
           "rank": 126,
           "omega": 2.8587879448195754,

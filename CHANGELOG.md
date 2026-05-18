@@ -4,6 +4,7 @@
 ### Ternary coefficient rediscovery (`ZT`)
 * `2×7×9`: rediscovered [scheme](schemes/results/ZT/2x7x9_m99_ZT.json) with `99` multiplications;
 * `2×7×16`: rediscovered [scheme](schemes/results/ZT/2x7x16_m175_ZT.json) with `175` multiplications;
+* `2×8×10`: rediscovered [scheme](schemes/results/ZT/2x8x10_m125_ZT.json) with `125` multiplications;
 * `6×11×16`: rediscovered [scheme](schemes/results/ZT/6x11x16_m684_ZT.json) with `684` multiplications;
 
 
