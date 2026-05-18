@@ -322,12 +322,14 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `2×6×16`  |   [150](schemes/results/ZT/2x6x16_m150_ZT.json)    |    `Z`     |
 |  `2×7×7`   |     [76](schemes/results/ZT/2x7x7_m76_ZT.json)     |    `Q`     |
 |  `2×7×8`   |     [88](schemes/results/ZT/2x7x8_m88_ZT.json)     |    `Z`     |
+|  `2×7×9`   |     [99](schemes/results/ZT/2x7x9_m99_ZT.json)     |    `Q`     |
 |  `2×7×10`  |   [110](schemes/results/ZT/2x7x10_m110_ZT.json)    |    `Z`     |
 |  `2×7×11`  |   [121](schemes/results/ZT/2x7x11_m121_ZT.json)    |    `Z`     |
 |  `2×7×12`  |   [131](schemes/results/ZT/2x7x12_m131_ZT.json)    |    `Q`     |
 |  `2×7×13`  |   [142](schemes/results/ZT/2x7x13_m142_ZT.json)    |    `Q`     |
 |  `2×7×14`  |   [152](schemes/results/ZT/2x7x14_m152_ZT.json)    |    `Q`     |
 |  `2×7×15`  |   [164](schemes/results/ZT/2x7x15_m164_ZT.json)    |    `Q`     |
+|  `2×7×16`  |   [175](schemes/results/ZT/2x7x16_m175_ZT.json)    |    `Q`     |
 |  `2×8×9`   |    [113](schemes/results/ZT/2x8x9_m113_ZT.json)    |    `Q`     |
 |  `2×8×11`  |   [138](schemes/results/ZT/2x8x11_m138_ZT.json)    |    `Z`     |
 |  `2×8×12`  |   [150](schemes/results/ZT/2x8x12_m150_ZT.json)    |    `Z`     |
@@ -457,8 +459,6 @@ Implementations restricted to integer coefficients were previously unknown.
 
 |   Format   |                       Rank                       |
 |:----------:|:------------------------------------------------:|
-|  `2×7×9`   |     [99](schemes/results/Z/2x7x9_m99_Z.json)     |
-|  `2×7×16`  |   [175](schemes/results/Z/2x7x16_m175_Z.json)    |
 | `2×11×12`  |   [204](schemes/results/Z/2x11x12_m204_Z.json)   |
 | `2×11×13`  |   [221](schemes/results/Z/2x11x13_m221_Z.json)   |
 | `2×11×14`  |   [238](schemes/results/Z/2x11x14_m238_Z.json)   |
@@ -815,14 +815,14 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `2×6×16`  |   150 (?)   |     150      |     150      |   2.859138205   |
 |  `2×7×7`   |   76 (?)    |    76 (?)    |      76      |   2.833651510   |
 |  `2×7×8`   |   88 (?)    |      88      |      88      |   2.846670267   |
-|  `2×7×9`   |   100 (?)   |    99 (?)    |      99      |   2.850404467   |
+|  `2×7×9`   |   99 (?)    |    99 (?)    |      99      |   2.850404467   |
 |  `2×7×10`  |   110 (?)   |     110      |     110      |   2.853593986   |
 |  `2×7×11`  |   121 (?)   |     121      |     121      |   2.856364308   |
 |  `2×7×12`  |   131 (?)   |   131 (?)    |     131      |   2.854351051   |
 |  `2×7×13`  |   142 (?)   |   142 (?)    |     142      |   2.856929683   |
 |  `2×7×14`  |   152 (?)   |   152 (?)    |     152      |   2.855497187   |
 |  `2×7×15`  |   164 (?)   |   164 (?)    |     164      |   2.861285133   |
-|  `2×7×16`  |   176 (?)   |   175 (?)    |     175      |   2.863150652   |
+|  `2×7×16`  |   175 (?)   |   175 (?)    |     175      |   2.863150652   |
 |  `2×8×8`   |     100     |     100      |     100      |   2.847366938   |
 |  `2×8×9`   |   113 (?)   |   113 (?)    |     113      |   2.853661214   |
 |  `2×8×10`  |   126 (?)   |     125      |     125      |   2.854077858   |
@@ -839,7 +839,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `2×9×13`  |   184 (?)   |   184 (?)    |     182      |   2.861796718   |
 |  `2×9×14`  |   198 (?)   |   198 (?)    |     196      |   2.863648982   |
 |  `2×9×15`  |   212 (?)   |   212 (?)    |     210      |   2.865329321   |
-|  `2×9×16`  |   226 (?)   |   225 (?)    |     224      |   2.866864110   |
+|  `2×9×16`  |   225 (?)   |   225 (?)    |     224      |   2.866864110   |
 | `2×10×10`  |     155     |     155      |     155      |   2.855675548   |
 | `2×10×11`  |   173 (?)   |     171      |     171      |   2.859854622   |
 | `2×10×12`  |   188 (?)   |     186      |     186      |   2.860476715   |
@@ -1431,8 +1431,8 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (51 better Strassen)
-* `ZT` schemes: 368 (54.12%)
-* `Z` schemes: 25 (3.68%)
+* `ZT` schemes: 370 (54.41%)
+* `Z` schemes: 23 (3.38%)
 * `Q` schemes: 287 (42.21%)
 
 
