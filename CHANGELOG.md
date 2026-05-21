@@ -1,5 +1,10 @@
 # Changelog
 
+## 21.05.2026
+### Ternary coefficient rediscovery
+* `9×10×15`: rediscovered [scheme](schemes/results/ZT/9x10x15_m865_ZT.json) with `865` multiplications;
+
+
 ## 18.05.2026
 ### Ternary coefficient rediscovery (`ZT`)
 * `2×7×9`: rediscovered [scheme](schemes/results/ZT/2x7x9_m99_ZT.json) with `99` multiplications;
