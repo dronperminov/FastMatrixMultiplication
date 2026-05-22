@@ -1,6 +1,11 @@
 # Changelog
 
 ## 22.05.2026
+### Rank improvement
+* `6×8×10`: found [scheme](schemes/results/ZT/6x8x10_m327_ZT.json) with `327` multiplications (`ZT`);
+* `8×10×10`: found [scheme](schemes/results/ZT/8x10x10_m530_ZT.json) with `530` multiplications (`ZT`);
+* `8×10×14`: found [scheme](schemes/results/ZT/8x10x14_m726_ZT.json) with `726` multiplications (`ZT`);
+
 ### Ternary coefficient rediscovery (`ZT`)
 * `6×13×16`: rediscovered [scheme](schemes/results/ZT/6x13x16_m816_ZT.json) with `816` multiplications;
 
