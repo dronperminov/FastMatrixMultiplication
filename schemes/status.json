@@ -34698,12 +34698,12 @@
     "ranks": {
       "Q": 816,
       "Z": 816,
-      "ZT": 819
+      "ZT": 816
     },
     "omegas": {
       "Q": 2.8212096531042925,
       "Z": 2.8212096531042925,
-      "ZT": 2.8227538706925377
+      "ZT": 2.8212096531042925
     },
     "schemes": {
       "Q": [
@@ -34740,6 +34740,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 816,
+          "omega": 2.8212096531042925,
+          "complexity": 18741,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 121, "v": 71, "w": 37},
+          "source": "schemes/results/ZT/6x13x16_m816_ZT.json",
+          "path": "schemes/status/ZT/6x13x16_m816_ZT.json",
+          "duplicates": ["schemes/results/ZT/6x13x16_m816_ZT.m"]
+        },
         {
           "rank": 819,
           "omega": 2.8227538706925377,
