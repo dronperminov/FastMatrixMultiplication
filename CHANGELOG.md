@@ -3,6 +3,7 @@
 ## 23.05.2026
 ### Rank improvement
 * `8×10×10`: found [scheme](schemes/results/ZT/8x10x10_m528_ZT.json) with `528` multiplications (`ZT`);
+* `10×10×12`: found [scheme](schemes/results/ZT/10x10x12_m766_ZT.json) with `766` multiplications (`ZT`);
 
 
 ## 22.05.2026
