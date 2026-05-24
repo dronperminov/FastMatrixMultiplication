@@ -99,9 +99,11 @@ class Scheme:
 
     def save_txt(self, path: str) -> None:
         n1, n2, n3 = self.n
-        u = " ".join(f'{" ".join(str(self.u[index][i]) for i in range(self.nn[0]))}' for index in range(self.m))
-        v = " ".join(f'{" ".join(str(self.v[index][i]) for i in range(self.nn[1]))}' for index in range(self.m))
-        w = " ".join(f'{" ".join(str(self.w[index][i]) for i in range(self.nn[2]))}' for index in range(self.m))
+        ring = self.get_ring()
+
+        u = " ".join(f'{" ".join(self.__txt_value(self.u[index][i], ring=ring) for i in range(self.nn[0]))}' for index in range(self.m))
+        v = " ".join(f'{" ".join(self.__txt_value(self.v[index][i], ring=ring) for i in range(self.nn[1]))}' for index in range(self.m))
+        w = " ".join(f'{" ".join(self.__txt_value(self.w[index][i], ring=ring) for i in range(self.nn[2]))}' for index in range(self.m))
 
         with open(path, "w", encoding="utf-8") as f:
             f.write(f"{n1} {n2} {n3} {self.m}\n{u}\n{v}\n{w}\n")
@@ -419,7 +421,7 @@ class Scheme:
 
         for p in range(3):
             for index1, index2 in itertools.combinations(range(self.m), r=2):
-                scale = self.__get_linearly_dependent(p, index1, index2)
+                scale = self.get_linearly_dependent(p, index1, index2)
                 if scale is not None:
                     buds.append((p, index1, index2, scale) if with_scales else (p, index1, index2))
 
@@ -855,7 +857,7 @@ class Scheme:
 
         return equation == target
 
-    def __get_linearly_dependent(self, p: int, index1: int, index2: int) -> Optional[Fraction]:
+    def get_linearly_dependent(self, p: int, index1: int, index2: int) -> Optional[Fraction]:
         k = None
         uvw = [self.u, self.v, self.w]
         for v1, v2 in zip(uvw[p][index1], uvw[p][index2]):
@@ -1130,5 +1132,12 @@ class Scheme:
 
         if isinstance(value, Fraction):
             return f"{value.numerator}/{value.denominator}" if value.denominator > 1 else str(value.numerator)
+
+        return str(value)
+
+    def __txt_value(self, value: Union[int, Fraction, bool], ring: str) -> str:
+        if ring == "Q":
+            value = Fraction(value)
+            return f"{value.numerator} {value.numerator}"
 
         return str(value)
