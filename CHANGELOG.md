@@ -1,5 +1,13 @@
 # Changelog
 
+## 26.05.2026
+### Rank improvement
+* `6×12×13`: found [scheme](schemes/results/ZT/6x12x13_m615_ZT.json) with `615` multiplications (`ZT`);
+* `6×13×16`: found [scheme](schemes/results/Q/6x13x16_m798_Q.json) with `798` multiplications (`Q`);
+* `8×9×13`: found [scheme](schemes/results/ZT/8x9x13_m615_ZT.json) with `615` multiplications (`ZT`);
+* `12×13×16`: found [scheme](schemes/results/Q/12x13x16_m1509_Q.json) with `1509` multiplications (`Q`);
+
+
 ## 23.05.2026
 ### Rank improvement
 * `8×10×10`: found [scheme](schemes/results/ZT/8x10x10_m528_ZT.json) with `528` multiplications (`ZT`);
