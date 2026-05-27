@@ -2,7 +2,11 @@
 
 ## 27.05.2026
 ### Rank improvement
+* `9×13×16`: found [scheme](schemes/results/ZT/9x13x16_m1167_ZT.json) with `1167` multiplications (`ZT`);
 * `13×15×16`: found [scheme](schemes/results/ZT/13x15x16_m1885_ZT.json) with `1885` multiplications (`ZT`);
+
+### Ternary coefficient rediscovery (`ZT`)
+* `7×12×16`: rediscovered [scheme](schemes/results/ZT/7x12x16_m878_ZT.json) with `878` multiplications;
 
 
 ## 26.05.2026
