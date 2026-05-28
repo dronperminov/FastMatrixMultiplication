@@ -3,6 +3,7 @@
 ## 28.05.2026
 ### Rank improvement
 * `9×9×16`: found [scheme](schemes/results/Q/9x9x16_m822_Q.json) with `822` multiplications (`Q`);
+* `9×11×15`: found [scheme](schemes/results/ZT/9x11x15_m956_ZT.json) with `956` multiplications (`ZT`);
 
 
 ## 27.05.2026
