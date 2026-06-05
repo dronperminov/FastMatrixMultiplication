@@ -29255,12 +29255,12 @@
   "5x9x15": {
     "ranks": {
       "Z": 468,
-      "Q": 468,
+      "Q": 463,
       "ZT": 468
     },
     "omegas": {
       "Z": 2.8313458724888925,
-      "Q": 2.8313458724888925,
+      "Q": 2.8263995721647985,
       "ZT": 2.8313458724888925
     },
     "schemes": {
@@ -29295,6 +29295,18 @@
           "source": "schemes/results/ZT/5x9x15_m474_ZT.json",
           "path": "schemes/status/ZT/5x9x15_m474_ZT.json",
           "duplicates": ["schemes/results/ZT/5x9x15_m474_ZT.m"]
+        }
+      ],
+      "Q": [
+        {
+          "rank": 463,
+          "omega": 2.8263995721647985,
+          "complexity": 13180,
+          "values": ["-9/4", "-17/8", -2, "-15/8", "-5/4", "-9/8", -1, "-7/8", "-3/4", "-3/8", "-1/4", "-1/8", 0, "1/8", "1/4", "3/8", "3/4", "7/8", 1, "9/8", "5/4", "15/8", 2, "17/8", "9/4"],
+          "buds_count": {"u": 71, "v": 0, "w": 63},
+          "source": "schemes/results/Q/5x9x15_m463_Q.json",
+          "path": "schemes/status/Q/5x9x15_m463_Q.json",
+          "duplicates": ["schemes/results/Q/5x9x15_m463_Q.m"]
         }
       ]
     }
