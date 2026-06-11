@@ -515,16 +515,17 @@ python lift_schemes.py -i <input_dir> -o <output_dir> [options]
 ## Analyzed Schemes & Data Sources
 This research consolidates and analyzes schemes from several leading sources in the field:
 
-| Source               | Description                                                                                                                                                                                      |
-|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| FMM catalogue        | The central repository for known fast matrix multiplication algorithms ([fmm.univ-lille.fr](https://fmm.univ-lille.fr)).                                                                         |
-| Alpha Tensor         | Schemes from DeepMind's AlphaTensor project ([https://github.com/google-deepmind/alphatensor/tree/main/algorithms](https://github.com/google-deepmind/alphatensor/tree/main/algorithms)).        |
-| Alpha Evolve         | Schemes from DeepMind's AlphaEvolve project ([mathematical_results.ipynb](https://colab.research.google.com/github/google-deepmind/alphaevolve_results/blob/master/mathematical_results.ipynb)). |
-| Original Flip Graph  | Foundational work by Jakob Moosbauer ([flips](https://github.com/jakobmoosbauer/flips/tree/main/solutions)).                                                                                     |
-| Adaptive flip graph  | Improved flip graph approach ([adap](https://github.com/Yamato-Arai/adap)).                                                                                                                      |
-| Symmetric flip graph | Flip graphs with symmetry ([symmetric-flips](https://github.com/jakobmoosbauer/symmetric-flips)).                                                                                                |
-| Meta Flip Graph      | Advanced flip graph techniques by M. Kauers et al. ([matrix-multiplication](https://github.com/mkauers/matrix-multiplication)).                                                                  |
-| FMM Add Reduction    | Work on additive reductions by @werekorren ([fmm_add_reduction](https://github.com/werekorren/fmm_add_reduction/tree/main/algorithms)).                                                          |
+| Source                              | Description                                                                                                                                                                                      |
+|:------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| FMM catalogue                       | The central repository for known fast matrix multiplication algorithms ([fmm.univ-lille.fr](https://fmm.univ-lille.fr)).                                                                         |
+| MMC — Matrix Multiplication Catalog | Large catalog tracking history and fields, maintained by @blacelle ([matmulcatalog](https://solven.eu/matmulcatalog)).                                                                           |
+| Alpha Tensor                        | Schemes from DeepMind's AlphaTensor project ([https://github.com/google-deepmind/alphatensor/tree/main/algorithms](https://github.com/google-deepmind/alphatensor/tree/main/algorithms)).        |
+| Alpha Evolve                        | Schemes from DeepMind's AlphaEvolve project ([mathematical_results.ipynb](https://colab.research.google.com/github/google-deepmind/alphaevolve_results/blob/master/mathematical_results.ipynb)). |
+| Original Flip Graph                 | Foundational work by Jakob Moosbauer ([flips](https://github.com/jakobmoosbauer/flips/tree/main/solutions)).                                                                                     |
+| Adaptive flip graph                 | Improved flip graph approach ([adap](https://github.com/Yamato-Arai/adap)).                                                                                                                      |
+| Symmetric flip graph                | Flip graphs with symmetry ([symmetric-flips](https://github.com/jakobmoosbauer/symmetric-flips)).                                                                                                |
+| Meta Flip Graph                     | Advanced flip graph techniques by M. Kauers et al. ([matrix-multiplication](https://github.com/mkauers/matrix-multiplication)).                                                                  |
+| FMM Add Reduction                   | Work on additive reductions by @werekorren ([fmm_add_reduction](https://github.com/werekorren/fmm_add_reduction/tree/main/algorithms)).                                                          |
 
 ## Scheme File Formats
 This repository uses two JSON formats for storing matrix-multiplication schemes:
@@ -849,8 +850,8 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `2x10x12`  |   188 (?)   |     186      |     186      |   2.860476715   |
 | `2x10x13`  |   204 (?)   |     202      |     202      |   2.863822126   |
 | `2x10x14`  |   219 (?)   |   219 (?)    |     217      |   2.864293647   |
-| `2x10x15`  |  234 (235)  |  234 (235)   |  234 (235)   |   2.869317583   |
-| `2x10x16`  |     249     |     249      |     249      |   2.869528014   |
+| `2x10x15`  |  234 (235)  |  234 (235)   |     233      |   2.867065046   |
+| `2x10x16`  |     249     |     249      |     248      |   2.867435125   |
 | `2x11x11`  |     187     |     187      |     187      |   2.859082510   |
 | `2x11x12`  |   206 (?)   |   204 (?)    |     204      |   2.861281494   |
 | `2x11x13`  |   224 (?)   |   221 (?)    |     221      |   2.863244617   |
@@ -861,7 +862,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `2x12x13`  |   243 (?)   |     241      |     241      |   2.865119566   |
 | `2x12x14`  |   262 (?)   |     259      |     259      |   2.865766826   |
 | `2x12x15`  |   281 (?)   |     278      |     278      |   2.868257722   |
-| `2x12x16`  |   299 (?)   |   298 (?)    |  298 (300)   |   2.872173939   |
+| `2x12x16`  |   299 (?)   |   298 (?)    |     296      |   2.868778995   |
 | `2x13x13`  |     260     |     260      |     260      |   2.864831429   |
 | `2x13x14`  |   283 (?)   |   283 (?)    |     280      |   2.866530057   |
 | `2x13x15`  |   305 (?)   |   300 (?)    |     300      |   2.868073511   |
@@ -1435,9 +1436,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (52 better Strassen)
-* `ZT` schemes: 374 (55.00%)
-* `Z` schemes: 18 (2.65%)
-* `Q` schemes: 288 (42.35%)
+* `ZT` schemes: 372 (54.71%)
+* `Z` schemes: 17 (2.50%)
+* `Q` schemes: 291 (42.79%)
 
 
 ## License and Citation

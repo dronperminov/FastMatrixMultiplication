@@ -180,7 +180,7 @@ def format_value(ring2value: Dict[str, int], ring: str, min_value: int, unique_v
 
 def format_size(size: str) -> str:
     n1, n2, n3 = map(int, size.split("x"))
-    return f"`{n1}×{n2}×{n3}`"
+    return f"`{n1}x{n2}x{n3}`"
 
 
 def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
