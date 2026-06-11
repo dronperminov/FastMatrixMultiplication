@@ -2,6 +2,7 @@
 
 ## 11.06.2026
 ### Ternary coefficient rediscovery (`ZT`)
+* `2x9x13`: rediscovered [scheme](schemes/results/ZT/2x9x13_m182_ZT.json) with `182` multiplications;
 * `2x9x15`: rediscovered [scheme](schemes/results/ZT/2x9x15_m210_ZT.json) with `210` multiplications;
 * `2x10x15`: rediscovered [scheme](schemes/results/ZT/2x10x15_m233_ZT.json) with `233` multiplications;
 * `2x12x16`: rediscovered [scheme](schemes/results/ZT/2x12x16_m296_ZT.json) with `296` multiplications;
