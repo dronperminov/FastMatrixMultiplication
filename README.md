@@ -864,7 +864,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `2x12x15`  |   281 (?)   |     278      |     278      |   2.868257722   |
 | `2x12x16`  |   299 (?)   |   298 (?)    |     296      |   2.868778995   |
 | `2x13x13`  |     260     |     260      |     260      |   2.864831429   |
-| `2x13x14`  |   283 (?)   |   283 (?)    |     280      |   2.866530057   |
+| `2x13x14`  |   283 (?)   |     280      |     280      |   2.866530057   |
 | `2x13x15`  |   305 (?)   |   300 (?)    |     300      |   2.868073511   |
 | `2x13x16`  |   325 (?)   |   320 (?)    |     320      |   2.869485347   |
 | `2x14x14`  |     301     |     301      |     301      |   2.867288565   |
@@ -1437,8 +1437,8 @@ from other fields. The best ranks of previously known schemes are given in brack
 ### Coefficient set status
 * total schemes: 680 (52 better Strassen)
 * `ZT` schemes: 372 (54.71%)
-* `Z` schemes: 17 (2.50%)
-* `Q` schemes: 291 (42.79%)
+* `Z` schemes: 18 (2.65%)
+* `Q` schemes: 290 (42.65%)
 
 
 ## License and Citation
