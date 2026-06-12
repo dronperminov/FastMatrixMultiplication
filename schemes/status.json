@@ -6466,12 +6466,12 @@
   "2x9x14": {
     "ranks": {
       "Q": 196,
-      "ZT": 198,
+      "ZT": 196,
       "Z": 196
     },
     "omegas": {
       "Q": 2.863648982035858,
-      "ZT": 2.869157166318544,
+      "ZT": 2.863648982035858,
       "Z": 2.863648982035858
     },
     "schemes": {
@@ -6487,6 +6487,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 196,
+          "omega": 2.863648982035858,
+          "complexity": 2757,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/results/ZT/2x9x14_m196_ZT.json",
+          "path": "schemes/status/ZT/2x9x14_m196_ZT.json",
+          "duplicates": ["schemes/results/ZT/2x9x14_m196_ZT.m"]
+        },
         {
           "rank": 198,
           "omega": 2.869157166318544,
