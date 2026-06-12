@@ -345,6 +345,7 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `2x9x13`  |   [182](schemes/results/ZT/2x9x13_m182_ZT.json)    |   `Z/Q`    |
 |  `2x9x14`  |   [196](schemes/results/ZT/2x9x14_m196_ZT.json)    |   `Z/Q`    |
 |  `2x9x15`  |   [210](schemes/results/ZT/2x9x15_m210_ZT.json)    |   `Z/Q`    |
+|  `2x9x16`  |   [224](schemes/results/ZT/2x9x16_m224_ZT.json)    |   `Z/Q`    |
 | `2x10x15`  |   [233](schemes/results/ZT/2x10x15_m233_ZT.json)   |   `Z/Q`    |
 | `2x12x16`  |   [296](schemes/results/ZT/2x12x16_m296_ZT.json)   |   `Z/Q`    |
 |  `3x3x7`   |     [49](schemes/results/ZT/3x3x7_m49_ZT.json)     |    `Q`     |
@@ -849,7 +850,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `2x9x13`  |   182 (?)   |     182      |     182      |   2.861796718   |
 |  `2x9x14`  |   196 (?)   |     196      |     196      |   2.863648982   |
 |  `2x9x15`  |   210 (?)   |     210      |     210      |   2.865329321   |
-|  `2x9x16`  |   225 (?)   |     224      |     224      |   2.866864110   |
+|  `2x9x16`  |   224 (?)   |     224      |     224      |   2.866864110   |
 | `2x10x10`  |     155     |     155      |     155      |   2.855675548   |
 | `2x10x11`  |   173 (?)   |     171      |     171      |   2.859854622   |
 | `2x10x12`  |   188 (?)   |     186      |     186      |   2.860476715   |
@@ -1441,8 +1442,8 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (52 better Strassen)
-* `ZT` schemes: 377 (55.44%)
-* `Z` schemes: 23 (3.38%)
+* `ZT` schemes: 378 (55.59%)
+* `Z` schemes: 22 (3.24%)
 * `Q` schemes: 280 (41.18%)
 
 
