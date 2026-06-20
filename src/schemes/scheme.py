@@ -28,7 +28,7 @@ class Scheme:
         self.w = [[abs(w[index][i]) % 2 if z2 else w[index][i] for i in range(self.nn[2])] for index in range(self.m)]
 
         if validate:
-            self.__validate()
+            assert self.validate()
 
     @classmethod
     def naive(cls, n1: int, n2: int, n3: int, z2: bool = False) -> "Scheme":
@@ -359,6 +359,63 @@ class Scheme:
         n1, n2, n3 = self.n
         return f"{n1} {n2} {n3} {self.m}\n{u}\n{v}\n{w}"
 
+    def invariant_buds(self) -> str:
+        buds = self.get_buds()
+        components = []
+        index2component = {}
+
+        for p, i, j in buds:
+            if i not in index2component:
+                index2component[i] = len(components)
+                components.append({i})
+
+            if j not in index2component:
+                index2component[j] = len(components)
+                components.append({j})
+
+            ci, cj = index2component[i], index2component[j]
+            if ci == cj:
+                continue
+
+            for k in components[cj]:
+                index2component[k] = ci
+
+            components[ci].update(components[cj])
+            components[cj] = set()
+
+        components = [list(component) for component in components if component]
+
+        counts = [[0, 0, 0] for _ in range(self.m)]
+        for p, i, j in buds:
+            counts[i][p] += 1
+            counts[j][p] += 1
+
+        invariant = []
+
+        for component in components:
+            triplet2count = defaultdict(int)
+            for index in component:
+                u, v, w = counts[index]
+                if u + v + w == 0:
+                    continue
+
+                key = "".join(["uvw"[i] if value == 1 else f"{value}{'uvw'[i]}" for i, value in enumerate(counts[index]) if value > 0])
+                triplet2count[key] += 1
+
+            invariant_component = []
+            for key in sorted(triplet2count):
+                count = triplet2count[key]
+                invariant_component.append(f"{count if count > 1 else ''}<{key}>")
+
+            invariant.append("+".join(invariant_component))
+
+        component2count = defaultdict(int)
+        for invariant_component in invariant:
+            component2count[invariant_component] += 1
+
+        invariant = [f"{component}:{component2count[component]}" for component in sorted(component2count)]
+        return ", ".join(invariant)
+
     def invariant_f(self) -> str:
         ranks: Dict[tuple, int] = defaultdict(int)
 
@@ -442,6 +499,14 @@ class Scheme:
         n = sorted(self.n) if sort else self.n
         return f"{n[0]}x{n[1]}x{n[2]}"
 
+    def swap_rows(self, index1: int, index2: int) -> None:
+        if index1 == index2:
+            return
+
+        self.u[index1], self.u[index2] = self.u[index2], self.u[index1]
+        self.v[index1], self.v[index2] = self.v[index2], self.v[index1]
+        self.w[index1], self.w[index2] = self.w[index2], self.w[index1]
+
     def swap_basis_rows(self, i1: int, i2: int) -> None:
         if i1 == i2:
             return
@@ -471,7 +536,7 @@ class Scheme:
         for i in range(self.nn[2]):
             self.w[index][i] *= gamma
 
-        self.__validate()
+        self.validate()
 
     def sort(self) -> None:
         while not self.__check_ordering():
@@ -573,7 +638,6 @@ class Scheme:
         self.u = u
         self.v = v
         self.w = w
-        # self.__validate()
 
     def can_merge(self, scheme: "Scheme", p: int) -> bool:
         return all(self.n[i] == scheme.n[i] for i in range(3) if i != p)
@@ -697,8 +761,6 @@ class Scheme:
 
         for i in range(3):
             self.nn[i] = self.n[i] * self.n[(i + 1) % 3]
-
-        # self.__validate()
 
     def swap(self, p1: int, p2: int) -> None:
         if p1 == p2:
@@ -838,11 +900,14 @@ class Scheme:
 
         return True
 
-    def __validate(self) -> None:
+    def validate(self) -> bool:
         for i in range(self.nn[0]):
             for j in range(self.nn[1]):
                 for k in range(self.nn[2]):
-                    assert self.__validate_equation(i, j, k)
+                    if not self.__validate_equation(i, j, k):
+                        return False
+
+        return True
 
     def __validate_equation(self, i: int, j: int, k: int) -> bool:
         i1, i2, j1, j2, k1, k2 = i // self.n[1], i % self.n[1], j // self.n[2], j % self.n[2], k // self.n[0], k % self.n[0]
@@ -1138,6 +1203,6 @@ class Scheme:
     def __txt_value(self, value: Union[int, Fraction, bool], ring: str) -> str:
         if ring == "Q":
             value = Fraction(value)
-            return f"{value.numerator} {value.numerator}"
+            return f"{value.numerator} {value.denominator}"
 
         return str(value)
