@@ -49,12 +49,12 @@ class TrainStrategy:
 
 
 class GradientDecomposition:
-    def __init__(self, n: int, m: int, p: int, rank: int, batch_size: int, device: str, T: torch.Tensor) -> None:
+    def __init__(self, n: int, m: int, p: int, rank: int, batch_size: int, device: torch.device, T: torch.Tensor) -> None:
         self.dimension = [n, m, p]
         self.elements = [n * m, m * p, p * n]
         self.rank = rank
         self.batch_size = batch_size
-        self.device = torch.device(device)
+        self.device = device
 
         self.T = T
         self.norm = self.T.norm().item()
@@ -70,18 +70,21 @@ class GradientDecomposition:
     def initialize_coefficients(self, methods: List[str]) -> None:
         for i in range(self.batch_size):
             ui, vi, wi = self.__init_coefficients(method=random.choice(methods))
-            self.u[i] = ui.detach()
-            self.v[i] = vi.detach()
-            self.w[i] = wi.detach()
+            self.u.data[i] = ui.detach()
+            self.v.data[i] = vi.detach()
+            self.w.data[i] = wi.detach()
 
         self.u.requires_grad_(True)
         self.v.requires_grad_(True)
         self.w.requires_grad_(True)
 
-    def clone_coefficients(self, decomposition: "GradientDecomposition") -> None:
-        self.u = decomposition.u.detach().clone().requires_grad_(True)
-        self.v = decomposition.v.detach().clone().requires_grad_(True)
-        self.w = decomposition.w.detach().clone().requires_grad_(True)
+    def clone(self) -> "GradientDecomposition":
+        n, m, p = self.dimension
+        decomposition = GradientDecomposition(n, m, p, self.rank, self.batch_size, self.device, self.T)
+        decomposition.u = self.u.detach().clone().requires_grad_(True)
+        decomposition.v = self.v.detach().clone().requires_grad_(True)
+        decomposition.w = self.w.detach().clone().requires_grad_(True)
+        return decomposition
 
     def get_rounded_coefficients(self, scale: int) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         with torch.no_grad():
@@ -91,9 +94,9 @@ class GradientDecomposition:
 
         return u, v, w
 
-    def als(self) -> None:
+    def als(self, variant: int) -> None:
         with torch.no_grad():
-            u, v, w = self.__least_squares()
+            u, v, w = self.__least_squares(variant=variant)
             self.u.data = u
             self.v.data = v
             self.w.data = w
@@ -155,9 +158,9 @@ class GradientDecomposition:
         u = torch.linalg.solve(a + lambda_reg * eye, b.permute(0, 2, 1))
         return u.permute(0, 2, 1)
 
-    def __least_squares(self) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        variant1 = random.randint(0, 2)
-        variant2 = random.randint(0, 1)
+    def __least_squares(self, variant: int) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        variant1 = variant // 2
+        variant2 = variant % 2
 
         if variant1 == 0:
             u_new = self.__optimize_als_batch(self.v, self.w, self.Tu)
@@ -222,12 +225,12 @@ class GradientDecompositionTrainer:
         self.optimizer.step()
         return loss.item() / self.batch_size
 
-    def check(self, output_dir: str, p_als: float, p_round: float) -> None:
+    def check(self, output_dir: str, p_als: float, als_variant: int, p_round: float) -> None:
         for scale in self.strategy.scales:
             self.__check_rationalization(output_dir=output_dir, scale=scale)
 
         if p_als < self.strategy.p_als:
-            self.decomposition.als()
+            self.decomposition.als(variant=als_variant)
 
             for scale in self.strategy.scales:
                 self.__check_rationalization(output_dir=output_dir, scale=scale)
@@ -312,18 +315,15 @@ class GradientDecompositionTrainer:
         if int_type == "round":
             return self.__integrality_loss_round(u, v, w)
 
-        if int_type == "ternarization_l1" or int_type == "tern_l1":
-            return self.__integrality_loss_ternarization_l1(u, v, w)
-
-        if int_type == "ternarization_l2" or int_type == "tern_l2":
-            return self.__integrality_loss_ternarization_l2(u, v, w)
+        if int_type == "ternarization" or int_type == "tern":
+            return self.__integrality_loss_ternarization(u, v, w)
 
         raise ValueError(f"Unknown integrality loss type ({int_type})")
 
     def __integrality_loss_sin(self, u: torch.Tensor, v: torch.Tensor, w: torch.Tensor) -> torch.Tensor:
         loss = 0.0
         for matrix in [u, v, w]:
-            loss += (torch.sin(np.pi * matrix) ** 2).flatten(start_dim=1).sum(dim=1)
+            loss += torch.abs(torch.sin(np.pi * matrix)).flatten(start_dim=1).sum(dim=1)
 
         return loss
 
@@ -334,22 +334,12 @@ class GradientDecompositionTrainer:
 
         return loss
 
-    def __integrality_loss_ternarization_l1(self, u: torch.Tensor, v: torch.Tensor, w: torch.Tensor) -> torch.Tensor:
+    def __integrality_loss_ternarization(self, u: torch.Tensor, v: torch.Tensor, w: torch.Tensor) -> torch.Tensor:
         loss = 0.0
         for matrix in [u, v, w]:
             w = torch.abs(matrix)
             wp = torch.abs(matrix - 1)
             wn = torch.abs(matrix + 1)
-            loss += (w*wp*wn).flatten(start_dim=1).sum(dim=1)
-
-        return loss
-
-    def __integrality_loss_ternarization_l2(self, u: torch.Tensor, v: torch.Tensor, w: torch.Tensor) -> torch.Tensor:
-        loss = 0.0
-        for matrix in [u, v, w]:
-            w = matrix ** 2
-            wp = (matrix - 1) ** 2
-            wn = (matrix + 1) ** 2
             loss += (w*wp*wn).flatten(start_dim=1).sum(dim=1)
 
         return loss
@@ -403,7 +393,7 @@ class GradientDecompositionOptimizer:
         self.p = p
         self.rank = rank
         self.batch_size = batch_size
-        self.device = device
+        self.device = torch.device(device)
         self.output_dir = output_dir
         self.max_abs_value = max_abs_value
 
@@ -420,7 +410,6 @@ class GradientDecompositionOptimizer:
 
         while True:
             epoch += 1
-
             print(f"\nStart epoch {epoch}")
 
             for step in range(steps):
@@ -429,10 +418,10 @@ class GradientDecompositionOptimizer:
                 if log_step:
                     print("\n|           strategy           | epoch |  step  |    total    | reconstruction | integrality | sparsity | magnitude |  balance  | verified")
 
-                p_als, p_round = random.random(), random.random()
+                p_als, als_variant, p_round = random.random(), random.randint(0, 5), random.random()
                 for trainer in trainers:
                     loss = trainer.train(step, steps=steps)
-                    trainer.check(output_dir=self.output_dir, p_als=p_als, p_round=p_round)
+                    trainer.check(output_dir=self.output_dir, p_als=p_als, als_variant=als_variant, p_round=p_round)
 
                     if log_step:
                         if trainer.strategy == self.strategies[0]:
@@ -464,16 +453,16 @@ class GradientDecompositionOptimizer:
 
         for decomposition in decompositions:
             for strategy in self.strategies:
-                strategy_decomposition = GradientDecomposition(self.n, self.m, self.p, self.rank, self.batch_size, self.device, self.T)
-                strategy_decomposition.clone_coefficients(decomposition)
-                trainers.append(GradientDecompositionTrainer(strategy_decomposition, strategy, learning_rate=learning_rate, max_abs_value=self.max_abs_value))
+                trainers.append(GradientDecompositionTrainer(decomposition.clone(), strategy, learning_rate=learning_rate, max_abs_value=self.max_abs_value))
 
         return trainers
 
     def __print_statistics(self, epoch: int, trainers: List[GradientDecompositionTrainer]) -> None:
-        print(f"\nEpoch {epoch} statistic")
-        print("|           strategy           | mean round error | min round error | complexity (mean / min) | buds (mean / max) | verified")
-        print("+------------------------------+------------------+-----------------+-------------------------+-------------------+-------------------------")
+        lines = [
+            f"\nEpoch {epoch} statistic",
+            "|           strategy           | mean round error | min round error | complexity (mean / min) | buds (mean / max) | verified",
+            "+------------------------------+------------------+-----------------+-------------------------+-------------------+-------------------------"
+        ]
 
         for strategy in self.strategies:
             verified = {"ZT": 0, "Z": 0, "Q": 0}
@@ -510,7 +499,15 @@ class GradientDecompositionOptimizer:
 
             mean_error = sum_error / count
             verified_count = sum(verified.values())
-            print(f"| {strategy.label:28} | {mean_error:16.6f} | {min_error:15.6f} | {complexity:23} | {buds:17} | {verified_count} ({verified})")
+            lines.append(f"| {strategy.label:28} | {mean_error:16.6f} | {min_error:15.6f} | {complexity:23} | {buds:17} | {verified_count} ({verified})")
+
+        for line in lines:
+            print(line)
+
+        with open(f"{self.output_dir}/statistics.txt", "a") as f:
+            f.write("\n")
+            for line in lines:
+                f.write(f"{line}\n")
 
 
 def get_strategies(learning_rate: float) -> List[TrainStrategy]:
@@ -525,16 +522,15 @@ def get_strategies(learning_rate: float) -> List[TrainStrategy]:
         w_magnitude=lambda t: 0
     )
 
-    for p_als in [0.1, 0.4]:
+    for p_als in [0.0, 0.4, 0.75]:
         for p_round in [0.0, 0.01]:
-            for int_type in ["sin", "round", "tern_l1", "tern_l2"]:
+            for int_type in ["sin", "round", "tern"]:
                 strategy = TrainStrategy(label=f"{int_type} (als: {p_als}, r: {p_round})", scales=[1, 2], p_als=p_als, p_round=p_round, int_type=int_type)
-
                 strategy.add(balance_only)
                 strategy.add(OptimizationParameters(
                     end_part=1.0,
                     learning_rate=learning_rate,
-                    w_int=lambda t: 0.3 * t * t,
+                    w_int=lambda t: 0.5 * t * t,
                     w_sparse=lambda t: 0.05 * t,
                     w_balance=lambda t: 0.01,
                     w_magnitude=lambda t: 0.1 * t
@@ -542,6 +538,7 @@ def get_strategies(learning_rate: float) -> List[TrainStrategy]:
                 strategies.append(strategy)
 
     return strategies
+
 
 def main():
     parser = argparse.ArgumentParser()
