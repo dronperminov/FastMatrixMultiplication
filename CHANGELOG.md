@@ -2,7 +2,7 @@
 
 ## 22.06.2026
 ### Rank improvement
-* `13x14x16`: found [scheme](schemes/results/Q/13x14x16_m1798_Q.json) with `1798` multiplications (`Q`);
+* `13x14x16`: found [scheme](schemes/results/Q/13x14x16_m1796_Q.json) with `1796` multiplications (`Q`);
 
 
 ## 12.06.2026
