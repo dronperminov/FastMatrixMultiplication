@@ -2477,6 +2477,15 @@
           "path": "schemes/status/ZT/2x4x10_m65_ZT_v3.json"
         },
         {
+          "rank": 66,
+          "omega": 2.868299367836837,
+          "complexity": 606,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 63, "v": 0, "w": 1},
+          "source": "schemes/results/serendipitous_base/2x4x10_m66_47922fe8f900bf2c320dc9ca0563dcce76bf7410_ZT.json",
+          "path": "schemes/status/ZT/2x4x10_m66_ZT.json"
+        },
+        {
           "rank": 67,
           "omega": 2.8785945202525367,
           "complexity": 610,
