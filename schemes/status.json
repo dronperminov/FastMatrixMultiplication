@@ -47551,12 +47551,12 @@
   "10x12x12": {
     "ranks": {
       "Z": 902,
-      "Q": 902,
+      "Q": 900,
       "ZT": 902
     },
     "omegas": {
       "Z": 2.8070304263094243,
-      "Q": 2.8070304263094243,
+      "Q": 2.806114735246385,
       "ZT": 2.8070304263094243
     },
     "schemes": {
@@ -47621,6 +47621,18 @@
           "source": "schemes/results/ZT/10x12x12_m910_ZT.json",
           "path": "schemes/status/ZT/10x12x12_m910_ZT.json",
           "duplicates": ["schemes/results/ZT/10x12x12_m910_ZT.m"]
+        }
+      ],
+      "Q": [
+        {
+          "rank": 900,
+          "omega": 2.806114735246385,
+          "complexity": 54506,
+          "values": [-2, -1, "-1/4", "-1/8", 0, "1/8", "1/4", 1, 2],
+          "buds_count": {"u": 36, "v": 0, "w": 135},
+          "source": "schemes/results/Q/10x12x12_m900_Q.json",
+          "path": "schemes/status/Q/10x12x12_m900_Q.json",
+          "duplicates": ["schemes/results/Q/10x12x12_m900_Q.m"]
         }
       ]
     }
