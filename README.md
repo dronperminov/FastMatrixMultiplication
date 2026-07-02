@@ -246,6 +246,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `10x12x14` | 1050 (`Z`)  |  [1048](schemes/results/ZT/10x12x14_m1048_ZT.json) (`ZT`)  |   2.809368980   |
 | `10x12x15` | 1140 (`ZT`) | [1122](schemes/results/ZT/10x12x15_m1122_ZT.json) (`ZT/Z`) |   2.810818006   |
 | `10x12x16` | 1216 (`Q`)  |   [1176](schemes/results/Q/10x12x16_m1176_Q.json) (`Q`)    | **2.805475746** |
+| `10x13x14` | 1154 (`Z`)  |  [1152](schemes/results/ZT/10x13x14_m1152_ZT.json) (`ZT`)  |   2.817225865   |
 | `10x13x15` | 1242 (`Z`)  | [1230](schemes/results/ZT/10x13x15_m1230_ZT.json) (`ZT/Z`) |   2.817513014   |
 | `10x13x16` | 1332 (`Z`)  |   [1318](schemes/results/Q/10x13x16_m1318_Q.json) (`Q`)    |   2.820846164   |
 | `10x14x15` | 1327 (`Z`)  | [1314](schemes/results/ZT/10x14x15_m1314_ZT.json) (`ZT/Z`) |   2.816125387   |
@@ -456,7 +457,6 @@ with coefficients restricted to the ternary set were previously unknown.
 | `10x11x14` |  [981](schemes/results/ZT/10x11x14_m981_ZT.json)   |    `Z`     |
 | `10x12x13` |  [990](schemes/results/ZT/10x12x13_m990_ZT.json)   |    `Z`     |
 | `10x13x13` | [1082](schemes/results/ZT/10x13x13_m1082_ZT.json)  |    `Z`     |
-| `10x13x14` | [1154](schemes/results/ZT/10x13x14_m1154_ZT.json)  |    `Z`     |
 | `10x14x14` | [1232](schemes/results/ZT/10x14x14_m1232_ZT.json)  |    `Z`     |
 | `11x11x11` |  [873](schemes/results/ZT/11x11x11_m873_ZT.json)   |    `Z`     |
 | `11x11x13` | [1023](schemes/results/ZT/11x11x13_m1023_ZT.json)  |    `Z`     |
@@ -1376,7 +1376,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `10x12x15` | 1122 (1140) | 1122 (1140)  | 1122 (1140)  |   2.810818006   |
 | `10x12x16` |  1190 (?)   |   1190 (?)   | 1176 (1216)  | **2.805475746** |
 | `10x13x13` |  1082 (?)   |     1082     |     1082     |   2.820012787   |
-| `10x13x14` |  1154 (?)   |     1154     |     1154     |   2.817919098   |
+| `10x13x14` |  1152 (?)   | 1152 (1154)  | 1152 (1154)  |   2.817225865   |
 | `10x13x15` |  1230 (?)   | 1230 (1242)  | 1230 (1242)  |   2.817513014   |
 | `10x13x16` |  1326 (?)   | 1326 (1332)  | 1318 (1332)  |   2.820846164   |
 | `10x14x14` |  1232 (?)   |     1232     |     1232     |   2.816254849   |
