@@ -12338,13 +12338,13 @@
   "3x6x6": {
     "ranks": {
       "Q": 80,
-      "ZT": 83,
-      "Z": 83
+      "ZT": 82,
+      "Z": 82
     },
     "omegas": {
       "Q": 2.8077128269845626,
-      "ZT": 2.8313007859739105,
-      "Z": 2.8313007859739105
+      "ZT": 2.8235342198882845,
+      "Z": 2.8235342198882845
     },
     "schemes": {
       "Q": [
@@ -12359,6 +12359,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 82,
+          "omega": 2.8235342198882845,
+          "complexity": 1028,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 6, "v": 5, "w": 3},
+          "source": "schemes/results/ZT/3x6x6_m82_ZT.json",
+          "path": "schemes/status/ZT/3x6x6_m82_ZT.json",
+          "duplicates": ["schemes/results/ZT/3x6x6_m82_ZT.m"]
+        },
         {
           "rank": 83,
           "omega": 2.8313007859739105,
