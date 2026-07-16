@@ -1,3 +1,4 @@
+import hashlib
 import itertools
 import json
 import math
@@ -468,6 +469,14 @@ class Scheme:
         v_ones = sum(bool(value) for row in self.v for value in row)
         w_ones = sum(bool(value) for row in self.w for value in row)
         return u_ones + v_ones + w_ones - self.m * 2 - self.nn[2]
+
+    def hash_filename(self) -> str:
+        n1, n2, n3 = self.n
+        return f"{n1}x{n2}x{n3}_m{self.m}_{self.get_hash()}_{self.get_ring()}"
+
+    def get_hash(self) -> str:
+        uvw_rows = ["".join(str(value) for value in self.u[index] + self.v[index] + self.w[index]) for index in range(self.m)]
+        return hashlib.sha1("".join(sorted(uvw_rows)).encode()).hexdigest()
 
     def get_unique_values(self) -> List[Union[int, Fraction]]:
         values = sorted({Fraction(value) for matrix in [self.u, self.v, self.w] for row in matrix for value in row})
