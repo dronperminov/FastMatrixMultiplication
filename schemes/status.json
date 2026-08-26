@@ -457,6 +457,15 @@
         {
           "rank": 28,
           "omega": 2.884412953234562,
+          "complexity": 96,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 42, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x2x8_m28_cr48_fv20_cn96_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x2x8_m28_ZT_v6.json"
+        },
+        {
+          "rank": 28,
+          "omega": 2.884412953234562,
           "complexity": 157,
           "values": [-1, 0, 1],
           "buds_count": {"u": 22, "v": 0, "w": 0},

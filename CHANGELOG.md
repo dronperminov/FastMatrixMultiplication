@@ -4,7 +4,7 @@
 ### Reduced additions improvement
 * `2x2x6`: found [scheme](schemes/results/addition_reduced_ZT/2x2x6_m21_cr37_fv16_cn72_ZT_reduced.json) with `21` multiplications and `37` additions (`ZT`)
 * `2x2x7`: found [scheme](schemes/results/addition_reduced_ZT/2x2x7_m25_cr39_fv16_cn74_ZT_reduced.json) with `25` multiplications and `39` additions (`ZT`)
-* `2x2x8`: found [scheme](schemes/results/addition_reduced_ZT/2x2x8_m28_cr49_fv18_cn94_ZT_reduced.json) with `28` multiplications and `49` additions (`ZT`)
+* `2x2x8`: found [scheme](schemes/results/addition_reduced_ZT/2x2x8_m28_cr48_fv20_cn96_ZT_reduced.json) with `28` multiplications and `48` additions (`ZT`)
 * `2x3x6`: found [scheme](schemes/results/addition_reduced_ZT/2x3x6_m30_cr78_fv34_cn148_ZT_reduced.json) with `30` multiplications and `78` additions (`ZT`)
 
 
