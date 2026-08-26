@@ -108,6 +108,15 @@
           "buds_count": {"u": 1, "v": 0, "w": 2},
           "source": "schemes/known/alpha_tensor/2x2x3_m11_ZT.json",
           "path": "schemes/status/ZT/2x2x3_m11_ZT.json"
+        },
+        {
+          "rank": 11,
+          "omega": 2.8949521379440313,
+          "complexity": 26,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 3, "v": 2, "w": 2},
+          "source": "schemes/results/addition_reduced_ZT/2x2x3_m11_cr17_f6_cn26_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x2x3_m11_ZT_v4.json"
         }
       ],
       "Z": [
@@ -884,6 +893,15 @@
           "duplicates": ["schemes/known/fmm_add_reduction/Moosbauer-233-15-mod0.m", "schemes/known/jakobmoosbauer_flips/233-15-mod0.exp", "schemes/known/jakobmoosbauer_flips/233-15-mod0.m"]
         },
         {
+          "rank": 15,
+          "omega": 2.810763211034145,
+          "complexity": 77,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x3x3_m15_cr44_fv17_cn77_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x3x3_m15_ZT_v4.json"
+        },
+        {
           "rank": 16,
           "omega": 2.8777495988175774,
           "complexity": 92,
@@ -943,6 +961,15 @@
           "buds_count": {"u": 4, "v": 0, "w": 0},
           "source": "schemes/known/alpha_tensor/2x3x4_m20_ZT.json",
           "path": "schemes/status/ZT/2x3x4_m20_ZT.json"
+        },
+        {
+          "rank": 20,
+          "omega": 2.827893201443356,
+          "complexity": 90,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 2, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x3x4_m20_cr54_fv22_cn90_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x3x4_m20_ZT_v6.json"
         },
         {
           "rank": 20,
