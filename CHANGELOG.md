@@ -1,5 +1,14 @@
 # Changelog
 
+## 02/09/2026
+### Reduced additions improvement
+* `2x2x9`: found [scheme](schemes/results/addition_reduced_ZT/2x2x9_m32_cr50_cn98_ZT_reduced.json) with `32` multiplications and `50` additions (`ZT`)
+* `2x2x10`: found [scheme](schemes/results/addition_reduced_ZT/2x2x10_m35_cr60_cn110_ZT_reduced.json) with `35` multiplications and `60` additions (`ZT`)
+* `2x4x4`: found [scheme](schemes/results/addition_reduced_ZT/2x4x4_m26_cr82_cn140_ZT_reduced.json) with `26` multiplications and `82` additions (`ZT`)
+* `3x3x4`: found [scheme](schemes/results/addition_reduced_ZT/3x3x4_m29_cr88_cn142_ZT_reduced.json) with `29` multiplications and `88` additions (`ZT`)
+* `3x3x5`: found [scheme](schemes/results/addition_reduced_ZT/3x3x5_m36_cr109_cn178_ZT_reduced.json) with `36` multiplications and `109` additions (`ZT`)
+
+
 ## 28/08/2026
 ### Reduced additions improvement
 * `2x3x3`: found [scheme](schemes/results/addition_reduced_ZT/2x3x3_m15_cr43_cn77_ZT_reduced.json) with `15` multiplications and `43` additions (`ZT`)
