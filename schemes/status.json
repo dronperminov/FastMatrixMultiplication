@@ -1299,6 +1299,15 @@
         {
           "rank": 35,
           "omega": 2.8536615789404434,
+          "complexity": 159,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 23, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x3x7_m35_cr88_cn159_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x3x7_m35_ZT_v7.json"
+        },
+        {
+          "rank": 35,
+          "omega": 2.8536615789404434,
           "complexity": 179,
           "values": [-1, 0, 1],
           "buds_count": {"u": 23, "v": 0, "w": 0},
