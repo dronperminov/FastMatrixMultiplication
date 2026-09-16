@@ -10310,6 +10310,15 @@
           "path": "schemes/status/ZT/3x4x7_m67_ZT.json"
         },
         {
+          "rank": 67,
+          "omega": 2.8468967305228836,
+          "complexity": 742,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 42, "v": 0, "w": 0},
+          "source": "schemes/results/serendipitous_base/3x4x7_m67_b933e2991e32044ea225b9914794684eea480d27_ZT.json",
+          "path": "schemes/status/ZT/3x4x7_m67_ZT_v2.json"
+        },
+        {
           "rank": 68,
           "omega": 2.856927670499239,
           "complexity": 452,
@@ -40979,14 +40988,14 @@
   },
   "7x12x16": {
     "ranks": {
-      "Q": 878,
-      "ZT": 878,
-      "Z": 878
+      "Q": 876,
+      "ZT": 876,
+      "Z": 876
     },
     "omegas": {
-      "Q": 2.8226843152720513,
-      "ZT": 2.8226843152720513,
-      "Z": 2.8226843152720513
+      "Q": 2.821734555040429,
+      "ZT": 2.821734555040429,
+      "Z": 2.821734555040429
     },
     "schemes": {
       "Q": [
@@ -41001,6 +41010,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 876,
+          "omega": 2.821734555040429,
+          "complexity": 27082,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 164, "v": 21, "w": 112},
+          "source": "schemes/results/ZT/7x12x16_m876_ZT.json",
+          "path": "schemes/status/ZT/7x12x16_m876_ZT.json",
+          "duplicates": ["schemes/results/ZT/7x12x16_m876_ZT.m"]
+        },
         {
           "rank": 878,
           "omega": 2.8226843152720513,
@@ -41612,17 +41631,27 @@
   },
   "7x15x16": {
     "ranks": {
-      "Q": 1083,
+      "Q": 1081,
       "Z": 1089,
       "ZT": 1089
     },
     "omegas": {
-      "Q": 2.8226394973831694,
+      "Q": 2.821892813017216,
       "Z": 2.8248713048666096,
       "ZT": 2.8248713048666096
     },
     "schemes": {
       "Q": [
+        {
+          "rank": 1081,
+          "omega": 2.821892813017216,
+          "complexity": 41911,
+          "values": [-2, -1, "-1/2", 0, "1/2", 1, 2],
+          "buds_count": {"u": 137, "v": 9, "w": 174},
+          "source": "schemes/results/Q/7x15x16_m1081_Q.json",
+          "path": "schemes/status/Q/7x15x16_m1081_Q.json",
+          "duplicates": ["schemes/results/Q/7x15x16_m1081_Q.m"]
+        },
         {
           "rank": 1083,
           "omega": 2.8226394973831694,

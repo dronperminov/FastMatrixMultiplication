@@ -1,5 +1,11 @@
 # Changelog
 
+## 16/09/2026
+### Rank improvement
+* `7x12x16`: found [scheme](schemes/results/ZT/7x12x16_m876_ZT.json) with `876` multiplications (`ZT`);
+* `7x15x16`: found [scheme](schemes/results/Q/7x15x16_m1081_Q.json) with `1081` multiplications (`Q`);
+
+
 ## 05/09/2026
 ### Reduced additions improvement
 * `2x4x5`: found [scheme](schemes/results/addition_reduced_ZT/2x4x5_m33_cr99_cn165_ZT_reduced.json) with `33` multiplications and `99` additions (`ZT`)
