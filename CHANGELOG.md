@@ -1,5 +1,11 @@
 # Changelog
 
+## 17/09/2026
+### Rank improvement
+* `12x12x14`: found [scheme](schemes/results/Q/12x12x14_m1232_Q.json) with `1232` multiplications (`Q`);
+* `14x14x16`: found [scheme](schemes/results/Q/14x14x16_m1928_Q.json) with `1928` multiplications (`Q`);
+
+
 ## 16/09/2026
 ### Rank improvement
 * `7x12x16`: found [scheme](schemes/results/ZT/7x12x16_m876_ZT.json) with `876` multiplications (`ZT`);
