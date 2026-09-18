@@ -281,19 +281,19 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `12x14x16` | 1638 (`Q`)  |   [1617](schemes/results/Q/12x14x16_m1617_Q.json) (`Q`)    | **2.806918970** |
 | `12x15x16` | 1728 (`Q`)  | [1725](schemes/results/ZT/12x15x16_m1725_ZT.json) (`ZT/Z`) | **2.806957387** |
 | `12x16x16` | 1824 (`Q`)  |   [1815](schemes/results/Q/12x16x16_m1815_Q.json) (`Q`)    | **2.803398069** |
-| `13x13x13` | 1426 (`Q`)  |   [1421](schemes/results/Q/13x13x13_m1421_Q.json) (`Q`)    |   2.830120644   |
 | `13x13x14` | 1524 (`Z`)  |  [1511](schemes/results/ZT/13x13x14_m1511_ZT.json) (`ZT`)  |   2.826838093   |
 | `13x13x16` | 1713 (`Q`)  |   [1704](schemes/results/Q/13x13x16_m1704_Q.json) (`Q`)    |   2.824705676   |
-| `13x14x14` | 1625 (`Z`)  |  [1614](schemes/results/ZT/13x14x14_m1614_ZT.json) (`ZT`)  |   2.825351482   |
+| `13x14x14` | 1625 (`Z`)  |   [1602](schemes/results/Q/13x14x14_m1602_Q.json) (`Q`)    |   2.822496965   |
 | `13x14x15` | 1714 (`Z`)  | [1681](schemes/results/ZT/13x14x15_m1681_ZT.json) (`ZT/Z`) |   2.816136526   |
 | `13x14x16` | 1825 (`Q`)  |   [1796](schemes/results/Q/13x14x16_m1796_Q.json) (`Q`)    |   2.818238934   |
 | `13x15x15` | 1803 (`Z`)  | [1797](schemes/results/ZT/13x15x15_m1797_ZT.json) (`ZT/Z`) |   2.816875265   |
 | `13x15x16` | 1932 (`Z`)  |  [1885](schemes/results/ZT/13x15x16_m1885_ZT.json) (`ZT`)  |   2.812106276   |
 | `14x14x15` | 1813 (`Z`)  | [1798](schemes/results/ZT/14x14x15_m1798_ZT.json) (`ZT/Z`) |   2.815280055   |
-| `14x14x16` | 1939 (`Q`)  |   [1928](schemes/results/Q/14x14x16_m1928_Q.json) (`Q`)    |   2.818724570   |
+| `14x14x16` | 1939 (`Q`)  |   [1904](schemes/results/Q/14x14x16_m1904_Q.json) (`Q`)    |   2.814056806   |
 | `14x15x15` | 1905 (`Z`)  |   [1890](schemes/results/Q/14x15x15_m1890_Q.json) (`Q`)    |   2.809752096   |
 | `14x16x16` | 2142 (`Q`)  |   [2128](schemes/results/Q/14x16x16_m2128_Q.json) (`Q`)    |   2.808914234   |
 | `15x15x16` | 2173 (`Q`)  | [2132](schemes/results/ZT/15x15x16_m2132_ZT.json) (`ZT/Z`) |   2.808074285   |
+| `15x16x16` | 2262 (`Q`)  |   [2246](schemes/results/Q/15x16x16_m2246_Q.json) (`Q`)    | **2.805050266** |
 
 
 ### Rediscovery in the ternary coefficient set (`ZT`)
@@ -534,6 +534,7 @@ This research consolidates and analyzes schemes from several leading sources in 
 | Symmetric flip graph                | Flip graphs with symmetry ([symmetric-flips](https://github.com/jakobmoosbauer/symmetric-flips)).                                                                                                |
 | Meta Flip Graph                     | Advanced flip graph techniques by M. Kauers et al. ([matrix-multiplication](https://github.com/mkauers/matrix-multiplication)).                                                                  |
 | FMM Add Reduction                   | Work on additive reductions by @werekorren ([fmm_add_reduction](https://github.com/werekorren/fmm_add_reduction/tree/main/algorithms)).                                                          |
+| LITA                                | Local Improvements to Trilinear Aggregation by @khoruzhii ([lita](https://github.com/khoruzhii/lita)).                                                                                           |
 
 ## Scheme File Formats
 This repository uses two JSON formats for storing matrix-multiplication schemes:
@@ -1421,32 +1422,32 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `12x15x15` |  1650 (?)   |   1650 (?)   |     1600     | **2.801323500** |
 | `12x15x16` |  1725 (?)   |   1725 (?)   | 1725 (1728)  | **2.806957387** |
 | `12x16x16` |  1862 (?)   |   1862 (?)   | 1815 (1824)  | **2.803398069** |
-| `13x13x13` |  1426 (?)   |   1426 (?)   | 1421 (1426)  |   2.830120644   |
+| `13x13x13` |  1426 (?)   |   1426 (?)   |     1420     |   2.829846184   |
 | `13x13x14` |  1511 (?)   | 1511 (1524)  | 1511 (1524)  |   2.826838093   |
 | `13x13x15` |  1605 (?)   |     1605     |     1605     |   2.825055042   |
 | `13x13x16` |  1711 (?)   |   1711 (?)   | 1704 (1713)  |   2.824705676   |
-| `13x14x14` |  1614 (?)   | 1614 (1625)  | 1614 (1625)  |   2.825351482   |
+| `13x14x14` |  1614 (?)   | 1614 (1625)  | 1602 (1625)  |   2.822496965   |
 | `13x14x15` |  1681 (?)   | 1681 (1714)  | 1681 (1714)  |   2.816136526   |
 | `13x14x16` |  1820 (?)   |   1820 (?)   | 1796 (1825)  |   2.818238934   |
 | `13x15x15` |  1797 (?)   | 1797 (1803)  | 1797 (1803)  |   2.816875265   |
 | `13x15x16` |  1885 (?)   | 1885 (1932)  | 1885 (1932)  |   2.812106276   |
 | `13x16x16` |  2038 (?)   |   2038 (?)   |     2022     |   2.815680662   |
-| `14x14x14` |  1725 (?)   |   1725 (?)   |     1719     |   2.822787486   |
+| `14x14x14` |  1725 (?)   |   1725 (?)   |     1603     | **2.796313695** |
 | `14x14x15` |  1798 (?)   | 1798 (1813)  | 1798 (1813)  |   2.815280055   |
-| `14x14x16` |  1943 (?)   |   1943 (?)   | 1928 (1939)  |   2.818724570   |
+| `14x14x16` |  1943 (?)   |   1943 (?)   | 1904 (1939)  |   2.814056806   |
 | `14x15x15` |  1905 (?)   | 1895 (1905)  | 1890 (1905)  |   2.809752096   |
 | `14x15x16` |  2043 (?)   |   2043 (?)   |     2016     |   2.811264261   |
 | `14x16x16` |  2170 (?)   |   2170 (?)   | 2128 (2142)  |   2.808914234   |
 | `15x15x15` |  2058 (?)   |   2058 (?)   |     2058     |   2.817336958   |
 | `15x15x16` |  2132 (?)   |   2132 (?)   | 2132 (2173)  |   2.808074285   |
-| `15x16x16` |  2302 (?)   |   2302 (?)   |     2262     |   2.807630537   |
-| `16x16x16` |  2401 (?)   |   2401 (?)   |     2304     | **2.792481250** |
+| `15x16x16` |  2302 (?)   |   2302 (?)   | 2246 (2262)  | **2.805050266** |
+| `16x16x16` |  2401 (?)   |   2401 (?)   |     2247     | **2.783446102** |
 
 ### Coefficient set status
-* total schemes: 680 (52 better Strassen)
-* `ZT` schemes: 378 (55.59%)
+* total schemes: 680 (54 better Strassen)
+* `ZT` schemes: 377 (55.44%)
 * `Z` schemes: 20 (2.94%)
-* `Q` schemes: 282 (41.47%)
+* `Q` schemes: 283 (41.62%)
 
 
 ## License and Citation
