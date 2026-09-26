@@ -1,5 +1,18 @@
 # Changelog
 
+## 26/09/2026
+Added new [LITA](https://github.com/khoruzhii/lita) schemes;
+
+### Rank improvement
+* `8x13x14`: found [scheme](schemes/results/Q/8x13x14_m940_Q.json) with `940` multiplications (`Q`);
+* `9x13x15`: found [scheme](schemes/results/Q/9x13x15_m1118_Q.json) with `1118` multiplications (`Q`);
+* `11x13x14`: found [scheme](schemes/results/Q/11x13x14_m1286_Q.json) with `1286` multiplications (`Q`);
+* `13x15x15`: found [scheme](schemes/results/Q/13x15x15_m1776_Q.json) with `1776` multiplications (`Q`);
+* `14x14x15`: found [scheme](schemes/results/Q/14x14x15_m1790_Q.json) with `1790` multiplications (`Q`);
+* `14x14x16`: found [scheme](schemes/results/Q/14x14x16_m1895_Q.json) with `1895` multiplications (`Q`);
+* `14x15x15`: found [scheme](schemes/results/Q/14x15x15_m1848_Q.json) with `1848` multiplications (`Q`);
+
+
 ## 18/09/2026
 Added [LITA](https://github.com/khoruzhii/lita) schemes;
 
