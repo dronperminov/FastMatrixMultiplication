@@ -5,6 +5,8 @@ Added new [LITA](https://github.com/khoruzhii/lita) schemes;
 
 ### Rank improvement
 * `8x13x14`: found [scheme](schemes/results/Q/8x13x14_m940_Q.json) with `940` multiplications (`Q`);
+* `9x10x11`: found [scheme](schemes/results/Q/9x10x11_m644_Q.json) with `644` multiplications (`Q`);
+* `9x11x11`: found [scheme](schemes/results/Q/9x11x11_m711_Q.json) with `711` multiplications (`Q`);
 * `9x13x15`: found [scheme](schemes/results/Q/9x13x15_m1118_Q.json) with `1118` multiplications (`Q`);
 * `11x13x14`: found [scheme](schemes/results/Q/11x13x14_m1286_Q.json) with `1286` multiplications (`Q`);
 * `13x15x15`: found [scheme](schemes/results/Q/13x15x15_m1776_Q.json) with `1776` multiplications (`Q`);
