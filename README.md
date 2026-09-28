@@ -288,7 +288,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `12x16x16` | 1824 (`Q`)  |   [1815](schemes/results/Q/12x16x16_m1815_Q.json) (`Q`)    | **2.803398069** |
 | `13x13x14` | 1524 (`Z`)  |  [1511](schemes/results/ZT/13x13x14_m1511_ZT.json) (`ZT`)  |   2.826838093   |
 | `13x13x16` | 1713 (`Q`)  |   [1704](schemes/results/Q/13x13x16_m1704_Q.json) (`Q`)    |   2.824705676   |
-| `13x14x14` | 1625 (`Z`)  |   [1602](schemes/results/Q/13x14x14_m1602_Q.json) (`Q`)    |   2.822496965   |
+| `13x14x14` | 1625 (`Z`)  |   [1582](schemes/results/Q/13x14x14_m1582_Q.json) (`Q`)    |   2.817691580   |
 | `13x14x15` | 1714 (`Z`)  | [1681](schemes/results/ZT/13x14x15_m1681_ZT.json) (`ZT/Z`) |   2.816136526   |
 | `13x14x16` | 1825 (`Q`)  |   [1796](schemes/results/Q/13x14x16_m1796_Q.json) (`Q`)    |   2.818238934   |
 | `13x15x15` | 1803 (`Z`)  |   [1776](schemes/results/Q/13x15x15_m1776_Q.json) (`Q`)    |   2.812456688   |
@@ -298,7 +298,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `14x15x15` | 1905 (`Z`)  |   [1848](schemes/results/Q/14x15x15_m1848_Q.json) (`Q`)    | **2.801382482** |
 | `14x16x16` | 2142 (`Q`)  |   [2128](schemes/results/Q/14x16x16_m2128_Q.json) (`Q`)    |   2.808914234   |
 | `15x15x16` | 2173 (`Q`)  | [2132](schemes/results/ZT/15x15x16_m2132_ZT.json) (`ZT/Z`) |   2.808074285   |
-| `15x16x16` | 2262 (`Q`)  |   [2246](schemes/results/Q/15x16x16_m2246_Q.json) (`Q`)    | **2.805050266** |
+| `15x16x16` | 2262 (`Q`)  |   [2223](schemes/results/Q/15x16x16_m2223_Q.json) (`Q`)    | **2.801308741** |
 
 
 ### Rediscovery in the ternary coefficient set (`ZT`)
@@ -1428,7 +1428,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `13x13x14` |  1511 (?)   | 1511 (1524)  | 1511 (1524)  |   2.826838093   |
 | `13x13x15` |  1605 (?)   |     1605     |     1605     |   2.825055042   |
 | `13x13x16` |  1711 (?)   |   1711 (?)   | 1704 (1713)  |   2.824705676   |
-| `13x14x14` |  1614 (?)   | 1614 (1625)  | 1602 (1625)  |   2.822496965   |
+| `13x14x14` |  1614 (?)   | 1614 (1625)  | 1582 (1625)  |   2.817691580   |
 | `13x14x15` |  1681 (?)   | 1681 (1714)  | 1681 (1714)  |   2.816136526   |
 | `13x14x16` |  1820 (?)   |   1820 (?)   | 1796 (1825)  |   2.818238934   |
 | `13x15x15` |  1797 (?)   | 1797 (1803)  | 1776 (1803)  |   2.812456688   |
@@ -1442,7 +1442,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `14x16x16` |  2170 (?)   |   2170 (?)   | 2128 (2142)  |   2.808914234   |
 | `15x15x15` |  2058 (?)   |   2058 (?)   |     1977     | **2.802509281** |
 | `15x15x16` |  2132 (?)   |   2132 (?)   | 2132 (2173)  |   2.808074285   |
-| `15x16x16` |  2302 (?)   |   2302 (?)   | 2246 (2262)  | **2.805050266** |
+| `15x16x16` |  2302 (?)   |   2302 (?)   | 2223 (2262)  | **2.801308741** |
 | `16x16x16` |  2401 (?)   |   2401 (?)   |     2237     | **2.781837385** |
 
 ### Coefficient set status

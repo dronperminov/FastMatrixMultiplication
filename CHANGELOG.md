@@ -7,6 +7,8 @@
 * `7x7x16`: found [scheme](schemes/results/Q/7x7x16_m537_Q.json) with `537` multiplications (`Q`);
 * `8x8x16`: found [scheme](schemes/results/Q/8x8x16_m665_Q.json) with `665` multiplications (`Q`);
 * `8x12x16`: found [scheme](schemes/results/Q/8x12x16_m956_Q.json) with `956` multiplications (`Q`);
+* `13x14x14`: found [scheme](schemes/results/Q/13x14x14_m1582_Q.json) with `1582` multiplications (`Q`);
+* `15x16x16`: found [scheme](schemes/results/Q/15x16x16_m2223_Q.json) with `2223` multiplications (`Q`);
 
 
 ## 26/09/2026
