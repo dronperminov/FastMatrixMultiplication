@@ -6579,12 +6579,12 @@
     "ranks": {
       "Z": 154,
       "Q": 154,
-      "ZT": 157
+      "ZT": 154
     },
     "omegas": {
       "Z": 2.8574309352257314,
       "Q": 2.8574309352257314,
-      "ZT": 2.8683758456222916
+      "ZT": 2.8574309352257314
     },
     "schemes": {
       "Z": [
@@ -6599,6 +6599,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 154,
+          "omega": 2.8574309352257314,
+          "complexity": 1894,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/results/ZT/2x9x11_m154_ZT.json",
+          "path": "schemes/status/ZT/2x9x11_m154_ZT.json",
+          "duplicates": ["schemes/results/ZT/2x9x11_m154_ZT.m"]
+        },
         {
           "rank": 157,
           "omega": 2.8683758456222916,
@@ -7088,12 +7098,12 @@
     "ranks": {
       "Z": 202,
       "Q": 202,
-      "ZT": 204
+      "ZT": 202
     },
     "omegas": {
       "Z": 2.863822126298449,
       "Q": 2.863822126298449,
-      "ZT": 2.8691374619515773
+      "ZT": 2.863822126298449
     },
     "schemes": {
       "Z": [
@@ -7108,6 +7118,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 202,
+          "omega": 2.863822126298449,
+          "complexity": 2385,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 3, "v": 1, "w": 1},
+          "source": "schemes/results/ZT/2x10x13_m202_ZT.json",
+          "path": "schemes/status/ZT/2x10x13_m202_ZT.json",
+          "duplicates": ["schemes/results/ZT/2x10x13_m202_ZT.m"]
+        },
         {
           "rank": 204,
           "omega": 2.8691374619515773,
@@ -7451,12 +7471,12 @@
     "ranks": {
       "Q": 221,
       "Z": 221,
-      "ZT": 224
+      "ZT": 221
     },
     "omegas": {
       "Q": 2.863244616721929,
       "Z": 2.863244616721929,
-      "ZT": 2.870396333408378
+      "ZT": 2.863244616721929
     },
     "schemes": {
       "Q": [
@@ -7494,6 +7514,16 @@
       ],
       "ZT": [
         {
+          "rank": 221,
+          "omega": 2.863244616721929,
+          "complexity": 3199,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/results/ZT/2x11x13_m221_ZT.json",
+          "path": "schemes/status/ZT/2x11x13_m221_ZT.json",
+          "duplicates": ["schemes/results/ZT/2x11x13_m221_ZT.m"]
+        },
+        {
           "rank": 224,
           "omega": 2.870396333408378,
           "complexity": 2226,
@@ -7530,12 +7560,12 @@
     "ranks": {
       "Q": 238,
       "Z": 238,
-      "ZT": 241
+      "ZT": 238
     },
     "omegas": {
       "Q": 2.86501328821452,
       "Z": 2.86501328821452,
-      "ZT": 2.8715714252244893
+      "ZT": 2.86501328821452
     },
     "schemes": {
       "Q": [
@@ -7572,6 +7602,16 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 238,
+          "omega": 2.86501328821452,
+          "complexity": 3368,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/results/ZT/2x11x14_m238_ZT.json",
+          "path": "schemes/status/ZT/2x11x14_m238_ZT.json",
+          "duplicates": ["schemes/results/ZT/2x11x14_m238_ZT.m"]
+        },
         {
           "rank": 241,
           "omega": 2.8715714252244893,
