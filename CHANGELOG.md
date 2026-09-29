@@ -3,6 +3,15 @@
 ## 29/09/2026
 Add @MerlijnW70 ternary schemes from [fmm-schemes](https://github.com/MerlijnW70/fmm-schemes);
 
+### Ternary coefficient rediscovery (`ZT`)
+* `2x10x12`: rediscovered [scheme](schemes/results/ZT/2x10x12_m186_ZT.json) with `186` multiplications;
+* `2x10x14`: rediscovered [scheme](schemes/results/ZT/2x10x14_m217_ZT.json) with `217` multiplications;
+* `2x10x15`: rediscovered [scheme](schemes/results/ZT/2x10x15_m233_ZT.json) with `233` multiplications;
+* `2x10x16`: rediscovered [scheme](schemes/results/ZT/2x10x16_m248_ZT.json) with `248` multiplications;
+* `2x11x16`: rediscovered [scheme](schemes/results/ZT/2x11x16_m272_ZT.json) with `272` multiplications;
+* `2x12x16`: rediscovered [scheme](schemes/results/ZT/2x12x16_m296_ZT.json) with `296` multiplications;
+* `2x14x16`: rediscovered [scheme](schemes/results/ZT/2x14x16_m344_ZT.json) with `344` multiplications;
+
 
 ## 28/09/2026
 ### Rank improvement
