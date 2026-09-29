@@ -1,5 +1,40 @@
 # Changelog
 
+## 29/09/2026
+Added ternary schemes from [fmm-schemes](https://github.com/MerlijnW70/fmm-schemes) ([v1.1](https://doi.org/10.5281/zenodo.23001328));
+
+### Rank improvement
+* `11x13x15`: found [scheme](schemes/results/ZT/11x13x15_m1364_ZT.json) with `1364` multiplications (`ZT`);
+* `11x14x14`: found [scheme](schemes/results/ZT/11x14x14_m1373_ZT.json) with `1373` multiplications (`ZT`);
+
+### Ternary coefficient rediscovery (`ZT`)
+* `7x7x9`: rediscovered [scheme](schemes/results/ZT/7x7x9_m315_ZT.json) with `315` multiplications;
+
+### Ternary coefficient improvement (`ZT`)
+* `2x12x15`: found [scheme](schemes/results/ZT/2x12x15_m280_ZT.json) with `280` multiplications;
+* `2x13x15`: found [scheme](schemes/results/ZT/2x13x15_m304_ZT.json) with `304` multiplications;
+* `2x13x16`: found [scheme](schemes/results/ZT/2x13x16_m324_ZT.json) with `324` multiplications;
+* `2x14x16`: found [scheme](schemes/results/ZT/2x14x16_m348_ZT.json) with `348` multiplications;
+* `2x15x16`: found [scheme](schemes/results/ZT/2x15x16_m374_ZT.json) with `374` multiplications;
+* `4x11x15`: found [scheme](schemes/results/ZT/4x11x15_m457_ZT.json) with `457` multiplications;
+* `6x11x11`: found [scheme](schemes/results/ZT/6x11x11_m492_ZT.json) with `492` multiplications;
+* `6x11x14`: found [scheme](schemes/results/ZT/6x11x14_m617_ZT.json) with `617` multiplications;
+* `7x9x14`: found [scheme](schemes/results/ZT/7x9x14_m599_ZT.json) with `599` multiplications;
+* `7x9x15`: found [scheme](schemes/results/ZT/7x9x15_m638_ZT.json) with `638` multiplications;
+* `8x11x16`: found [scheme](schemes/results/ZT/8x11x16_m906_ZT.json) with `906` multiplications;
+* `8x16x16`: found [scheme](schemes/results/ZT/8x16x16_m1256_ZT.json) with `1256` multiplications;
+* `9x11x13`: found [scheme](schemes/results/ZT/9x11x13_m840_ZT.json) with `840` multiplications;
+* `9x14x16`: found [scheme](schemes/results/ZT/9x14x16_m1260_ZT.json) with `1260` multiplications;
+* `9x15x15`: found [scheme](schemes/results/ZT/9x15x15_m1269_ZT.json) with `1269` multiplications;
+* `10x14x16`: found [scheme](schemes/results/ZT/10x14x16_m1416_ZT.json) with `1416` multiplications;
+* `11x15x15`: found [scheme](schemes/results/ZT/11x15x15_m1547_ZT.json) with `1547` multiplications;
+* `11x15x16`: found [scheme](schemes/results/ZT/11x15x16_m1641_ZT.json) with `1641` multiplications;
+* `11x16x16`: found [scheme](schemes/results/ZT/11x16x16_m1749_ZT.json) with `1749` multiplications;
+* `12x12x15`: found [scheme](schemes/results/ZT/12x12x15_m1326_ZT.json) with `1326` multiplications;
+* `12x13x15`: found [scheme](schemes/results/ZT/12x13x15_m1464_ZT.json) with `1464` multiplications;
+* `13x14x16`: found [scheme](schemes/results/ZT/13x14x16_m1806_ZT.json) with `1806` multiplications;
+
+
 ## 28/09/2026
 ### Rank improvement
 * `4x4x8`: found [scheme](schemes/results/Q/4x4x8_m95_Q.json) with `95` multiplications (`Q`);
