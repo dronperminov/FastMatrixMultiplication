@@ -1,5 +1,9 @@
 # Changelog
 
+## 29/09/2026
+Add @MerlijnW70 ternary schemes from [fmm-schemes](https://github.com/MerlijnW70/fmm-schemes);
+
+
 ## 28/09/2026
 ### Rank improvement
 * `4x4x8`: found [scheme](schemes/results/Q/4x4x8_m95_Q.json) with `95` multiplications (`Q`);
