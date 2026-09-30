@@ -1,5 +1,10 @@
 # Changelog
 
+## 30/09/2026
+### Ternary coefficient rediscovery (`ZT`)
+`2x9x10`: rediscovered [scheme](schemes/results/ZT/2x9x10_m140_ZT.json) with `140` multiplications;
+
+
 ## 29/09/2026
 Add @MerlijnW70 ternary schemes from [fmm-schemes](https://github.com/MerlijnW70/fmm-schemes);
 
