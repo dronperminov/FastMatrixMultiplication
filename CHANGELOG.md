@@ -1,12 +1,16 @@
 # Changelog
 
+## 02/10/2026
+Add new [@MerlijnW70](https://github.com/MerlijnW70) ternary schemes from [fmm-schemes](https://github.com/MerlijnW70/fmm-schemes);
+
+
 ## 30/09/2026
 ### Ternary coefficient rediscovery (`ZT`)
 `2x9x10`: rediscovered [scheme](schemes/results/ZT/2x9x10_m140_ZT.json) with `140` multiplications;
 
 
 ## 29/09/2026
-Add @MerlijnW70 ternary schemes from [fmm-schemes](https://github.com/MerlijnW70/fmm-schemes);
+Add [@MerlijnW70](https://github.com/MerlijnW70) ternary schemes from [fmm-schemes](https://github.com/MerlijnW70/fmm-schemes);
 
 ### Ternary coefficient rediscovery (`ZT`)
 * `2x9x11`: rediscovered [scheme](schemes/results/ZT/2x9x11_m154_ZT.json) with `154` multiplications;

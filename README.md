@@ -172,7 +172,6 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `7x10x12`  |   564 (`Z`)   |     [557](schemes/results/Q/7x10x12_m557_Q.json) (`Q`)     |   2.816955831   |
 | `7x10x15`  |   711 (`Q`)   |  [694](schemes/results/ZT/7x10x15_m694_ZT.json) (`ZT/Z`)   |   2.821431419   |
 | `7x10x16`  |   752 (`Q`)   |     [736](schemes/results/Q/7x10x16_m736_Q.json) (`Q`)     |   2.820602981   |
-| `7x11x15`  |   778 (`Z`)   |     [777](schemes/results/Q/7x11x15_m777_Q.json) (`Q`)     |   2.831357038   |
 | `7x11x16`  |   827 (`Q`)   |  [822](schemes/results/ZT/7x11x16_m822_ZT.json) (`ZT/Z`)   |   2.829413433   |
 | `7x12x15`  |   831 (`Z`)   |  [815](schemes/results/ZT/7x12x15_m815_ZT.json) (`ZT/Z`)   |   2.816912591   |
 | `7x12x16`  |   880 (`Q`)   |   [876](schemes/results/ZT/7x12x16_m876_ZT.json) (`ZT`)    |   2.821734555   |
@@ -193,7 +192,6 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 |  `8x9x16`  |   746 (`Q`)   |    [735](schemes/results/ZT/8x9x16_m735_ZT.json) (`ZT`)    |   2.808752406   |
 | `8x10x10`  |  532 (`ZT`)   |   [528](schemes/results/ZT/8x10x10_m528_ZT.json) (`ZT`)    |   2.813520009   |
 | `8x10x12`  |   630 (`Z`)   |     [624](schemes/results/Q/8x10x12_m624_Q.json) (`Q`)     |   2.811801179   |
-| `8x10x14`  |   728 (`Z`)   |   [726](schemes/results/ZT/8x10x14_m726_ZT.json) (`ZT`)    |   2.814757685   |
 | `8x10x15`  |   789 (`Z`)   |     [778](schemes/results/Q/8x10x15_m778_Q.json) (`Q`)     |   2.816637962   |
 | `8x10x16`  |   832 (`Q`)   |     [822](schemes/results/Q/8x10x16_m822_Q.json) (`Q`)     |   2.814298209   |
 | `8x11x12`  |   680 (`Q`)   |     [676](schemes/results/Q/8x11x12_m676_Q.json) (`Q`)     |   2.807798855   |
@@ -225,7 +223,6 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `9x10x16`  |   939 (`Q`)   |     [916](schemes/results/Q/9x10x16_m916_Q.json) (`Q`)     |   2.813383975   |
 | `9x11x11`  |   725 (`Q`)   |     [711](schemes/results/Q/9x11x11_m711_Q.json) (`Q`)     |   2.817099197   |
 | `9x11x12`  |   760 (`Q`)   |     [738](schemes/results/Q/9x11x12_m738_Q.json) (`Q`)     | **2.798270808** |
-| `9x11x13`  |  840 (`ZT`)   |     [835](schemes/results/Q/9x11x13_m835_Q.json) (`Q`)     |   2.818729064   |
 | `9x11x14`  |   904 (`Z`)   |     [882](schemes/results/Q/9x11x14_m882_Q.json) (`Q`)     |   2.812562599   |
 | `9x11x15`  |   981 (`Q`)   |   [956](schemes/results/ZT/9x11x15_m956_ZT.json) (`ZT`)    |   2.819087272   |
 | `9x11x16`  |  1030 (`Z`)   |  [996](schemes/results/ZT/9x11x16_m996_ZT.json) (`ZT/Z`)   |   2.811083198   |
@@ -251,7 +248,6 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `10x12x14` |  1050 (`Z`)   |  [1048](schemes/results/ZT/10x12x14_m1048_ZT.json) (`ZT`)  |   2.809368980   |
 | `10x12x15` |  1140 (`ZT`)  | [1122](schemes/results/ZT/10x12x15_m1122_ZT.json) (`ZT/Z`) |   2.810818006   |
 | `10x12x16` |  1216 (`Q`)   |   [1176](schemes/results/Q/10x12x16_m1176_Q.json) (`Q`)    | **2.805475746** |
-| `10x13x14` |  1154 (`Z`)   |  [1152](schemes/results/ZT/10x13x14_m1152_ZT.json) (`ZT`)  |   2.817225865   |
 | `10x13x15` |  1242 (`Z`)   | [1230](schemes/results/ZT/10x13x15_m1230_ZT.json) (`ZT/Z`) |   2.817513014   |
 | `10x13x16` |  1332 (`Z`)   |   [1318](schemes/results/Q/10x13x16_m1318_Q.json) (`Q`)    |   2.820846164   |
 | `10x14x15` |  1327 (`Z`)   | [1314](schemes/results/ZT/10x14x15_m1314_ZT.json) (`ZT/Z`) |   2.816125387   |
@@ -455,7 +451,6 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `8x8x11`  |   [475](schemes/results/ZT/8x8x11_m475_ZT.json)    |    `Q`     |
 |  `8x8x13`  |   [559](schemes/results/ZT/8x8x13_m559_ZT.json)    |    `Q`     |
 | `8x10x11`  |   [588](schemes/results/ZT/8x10x11_m588_ZT.json)   |    `Z`     |
-| `8x10x13`  |   [686](schemes/results/ZT/8x10x13_m686_ZT.json)   |    `Z`     |
 | `8x11x14`  |   [804](schemes/results/ZT/8x11x14_m804_ZT.json)   |    `Z`     |
 | `10x10x10` |  [651](schemes/results/ZT/10x10x10_m651_ZT.json)   |    `Z`     |
 | `10x10x11` |  [719](schemes/results/ZT/10x10x11_m719_ZT.json)   |    `Z`     |
@@ -472,7 +467,6 @@ with coefficients restricted to the ternary set were previously unknown.
 | `11x11x11` |  [873](schemes/results/ZT/11x11x11_m873_ZT.json)   |    `Z`     |
 | `11x11x13` | [1023](schemes/results/ZT/11x11x13_m1023_ZT.json)  |    `Z`     |
 | `11x11x14` | [1093](schemes/results/ZT/11x11x14_m1093_ZT.json)  |    `Z`     |
-| `13x13x15` | [1605](schemes/results/ZT/13x13x15_m1605_ZT.json)  |    `Z`     |
 
 
 ### Rediscovery in the integer ring (`Z`)
@@ -534,16 +528,16 @@ This research consolidates and analyzes schemes from several leading sources in 
 | Source                              | Description                                                                                                                                                                                      |
 |:------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | FMM catalogue                       | The central repository for known fast matrix multiplication algorithms ([fmm.univ-lille.fr](https://fmm.univ-lille.fr)).                                                                         |
-| MMC — Matrix Multiplication Catalog | Large catalog tracking history and fields, maintained by @blacelle ([matmulcatalog](https://solven.eu/matmulcatalog)).                                                                           |
+| MMC — Matrix Multiplication Catalog | Large catalog tracking history and fields, maintained by [@blacelle](https://github.com/blacelle) ([matmulcatalog](https://solven.eu/matmulcatalog)).                                            |
 | Alpha Tensor                        | Schemes from DeepMind's AlphaTensor project ([https://github.com/google-deepmind/alphatensor/tree/main/algorithms](https://github.com/google-deepmind/alphatensor/tree/main/algorithms)).        |
 | Alpha Evolve                        | Schemes from DeepMind's AlphaEvolve project ([mathematical_results.ipynb](https://colab.research.google.com/github/google-deepmind/alphaevolve_results/blob/master/mathematical_results.ipynb)). |
 | Original Flip Graph                 | Foundational work by Jakob Moosbauer ([flips](https://github.com/jakobmoosbauer/flips/tree/main/solutions)).                                                                                     |
 | Adaptive flip graph                 | Improved flip graph approach ([adap](https://github.com/Yamato-Arai/adap)).                                                                                                                      |
 | Symmetric flip graph                | Flip graphs with symmetry ([symmetric-flips](https://github.com/jakobmoosbauer/symmetric-flips)).                                                                                                |
 | Meta Flip Graph                     | Advanced flip graph techniques by M. Kauers et al. ([matrix-multiplication](https://github.com/mkauers/matrix-multiplication)).                                                                  |
-| FMM Add Reduction                   | Work on additive reductions by @werekorren ([fmm_add_reduction](https://github.com/werekorren/fmm_add_reduction/tree/main/algorithms)).                                                          |
-| LITA                                | Local Improvements to Trilinear Aggregation by @khoruzhii ([lita](https://github.com/khoruzhii/lita)).                                                                                           |
-| fmm_schemes                         | New fast matrix multiplication schemes by @MerlijnW70 ([fmm_schemes](https://github.com/MerlijnW70/fmm-schemes)).                                                                                |
+| FMM Add Reduction                   | Work on additive reductions by [@werekorren](https://github.com/werekorren) ([fmm_add_reduction](https://github.com/werekorren/fmm_add_reduction/tree/main/algorithms)).                         |
+| LITA                                | Local Improvements to Trilinear Aggregation by [@khoruzhii](https://github.com/khoruzhii) ([lita](https://github.com/khoruzhii/lita)).                                                           |
+| fmm_schemes                         | New fast matrix multiplication schemes by [@MerlijnW70](https://github.com/MerlijnW70) ([fmm_schemes](https://github.com/MerlijnW70/fmm-schemes)).                                               |
 
 ## Scheme File Formats
 This repository uses two JSON formats for storing matrix-multiplication schemes:
@@ -1212,7 +1206,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `6x10x16`  |   630 (?)   |   630 (?)    |     630      |   2.815981845   |
 | `6x11x11`  |     492     |     492      |     490      |   2.820960164   |
 | `6x11x12`  |   521 (?)   |   521 (?)    |  521 (524)   |   2.811757811   |
-| `6x11x13`  |   584 (?)   |   584 (?)    |     574      |   2.821466352   |
+| `6x11x13`  |     572     |     572      |     572      |   2.819916118   |
 | `6x11x14`  |     617     |     617      |     613      |   2.819725683   |
 | `6x11x15`  |   653 (?)   |  653 (661)   |  653 (661)   |   2.819014665   |
 | `6x11x16`  |   684 (?)   |   684 (?)    |  684 (695)   |   2.812868273   |
@@ -1233,7 +1227,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `6x16x16`  |  972 (988)  |  972 (988)   |  972 (988)   |   2.812899669   |
 |  `7x7x7`   |   250 (?)   |   250 (?)    |     249      |   2.835409898   |
 |  `7x7x8`   |   278 (?)   |   278 (?)    |     277      |   2.825542234   |
-|  `7x7x9`   |     315     |     315      |     315      |   2.834224130   |
+|  `7x7x9`   |     314     |     314      |     314      |   2.832657553   |
 |  `7x7x10`  |   346 (?)   |     346      |  345 (346)   |   2.830075228   |
 |  `7x7x11`  |   378 (?)   |   378 (?)    |     376      |   2.828230821   |
 |  `7x7x12`  |   404 (?)   |   404 (?)    |     402      |   2.821095589   |
@@ -1269,7 +1263,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `7x11x12`  |   622 (?)   |   622 (?)    |     618      |   2.823294520   |
 | `7x11x13`  |   679 (?)   |   679 (?)    |     675      |   2.828894453   |
 | `7x11x14`  |   725 (?)   |   725 (?)    |     721      |   2.827195395   |
-| `7x11x15`  |   778 (?)   |     778      |  777 (778)   |   2.831357038   |
+| `7x11x15`  |     769     |     769      |     769      |   2.826954205   |
 | `7x11x16`  |   822 (?)   |   822 (?)    |  822 (827)   |   2.829413433   |
 | `7x12x12`  |   666 (?)   |   666 (?)    |     660      |   2.816295309   |
 | `7x12x13`  |   730 (?)   |   730 (?)    |     724      |   2.823761363   |
@@ -1306,8 +1300,8 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `8x10x10`  |  528 (532)  |  528 (532)   |  528 (532)   |   2.813520009   |
 | `8x10x11`  |   588 (?)   |     588      |     588      |   2.821593096   |
 | `8x10x12`  |   628 (?)   |  628 (630)   |  624 (630)   |   2.811801179   |
-| `8x10x13`  |   686 (?)   |     686      |     686      |   2.820311011   |
-| `8x10x14`  |   726 (?)   |  726 (728)   |  726 (728)   |   2.814757685   |
+| `8x10x13`  |     684     |     684      |     684      |   2.819050156   |
+| `8x10x14`  |     724     |     724      |     724      |   2.813578968   |
 | `8x10x15`  |   780 (?)   |  780 (789)   |  778 (789)   |   2.816637962   |
 | `8x10x16`  |   826 (?)   |   826 (?)    |  822 (832)   |   2.814298209   |
 | `8x11x11`  |   646 (?)   |   646 (?)    |     641      |   2.820135833   |
@@ -1348,7 +1342,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `9x10x16`  |   924 (?)   |   920 (?)    |  916 (939)   |   2.813383975   |
 | `9x11x11`  |   721 (?)   |   721 (?)    |  711 (725)   |   2.817099197   |
 | `9x11x12`  |   762 (?)   |   762 (?)    |  738 (760)   | **2.798270808** |
-| `9x11x13`  |     840     |     840      |  835 (840)   |   2.818729064   |
+| `9x11x13`  |     833     |     833      |     833      |   2.817724290   |
 | `9x11x14`  |   900 (?)   |  900 (904)   |  882 (904)   |   2.812562599   |
 | `9x11x15`  |   956 (?)   |   956 (?)    |  956 (981)   |   2.819087272   |
 | `9x11x16`  |   996 (?)   |  996 (1030)  |  996 (1030)  |   2.811083198   |
@@ -1386,7 +1380,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `10x12x15` | 1122 (1140) | 1122 (1140)  | 1122 (1140)  |   2.810818006   |
 | `10x12x16` |  1188 (?)   |   1188 (?)   | 1176 (1216)  | **2.805475746** |
 | `10x13x13` |  1082 (?)   |     1082     |     1082     |   2.820012787   |
-| `10x13x14` |  1152 (?)   | 1152 (1154)  | 1152 (1154)  |   2.817225865   |
+| `10x13x14` |    1150     |     1150     |     1150     |   2.816531428   |
 | `10x13x15` |  1230 (?)   | 1230 (1242)  | 1230 (1242)  |   2.817513014   |
 | `10x13x16` |  1326 (?)   | 1326 (1332)  | 1318 (1332)  |   2.820846164   |
 | `10x14x14` |  1232 (?)   |     1232     |     1232     |   2.816254849   |
@@ -1408,9 +1402,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `11x12x16` |  1306 (?)   |   1306 (?)   | 1278 (1312)  | **2.803143027** |
 | `11x13x13` |  1205 (?)   | 1205 (1210)  | 1205 (1210)  |   2.827216655   |
 | `11x13x14` |  1292 (?)   | 1292 (1298)  | 1286 (1298)  |   2.825329217   |
-| `11x13x15` |    1364     |     1364     |     1364     |   2.822947126   |
+| `11x13x15` |    1362     |     1362     |     1362     |   2.822373261   |
 | `11x13x16` |  1458 (?)   | 1458 (1472)  | 1446 (1472)  |   2.822035717   |
-| `11x14x14` |    1373     |     1373     |     1373     |   2.823636291   |
+| `11x14x14` |    1367     |     1367     |     1367     |   2.821924633   |
 | `11x14x15` |  1432 (?)   | 1432 (1471)  | 1432 (1471)  |   2.814780394   |
 | `11x14x16` |  1550 (?)   |   1550 (?)   | 1520 (1571)  |   2.814428649   |
 | `11x15x15` |    1547     |     1547     |     1540     |   2.817843009   |
@@ -1433,7 +1427,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `12x16x16` |  1862 (?)   |   1862 (?)   | 1815 (1824)  | **2.803398069** |
 | `13x13x13` |  1426 (?)   |   1426 (?)   |     1379     |   2.818423630   |
 | `13x13x14` |  1511 (?)   | 1511 (1524)  | 1511 (1524)  |   2.826838093   |
-| `13x13x15` |  1605 (?)   |     1605     |     1605     |   2.825055042   |
+| `13x13x15` |    1591     |     1591     |     1591     |   2.821701739   |
 | `13x13x16` |  1711 (?)   |   1711 (?)   | 1704 (1713)  |   2.824705676   |
 | `13x14x14` |  1614 (?)   | 1614 (1625)  | 1582 (1625)  |   2.817691580   |
 | `13x14x15` |  1681 (?)   | 1681 (1714)  | 1681 (1714)  |   2.816136526   |
@@ -1454,9 +1448,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (57 better Strassen)
-* `ZT` schemes: 381 (56.03%)
+* `ZT` schemes: 384 (56.47%)
 * `Z` schemes: 10 (1.47%)
-* `Q` schemes: 289 (42.50%)
+* `Q` schemes: 286 (42.06%)
 
 
 ## License and Citation
