@@ -1,5 +1,9 @@
 # Changelog
 
+## 09/10/2026
+Add new [@matyasstoch](https://github.com/matyasstoch) schemes from [cloudroom-math](https://github.com/matyasstoch/cloudroom-math);
+
+
 ## 02/10/2026
 Add new [@MerlijnW70](https://github.com/MerlijnW70) ternary schemes from [fmm-schemes](https://github.com/MerlijnW70/fmm-schemes);
 

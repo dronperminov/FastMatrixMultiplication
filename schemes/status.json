@@ -21705,12 +21705,12 @@
   "4x6x15": {
     "ranks": {
       "Z": 263,
-      "Q": 263,
+      "Q": 261,
       "ZT": 263
     },
     "omegas": {
       "Z": 2.8399875379733768,
-      "Q": 2.8399875379733768,
+      "Q": 2.8360968703190417,
       "ZT": 2.8399875379733768
     },
     "schemes": {
@@ -21734,6 +21734,17 @@
           "buds_count": {"u": 58, "v": 2, "w": 4},
           "source": "schemes/results/ZT/4x6x15_m263_ZT.json",
           "path": "schemes/status/ZT/4x6x15_m263_ZT.json"
+        }
+      ],
+      "Q": [
+        {
+          "rank": 261,
+          "omega": 2.8360968703190417,
+          "complexity": 5448,
+          "values": [-7, -6, -5, -4, -3, -2, "-3/2", -1, "-1/2", 0, "1/2", 1, "3/2", 2, 3, 4, 5, 6, 7],
+          "buds_count": {"u": 91, "v": 0, "w": 10},
+          "source": "schemes/known/cloudroom-math/4x6x15_rank261.json",
+          "path": "schemes/status/Q/4x6x15_m261_Q.json"
         }
       ]
     }
@@ -46319,17 +46330,26 @@
   },
   "9x11x11": {
     "ranks": {
-      "Q": 711,
+      "Q": 710,
       "ZT": 721,
       "Z": 721
     },
     "omegas": {
-      "Q": 2.817099197284058,
+      "Q": 2.816495397745603,
       "ZT": 2.823090907827872,
       "Z": 2.823090907827872
     },
     "schemes": {
       "Q": [
+        {
+          "rank": 710,
+          "omega": 2.816495397745603,
+          "complexity": 38181,
+          "values": [-3, -2, "-3/2", -1, "-1/2", "-1/4", "-1/8", 0, "1/8", "1/4", "1/2", 1, "3/2", 2, 3],
+          "buds_count": {"u": 2, "v": 6, "w": 9},
+          "source": "schemes/known/cloudroom-math/9x11x11_rank710.json",
+          "path": "schemes/status/Q/9x11x11_m710_Q.json"
+        },
         {
           "rank": 711,
           "omega": 2.817099197284058,

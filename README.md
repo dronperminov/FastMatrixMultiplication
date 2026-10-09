@@ -221,7 +221,6 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `9x10x14`  |   820 (`Z`)   |     [808](schemes/results/Q/9x10x14_m808_Q.json) (`Q`)     |   2.813287623   |
 | `9x10x15`  |  870 (`ZT`)   |     [861](schemes/results/Q/9x10x15_m861_Q.json) (`Q`)     |   2.812802118   |
 | `9x10x16`  |   939 (`Q`)   |     [916](schemes/results/Q/9x10x16_m916_Q.json) (`Q`)     |   2.813383975   |
-| `9x11x11`  |   725 (`Q`)   |     [711](schemes/results/Q/9x11x11_m711_Q.json) (`Q`)     |   2.817099197   |
 | `9x11x12`  |   760 (`Q`)   |     [738](schemes/results/Q/9x11x12_m738_Q.json) (`Q`)     | **2.798270808** |
 | `9x11x14`  |   904 (`Z`)   |     [882](schemes/results/Q/9x11x14_m882_Q.json) (`Q`)     |   2.812562599   |
 | `9x11x15`  |   981 (`Q`)   |   [956](schemes/results/ZT/9x11x15_m956_ZT.json) (`ZT`)    |   2.819087272   |
@@ -399,7 +398,6 @@ with coefficients restricted to the ternary set were previously unknown.
 |  `4x6x9`   |    [159](schemes/results/ZT/4x6x9_m159_ZT.json)    |    `Q`     |
 |  `4x6x10`  |   [175](schemes/results/ZT/4x6x10_m175_ZT.json)    |    `Z`     |
 |  `4x6x11`  |   [194](schemes/results/ZT/4x6x11_m194_ZT.json)    |    `Q`     |
-|  `4x6x15`  |   [263](schemes/results/ZT/4x6x15_m263_ZT.json)    |    `Z`     |
 |  `4x7x7`   |    [144](schemes/results/ZT/4x7x7_m144_ZT.json)    |   `Z/Q`    |
 |  `4x8x13`  |   [297](schemes/results/ZT/4x8x13_m297_ZT.json)    |    `Z`     |
 |  `4x9x15`  |   [375](schemes/results/ZT/4x9x15_m375_ZT.json)    |    `Z`     |
@@ -538,6 +536,7 @@ This research consolidates and analyzes schemes from several leading sources in 
 | FMM Add Reduction                   | Work on additive reductions by [@werekorren](https://github.com/werekorren) ([fmm_add_reduction](https://github.com/werekorren/fmm_add_reduction/tree/main/algorithms)).                         |
 | LITA                                | Local Improvements to Trilinear Aggregation by [@khoruzhii](https://github.com/khoruzhii) ([lita](https://github.com/khoruzhii/lita)).                                                           |
 | fmm_schemes                         | New fast matrix multiplication schemes by [@MerlijnW70](https://github.com/MerlijnW70) ([fmm_schemes](https://github.com/MerlijnW70/fmm-schemes)).                                               |
+| cloudroom-math                      | Cloudroom Math: new matrix multiplication algorithms found by AI agents by [@matyasstoch](https://github.com/matyasstoch) ([cloudroom-math](https://github.com/matyasstoch/cloudroom-math))      |
 
 ## Scheme File Formats
 This repository uses two JSON formats for storing matrix-multiplication schemes:
@@ -1024,7 +1023,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 |  `4x6x12`  |     210     |     210      |     210      |   2.832674296   |
 |  `4x6x13`  |   227 (?)   |  227 (228)   |  227 (228)   |   2.833857047   |
 |  `4x6x14`  |     245     |     245      |     245      |   2.837108348   |
-|  `4x6x15`  |   263 (?)   |     263      |     263      |   2.839987538   |
+|  `4x6x15`  |   263 (?)   |     263      |     261      |   2.836096870   |
 |  `4x6x16`  |  276 (280)  |  276 (280)   |  276 (280)   |   2.833509566   |
 |  `4x7x7`   |   144 (?)   |     144      |     144      |   2.824766202   |
 |  `4x7x8`   |  161 (164)  |  161 (164)   |  161 (164)   |   2.816927225   |
@@ -1340,7 +1339,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `9x10x14`  |   820 (?)   |     820      |  808 (820)   |   2.813287623   |
 | `9x10x15`  |  863 (870)  |  863 (870)   |  861 (870)   |   2.812802118   |
 | `9x10x16`  |   924 (?)   |   920 (?)    |  916 (939)   |   2.813383975   |
-| `9x11x11`  |   721 (?)   |   721 (?)    |  711 (725)   |   2.817099197   |
+| `9x11x11`  |   721 (?)   |   721 (?)    |     710      |   2.816495398   |
 | `9x11x12`  |   762 (?)   |   762 (?)    |  738 (760)   | **2.798270808** |
 | `9x11x13`  |     833     |     833      |     833      |   2.817724290   |
 | `9x11x14`  |   900 (?)   |  900 (904)   |  882 (904)   |   2.812562599   |
@@ -1448,9 +1447,9 @@ from other fields. The best ranks of previously known schemes are given in brack
 
 ### Coefficient set status
 * total schemes: 680 (57 better Strassen)
-* `ZT` schemes: 384 (56.47%)
+* `ZT` schemes: 383 (56.32%)
 * `Z` schemes: 10 (1.47%)
-* `Q` schemes: 286 (42.06%)
+* `Q` schemes: 287 (42.21%)
 
 
 ## License and Citation
