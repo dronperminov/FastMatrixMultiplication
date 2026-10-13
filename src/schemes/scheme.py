@@ -98,6 +98,13 @@ class Scheme:
                 f.write(f'  {row}{"," if index < self.m - 1 else ""}\n')
             f.write("}\n")
 
+    def save_sms(self, path: str) -> None:
+        w = [[self.w[index][j * self.n[0] + i] for index in range(self.m)] for i in range(self.n[0]) for j in range(self.n[2])]
+
+        self.__save_matrix_sms(path.replace(".sms", "_L.sms"), self.u)
+        self.__save_matrix_sms(path.replace(".sms", "_R.sms"), self.v)
+        self.__save_matrix_sms(path.replace(".sms", "_P.sms"), w)
+
     def save_txt(self, path: str) -> None:
         n1, n2, n3 = self.n
         ring = self.get_ring()
@@ -130,6 +137,17 @@ class Scheme:
             f.write(f"Tensor:=TriadSet([{triads}]):\n")
             f.write(f"map(expand,A.B-add(LinearAlgebra:-Trace(LinearAlgebra:-Transpose(op([1,i,1,1],Tensor)).A)*LinearAlgebra:-Trace(LinearAlgebra:-Transpose(op([1,i,1,2],Tensor)).B)*LinearAlgebra:-Transpose(op([1,i,1,3],Tensor)),i=1..{self.m}));\n")
 
+    def __save_matrix_sms(self, path: str, matrix: List[List[Union[int, Fraction]]]) -> None:
+        with open(path, "w") as f:
+            f.write(f"{len(matrix)} {len(matrix[0])} R\n")
+
+            for i, row in enumerate(matrix):
+                for j, value in enumerate(row):
+                    if value != 0:
+                        f.write(f"{i + 1} {j + 1} {self.__pretty_value(value)}\n")
+
+            f.write("0 0 0\n")
+
     @classmethod
     def load(cls, path: str, validate: bool = True) -> "Scheme":
         lower_path = path.lower()
@@ -152,6 +170,9 @@ class Scheme:
         if lower_path.endswith("reduced.json"):
             return Scheme.from_reduced(path, validate=validate)
 
+        if lower_path.endswith(".sms"):
+            return Scheme.from_sms(path, validate=validate)
+
         if lower_path.endswith(".json"):
             return Scheme.from_json(path, validate=validate)
 
@@ -162,8 +183,12 @@ class Scheme:
         with open(path, "r") as f:
             data = json.load(f)
 
-        n1, n2, n3 = (data["n"], data["n"], data["n"]) if isinstance(data["n"], int) else data["n"]
-        m = data["m"]
+        if "dimension" in data:
+            n1, n2, n3 = data["dimension"]
+        else:
+            n1, n2, n3 = (data["n"], data["n"], data["n"]) if isinstance(data["n"], int) else data["n"]
+
+        m = data["rank"] if "rank" in data else data["m"]
         z2 = data.get("z2", False)
 
         u = [[cls.__parse_value(value) for value in row] for row in data["u"]]
@@ -335,6 +360,58 @@ class Scheme:
                 w[variable][i] += value
 
         return Scheme(n1=n1, n2=n2, n3=n3, m=m, u=u, v=v, w=w, z2=z2, validate=validate)
+
+    @classmethod
+    def from_sms(cls, path: str, validate: bool = True) -> "Scheme":
+        u = cls.__read_sms(path.replace(".sms", "_L.sms"))
+        v = cls.__read_sms(path.replace(".sms", "_R.sms"))
+        w = cls.__read_sms(path.replace(".sms", "_P.sms"), transpose=True)
+
+        rank = len(u)
+        n1 = int((len(u[0]) * len(w[0]) // len(v[0])) ** 0.5)
+        n2 = len(u[0]) // n1
+        n3 = len(w[0]) // n1
+
+        w = [[w[index][j * n3 + i] for i in range(n3) for j in range(n1)] for index in range(rank)]
+        return Scheme(n1=n1, n2=n2, n3=n3, m=rank, u=u, v=v, w=w, z2=False, validate=validate)
+
+    @staticmethod
+    def __read_sms(input_path: str, transpose: bool = False) -> List[List[Fraction]]:
+        with open(input_path) as f:
+            line = next(f)
+            while (not line or line.startswith("#")) and f:
+                line = next(f)
+
+            rows, cols, domain = line.strip().split(" ")
+            rows, cols = int(rows), int(cols)
+            assert domain == "R"
+
+            if transpose:
+                rows, cols = cols, rows
+
+            matrix = [[Fraction(0) for _ in range(cols)] for _ in range(rows)]
+
+            for line in f:
+                line = line.strip()
+                if line == "0 0 0":
+                    break
+
+                if not line or line.startswith("#"):
+                    continue
+
+                i, j, value = line.split(" ")
+                i, j = int(i) - 1, int(j) - 1
+                value = Fraction(value)
+
+                if transpose:
+                    i, j = j, i
+
+                assert 0 <= i < rows, f"0 <= {i} < {rows} ({line})"
+                assert 0 <= j < cols, f"0 <= {j} < {cols} ({line})"
+
+                matrix[i][j] = value
+
+        return matrix
 
     def to_z2(self, validate: bool = True, den: int = 1) -> "Scheme":
         if den % 2 == 0:
@@ -593,6 +670,10 @@ class Scheme:
 
         if min(values) == -1 and max(values) == 1:
             return "ZT"
+
+        unique = set(values)
+        if all(value >= 0 for value in unique):
+            return f"Z{max(unique) + 1}"
 
         return "Z"
 

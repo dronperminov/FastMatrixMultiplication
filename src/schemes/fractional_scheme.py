@@ -25,7 +25,7 @@ class FractionalScheme:
         ]
 
         if validate:
-            self.__validate()
+            assert self.validate()
 
     def copy(self) -> "FractionalScheme":
         n1, n2, n3 = self.n
@@ -118,6 +118,15 @@ class FractionalScheme:
         n1, n2, n3 = self.n
         return Scheme(n1=n1, n2=n2, n3=n3, m=self.m, u=self.uvw[0], v=self.uvw[1], w=self.uvw[2], z2=False, validate=validate)
 
+    def validate(self) -> bool:
+        for i in range(self.nn[0]):
+            for j in range(self.nn[1]):
+                for k in range(self.nn[2]):
+                    if not self.__validate_equation(i, j, k):
+                        return False
+
+        return True
+
     @classmethod
     def load(cls, path: str, validate: bool = True) -> "FractionalScheme":
         if path.endswith(".txt"):
@@ -138,8 +147,12 @@ class FractionalScheme:
         with open(path, "r") as f:
             data = json.load(f)
 
-        n1, n2, n3 = (data["n"], data["n"], data["n"]) if isinstance(data["n"], int) else data["n"]
-        m = data["m"]
+        if "dimension" in data:
+            n1, n2, n3 = data["dimension"]
+        else:
+            n1, n2, n3 = (data["n"], data["n"], data["n"]) if isinstance(data["n"], int) else data["n"]
+
+        m = data["rank"] if "rank" in data else data["m"]
 
         u = [[Fraction(value) for value in row] for row in data["u"]]
         v = [[Fraction(value) for value in row] for row in data["v"]]
@@ -236,12 +249,6 @@ class FractionalScheme:
             v_lcm = math.lcm(*[v.denominator for v in self.uvw[1][index]])
             w_lcm = math.lcm(*[v.denominator for v in self.uvw[2][index]])
             self.scale(index, Fraction(1, v_lcm * w_lcm), Fraction(v_lcm), Fraction(w_lcm))
-
-    def __validate(self) -> None:
-        for i in range(self.nn[0]):
-            for j in range(self.nn[1]):
-                for k in range(self.nn[2]):
-                    assert self.__validate_equation(i, j, k)
 
     def __validate_equation(self, i: int, j: int, k: int) -> bool:
         i1, i2, j1, j2, k1, k2 = i // self.n[1], i % self.n[1], j // self.n[2], j % self.n[2], k // self.n[0], k % self.n[0]
