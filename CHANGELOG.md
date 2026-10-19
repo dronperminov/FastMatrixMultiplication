@@ -1,5 +1,9 @@
 # Changelog
 
+## 19/10/2026
+Add November 2025 benchmark schemes with fewer additions required;
+
+
 ## 09/10/2026
 Add new [@matyasstoch](https://github.com/matyasstoch) schemes from [cloudroom-math](https://github.com/matyasstoch/cloudroom-math);
 
