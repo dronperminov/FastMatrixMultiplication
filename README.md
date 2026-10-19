@@ -251,7 +251,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `10x13x16` |  1332 (`Z`)   |   [1318](schemes/results/Q/10x13x16_m1318_Q.json) (`Q`)    |   2.820846164   |
 | `10x14x15` |  1327 (`Z`)   | [1314](schemes/results/ZT/10x14x15_m1314_ZT.json) (`ZT/Z`) |   2.816125387   |
 | `10x14x16` |  1416 (`ZT`)  |   [1398](schemes/results/Q/10x14x16_m1398_Q.json) (`Q`)    |   2.816663561   |
-| `10x15x15` |  1395 (`Z`)   |   [1385](schemes/results/Q/10x15x15_m1385_Q.json) (`Q`)    |   2.811406977   |
+| `10x15x15` |  1389 (`ZT`)  |   [1385](schemes/results/Q/10x15x15_m1385_Q.json) (`Q`)    |   2.811406977   |
 | `10x15x16` |  1497 (`Z`)   |   [1482](schemes/results/Q/10x15x16_m1482_Q.json) (`Q`)    |   2.814186431   |
 | `10x16x16` |  1586 (`ZT`)  |   [1560](schemes/results/Q/10x16x16_m1560_Q.json) (`Q`)    |   2.810651214   |
 | `11x11x12` |   936 (`Z`)   |    [922](schemes/results/Q/11x11x12_m922_Q.json) (`Q`)     |   2.812867384   |
@@ -288,7 +288,7 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `13x15x16` |  1932 (`Z`)   |  [1885](schemes/results/ZT/13x15x16_m1885_ZT.json) (`ZT`)  |   2.812106276   |
 | `14x14x15` |  1813 (`Z`)   |   [1790](schemes/results/Q/14x14x15_m1790_Q.json) (`Q`)    |   2.813604914   |
 | `14x14x16` |  1939 (`Q`)   |   [1895](schemes/results/Q/14x14x16_m1895_Q.json) (`Q`)    |   2.812291210   |
-| `14x15x15` |  1905 (`Z`)   |   [1848](schemes/results/Q/14x15x15_m1848_Q.json) (`Q`)    | **2.801382482** |
+| `14x15x15` |  1894 (`ZT`)  |   [1848](schemes/results/Q/14x15x15_m1848_Q.json) (`Q`)    | **2.801382482** |
 | `14x16x16` |  2142 (`Q`)   |   [2128](schemes/results/Q/14x16x16_m2128_Q.json) (`Q`)    |   2.808914234   |
 | `15x15x16` |  2173 (`Q`)   | [2132](schemes/results/ZT/15x15x16_m2132_ZT.json) (`ZT/Z`) |   2.808074285   |
 | `15x16x16` |  2262 (`Q`)   |   [2223](schemes/results/Q/15x16x16_m2223_Q.json) (`Q`)    | **2.801308741** |
@@ -537,6 +537,7 @@ This research consolidates and analyzes schemes from several leading sources in 
 | LITA                                | Local Improvements to Trilinear Aggregation by [@khoruzhii](https://github.com/khoruzhii) ([lita](https://github.com/khoruzhii/lita)).                                                           |
 | fmm_schemes                         | New fast matrix multiplication schemes by [@MerlijnW70](https://github.com/MerlijnW70) ([fmm_schemes](https://github.com/MerlijnW70/fmm-schemes)).                                               |
 | cloudroom-math                      | Cloudroom Math: new matrix multiplication algorithms found by AI agents by [@matyasstoch](https://github.com/matyasstoch) ([cloudroom-math](https://github.com/matyasstoch/cloudroom-math))      |
+| mizopl                              | Near optimal ternary schemes from [@mizopl](https://github.com/mizopl)                                                                                                                           |
 
 ## Scheme File Formats
 This repository uses two JSON formats for storing matrix-multiplication schemes:
@@ -1347,7 +1348,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `9x11x16`  |   996 (?)   |  996 (1030)  |  996 (1030)  |   2.811083198   |
 | `9x12x12`  |   810 (?)   |   810 (?)    |     800      | **2.798064630** |
 | `9x12x13`  |   878 (?)   |   878 (?)    |  878 (900)   | **2.805673201** |
-| `9x12x14`  |   960 (?)   |   960 (?)    |  940 (945)   | **2.805232985** |
+| `9x12x14`  |     954     |     954      |  940 (945)   | **2.805232985** |
 | `9x12x15`  |  1012 (?)   |   1012 (?)   |  996 (1000)  | **2.802534955** |
 | `9x12x16`  |  1074 (?)   |   1074 (?)   | 1035 (1080)  | **2.793729377** |
 | `9x13x13`  |   986 (?)   |  986 (996)   |  981 (996)   |   2.820440786   |
@@ -1385,7 +1386,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `10x14x14` |  1232 (?)   |     1232     |     1232     |   2.816254849   |
 | `10x14x15` |  1314 (?)   | 1314 (1327)  | 1314 (1327)  |   2.816125387   |
 | `10x14x16` | 1403 (1416) | 1403 (1416)  | 1398 (1416)  |   2.816663561   |
-| `10x15x15` |  1395 (?)   | 1389 (1395)  | 1385 (1395)  |   2.811406977   |
+| `10x15x15` |    1389     |     1389     | 1385 (1389)  |   2.811406977   |
 | `10x15x16` |  1488 (?)   | 1484 (1497)  | 1482 (1497)  |   2.814186431   |
 | `10x16x16` | 1563 (1586) | 1563 (1586)  | 1560 (1586)  |   2.810651214   |
 | `11x11x11` |   873 (?)   |     873      |     873      |   2.824116479   |
@@ -1421,7 +1422,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `12x14x14` |  1484 (?)   |   1484 (?)   | 1449 (1481)  |   2.812807792   |
 | `12x14x15` |  1546 (?)   |   1546 (?)   | 1538 (1540)  |   2.810862435   |
 | `12x14x16` |  1641 (?)   |   1641 (?)   | 1617 (1638)  | **2.806918970** |
-| `12x15x15` |  1650 (?)   |   1650 (?)   |     1600     | **2.801323500** |
+| `12x15x15` |    1640     |     1640     |     1600     | **2.801323500** |
 | `12x15x16` |  1725 (?)   |   1725 (?)   | 1725 (1728)  | **2.806957387** |
 | `12x16x16` |  1862 (?)   |   1862 (?)   | 1815 (1824)  | **2.803398069** |
 | `13x13x13` |  1426 (?)   |   1426 (?)   |     1379     |   2.818423630   |
@@ -1437,7 +1438,7 @@ from other fields. The best ranks of previously known schemes are given in brack
 | `14x14x14` |  1725 (?)   |   1725 (?)   |     1594     | **2.794180246** |
 | `14x14x15` |  1798 (?)   | 1798 (1813)  | 1790 (1813)  |   2.813604914   |
 | `14x14x16` |  1943 (?)   |   1943 (?)   | 1895 (1939)  |   2.812291210   |
-| `14x15x15` |  1905 (?)   | 1895 (1905)  | 1848 (1905)  | **2.801382482** |
+| `14x15x15` |    1894     |     1894     | 1848 (1894)  | **2.801382482** |
 | `14x15x16` |  2043 (?)   |   2043 (?)   |     2016     |   2.811264261   |
 | `14x16x16` |  2170 (?)   |   2170 (?)   | 2128 (2142)  |   2.808914234   |
 | `15x15x15` |  2058 (?)   |   2058 (?)   |     1977     | **2.802509281** |
