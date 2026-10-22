@@ -622,6 +622,15 @@
         {
           "rank": 39,
           "omega": 2.9043694956187647,
+          "complexity": 112,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 80, "v": 2, "w": 2},
+          "source": "schemes/results/addition_reduced_ZT/2x2x11_m39_cr62_cn112_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x2x11_m39_ZT_v4.json"
+        },
+        {
+          "rank": 39,
+          "omega": 2.9043694956187647,
           "complexity": 319,
           "values": [-1, 0, 1],
           "buds_count": {"u": 90, "v": 0, "w": 0},
@@ -2158,6 +2167,15 @@
         {
           "rank": 26,
           "omega": 2.8202638308846555,
+          "complexity": 158,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 1, "v": 0, "w": 2},
+          "source": "schemes/results/addition_reduced_ZT/2x4x4_m26_cr81_cn158_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x4_m26_ZT_v8.json"
+        },
+        {
+          "rank": 26,
+          "omega": 2.8202638308846555,
           "complexity": 170,
           "values": [-1, 0, 1],
           "buds_count": {"u": 2, "v": 0, "w": 2},
@@ -2386,6 +2404,15 @@
         {
           "rank": 45,
           "omega": 2.8370160787678476,
+          "complexity": 343,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 14, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x4x7_m45_cr150_cn343_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x7_m45_ZT_v6.json"
+        },
+        {
+          "rank": 45,
+          "omega": 2.8370160787678476,
           "complexity": 345,
           "values": [-1, 0, 1],
           "buds_count": {"u": 14, "v": 0, "w": 0},
@@ -2514,6 +2541,15 @@
           "source": "schemes/results/ZT/2x4x8_m51_ZT.json",
           "path": "schemes/status/ZT/2x4x8_m51_ZT_v3.json",
           "duplicates": ["schemes/results/ZT/2x4x8_m51_ZT.m"]
+        },
+        {
+          "rank": 51,
+          "omega": 2.836212670985748,
+          "complexity": 436,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 8, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x4x8_m51_cr180_cn436_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x8_m51_ZT_v5.json"
         }
       ],
       "Z": [
@@ -3196,6 +3232,15 @@
         {
           "rank": 40,
           "omega": 2.8288786510166846,
+          "complexity": 295,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 2, "v": 1, "w": 2},
+          "source": "schemes/results/addition_reduced_ZT/2x5x5_m40_cr139_cn295_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x5x5_m40_ZT_v6.json"
+        },
+        {
+          "rank": 40,
+          "omega": 2.8288786510166846,
           "complexity": 388,
           "values": [-1, 0, 1],
           "buds_count": {"u": 1, "v": 1, "w": 0},
@@ -3249,6 +3294,15 @@
           "source": "schemes/results/addition_reduced_ZT/2x5x6_m47_cr181_fv63_cn332_ZT_reduced.json",
           "path": "schemes/status/ZT/2x5x6_m47_ZT_v2.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/2x5x6_m47_cr179_cn332_ZT_reduced.json"]
+        },
+        {
+          "rank": 47,
+          "omega": 2.8210724890387504,
+          "complexity": 431,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 1, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x5x6_m47_cr173_cn431_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x5x6_m47_ZT_v3.json"
         }
       ],
       "Z": [
@@ -3470,6 +3524,15 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 55,
+          "omega": 2.829707666071982,
+          "complexity": 515,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 7, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x5x7_m55_cr211_cn515_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x5x7_m55_ZT_v2.json"
+        },
         {
           "rank": 55,
           "omega": 2.829707666071982,
@@ -4777,6 +4840,15 @@
         {
           "rank": 66,
           "omega": 2.836714943700779,
+          "complexity": 791,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 5, "v": 0, "w": 4},
+          "source": "schemes/results/addition_reduced_ZT/2x6x7_m66_cr267_cn791_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x6x7_m66_ZT_v2.json"
+        },
+        {
+          "rank": 66,
+          "omega": 2.836714943700779,
           "complexity": 797,
           "values": [-1, 0, 1],
           "buds_count": {"u": 4, "v": 1, "w": 4},
@@ -4895,6 +4967,15 @@
           "source": "schemes/results/ZT/2x6x8_m75_ZT.json",
           "path": "schemes/status/ZT/2x6x8_m75_ZT.json",
           "duplicates": ["schemes/results/ZT/2x6x8_m75_ZT.m", "schemes/results/addition_reduced_ZT/2x6x8_m75_cr315_cn926_ZT_reduced.json"]
+        },
+        {
+          "rank": 75,
+          "omega": 2.837746770682625,
+          "complexity": 938,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 9, "v": 0, "w": 2},
+          "source": "schemes/results/addition_reduced_ZT/2x6x8_m75_cr309_cn938_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x6x8_m75_ZT_v2.json"
         },
         {
           "rank": 76,
@@ -5480,6 +5561,15 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 76,
+          "omega": 2.833651510354034,
+          "complexity": 1212,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 1, "v": 0, "w": 1},
+          "source": "schemes/results/addition_reduced_ZT/2x7x7_m76_cr348_cn1212_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x7x7_m76_ZT_v2.json"
+        },
         {
           "rank": 76,
           "omega": 2.833651510354034,
@@ -6100,6 +6190,15 @@
           "source": "schemes/results/addition_reduced_ZT/2x8x8_m100_cr424_cn608_ZT_reduced.json",
           "path": "schemes/status/ZT/2x8x8_m100_ZT_v2.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/2x8x8_m100_cr418_cn608_ZT_reduced.json"]
+        },
+        {
+          "rank": 100,
+          "omega": 2.8473669384748823,
+          "complexity": 608,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x8x8_m100_cr416_cn608_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x8x8_m100_ZT_v3.json"
         }
       ]
     }
@@ -8797,6 +8896,15 @@
           "path": "schemes/status/ZT/3x3x4_m29_ZT_v3.json"
         },
         {
+          "rank": 29,
+          "omega": 2.81898537818573,
+          "complexity": 164,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 3, "v": 2, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/3x3x4_m29_cr87_cn164_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x3x4_m29_ZT_v4.json"
+        },
+        {
           "rank": 31,
           "omega": 2.8748171253962567,
           "complexity": 173,
@@ -8954,7 +9062,16 @@
           "buds_count": {"u": 4, "v": 0, "w": 0},
           "source": "schemes/results/ZT/3x3x6_m42_ZT.json",
           "path": "schemes/status/ZT/3x3x6_m42_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x3x6_m42_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x3x6_m42_ZT.m", "schemes/results/addition_reduced_ZT/3x3x6_m42_cr150_cn367_ZT_reduced.json"]
+        },
+        {
+          "rank": 42,
+          "omega": 2.810993657522373,
+          "complexity": 369,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 4, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/3x3x6_m42_cr145_cn369_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x3x6_m42_ZT_v2.json"
         },
         {
           "rank": 43,
@@ -9106,7 +9223,17 @@
           "values": [-1, 0, 1],
           "buds_count": {"u": 14, "v": 1, "w": 0},
           "source": "schemes/results/serendipitous_base/3x3x8_m56_895584b4d11331464d48d20debde403a3c95302f_ZT.json",
-          "path": "schemes/status/ZT/3x3x8_m56_ZT_v2.json"
+          "path": "schemes/status/ZT/3x3x8_m56_ZT_v2.json",
+          "duplicates": ["schemes/results/addition_reduced_ZT/3x3x8_m56_cr209_cn455_ZT_reduced.json"]
+        },
+        {
+          "rank": 56,
+          "omega": 2.8237077050531645,
+          "complexity": 473,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 16, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/3x3x8_m56_cr193_cn473_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x3x8_m56_ZT_v3.json"
         },
         {
           "rank": 56,
@@ -9116,7 +9243,7 @@
           "buds_count": {"u": 14, "v": 0, "w": 1},
           "source": "schemes/results/ZT/3x3x8_m56_ZT.json",
           "path": "schemes/status/ZT/3x3x8_m56_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x3x8_m56_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x3x8_m56_ZT.m", "schemes/results/addition_reduced_ZT/3x3x8_m56_cr206_cn509_ZT_reduced.json"]
         },
         {
           "rank": 57,
@@ -9987,6 +10114,15 @@
           "buds_count": {"u": 2, "v": 0, "w": 0},
           "source": "schemes/results/addition_reduced_ZT/3x4x4_m38_cr125_cn224_ZT_reduced.json",
           "path": "schemes/status/ZT/3x4x4_m38_ZT_v3.json"
+        },
+        {
+          "rank": 38,
+          "omega": 2.8189594000493012,
+          "complexity": 306,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 2},
+          "source": "schemes/results/addition_reduced_ZT/3x4x4_m38_cr123_cn306_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x4x4_m38_ZT_v4.json"
         }
       ]
     }
@@ -10044,6 +10180,15 @@
           "source": "schemes/results/addition_reduced_ZT/3x4x5_m47_cr161_cn277_ZT_reduced.json",
           "path": "schemes/status/ZT/3x4x5_m47_ZT.json",
           "duplicates": ["schemes/results/naive_addition_reduced_ZT/3x4x5_m47_c277_ZT.json", "schemes/results/naive_addition_reduced_ZT/3x4x5_m47_c277_ZT.m", "schemes/results/ZT/3x4x5_m47_ZT.json", "schemes/results/ZT/3x4x5_m47_ZT.m", "schemes/results/addition_reduced_ZT/3x4x5_m47_cr156_cn277_ZT_reduced.json"]
+        },
+        {
+          "rank": 47,
+          "omega": 2.8210724890387504,
+          "complexity": 277,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 2, "v": 2, "w": 2},
+          "source": "schemes/results/addition_reduced_ZT/3x4x5_m47_cr154_cn277_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x4x5_m47_ZT_v4.json"
         },
         {
           "rank": 47,
@@ -10330,12 +10475,21 @@
         {
           "rank": 54,
           "omega": 2.798196493872216,
+          "complexity": 368,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/3x4x6_m54_cr196_cn368_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x4x6_m54_ZT_v2.json"
+        },
+        {
+          "rank": 54,
+          "omega": 2.798196493872216,
           "complexity": 700,
           "values": [-1, 0, 1],
           "buds_count": {"u": 0, "v": 0, "w": 0},
           "source": "schemes/results/ZT/3x4x6_m54_ZT.json",
           "path": "schemes/status/ZT/3x4x6_m54_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x4x6_m54_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x4x6_m54_ZT.m", "schemes/results/addition_reduced_ZT/3x4x6_m54_cr215_cn700_ZT_reduced.json"]
         },
         {
           "rank": 56,
@@ -10488,6 +10642,15 @@
         {
           "rank": 64,
           "omega": 2.8158801901572876,
+          "complexity": 427,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 6, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/3x4x7_m64_cr233_cn427_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x4x7_m64_ZT_v3.json"
+        },
+        {
+          "rank": 64,
+          "omega": 2.8158801901572876,
           "complexity": 446,
           "values": [-1, 0, 1],
           "buds_count": {"u": 6, "v": 0, "w": 0},
@@ -10593,6 +10756,15 @@
           "buds_count": {"u": 8, "v": 2, "w": 0},
           "source": "schemes/results/serendipitous_base/3x4x8_m73_b9ef3e0c5cbf984d1a97c6166962df6b9c8a0718_ZT.json",
           "path": "schemes/status/ZT/3x4x8_m73_ZT_v2.json"
+        },
+        {
+          "rank": 73,
+          "omega": 2.819981689281663,
+          "complexity": 1005,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 9, "v": 2, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/3x4x8_m73_cr293_cn1005_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x4x8_m73_ZT_v3.json"
         },
         {
           "rank": 74,
@@ -11374,6 +11546,15 @@
           "source": "schemes/results/addition_reduced_ZT/3x5x5_m58_cr221_cn357_ZT_reduced.json",
           "path": "schemes/status/ZT/3x5x5_m58_ZT_v3.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/3x5x5_m58_cr211_cn357_ZT_reduced.json"]
+        },
+        {
+          "rank": 58,
+          "omega": 2.821392604057904,
+          "complexity": 365,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 4, "v": 2, "w": 3},
+          "source": "schemes/results/addition_reduced_ZT/3x5x5_m58_cr207_cn365_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x5x5_m58_ZT_v7.json"
         },
         {
           "rank": 58,
@@ -12188,6 +12369,15 @@
         {
           "rank": 90,
           "omega": 2.8197289387169113,
+          "complexity": 698,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 5, "v": 2, "w": 2},
+          "source": "schemes/results/addition_reduced_ZT/3x5x8_m90_cr343_cn698_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x5x8_m90_ZT_v3.json"
+        },
+        {
+          "rank": 90,
+          "omega": 2.8197289387169113,
           "complexity": 712,
           "values": [-1, 0, 1],
           "buds_count": {"u": 6, "v": 2, "w": 4},
@@ -12857,7 +13047,7 @@
           "buds_count": {"u": 6, "v": 5, "w": 3},
           "source": "schemes/results/ZT/3x6x6_m82_ZT.json",
           "path": "schemes/status/ZT/3x6x6_m82_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x6x6_m82_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x6x6_m82_ZT.m", "schemes/results/addition_reduced_ZT/3x6x6_m82_cr326_cn1028_ZT_reduced.json"]
         },
         {
           "rank": 83,
@@ -12919,12 +13109,21 @@
         {
           "rank": 96,
           "omega": 2.831316461251292,
+          "complexity": 780,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 10, "v": 0, "w": 3},
+          "source": "schemes/results/addition_reduced_ZT/3x6x7_m96_cr354_cn780_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x6x7_m96_ZT_v2.json"
+        },
+        {
+          "rank": 96,
+          "omega": 2.831316461251292,
           "complexity": 1082,
           "values": [-1, 0, 1],
           "buds_count": {"u": 1, "v": 0, "w": 4},
           "source": "schemes/results/ZT/3x6x7_m96_ZT.json",
           "path": "schemes/status/ZT/3x6x7_m96_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x6x7_m96_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x6x7_m96_ZT.m", "schemes/results/addition_reduced_ZT/3x6x7_m96_cr374_cn1082_ZT_reduced.json"]
         },
         {
           "rank": 97,
@@ -13046,12 +13245,21 @@
         {
           "rank": 108,
           "omega": 2.8263423260932212,
+          "complexity": 750,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 54, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/3x6x8_m108_cr357_cn750_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x6x8_m108_ZT_v2.json"
+        },
+        {
+          "rank": 108,
+          "omega": 2.8263423260932212,
           "complexity": 1412,
           "values": [-1, 0, 1],
           "buds_count": {"u": 54, "v": 0, "w": 0},
           "source": "schemes/results/ZT/3x6x8_m108_ZT.json",
           "path": "schemes/status/ZT/3x6x8_m108_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x6x8_m108_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x6x8_m108_ZT.m", "schemes/known/mizopl/3x6x8_m108_cr381_cn1412_ZT_reduced.json", "schemes/results/addition_reduced_ZT/3x6x8_m108_cr382_cn1412_ZT_reduced.json"]
         },
         {
           "rank": 112,
@@ -13639,6 +13847,15 @@
         {
           "rank": 111,
           "omega": 2.8311354493332286,
+          "complexity": 869,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 9, "v": 0, "w": 23},
+          "source": "schemes/results/addition_reduced_ZT/3x7x7_m111_cr427_cn869_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x7x7_m111_ZT_v3.json"
+        },
+        {
+          "rank": 111,
+          "omega": 2.8311354493332286,
           "complexity": 885,
           "values": [-1, 0, 1],
           "buds_count": {"u": 6, "v": 0, "w": 26},
@@ -13734,6 +13951,15 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 128,
+          "omega": 2.840787103552993,
+          "complexity": 904,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 60, "v": 0, "w": 12},
+          "source": "schemes/results/addition_reduced_ZT/3x7x8_m128_cr425_cn904_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x7x8_m128_ZT_v3.json"
+        },
         {
           "rank": 128,
           "omega": 2.840787103552993,
@@ -14422,7 +14648,7 @@
           "buds_count": {"u": 18, "v": 4, "w": 73},
           "source": "schemes/results/ZT/3x8x8_m146_ZT.json",
           "path": "schemes/status/ZT/3x8x8_m146_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x8x8_m146_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x8x8_m146_ZT.m", "schemes/results/addition_reduced_ZT/3x8x8_m146_cr524_cn1976_ZT_reduced.json"]
         },
         {
           "rank": 148,
@@ -17775,6 +18001,15 @@
           "buds_count": {"u": 0, "v": 1, "w": 1},
           "source": "schemes/results/serendipitous_base/4x4x5_m61_ee48672cd8753740a7a2a5c9f8f6b384a76f5884_ZT.json",
           "path": "schemes/status/ZT/4x4x5_m61_ZT_v3.json"
+        },
+        {
+          "rank": 61,
+          "omega": 2.8143648180809726,
+          "complexity": 573,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 1, "w": 1},
+          "source": "schemes/results/addition_reduced_ZT/4x4x5_m61_cr214_cn573_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x4x5_m61_ZT_v4.json"
         }
       ],
       "Z": [
@@ -18198,6 +18433,15 @@
           "source": "schemes/results/ZT/4x4x6_m73_ZT.json",
           "path": "schemes/status/ZT/4x4x6_m73_ZT_v3.json",
           "duplicates": ["schemes/results/ZT/4x4x6_m73_ZT.m"]
+        },
+        {
+          "rank": 73,
+          "omega": 2.819981689281663,
+          "complexity": 576,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 8, "v": 2, "w": 2},
+          "source": "schemes/results/addition_reduced_ZT/4x4x6_m73_cr248_cn576_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x4x6_m73_ZT_v4.json"
         }
       ]
     }
@@ -19022,6 +19266,15 @@
         {
           "rank": 76,
           "omega": 2.8212203884211866,
+          "complexity": 727,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 6, "v": 3, "w": 6},
+          "source": "schemes/results/addition_reduced_ZT/4x5x5_m76_cr268_cn727_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x5x5_m76_ZT_v7.json"
+        },
+        {
+          "rank": 76,
+          "omega": 2.8212203884211866,
           "complexity": 764,
           "values": [-1, 0, 1],
           "buds_count": {"u": 8, "v": 2, "w": 10},
@@ -19104,6 +19357,24 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 90,
+          "omega": 2.8197289387169113,
+          "complexity": 767,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 10, "v": 3, "w": 6},
+          "source": "schemes/results/addition_reduced_ZT/4x5x6_m90_cr318_cn767_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x5x6_m90_ZT_v6.json"
+        },
+        {
+          "rank": 90,
+          "omega": 2.8197289387169113,
+          "complexity": 783,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 10, "v": 3, "w": 6},
+          "source": "schemes/results/addition_reduced_ZT/4x5x6_m90_cr321_cn783_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x5x6_m90_ZT_v5.json"
+        },
         {
           "rank": 90,
           "omega": 2.8197289387169113,
@@ -21547,6 +21818,15 @@
           "source": "schemes/results/addition_reduced_ZT/4x6x8_m140_cr551_cn1248_ZT_reduced.json",
           "path": "schemes/status/ZT/4x6x8_m140_ZT_v2.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/4x6x8_m140_cr512_cn1248_ZT_reduced.json"]
+        },
+        {
+          "rank": 140,
+          "omega": 2.8197699130089835,
+          "complexity": 1690,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 28, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/4x6x8_m140_cr478_cn1690_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x6x8_m140_ZT_v3.json"
         }
       ]
     }
@@ -25250,6 +25530,15 @@
     },
     "schemes": {
       "ZT": [
+        {
+          "rank": 93,
+          "omega": 2.8162624094633077,
+          "complexity": 834,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 6, "v": 6, "w": 7},
+          "source": "schemes/results/addition_reduced_ZT/5x5x5_m93_cr331_cn834_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x5x5_m93_ZT_v8.json"
+        },
         {
           "rank": 93,
           "omega": 2.8162624094633077,
@@ -34636,7 +34925,7 @@
           "buds_count": {"u": 8, "v": 8, "w": 8},
           "source": "schemes/results/naive_addition_reduced_ZT/6x6x6_m153_c2171_ZT.json",
           "path": "schemes/status/ZT/6x6x6_m153_ZT_v4.json",
-          "duplicates": ["schemes/results/naive_addition_reduced_ZT/6x6x6_m153_c2171_ZT.m"]
+          "duplicates": ["schemes/results/naive_addition_reduced_ZT/6x6x6_m153_c2171_ZT.m", "schemes/results/addition_reduced_ZT/6x6x6_m153_cr586_cn2171_ZT_reduced.json"]
         },
         {
           "rank": 153,

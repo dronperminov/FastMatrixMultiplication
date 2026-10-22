@@ -3,7 +3,7 @@ import math
 import os
 from collections import defaultdict
 from collections.abc import Set
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 from src.entities.json_depth_stringifier import JsonDepthStringifier
 from src.schemes.scheme import Scheme
@@ -81,6 +81,17 @@ def get_checked_paths(status: Dict[str, dict]) -> Set[str]:
     return checked_paths
 
 
+def get_additions(path: str) -> Tuple[int, int, Tuple[int, int, int]]:
+    with open(path, "r") as f:
+        data = json.load(f)
+
+    au = sum(len(expression) - 1 for expression in data["u_fresh"] + data["u"])
+    av = sum(len(expression) - 1 for expression in data["v_fresh"] + data["v"])
+    aw = sum(len(expression) - 1 for expression in data["w_fresh"] + data["w"])
+
+    return data["complexity"]["reduced"], data["complexity"]["naive"], (au, av, aw)
+
+
 def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ring2equal_rings: Dict[str, List[str]]) -> dict:
     for ring in ring2equal_rings:
         os.makedirs(f"schemes/status/{ring}", exist_ok=True)
@@ -97,7 +108,7 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
                 continue
 
             print(f'- load "{input_path}"')
-            scheme = Scheme.load(path=input_path, validate=False)
+            scheme = Scheme.load(path=input_path, validate=True)
             scheme.fix_sizes()
 
             for matrix in [scheme.u, scheme.v, scheme.w]:
@@ -222,11 +233,11 @@ def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[st
 def plot_new_ranks_table(status: Dict[str, dict]) -> None:
     print("\n\n### New best ranks")
     print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than previously known.\n")
-    print("|   Format   |  Prev rank  |                          New rank                          |        ω        |")
-    print("|:----------:|:-----------:|:----------------------------------------------------------:|:---------------:|")
+    print("|   Format   |   Prev rank   |                          New rank                          |        ω        |")
+    print("|:----------:|:-------------:|:----------------------------------------------------------:|:---------------:|")
 
     excluded = {
-        "2x8x13", "2x10x15", "2x12x16"
+        "2x8x13"
     }
 
     strassen = math.log(7, 2)
@@ -249,7 +260,7 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
         size = format_size(size)
         omega = 3*math.log(min_rank, n1*n2*n3)
         bold = "**" if omega < strassen else "  "
-        print(f"| {size:^10} | {prev:^11} | {curr:^58} | {bold}{omega:.9f}{bold} |")
+        print(f"| {size:^10} | {prev:^13} | {curr:^58} | {bold}{omega:.9f}{bold} |")
 
 
 def plot_zt_table(status: Dict[str, dict]) -> None:
@@ -307,6 +318,51 @@ def plot_z_table(status: Dict[str, dict]) -> None:
         print(f'| {format_size(size):^10} | {link:^48} |')
 
 
+def plot_additions_table(status: Dict[str, dict]) -> None:
+    print("\n\n### Additions reduction")
+
+    print("|   Format   | Rank | Ring | Reduced additions | Naive additions | Leading coef |")
+    print("|:----------:|:----:|:----:|:-----------------:|:---------------:|:------------:|")
+
+    for size, data in status.items():
+        n1, n2, n3 = map(int, size.split("x"))
+
+        for ring in ["Q", "Z", "ZT"]:
+            rank = data["ranks"][ring]
+            schemes_paths = []
+
+            for scheme in data["schemes"].get(ring, []):
+                if scheme["rank"] == rank:
+                    if scheme["source"].endswith("_reduced.json"):
+                        schemes_paths.append(scheme["source"])
+
+                    for source in scheme.get("duplicates", []):
+                        if source.endswith("_reduced.json"):
+                            schemes_paths.append(source)
+
+            if not schemes_paths:
+                continue
+
+            known_additions = float("+inf"), float("+inf")
+            new_additions = float("+inf"), float("+inf")
+            best_additions = float("+inf"), float("+inf")
+
+            for scheme_path in schemes_paths:
+                additions = get_additions(scheme_path)
+                if scheme_path.startswith("schemes/known/"):
+                    known_additions = min(known_additions, additions)
+                else:
+                    new_additions = min(new_additions, additions)
+
+                best_additions = min(best_additions, additions)
+
+            ring = f"`{ring}`"
+            reduced, naive, (au, av, aw) = best_additions
+            c = 1 + au / (rank - n1 * n2) + av / (rank - n2 * n3) + aw / (rank - n3 * n1)
+
+            print(f"| {format_size(size):^10} | {rank:^4} | {ring:^4} | {reduced:^17} | {naive:^15} | {c:^12.2f} |")
+
+
 def print_coefficients_status(status: Dict[str, dict]) -> None:
     zt_count = 0
     z_count = 0
@@ -356,6 +412,7 @@ def main():
     plot_new_ranks_table(status)
     plot_zt_table(status)
     plot_z_table(status)
+    plot_additions_table(status)
     plot_full_table(status, ring2equal_rings=ring2equal_rings)
     print_coefficients_status(status)
 

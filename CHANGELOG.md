@@ -1,5 +1,9 @@
 # Changelog
 
+## 23/10/26
+Add new `ZT` schemes with better reduced additions count;
+
+
 ## 22/10/26
 Add addition reduced `ZT` schemes with best known ranks;
 
