@@ -1,5 +1,9 @@
 # Changelog
 
+## 22/10/26
+Add addition reduced `ZT` schemes with best known ranks;
+
+
 ## 19/10/2026
 Add November 2025 benchmark schemes with fewer additions required;
 Add near optimal `ZT` schemes from [@mizopl](https://github.com/mizopl);

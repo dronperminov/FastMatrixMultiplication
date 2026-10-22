@@ -2361,7 +2361,7 @@
           "buds_count": {"u": 18, "v": 0, "w": 0},
           "source": "schemes/results/ZT/2x4x7_m45_ZT.json",
           "path": "schemes/status/ZT/2x4x7_m45_ZT_v3.json",
-          "duplicates": ["schemes/results/ZT/2x4x7_m45_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x4x7_m45_ZT.m", "schemes/results/addition_reduced_ZT/2x4x7_m45_cr164_cn285_ZT_reduced.json"]
         },
         {
           "rank": 45,
@@ -2390,7 +2390,8 @@
           "values": [-1, 0, 1],
           "buds_count": {"u": 14, "v": 0, "w": 0},
           "source": "schemes/results/serendipitous_base/2x4x7_m45_1a4cfcb6d8d8a3a1dbda82e8b421e007f1230349_ZT.json",
-          "path": "schemes/status/ZT/2x4x7_m45_ZT_v4.json"
+          "path": "schemes/status/ZT/2x4x7_m45_ZT_v4.json",
+          "duplicates": ["schemes/results/addition_reduced_ZT/2x4x7_m45_cr157_cn345_ZT_reduced.json"]
         },
         {
           "rank": 45,
@@ -3171,7 +3172,7 @@
           "buds_count": {"u": 6, "v": 0, "w": 5},
           "source": "schemes/results/ZT/2x5x5_m40_ZT.json",
           "path": "schemes/status/ZT/2x5x5_m40_ZT_v3.json",
-          "duplicates": ["schemes/results/ZT/2x5x5_m40_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x5x5_m40_ZT.m", "schemes/results/addition_reduced_ZT/2x5x5_m40_cr145_cn273_ZT_reduced.json"]
         },
         {
           "rank": 40,
@@ -3477,7 +3478,7 @@
           "buds_count": {"u": 7, "v": 0, "w": 0},
           "source": "schemes/results/ZT/2x5x7_m55_ZT.json",
           "path": "schemes/status/ZT/2x5x7_m55_ZT.json",
-          "duplicates": ["schemes/results/ZT/2x5x7_m55_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x5x7_m55_ZT.m", "schemes/results/addition_reduced_ZT/2x5x7_m55_cr216_cn536_ZT_reduced.json"]
         },
         {
           "rank": 56,
@@ -3573,7 +3574,7 @@
           "buds_count": {"u": 15, "v": 0, "w": 0},
           "source": "schemes/results/ZT/2x5x8_m63_ZT.json",
           "path": "schemes/status/ZT/2x5x8_m63_ZT.json",
-          "duplicates": ["schemes/results/ZT/2x5x8_m63_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x5x8_m63_ZT.m", "schemes/results/addition_reduced_ZT/2x5x8_m63_cr242_cn570_ZT_reduced.json"]
         },
         {
           "rank": 63,
@@ -4173,7 +4174,8 @@
           "values": [-1, 0, 1],
           "buds_count": {"u": 1, "v": 0, "w": 2},
           "source": "schemes/results/serendipitous_base/2x6x6_m56_2ba47ca84aa63c9f99d7ef64c4a244759b4aa4c8_ZT.json",
-          "path": "schemes/status/ZT/2x6x6_m56_ZT_v2.json"
+          "path": "schemes/status/ZT/2x6x6_m56_ZT_v2.json",
+          "duplicates": ["schemes/results/addition_reduced_ZT/2x6x6_m56_cr220_cn542_ZT_reduced.json"]
         },
         {
           "rank": 57,
@@ -4780,7 +4782,7 @@
           "buds_count": {"u": 4, "v": 1, "w": 4},
           "source": "schemes/results/ZT/2x6x7_m66_ZT.json",
           "path": "schemes/status/ZT/2x6x7_m66_ZT.json",
-          "duplicates": ["schemes/results/ZT/2x6x7_m66_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x6x7_m66_ZT.m", "schemes/results/addition_reduced_ZT/2x6x7_m66_cr276_cn797_ZT_reduced.json"]
         },
         {
           "rank": 67,
@@ -4892,7 +4894,7 @@
           "buds_count": {"u": 9, "v": 0, "w": 2},
           "source": "schemes/results/ZT/2x6x8_m75_ZT.json",
           "path": "schemes/status/ZT/2x6x8_m75_ZT.json",
-          "duplicates": ["schemes/results/ZT/2x6x8_m75_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x6x8_m75_ZT.m", "schemes/results/addition_reduced_ZT/2x6x8_m75_cr315_cn926_ZT_reduced.json"]
         },
         {
           "rank": 76,
@@ -5486,7 +5488,7 @@
           "buds_count": {"u": 1, "v": 0, "w": 2},
           "source": "schemes/results/ZT/2x7x7_m76_ZT.json",
           "path": "schemes/status/ZT/2x7x7_m76_ZT.json",
-          "duplicates": ["schemes/results/ZT/2x7x7_m76_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x7x7_m76_ZT.m", "schemes/results/addition_reduced_ZT/2x7x7_m76_cr358_cn1267_ZT_reduced.json"]
         },
         {
           "rank": 77,
@@ -5545,7 +5547,7 @@
           "buds_count": {"u": 0, "v": 0, "w": 0},
           "source": "schemes/results/ZT/2x7x8_m88_ZT.json",
           "path": "schemes/status/ZT/2x7x8_m88_ZT.json",
-          "duplicates": ["schemes/results/ZT/2x7x8_m88_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x7x8_m88_ZT.m", "schemes/results/addition_reduced_ZT/2x7x8_m88_cr392_cn745_ZT_reduced.json"]
         },
         {
           "rank": 90,
@@ -9009,7 +9011,7 @@
           "buds_count": {"u": 10, "v": 0, "w": 0},
           "source": "schemes/results/ZT/3x3x7_m49_ZT.json",
           "path": "schemes/status/ZT/3x3x7_m49_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x3x7_m49_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x3x7_m49_ZT.m", "schemes/results/addition_reduced_ZT/3x3x7_m49_cr167_cn404_ZT_reduced.json"]
         },
         {
           "rank": 49,
@@ -10581,7 +10583,7 @@
           "buds_count": {"u": 9, "v": 2, "w": 0},
           "source": "schemes/results/ZT/3x4x8_m73_ZT.json",
           "path": "schemes/status/ZT/3x4x8_m73_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x4x8_m73_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x4x8_m73_ZT.m", "schemes/results/addition_reduced_ZT/3x4x8_m73_cr295_cn976_ZT_reduced.json"]
         },
         {
           "rank": 73,
@@ -11476,7 +11478,7 @@
           "buds_count": {"u": 8, "v": 0, "w": 0},
           "source": "schemes/results/ZT/3x5x6_m68_ZT.json",
           "path": "schemes/status/ZT/3x5x6_m68_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x5x6_m68_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x5x6_m68_ZT.m", "schemes/results/addition_reduced_ZT/3x5x6_m68_cr245_cn494_ZT_reduced.json"]
         },
         {
           "rank": 68,
@@ -11761,7 +11763,7 @@
           "buds_count": {"u": 6, "v": 4, "w": 4},
           "source": "schemes/results/ZT/3x5x7_m79_ZT.json",
           "path": "schemes/status/ZT/3x5x7_m79_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x5x7_m79_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x5x7_m79_ZT.m", "schemes/results/addition_reduced_ZT/3x5x7_m79_cr294_cn520_ZT_reduced.json"]
         },
         {
           "rank": 79,
@@ -12191,7 +12193,7 @@
           "buds_count": {"u": 6, "v": 2, "w": 4},
           "source": "schemes/results/ZT/3x5x8_m90_ZT.json",
           "path": "schemes/status/ZT/3x5x8_m90_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x5x8_m90_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x5x8_m90_ZT.m", "schemes/results/addition_reduced_ZT/3x5x8_m90_cr347_cn712_ZT_reduced.json"]
         },
         {
           "rank": 90,
@@ -13651,7 +13653,7 @@
           "buds_count": {"u": 15, "v": 0, "w": 14},
           "source": "schemes/results/ZT/3x7x7_m111_ZT.json",
           "path": "schemes/status/ZT/3x7x7_m111_ZT.json",
-          "duplicates": ["schemes/results/ZT/3x7x7_m111_ZT.m"]
+          "duplicates": ["schemes/results/ZT/3x7x7_m111_ZT.m", "schemes/results/addition_reduced_ZT/3x7x7_m111_cr431_cn993_ZT_reduced.json"]
         },
         {
           "rank": 113,
@@ -18298,7 +18300,7 @@
           "buds_count": {"u": 13, "v": 2, "w": 2},
           "source": "schemes/results/naive_addition_reduced_ZT/4x4x8_m96_c962_ZT.json",
           "path": "schemes/status/ZT/4x4x8_m96_ZT_v2.json",
-          "duplicates": ["schemes/results/naive_addition_reduced_ZT/4x4x8_m96_c962_ZT.m"]
+          "duplicates": ["schemes/results/naive_addition_reduced_ZT/4x4x8_m96_c962_ZT.m", "schemes/results/addition_reduced_ZT/4x4x8_m96_cr336_cn962_ZT_reduced.json"]
         },
         {
           "rank": 96,
@@ -20154,7 +20156,7 @@
           "buds_count": {"u": 15, "v": 3, "w": 5},
           "source": "schemes/results/naive_addition_reduced_ZT/4x5x8_m118_c1463_ZT.json",
           "path": "schemes/status/ZT/4x5x8_m118_ZT_v2.json",
-          "duplicates": ["schemes/results/naive_addition_reduced_ZT/4x5x8_m118_c1463_ZT.m"]
+          "duplicates": ["schemes/results/naive_addition_reduced_ZT/4x5x8_m118_c1463_ZT.m", "schemes/results/addition_reduced_ZT/4x5x8_m118_cr446_cn1463_ZT_reduced.json"]
         },
         {
           "rank": 118,
@@ -21490,7 +21492,7 @@
           "buds_count": {"u": 8, "v": 2, "w": 4},
           "source": "schemes/results/naive_addition_reduced_ZT/4x6x7_m123_c1562_ZT.json",
           "path": "schemes/status/ZT/4x6x7_m123_ZT_v2.json",
-          "duplicates": ["schemes/results/naive_addition_reduced_ZT/4x6x7_m123_c1562_ZT.m"]
+          "duplicates": ["schemes/results/naive_addition_reduced_ZT/4x6x7_m123_c1562_ZT.m", "schemes/results/addition_reduced_ZT/4x6x7_m123_cr463_cn1562_ZT_reduced.json"]
         },
         {
           "rank": 123,
@@ -22251,7 +22253,7 @@
           "buds_count": {"u": 8, "v": 3, "w": 15},
           "source": "schemes/results/ZT/4x7x7_m144_ZT.json",
           "path": "schemes/status/ZT/4x7x7_m144_ZT.json",
-          "duplicates": ["schemes/results/ZT/4x7x7_m144_ZT.m"]
+          "duplicates": ["schemes/results/ZT/4x7x7_m144_ZT.m", "schemes/results/addition_reduced_ZT/4x7x7_m144_cr583_cn1983_ZT_reduced.json"]
         },
         {
           "rank": 144,
@@ -22306,7 +22308,7 @@
           "buds_count": {"u": 4, "v": 0, "w": 0},
           "source": "schemes/results/ZT/4x7x8_m161_ZT.json",
           "path": "schemes/status/ZT/4x7x8_m161_ZT.json",
-          "duplicates": ["schemes/results/ZT/4x7x8_m161_ZT.m"]
+          "duplicates": ["schemes/results/ZT/4x7x8_m161_ZT.m", "schemes/results/addition_reduced_ZT/4x7x8_m161_cr624_cn2270_ZT_reduced.json"]
         },
         {
           "rank": 161,
@@ -22843,7 +22845,7 @@
           "buds_count": {"u": 0, "v": 6, "w": 6},
           "source": "schemes/results/ZT/4x8x8_m180_ZT.json",
           "path": "schemes/status/ZT/4x8x8_m180_ZT.json",
-          "duplicates": ["schemes/results/ZT/4x8x8_m180_ZT.m"]
+          "duplicates": ["schemes/results/ZT/4x8x8_m180_ZT.m", "schemes/results/addition_reduced_ZT/4x8x8_m180_cr733_cn2888_ZT_reduced.json"]
         },
         {
           "rank": 182,
@@ -26938,7 +26940,7 @@
           "buds_count": {"u": 7, "v": 6, "w": 5},
           "source": "schemes/results/naive_addition_reduced_ZT/5x5x6_m110_c1192_ZT.json",
           "path": "schemes/status/ZT/5x5x6_m110_ZT_v2.json",
-          "duplicates": ["schemes/results/naive_addition_reduced_ZT/5x5x6_m110_c1192_ZT.m"]
+          "duplicates": ["schemes/results/naive_addition_reduced_ZT/5x5x6_m110_c1192_ZT.m", "schemes/results/addition_reduced_ZT/5x5x6_m110_cr404_cn1192_ZT_reduced.json"]
         },
         {
           "rank": 110,
@@ -28080,7 +28082,7 @@
           "buds_count": {"u": 11, "v": 5, "w": 5},
           "source": "schemes/results/naive_addition_reduced_ZT/5x5x8_m144_c1872_ZT.json",
           "path": "schemes/status/ZT/5x5x8_m144_ZT_v2.json",
-          "duplicates": ["schemes/results/naive_addition_reduced_ZT/5x5x8_m144_c1872_ZT.m"]
+          "duplicates": ["schemes/results/naive_addition_reduced_ZT/5x5x8_m144_c1872_ZT.m", "schemes/results/addition_reduced_ZT/5x5x8_m144_cr545_cn1872_ZT_reduced.json"]
         },
         {
           "rank": 144,
@@ -29720,7 +29722,7 @@
           "buds_count": {"u": 6, "v": 7, "w": 8},
           "source": "schemes/results/naive_addition_reduced_ZT/5x6x6_m130_c1697_ZT.json",
           "path": "schemes/status/ZT/5x6x6_m130_ZT_v2.json",
-          "duplicates": ["schemes/results/naive_addition_reduced_ZT/5x6x6_m130_c1697_ZT.m"]
+          "duplicates": ["schemes/results/naive_addition_reduced_ZT/5x6x6_m130_c1697_ZT.m", "schemes/results/addition_reduced_ZT/5x6x6_m130_cr492_cn1697_ZT_reduced.json"]
         },
         {
           "rank": 130,
@@ -30157,7 +30159,7 @@
           "buds_count": {"u": 8, "v": 5, "w": 5},
           "source": "schemes/results/naive_addition_reduced_ZT/5x6x7_m150_c1994_ZT.json",
           "path": "schemes/status/ZT/5x6x7_m150_ZT_v2.json",
-          "duplicates": ["schemes/results/naive_addition_reduced_ZT/5x6x7_m150_c1994_ZT.m"]
+          "duplicates": ["schemes/results/naive_addition_reduced_ZT/5x6x7_m150_c1994_ZT.m", "schemes/results/addition_reduced_ZT/5x6x7_m150_cr570_cn1994_ZT_reduced.json"]
         },
         {
           "rank": 150,
@@ -31034,7 +31036,7 @@
           "buds_count": {"u": 14, "v": 10, "w": 8},
           "source": "schemes/results/naive_addition_reduced_ZT/5x7x7_m176_c2535_ZT.json",
           "path": "schemes/status/ZT/5x7x7_m176_ZT_v2.json",
-          "duplicates": ["schemes/results/naive_addition_reduced_ZT/5x7x7_m176_c2535_ZT.m"]
+          "duplicates": ["schemes/results/naive_addition_reduced_ZT/5x7x7_m176_c2535_ZT.m", "schemes/results/addition_reduced_ZT/5x7x7_m176_cr679_cn2535_ZT_reduced.json"]
         },
         {
           "rank": 176,
@@ -31155,7 +31157,7 @@
           "buds_count": {"u": 23, "v": 2, "w": 12},
           "source": "schemes/results/ZT/5x7x8_m204_ZT.json",
           "path": "schemes/status/ZT/5x7x8_m204_ZT.json",
-          "duplicates": ["schemes/results/ZT/5x7x8_m204_ZT.m"]
+          "duplicates": ["schemes/results/ZT/5x7x8_m204_ZT.m", "schemes/results/addition_reduced_ZT/5x7x8_m204_cr825_cn2606_ZT_reduced.json"]
         },
         {
           "rank": 206,
@@ -35250,7 +35252,7 @@
           "buds_count": {"u": 10, "v": 14, "w": 8},
           "source": "schemes/results/ZT/6x7x7_m212_ZT.json",
           "path": "schemes/status/ZT/6x7x7_m212_ZT.json",
-          "duplicates": ["schemes/results/ZT/6x7x7_m212_ZT.m"]
+          "duplicates": ["schemes/results/ZT/6x7x7_m212_ZT.m", "schemes/results/addition_reduced_ZT/6x7x7_m212_cr852_cn2320_ZT_reduced.json"]
         },
         {
           "rank": 213,
@@ -35305,7 +35307,7 @@
           "buds_count": {"u": 9, "v": 6, "w": 11},
           "source": "schemes/results/ZT/6x7x8_m238_ZT.json",
           "path": "schemes/status/ZT/6x7x8_m238_ZT.json",
-          "duplicates": ["schemes/results/ZT/6x7x8_m238_ZT.m"]
+          "duplicates": ["schemes/results/ZT/6x7x8_m238_ZT.m", "schemes/results/addition_reduced_ZT/6x7x8_m238_cr983_cn2644_ZT_reduced.json"]
         },
         {
           "rank": 239,
@@ -38890,7 +38892,7 @@
           "buds_count": {"u": 14, "v": 3, "w": 6},
           "source": "schemes/results/ZT/7x7x8_m278_ZT.json",
           "path": "schemes/status/ZT/7x7x8_m278_ZT.json",
-          "duplicates": ["schemes/results/ZT/7x7x8_m278_ZT.m"]
+          "duplicates": ["schemes/results/ZT/7x7x8_m278_ZT.m", "schemes/results/addition_reduced_ZT/7x7x8_m278_cr1144_cn3229_ZT_reduced.json"]
         },
         {
           "rank": 279,
