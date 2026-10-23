@@ -18676,7 +18676,7 @@
           "buds_count": {"u": 15, "v": 0, "w": 0},
           "source": "schemes/results/ZT/4x4x10_m115_ZT.json",
           "path": "schemes/status/ZT/4x4x10_m115_ZT.json",
-          "duplicates": ["schemes/results/ZT/4x4x10_m115_ZT.m"]
+          "duplicates": ["schemes/results/ZT/4x4x10_m115_ZT.m", "schemes/results/addition_reduced_ZT/4x4x10_m115_cr450_cn1358_ZT_reduced.json"]
         },
         {
           "rank": 115,
@@ -28797,7 +28797,7 @@
           "buds_count": {"u": 18, "v": 0, "w": 0},
           "source": "schemes/results/ZT/5x5x12_m204_ZT.json",
           "path": "schemes/status/ZT/5x5x12_m204_ZT.json",
-          "duplicates": ["schemes/results/ZT/5x5x12_m204_ZT.m"]
+          "duplicates": ["schemes/results/ZT/5x5x12_m204_ZT.m", "schemes/results/addition_reduced_ZT/5x5x12_m204_cr805_cn2326_ZT_reduced.json"]
         },
         {
           "rank": 204,

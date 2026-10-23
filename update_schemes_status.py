@@ -194,47 +194,16 @@ def format_size(size: str) -> str:
     return f"`{n1}x{n2}x{n3}`"
 
 
-def plot_full_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
-    print("## Ranks")
-    print("|   Format   |  `ZT` rank  |   `Z` rank   |   `Q` rank   |        ω        |")
-    print("|:----------:|:-----------:|:------------:|:------------:|:---------------:|")
-
-    for size, data in status.items():
-        known_ranks = {}
-
-        for ring, schemes in data["schemes"].items():
-            known_schemes = sorted([scheme for scheme in schemes if "known" in scheme["source"]], key=lambda s: (s["rank"], s["complexity"]))
-            if not known_schemes:
-                continue
-
-            rank = known_schemes[0]["rank"]
-
-            for equal_ring in ring2equal_rings[ring]:
-                if equal_ring not in known_ranks or rank < known_ranks[equal_ring]:
-                    known_ranks[equal_ring] = rank
-
-        current_ranks = data["ranks"]
-        min_rank = min([current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks], default=None)
-        unique_ranks = len(set(current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks)) == 1
-        diff_rank = {}
-
-        for ring in ring2equal_rings:
-            rank_curr = format_value(current_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
-            rank_known = format_value(known_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
-            diff_rank[ring] = rank_curr if rank_curr == rank_known else f"{rank_curr} ({rank_known})"
-
-        n1, n2, n3 = map(int, size.split("x"))
-        omega = 3 * math.log(min_rank, n1 * n2 * n3)
-        bold = "**" if omega < math.log(7, 2) else "  "
-
-        print(f'| {format_size(size):^10} | {diff_rank["ZT"]:^11} | {diff_rank["Z"]:^12} | {diff_rank["Q"]:^12} | {bold}{omega:.9f}{bold} |')
-
-
-def plot_new_ranks_table(status: Dict[str, dict]) -> None:
-    print("\n\n### New best ranks")
-    print("New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than previously known.\n")
-    print("|   Format   |   Prev rank   |                          New rank                          |        ω        |")
-    print("|:----------:|:-------------:|:----------------------------------------------------------:|:---------------:|")
+def get_new_ranks_table(status: Dict[str, dict]) -> List[str]:
+    lines = [
+        "## New best ranks",
+        "",
+        "New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than",
+        "previously known.",
+        "",
+        "|   Format   |   Prev rank   |                            New rank                            |        ω        |",
+        "|:----------:|:-------------:|:--------------------------------------------------------------:|:---------------:|"
+    ]
 
     excluded = {
         "2x8x13"
@@ -256,19 +225,25 @@ def plot_new_ranks_table(status: Dict[str, dict]) -> None:
         rings = [ring for ring in ["ZT", "Z", "Q"] if ring in data["schemes"] and data["schemes"][ring][0]["rank"] == min_rank]
 
         prev = f"{min_known_rank} (`{'/'.join(known_rings)}`)"
-        curr = f"[{min_rank}](schemes/results/{rings[0]}/{size}_m{min_rank}_{rings[0]}.json) (`{'/'.join(rings)}`)"
+        curr = f"[{min_rank}](../schemes/results/{rings[0]}/{size}_m{min_rank}_{rings[0]}.json) (`{'/'.join(rings)}`)"
         size = format_size(size)
         omega = 3*math.log(min_rank, n1*n2*n3)
         bold = "**" if omega < strassen else "  "
-        print(f"| {size:^10} | {prev:^13} | {curr:^58} | {bold}{omega:.9f}{bold} |")
+        lines.append(f"| {size:^10} | {prev:^13} | {curr:^62} | {bold}{omega:.9f}{bold} |")
+
+    return lines
 
 
-def plot_zt_table(status: Dict[str, dict]) -> None:
-    print("\n\n### Rediscovery in the ternary coefficient set (`ZT`)")
-    print("The following schemes have been rediscovered in the `ZT` format. Originally known over the rational (`Q`) or integer (`Z`) fields, implementations")
-    print("with coefficients restricted to the ternary set were previously unknown.\n")
-    print("|   Format   |                        Rank                        | Known ring |")
-    print("|:----------:|:--------------------------------------------------:|:----------:|")
+def get_zt_table(status: Dict[str, dict]) -> List[str]:
+    lines = [
+        "## Rediscovery in the ternary coefficient set (`ZT`)",
+        "",
+        "The following schemes have been rediscovered in the `ZT` format. Originally known over the rational (`Q`) or integer (`Z`)",
+        "fields, implementations with coefficients restricted to the ternary set were previously unknown.",
+        "",
+        "|   Format   |                          Rank                          | Known ring |",
+        "|:----------:|:------------------------------------------------------:|:----------:|"
+    ]
 
     for size, data in status.items():
         ring2known_ranks = {ring: [scheme["rank"] for scheme in schemes if "known" in scheme["source"]] for ring, schemes in data["schemes"].items()}
@@ -282,18 +257,23 @@ def plot_zt_table(status: Dict[str, dict]) -> None:
 
         rings = [ring for ring in ["Z", "Q"] if ring2known_rank.get(ring) == zt_rank]
 
-        link = f"[{zt_rank}](schemes/results/ZT/{size}_m{zt_rank}_ZT.json)"
+        link = f"[{zt_rank}](../schemes/results/ZT/{size}_m{zt_rank}_ZT.json)"
         rings = f"`{'/'.join(rings)}`"
         size = format_size(size)
-        print(f"| {size:^10} | {link:^50} | {rings:^10} |")
+        lines.append(f"| {size:^10} | {link:^54} | {rings:^10} |")
+
+    return lines
 
 
-def plot_z_table(status: Dict[str, dict]) -> None:
-    print("\n\n### Rediscovery in the integer ring (`Z`)")
-    print("The following schemes, originally known over the rational field (`Q`), have now been rediscovered in the integer ring (`Z`).")
-    print("Implementations restricted to integer coefficients were previously unknown.\n")
-    print("|   Format   |                       Rank                       |")
-    print("|:----------:|:------------------------------------------------:|")
+def get_z_table(status: Dict[str, dict]) -> List[str]:
+    lines = [
+        "## Rediscovery in the integer ring (`Z`)",
+        "The following schemes, originally known over the rational field (`Q`), have now been rediscovered in the integer ring (`Z`).",
+        "Implementations restricted to integer coefficients were previously unknown.",
+        "",
+        "|   Format   |                         Rank                         |",
+        "|:----------:|:----------------------------------------------------:|"
+    ]
 
     for size, data in status.items():
         ring2known_rank = {}
@@ -314,15 +294,68 @@ def plot_z_table(status: Dict[str, dict]) -> None:
             continue
 
         z_rank = data["ranks"]["Z"]
-        link = f"[{z_rank}](schemes/results/Z/{size}_m{z_rank}_Z.json)"
-        print(f'| {format_size(size):^10} | {link:^48} |')
+        link = f"[{z_rank}](../schemes/results/Z/{size}_m{z_rank}_Z.json)"
+        lines.append(f'| {format_size(size):^10} | {link:^52} |')
+
+    return lines
 
 
-def plot_additions_table(status: Dict[str, dict]) -> None:
-    print("\n\n### Additions reduction")
+def get_coefficients_status(status: Dict[str, dict]) -> Tuple[Dict[str, int], int]:
+    ring2count = {"ZT": 0, "Z": 0, "Q": 0}
+    better_strassen = 0
 
-    print("|   Format   | Rank | Ring | Reduced additions | Naive additions | Leading coef |")
-    print("|:----------:|:----:|:----:|:-----------------:|:---------------:|:------------:|")
+    for size, data in status.items():
+        n1, n2, n3 = map(int, size.split("x"))
+        naive_rank = n1*n2*n3
+        q = data["ranks"]["Q"]
+        z = data["ranks"].get("Z", naive_rank)
+        zt = data["ranks"].get("ZT", naive_rank)
+
+        omega = 3*math.log(q) / math.log(naive_rank)
+
+        if zt == q:
+            ring2count["ZT"] += 1
+        elif z == q:
+            ring2count["Z"] += 1
+        else:
+            ring2count["Q"] += 1
+
+        if omega < math.log(7, 2):
+            better_strassen += 1
+
+    return ring2count, better_strassen
+
+
+def update_results(status: Dict[str, dict]) -> None:
+    print("- docs/results.md updating")
+    lines = [
+        "# Results",
+        "",
+        *get_new_ranks_table(status=status),
+        "",
+        *get_zt_table(status=status),
+        "",
+        *get_z_table(status=status)
+    ]
+
+    with open("docs/results.md", "w") as f:
+        for line in lines:
+            f.write(f"{line}\n")
+
+
+def update_additions_table(status: Dict[str, dict]) -> None:
+    print("- docs/additions.md updating")
+
+    lines = [
+        "# Additions reduction",
+        "",
+        "The table below compares the number of additions required to evaluate a scheme of each format: `Reduced additions` is the",
+        "best count achieved for the scheme with the given rank in the given ring, while `Naive additions` is the count obtained by",
+        "straightforward evaluation. `Leading coef` is the leading constant of the arithmetic complexity.",
+        "",
+        "|   Format   | Rank | Ring | Reduced additions | Naive additions |     ω     | Leading coef |",
+        "|:----------:|:----:|:----:|:-----------------:|:---------------:|:---------:|:------------:|"
+    ]
 
     for size, data in status.items():
         n1, n2, n3 = map(int, size.split("x"))
@@ -358,44 +391,74 @@ def plot_additions_table(status: Dict[str, dict]) -> None:
 
             ring = f"`{ring}`"
             reduced, naive, (au, av, aw) = best_additions
+            omega = 3 * math.log(rank) / math.log(n1*n2*n3)
+            bold = "**" if omega < math.log(7, 2) else "  "
             c = 1 + au / (rank - n1 * n2) + av / (rank - n2 * n3) + aw / (rank - n3 * n1)
 
-            print(f"| {format_size(size):^10} | {rank:^4} | {ring:^4} | {reduced:^17} | {naive:^15} | {c:^12.2f} |")
+            lines.append(f"| {format_size(size):^10} | {rank:^4} | {ring:^4} | {reduced:^17} | {naive:^15} | {bold}{omega:.3f}{bold} | {c:^12.2f} |")
+
+        with open("docs/additions.md", "w") as f:
+            for line in lines:
+                f.write(f"{line}\n")
 
 
-def print_coefficients_status(status: Dict[str, dict]) -> None:
-    zt_count = 0
-    z_count = 0
-    q_count = 0
-    total = 0
-    better_strassen = 0
+def update_ranks_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
+    print("- docs/ranks.md updating")
+
+    lines = [
+        "# Rank comparison",
+        "",
+        "The table below summarizes the current state of researched matrix multiplication schemes. It highlights where ternary",
+        "schemes (`ZT`) match or approximate the known minimal ranks from other fields. The best ranks of previously known schemes",
+        "are given in brackets.",
+        "",
+        "|   Format   |  `ZT` rank  |   `Z` rank   |   `Q` rank   |        ω        |",
+        "|:----------:|:-----------:|:------------:|:------------:|:---------------:|"
+    ]
 
     for size, data in status.items():
+        known_ranks = {}
+
+        for ring, schemes in data["schemes"].items():
+            known_schemes = sorted([scheme for scheme in schemes if "known" in scheme["source"]], key=lambda s: (s["rank"], s["complexity"]))
+            if not known_schemes:
+                continue
+
+            rank = known_schemes[0]["rank"]
+
+            for equal_ring in ring2equal_rings[ring]:
+                if equal_ring not in known_ranks or rank < known_ranks[equal_ring]:
+                    known_ranks[equal_ring] = rank
+
+        current_ranks = data["ranks"]
+        min_rank = min([current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks], default=None)
+        unique_ranks = len(set(current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks)) == 1
+        diff_rank = {}
+
+        for ring in ring2equal_rings:
+            rank_curr = format_value(current_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
+            rank_known = format_value(known_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
+            diff_rank[ring] = rank_curr if rank_curr == rank_known else f"{rank_curr} ({rank_known})"
+
         n1, n2, n3 = map(int, size.split("x"))
-        naive_rank = n1*n2*n3
-        q = data["ranks"]["Q"]
-        z = data["ranks"].get("Z", naive_rank)
-        zt = data["ranks"].get("ZT", naive_rank)
+        omega = 3 * math.log(min_rank, n1 * n2 * n3)
+        bold = "**" if omega < math.log(7, 2) else "  "
 
-        omega = 3*math.log(q) / math.log(naive_rank)
+        lines.append(f'| {format_size(size):^10} | {diff_rank["ZT"]:^11} | {diff_rank["Z"]:^12} | {diff_rank["Q"]:^12} | {bold}{omega:.9f}{bold} |')
 
-        if zt == q:
-            zt_count += 1
-        elif z == q:
-            z_count += 1
-        else:
-            q_count += 1
+    ring2count, better_strassen = get_coefficients_status(status=status)
+    total = sum(ring2count.values())
 
-        if omega < math.log(7, 2):
-            better_strassen += 1
+    lines.append("")
+    lines.append("## Coefficient set status")
+    lines.append(f"* total schemes: {total} ({better_strassen} better Strassen)")
+    lines.append(f'* `ZT` schemes: {ring2count["ZT"]} ({ring2count["ZT"] / total:.2%})')
+    lines.append(f'* `Z` schemes: {ring2count["Z"]} ({ring2count["Z"] / total:.2%})')
+    lines.append(f'* `Q` schemes: {ring2count["Q"]} ({ring2count["Q"] / total:.2%})')
 
-        total += 1
-
-    print("\n### Coefficient set status")
-    print(f"* total schemes: {total} ({better_strassen} better Strassen)")
-    print(f"* `ZT` schemes: {zt_count} ({zt_count / total:.2%})")
-    print(f"* `Z` schemes: {z_count} ({z_count / total:.2%})")
-    print(f"* `Q` schemes: {q_count} ({q_count / total:.2%})\n")
+    with open("docs/ranks.md", "w") as f:
+        for line in lines:
+            f.write(f"{line}\n")
 
 
 def main():
@@ -409,12 +472,11 @@ def main():
     n_max = 16
 
     status = analyze_schemes(input_dirs=input_dirs, n_max=n_max, extensions=extensions, ring2equal_rings=ring2equal_rings)
-    plot_new_ranks_table(status)
-    plot_zt_table(status)
-    plot_z_table(status)
-    plot_additions_table(status)
-    plot_full_table(status, ring2equal_rings=ring2equal_rings)
-    print_coefficients_status(status)
+
+    print("\nUpdate docs")
+    update_results(status)
+    update_additions_table(status)
+    update_ranks_table(status, ring2equal_rings=ring2equal_rings)
 
 
 if __name__ == '__main__':

@@ -1,7 +1,8 @@
 # Rank comparison
 
-The table below summarizes the current state of researched matrix multiplication schemes. It highlights where ternary schemes (`ZT`) match
-or approximate the known minimal ranks from other fields. The best ranks of previously known schemes are given in brackets.
+The table below summarizes the current state of researched matrix multiplication schemes. It highlights where ternary
+schemes (`ZT`) match or approximate the known minimal ranks from other fields. The best ranks of previously known schemes
+are given in brackets.
 
 |   Format   |  `ZT` rank  |   `Z` rank   |   `Q` rank   |        ω        |
 |:----------:|:-----------:|:------------:|:------------:|:---------------:|

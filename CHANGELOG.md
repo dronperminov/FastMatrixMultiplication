@@ -1,7 +1,8 @@
 # Changelog
 
 ## 23/10/26
-Add new `ZT` schemes with better reduced additions count;
+* Add new `ZT` schemes with a better reduced number of additions;
+* Move large tables from `README` to `docs/`;
 
 
 ## 22/10/26

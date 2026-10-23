@@ -1,7 +1,9 @@
 # Results
 
 ## New best ranks
-New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than previously known.
+
+New schemes have been discovered that improve the state-of-the-art for matrix multiplication achieving lower ranks than
+previously known.
 
 |   Format   |   Prev rank   |                            New rank                            |        ω        |
 |:----------:|:-------------:|:--------------------------------------------------------------:|:---------------:|
@@ -264,10 +266,10 @@ New schemes have been discovered that improve the state-of-the-art for matrix mu
 | `15x15x16` |  2173 (`Q`)   | [2132](../schemes/results/ZT/15x15x16_m2132_ZT.json) (`ZT/Z`)  |   2.808074285   |
 | `15x16x16` |  2262 (`Q`)   |    [2223](../schemes/results/Q/15x16x16_m2223_Q.json) (`Q`)    | **2.801308741** |
 
-
 ## Rediscovery in the ternary coefficient set (`ZT`)
-The following schemes have been rediscovered in the `ZT` format. Originally known over the rational (`Q`) or integer (`Z`) fields, implementations
-with coefficients restricted to the ternary set were previously unknown.
+
+The following schemes have been rediscovered in the `ZT` format. Originally known over the rational (`Q`) or integer (`Z`)
+fields, implementations with coefficients restricted to the ternary set were previously unknown.
 
 |   Format   |                          Rank                          | Known ring |
 |:----------:|:------------------------------------------------------:|:----------:|
