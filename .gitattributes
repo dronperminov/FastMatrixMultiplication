@@ -1,0 +1,3 @@
+*.m linguist-vendored
+*.mpl linguist-vendored
+*.exp linguist-vendored
