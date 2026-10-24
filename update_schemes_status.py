@@ -81,7 +81,7 @@ def get_checked_paths(status: Dict[str, dict]) -> Set[str]:
     return checked_paths
 
 
-def get_additions(path: str) -> Tuple[int, int, Tuple[int, int, int]]:
+def get_additions(path: str) -> Tuple[int, int, Tuple[int, int, int], str]:
     with open(path, "r") as f:
         data = json.load(f)
 
@@ -89,7 +89,7 @@ def get_additions(path: str) -> Tuple[int, int, Tuple[int, int, int]]:
     av = sum(len(expression) - 1 for expression in data["v_fresh"] + data["v"])
     aw = sum(len(expression) - 1 for expression in data["w_fresh"] + data["w"])
 
-    return data["complexity"]["reduced"], data["complexity"]["naive"], (au, av, aw)
+    return data["complexity"]["reduced"], data["complexity"]["naive"], (au, av, aw), path
 
 
 def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ring2equal_rings: Dict[str, List[str]]) -> dict:
@@ -338,7 +338,7 @@ def update_results(status: Dict[str, dict]) -> None:
         *get_z_table(status=status)
     ]
 
-    with open("docs/results.md", "w") as f:
+    with open("docs/results.md", "w", encoding="utf-8") as f:
         for line in lines:
             f.write(f"{line}\n")
 
@@ -353,8 +353,8 @@ def update_additions_table(status: Dict[str, dict]) -> None:
         "best count achieved for the scheme with the given rank in the given ring, while `Naive additions` is the count obtained by",
         "straightforward evaluation. `Leading coef` is the leading constant of the arithmetic complexity.",
         "",
-        "|   Format   | Rank | Ring | Reduced additions | Naive additions |     ω     | Leading coef |",
-        "|:----------:|:----:|:----:|:-----------------:|:---------------:|:---------:|:------------:|"
+        "|   Format   | Rank | Ring |                                     Reduced additions                                     | Naive |     ω     | Leading coef |",
+        "|:----------:|:----:|:----:|:-----------------------------------------------------------------------------------------:|:-----:|:---------:|:------------:|"
     ]
 
     for size, data in status.items():
@@ -376,28 +376,16 @@ def update_additions_table(status: Dict[str, dict]) -> None:
             if not schemes_paths:
                 continue
 
-            known_additions = float("+inf"), float("+inf")
-            new_additions = float("+inf"), float("+inf")
-            best_additions = float("+inf"), float("+inf")
-
-            for scheme_path in schemes_paths:
-                additions = get_additions(scheme_path)
-                if scheme_path.startswith("schemes/known/"):
-                    known_additions = min(known_additions, additions)
-                else:
-                    new_additions = min(new_additions, additions)
-
-                best_additions = min(best_additions, additions)
-
             ring = f"`{ring}`"
-            reduced, naive, (au, av, aw) = best_additions
+            reduced, naive, (au, av, aw), source = min(get_additions(scheme_path) for scheme_path in schemes_paths)
+            reduced = f"[{reduced}](../{source})"
             omega = 3 * math.log(rank) / math.log(n1*n2*n3)
             bold = "**" if omega < math.log(7, 2) else "  "
             c = 1 + au / (rank - n1 * n2) + av / (rank - n2 * n3) + aw / (rank - n3 * n1)
 
-            lines.append(f"| {format_size(size):^10} | {rank:^4} | {ring:^4} | {reduced:^17} | {naive:^15} | {bold}{omega:.3f}{bold} | {c:^12.2f} |")
+            lines.append(f"| {format_size(size):^10} | {rank:^4} | {ring:^4} | {reduced:^89} | {naive:^5} | {bold}{omega:.3f}{bold} | {c:^12.2f} |")
 
-        with open("docs/additions.md", "w") as f:
+        with open("docs/additions.md", "w", encoding="utf-8") as f:
             for line in lines:
                 f.write(f"{line}\n")
 
@@ -456,7 +444,7 @@ def update_ranks_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List
     lines.append(f'* `Z` schemes: {ring2count["Z"]} ({ring2count["Z"] / total:.2%})')
     lines.append(f'* `Q` schemes: {ring2count["Q"]} ({ring2count["Q"] / total:.2%})')
 
-    with open("docs/ranks.md", "w") as f:
+    with open("docs/ranks.md", "w", encoding="utf-8") as f:
         for line in lines:
             f.write(f"{line}\n")
 
