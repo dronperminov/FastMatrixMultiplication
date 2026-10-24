@@ -2,6 +2,11 @@
 
 ## 25/10/2026
 ### Additions reducing
+* `2x2x12`: discovered [scheme](schemes/results/addition_reduced_ZT/2x2x12_m42_cr70_cn144_ZT_reduced.json) with `42` multiplications and `70` additions;
+* `2x2x13`: discovered [scheme](schemes/results/addition_reduced_ZT/2x2x13_m46_cr72_cn146_ZT_reduced.json) with `46` multiplications and `72` additions;
+* `2x2x14`: discovered [scheme](schemes/results/addition_reduced_ZT/2x2x14_m49_cr83_cn168_ZT_reduced.json) with `49` multiplications and `83` additions;
+* `2x2x15`: discovered [scheme](schemes/results/addition_reduced_ZT/2x2x15_m53_cr85_cn170_ZT_reduced.json) with `53` multiplications and `85` additions;
+* `2x2x16`: discovered [scheme](schemes/results/addition_reduced_ZT/2x2x16_m56_cr92_cn192_ZT_reduced.json) with `56` multiplications and `92` additions;
 * `2x3x8`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x8_m40_cr96_cn180_ZT_reduced.json) with `40` multiplications and `96` additions;
 * `3x3x5`: discovered [scheme](schemes/results/addition_reduced_ZT/3x3x5_m36_cr108_cn236_ZT_reduced.json) with `36` multiplications and `108` additions;
 
