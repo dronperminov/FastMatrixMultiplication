@@ -1,11 +1,21 @@
 # Changelog
 
-## 23/10/26
+## 24/10/2026
+### Additions reducing
+* `2x6x6`: discovered [scheme](schemes/results/addition_reduced_ZT/2x6x6_m56_cr219_cn549_ZT_reduced.json) with `56` multiplications and `219` additions;
+* `3x3x6`: discovered [scheme](schemes/results/addition_reduced_ZT/3x3x6_m42_cr139_cn287_ZT_reduced.json) with `42` multiplications and `139` additions;
+* `3x6x6`: discovered [scheme](schemes/results/addition_reduced_ZT/3x6x6_m82_cr325_cn1028_ZT_reduced.json) with `82` multiplications and `325` additions;
+* `4x5x6`: discovered [scheme](schemes/results/addition_reduced_ZT/4x5x6_m90_cr317_cn767_ZT_reduced.json) with `90` multiplications and `317` additions;
+* `4x5x7`: discovered [scheme](schemes/results/addition_reduced_ZT/4x5x7_m104_cr374_cn908_ZT_reduced.json) with `104` multiplications and `374` additions;
+* `4x5x8`: discovered [scheme](schemes/results/addition_reduced_ZT/4x5x8_m118_cr428_cn1042_ZT_reduced.json) with `118` multiplications and `428` additions;
+
+
+## 23/10/2026
 * Add new `ZT` schemes with a better reduced number of additions;
 * Move large tables from `README` to `docs/`;
 
 
-## 22/10/26
+## 22/10/2026
 Add addition reduced `ZT` schemes with best known ranks;
 
 
