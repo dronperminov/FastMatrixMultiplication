@@ -9,6 +9,7 @@
 * `2x2x16`: discovered [scheme](schemes/results/addition_reduced_ZT/2x2x16_m56_cr92_cn192_ZT_reduced.json) with `56` multiplications and `92` additions;
 * `2x3x8`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x8_m40_cr96_cn180_ZT_reduced.json) with `40` multiplications and `96` additions;
 * `3x3x5`: discovered [scheme](schemes/results/addition_reduced_ZT/3x3x5_m36_cr108_cn236_ZT_reduced.json) with `36` multiplications and `108` additions;
+* `3x6x7`: discovered [scheme](schemes/results/addition_reduced_ZT/3x6x7_m96_cr343_cn670_ZT_reduced.json) with `96` multiplications and `343` additions; 
 
 
 ## 24/10/2026
