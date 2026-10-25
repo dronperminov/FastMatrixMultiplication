@@ -81,15 +81,20 @@ def get_checked_paths(status: Dict[str, dict]) -> Set[str]:
     return checked_paths
 
 
-def get_additions(path: str) -> Tuple[int, int, Tuple[int, int, int], str]:
+def get_additions(path: str) -> Tuple[int, float, int, Tuple[int, int, int], str]:
     with open(path, "r") as f:
         data = json.load(f)
+
+    n1, n2, n3 = data["n"]
+    rank = data["m"]
 
     au = sum(len(expression) - 1 for expression in data["u_fresh"] + data["u"])
     av = sum(len(expression) - 1 for expression in data["v_fresh"] + data["v"])
     aw = sum(len(expression) - 1 for expression in data["w_fresh"] + data["w"])
 
-    return data["complexity"]["reduced"], data["complexity"]["naive"], (au, av, aw), path
+    c = 1 + au / (rank - n1 * n2) + av / (rank - n2 * n3) + aw / (rank - n3 * n1)
+
+    return data["complexity"]["reduced"], c, data["complexity"]["naive"], (au, av, aw), path
 
 
 def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ring2equal_rings: Dict[str, List[str]]) -> dict:
@@ -377,12 +382,11 @@ def update_additions_table(status: Dict[str, dict]) -> None:
                 continue
 
             ring = f"`{ring}`"
-            reduced, naive, (au, av, aw), source = min(get_additions(scheme_path) for scheme_path in schemes_paths)
+            reduced, c, naive, (au, av, aw), source = min(get_additions(scheme_path) for scheme_path in schemes_paths)
             reduced = f"[{reduced}](../{source})"
             uvw = f"{au} / {av} / {aw}"
             omega = 3 * math.log(rank) / math.log(n1*n2*n3)
             bold = "**" if omega < math.log(7, 2) else "  "
-            c = 1 + au / (rank - n1 * n2) + av / (rank - n2 * n3) + aw / (rank - n3 * n1)
 
             lines.append(f"| {format_size(size):^10} | {rank:^4} | {ring:^4} | {reduced:^89} | {naive:^5} | {uvw:^17} | {bold}{omega:.3f}{bold} | {c:^12.2f} |")
 

@@ -2724,7 +2724,7 @@
           "buds_count": {"u": 21, "v": 0, "w": 1},
           "source": "schemes/results/ZT/2x4x9_m58_ZT.json",
           "path": "schemes/status/ZT/2x4x9_m58_ZT.json",
-          "duplicates": ["schemes/results/ZT/2x4x9_m58_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x4x9_m58_ZT.m", "schemes/results/addition_reduced_ZT/2x4x9_m58_cr199_cn439_ZT_reduced.json"]
         },
         {
           "rank": 58,
@@ -2819,7 +2819,7 @@
           "buds_count": {"u": 28, "v": 0, "w": 0},
           "source": "schemes/results/ZT/2x4x10_m64_ZT.json",
           "path": "schemes/status/ZT/2x4x10_m64_ZT.json",
-          "duplicates": ["schemes/results/ZT/2x4x10_m64_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x4x10_m64_ZT.m", "schemes/results/addition_reduced_ZT/2x4x10_m64_cr211_cn450_ZT_reduced.json"]
         },
         {
           "rank": 65,
@@ -2911,7 +2911,7 @@
           "buds_count": {"u": 52, "v": 0, "w": 0},
           "source": "schemes/results/ZT/2x4x11_m70_ZT.json",
           "path": "schemes/status/ZT/2x4x11_m70_ZT.json",
-          "duplicates": ["schemes/results/ZT/2x4x11_m70_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x4x11_m70_ZT.m", "schemes/results/addition_reduced_ZT/2x4x11_m70_cr251_cn599_ZT_reduced.json"]
         },
         {
           "rank": 70,
@@ -3024,6 +3024,15 @@
           "source": "schemes/results/ZT/2x4x12_m77_ZT.json",
           "path": "schemes/status/ZT/2x4x12_m77_ZT_v2.json",
           "duplicates": ["schemes/results/ZT/2x4x12_m77_ZT.m"]
+        },
+        {
+          "rank": 77,
+          "omega": 2.855044295244775,
+          "complexity": 594,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 24, "v": 0, "w": 2},
+          "source": "schemes/results/addition_reduced_ZT/2x4x12_m77_cr259_cn594_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x12_m77_ZT_v3.json"
         }
       ]
     }
@@ -3060,7 +3069,7 @@
           "buds_count": {"u": 25, "v": 0, "w": 0},
           "source": "schemes/results/ZT/2x4x13_m83_ZT.json",
           "path": "schemes/status/ZT/2x4x13_m83_ZT.json",
-          "duplicates": ["schemes/results/ZT/2x4x13_m83_ZT.m"]
+          "duplicates": ["schemes/results/ZT/2x4x13_m83_ZT.m", "schemes/results/addition_reduced_ZT/2x4x13_m83_cr301_cn599_ZT_reduced.json"]
         },
         {
           "rank": 84,
@@ -3183,6 +3192,15 @@
           "duplicates": ["schemes/results/addition_reduced_ZT/2x4x14_m90_cr301_cn616_ZT_reduced.json"]
         },
         {
+          "rank": 90,
+          "omega": 2.8609584063089084,
+          "complexity": 686,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 101, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x4x14_m90_cr274_cn686_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x14_m90_ZT_v3.json"
+        },
+        {
           "rank": 91,
           "omega": 2.867983841614492,
           "complexity": 1071,
@@ -3256,6 +3274,15 @@
           "source": "schemes/results/ZT/2x4x15_m96_ZT.json",
           "path": "schemes/status/ZT/2x4x15_m96_ZT_v3.json",
           "duplicates": ["schemes/results/ZT/2x4x15_m96_ZT.m"]
+        },
+        {
+          "rank": 96,
+          "omega": 2.860170901610032,
+          "complexity": 779,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 37, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x4x15_m96_cr328_cn779_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x15_m96_ZT_v4.json"
         }
       ]
     }
@@ -3291,6 +3318,15 @@
           "source": "schemes/results/addition_reduced_ZT/2x4x16_m102_cr338_fv130_cn708_ZT_reduced.json",
           "path": "schemes/status/ZT/2x4x16_m102_ZT_v2.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/2x4x16_m102_cr325_cn708_ZT_reduced.json"]
+        },
+        {
+          "rank": 102,
+          "omega": 2.859610860844927,
+          "complexity": 872,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 83, "v": 0, "w": 0},
+          "source": "schemes/results/addition_reduced_ZT/2x4x16_m102_cr323_cn872_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x16_m102_ZT_v3.json"
         }
       ]
     }

@@ -15,6 +15,14 @@
 * `2x3x14`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x14_m70_cr162_cn330_ZT_reduced.json) with `70` multiplications and `162` additions;
 * `2x3x15`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x15_m75_cr177_cn333_ZT_reduced.json) with `75` multiplications and `177` additions;
 * `2x3x16`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x16_m80_cr180_cn360_ZT_reduced.json) with `80` multiplications and `180` additions;
+* `2x4x9`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x9_m58_cr199_cn439_ZT_reduced.json) with `58` multiplications and `199` additions;
+* `2x4x10`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x10_m64_cr211_cn450_ZT_reduced.json) with `64` multiplications and `211` additions;
+* `2x4x11`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x11_m70_cr251_cn599_ZT_reduced.json) with `70` multiplications and `251` additions;
+* `2x4x12`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x12_m77_cr259_cn594_ZT_reduced.json) with `77` multiplications and `259` additions;
+* `2x4x13`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x13_m83_cr301_cn599_ZT_reduced.json) with `83` multiplications and `301` additions; 
+* `2x4x14`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x14_m90_cr274_cn686_ZT_reduced.json) with `90` multiplications and `274` additions;
+* `2x4x15`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x15_m96_cr328_cn779_ZT_reduced.json) with `96` multiplications and `328` additions;
+* `2x4x16`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x16_m102_cr323_cn872_ZT_reduced.json) with `102` multiplications and `323` additions;
 * `2x5x9`: discovered [scheme](schemes/results/addition_reduced_ZT/2x5x9_m72_cr241_cn546_ZT_reduced.json) with `72` multiplications and `241` additions;
 * `3x3x5`: discovered [scheme](schemes/results/addition_reduced_ZT/3x3x5_m36_cr108_cn236_ZT_reduced.json) with `36` multiplications and `108` additions;
 * `3x6x7`: discovered [scheme](schemes/results/addition_reduced_ZT/3x6x7_m96_cr343_cn670_ZT_reduced.json) with `96` multiplications and `343` additions;
