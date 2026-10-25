@@ -349,9 +349,9 @@ def update_additions_table(status: Dict[str, dict]) -> None:
     lines = [
         "# Additions reduction",
         "",
-        "The table below compares the number of additions required to evaluate a scheme of each format: `Reduced additions` is the",
-        "best count achieved for the scheme with the given rank in the given ring, while `Naive additions` is the count obtained by",
-        "straightforward evaluation. `Leading coef` is the leading constant of the arithmetic complexity.",
+        "The table below compares the number of additions required to evaluate a scheme of each format: `Reduced additions` is the best count achieved",
+        "for the scheme with the given rank in the given ring (linked to the scheme), `Naive` is the straightforward-evaluation count, `U / V / W` are",
+        "the additions in the factor matrices, `ω` is the exponent of the recursive algorithm, and `Leading coef` is its leading constant.",
         "",
         "|   Format   | Rank | Ring |                                     Reduced additions                                     | Naive |     U / V / W     |     ω     | Leading coef |",
         "|:----------:|:----:|:----:|:-----------------------------------------------------------------------------------------:|:-----:|:-----------------:|:---------:|:------------:|"

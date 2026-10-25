@@ -1,8 +1,8 @@
 # Additions reduction
 
-The table below compares the number of additions required to evaluate a scheme of each format: `Reduced additions` is the
-best count achieved for the scheme with the given rank in the given ring, while `Naive additions` is the count obtained by
-straightforward evaluation. `Leading coef` is the leading constant of the arithmetic complexity.
+The table below compares the number of additions required to evaluate a scheme of each format: `Reduced additions` is the best count achieved
+for the scheme with the given rank in the given ring (linked to the scheme), `Naive` is the straightforward-evaluation count, `U / V / W` are
+the additions in the factor matrices, `ω` is the exponent of the recursive algorithm, and `Leading coef` is its leading constant.
 
 |   Format   | Rank | Ring |                                     Reduced additions                                     | Naive |     U / V / W     |     ω     | Leading coef |
 |:----------:|:----:|:----:|:-----------------------------------------------------------------------------------------:|:-----:|:-----------------:|:---------:|:------------:|
@@ -48,7 +48,7 @@ straightforward evaluation. `Leading coef` is the leading constant of the arithm
 |  `2x5x6`   |  47  | `ZT` |    [173](../schemes/results/addition_reduced_ZT/2x5x6_m47_cr173_cn431_ZT_reduced.json)    |  431  |   37 / 63 / 73    |   2.821   |     7.79     |
 |  `2x5x7`   |  55  | `ZT` |    [211](../schemes/results/addition_reduced_ZT/2x5x7_m55_cr211_cn515_ZT_reduced.json)    |  515  |   41 / 81 / 89    |   2.830   |     8.13     |
 |  `2x5x8`   |  63  | `ZT` |    [242](../schemes/results/addition_reduced_ZT/2x5x8_m63_cr242_cn570_ZT_reduced.json)    |  570  |   44 / 94 / 104   |   2.836   |     8.13     |
-|  `2x5x9`   |  72  | `ZT` |    [263](../schemes/results/addition_reduced_ZT/2x5x9_m72_cr263_cn465_ZT_reduced.json)    |  465  |   59 / 92 / 112   |   2.851   |     7.43     |
+|  `2x5x9`   |  72  | `ZT` |    [241](../schemes/results/addition_reduced_ZT/2x5x9_m72_cr241_cn546_ZT_reduced.json)    |  546  |   50 / 84 / 107   |   2.851   |     6.90     |
 |  `2x5x11`  |  87  | `ZT` |   [321](../schemes/results/addition_reduced_ZT/2x5x11_m87_cr321_cn540_ZT_reduced.json)    |  540  |  62 / 119 / 140   |   2.850   |     7.68     |
 |  `2x5x12`  |  94  | `ZT` |   [320](../schemes/results/addition_reduced_ZT/2x5x12_m94_cr320_cn664_ZT_reduced.json)    |  664  |  38 / 130 / 152   |   2.847   |     7.45     |
 |  `2x6x6`   |  56  | `ZT` |    [219](../schemes/results/addition_reduced_ZT/2x6x6_m56_cr219_cn549_ZT_reduced.json)    |  549  |   46 / 83 / 90    |   2.824   |     8.24     |
@@ -96,7 +96,7 @@ straightforward evaluation. `Leading coef` is the leading constant of the arithm
 |  `4x6x10`  | 175  | `ZT` |  [677](../schemes/results/addition_reduced_ZT/4x6x10_m175_cr677_cn1878_ZT_reduced.json)   | 1878  |  149 / 213 / 315  |   2.827   |     6.17     |
 |  `4x7x7`   | 144  | `ZT` |   [583](../schemes/results/addition_reduced_ZT/4x7x7_m144_cr583_cn1983_ZT_reduced.json)   | 1983  |  141 / 184 / 258  |   2.825   |     6.38     |
 |  `4x7x8`   | 161  | `ZT` |   [624](../schemes/results/addition_reduced_ZT/4x7x8_m161_cr624_cn2270_ZT_reduced.json)   | 2270  |  149 / 201 / 274  |   2.817   |     6.16     |
-|  `4x7x9`   | 187  | `ZT` |   [714](../schemes/results/addition_reduced_ZT/4x7x9_m187_cr714_cn2059_ZT_reduced.json)   | 2059  |  191 / 210 / 313  |   2.838   |     5.97     |
+|  `4x7x9`   | 187  | `ZT` |   [703](../schemes/results/addition_reduced_ZT/4x7x9_m187_cr703_cn2002_ZT_reduced.json)   | 2002  |  187 / 205 / 311  |   2.838   |     5.89     |
 |  `4x8x8`   | 180  | `ZT` |   [733](../schemes/results/addition_reduced_ZT/4x8x8_m180_cr733_cn2888_ZT_reduced.json)   | 2888  |  180 / 232 / 321  |   2.809   |     6.39     |
 |  `5x5x5`   |  93  | `ZT` |    [331](../schemes/results/addition_reduced_ZT/5x5x5_m93_cr331_cn834_ZT_reduced.json)    |  834  |   89 / 85 / 157   |   2.816   |     5.87     |
 |  `5x5x6`   | 110  | `ZT` |   [404](../schemes/results/addition_reduced_ZT/5x5x6_m110_cr404_cn1192_ZT_reduced.json)   | 1192  |  105 / 109 / 190  |   2.814   |     5.97     |
