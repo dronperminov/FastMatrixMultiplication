@@ -449,3 +449,4 @@ Implementations restricted to integer coefficients were previously unknown.
 | `2x13x15`  |   [300](../schemes/results/Z/2x13x15_m300_Z.json)    |
 | `2x13x16`  |   [320](../schemes/results/Z/2x13x16_m320_Z.json)    |
 | `2x15x16`  |   [368](../schemes/results/Z/2x15x16_m368_Z.json)    |
+| `4x14x15`  |   [568](../schemes/results/Z/4x14x15_m568_Z.json)    |
