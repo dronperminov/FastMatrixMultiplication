@@ -16,7 +16,9 @@
 * `2x3x15`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x15_m75_cr177_cn333_ZT_reduced.json) with `75` multiplications and `177` additions;
 * `2x3x16`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x16_m80_cr180_cn360_ZT_reduced.json) with `80` multiplications and `180` additions;
 * `3x3x5`: discovered [scheme](schemes/results/addition_reduced_ZT/3x3x5_m36_cr108_cn236_ZT_reduced.json) with `36` multiplications and `108` additions;
-* `3x6x7`: discovered [scheme](schemes/results/addition_reduced_ZT/3x6x7_m96_cr343_cn670_ZT_reduced.json) with `96` multiplications and `343` additions; 
+* `3x6x7`: discovered [scheme](schemes/results/addition_reduced_ZT/3x6x7_m96_cr343_cn670_ZT_reduced.json) with `96` multiplications and `343` additions;
+* `3x6x8`: discovered [scheme](schemes/results/addition_reduced_ZT/3x6x8_m108_cr353_cn748_ZT_reduced.json) with `108` multiplications and `353` additions;
+* `3x7x8`: discovered [scheme](schemes/results/addition_reduced_ZT/3x7x8_m128_cr417_cn872_ZT_reduced.json) with `128` multiplications and `417` additions;
 * `6x6x8`: discovered [scheme](schemes/results/addition_reduced_ZT/6x6x8_m203_cr717_cn2822_ZT_reduced.json) with `203` multiplications and `717` additions;
 * `6x8x8`: discovered [scheme](schemes/results/addition_reduced_ZT/6x8x8_m266_cr982_cn4936_ZT_reduced.json) with `266` multiplications and `982` additions;
 

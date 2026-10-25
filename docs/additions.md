@@ -76,9 +76,9 @@ straightforward evaluation. `Leading coef` is the leading constant of the arithm
 |  `3x5x8`   |  90  | `ZT` |    [343](../schemes/results/addition_reduced_ZT/3x5x8_m90_cr343_cn698_ZT_reduced.json)    |  698  |  73 / 111 / 159   |   2.820   |     6.60     |
 |  `3x6x6`   |  82  | `ZT` |   [325](../schemes/results/addition_reduced_ZT/3x6x6_m82_cr325_cn1028_ZT_reduced.json)    | 1028  |  73 / 112 / 140   |   2.824   |     6.76     |
 |  `3x6x7`   |  96  | `ZT` |    [343](../schemes/results/addition_reduced_ZT/3x6x7_m96_cr343_cn670_ZT_reduced.json)    |  670  |  87 / 102 / 154   |   2.831   |     6.06     |
-|  `3x6x8`   | 108  | `ZT` |   [357](../schemes/results/addition_reduced_ZT/3x6x8_m108_cr357_cn750_ZT_reduced.json)    |  750  |  51 / 130 / 176   |   2.826   |     5.83     |
+|  `3x6x8`   | 108  | `ZT` |   [353](../schemes/results/addition_reduced_ZT/3x6x8_m108_cr353_cn748_ZT_reduced.json)    |  748  |  51 / 126 / 176   |   2.826   |     5.76     |
 |  `3x7x7`   | 111  | `ZT` |   [427](../schemes/results/addition_reduced_ZT/3x7x7_m111_cr427_cn869_ZT_reduced.json)    |  869  |  97 / 154 / 176   |   2.831   |     6.52     |
-|  `3x7x8`   | 128  | `ZT` |   [425](../schemes/results/addition_reduced_ZT/3x7x8_m128_cr425_cn904_ZT_reduced.json)    |  904  |  70 / 155 / 200   |   2.841   |     5.73     |
+|  `3x7x8`   | 128  | `ZT` |   [417](../schemes/results/addition_reduced_ZT/3x7x8_m128_cr417_cn872_ZT_reduced.json)    |  872  |  68 / 149 / 200   |   2.841   |     5.63     |
 |  `3x8x8`   | 146  | `ZT` |   [524](../schemes/results/addition_reduced_ZT/3x8x8_m146_cr524_cn1976_ZT_reduced.json)   | 1976  |  118 / 194 / 212  |   2.844   |     6.07     |
 |  `4x4x4`   |  49  | `ZT` |    [156](../schemes/results/addition_reduced_ZT/4x4x4_m49_cr156_cn474_ZT_reduced.json)    |  474  |   41 / 41 / 74    |   2.807   |     5.73     |
 |  `4x4x5`   |  61  | `ZT` |    [214](../schemes/results/addition_reduced_ZT/4x4x5_m61_cr214_cn573_ZT_reduced.json)    |  573  |   58 / 55 / 101   |   2.814   |     6.09     |
