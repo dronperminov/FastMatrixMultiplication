@@ -353,8 +353,8 @@ def update_additions_table(status: Dict[str, dict]) -> None:
         "best count achieved for the scheme with the given rank in the given ring, while `Naive additions` is the count obtained by",
         "straightforward evaluation. `Leading coef` is the leading constant of the arithmetic complexity.",
         "",
-        "|   Format   | Rank | Ring |                                     Reduced additions                                     | Naive |     ω     | Leading coef |",
-        "|:----------:|:----:|:----:|:-----------------------------------------------------------------------------------------:|:-----:|:---------:|:------------:|"
+        "|   Format   | Rank | Ring |                                     Reduced additions                                     | Naive |     U / V / W     |     ω     | Leading coef |",
+        "|:----------:|:----:|:----:|:-----------------------------------------------------------------------------------------:|:-----:|:-----------------:|:---------:|:------------:|"
     ]
 
     for size, data in status.items():
@@ -379,11 +379,12 @@ def update_additions_table(status: Dict[str, dict]) -> None:
             ring = f"`{ring}`"
             reduced, naive, (au, av, aw), source = min(get_additions(scheme_path) for scheme_path in schemes_paths)
             reduced = f"[{reduced}](../{source})"
+            uvw = f"{au} / {av} / {aw}"
             omega = 3 * math.log(rank) / math.log(n1*n2*n3)
             bold = "**" if omega < math.log(7, 2) else "  "
             c = 1 + au / (rank - n1 * n2) + av / (rank - n2 * n3) + aw / (rank - n3 * n1)
 
-            lines.append(f"| {format_size(size):^10} | {rank:^4} | {ring:^4} | {reduced:^89} | {naive:^5} | {bold}{omega:.3f}{bold} | {c:^12.2f} |")
+            lines.append(f"| {format_size(size):^10} | {rank:^4} | {ring:^4} | {reduced:^89} | {naive:^5} | {uvw:^17} | {bold}{omega:.3f}{bold} | {c:^12.2f} |")
 
         with open("docs/additions.md", "w", encoding="utf-8") as f:
             for line in lines:

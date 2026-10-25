@@ -8,8 +8,17 @@
 * `2x2x15`: discovered [scheme](schemes/results/addition_reduced_ZT/2x2x15_m53_cr85_cn170_ZT_reduced.json) with `53` multiplications and `85` additions;
 * `2x2x16`: discovered [scheme](schemes/results/addition_reduced_ZT/2x2x16_m56_cr92_cn192_ZT_reduced.json) with `56` multiplications and `92` additions;
 * `2x3x8`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x8_m40_cr96_cn180_ZT_reduced.json) with `40` multiplications and `96` additions;
+* `2x3x10`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x10_m50_cr123_cn222_ZT_reduced.json) with `50` multiplications and `123` additions;
+* `2x3x11`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x11_m55_cr137_cn257_ZT_reduced.json) with `55` multiplications and `137` additions;
+* `2x3x12`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x12_m60_cr138_cn270_ZT_reduced.json) with `60` multiplications and `138` additions;
+* `2x3x13`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x13_m65_cr160_cn315_ZT_reduced.json) with `65` multiplications and `160` additions;
+* `2x3x14`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x14_m70_cr162_cn330_ZT_reduced.json) with `70` multiplications and `162` additions;
+* `2x3x15`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x15_m75_cr177_cn333_ZT_reduced.json) with `75` multiplications and `177` additions;
+* `2x3x16`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x16_m80_cr180_cn360_ZT_reduced.json) with `80` multiplications and `180` additions;
 * `3x3x5`: discovered [scheme](schemes/results/addition_reduced_ZT/3x3x5_m36_cr108_cn236_ZT_reduced.json) with `36` multiplications and `108` additions;
 * `3x6x7`: discovered [scheme](schemes/results/addition_reduced_ZT/3x6x7_m96_cr343_cn670_ZT_reduced.json) with `96` multiplications and `343` additions; 
+* `6x6x8`: discovered [scheme](schemes/results/addition_reduced_ZT/6x6x8_m203_cr717_cn2822_ZT_reduced.json) with `203` multiplications and `717` additions;
+* `6x8x8`: discovered [scheme](schemes/results/addition_reduced_ZT/6x8x8_m266_cr982_cn4936_ZT_reduced.json) with `266` multiplications and `982` additions;
 
 
 ## 24/10/2026
