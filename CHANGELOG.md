@@ -2,8 +2,14 @@
 
 ## 26/10/2026
 ### Additions reducing
+* `2x2x15`: discovered [scheme](schemes/results/addition_reduced_ZT/2x2x15_m53_cr84_cn168_ZT_reduced.json) with `53` multiplications and `84` additions;
+* `2x3x6`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x6_m30_cr75_cn158_ZT_reduced.json) with `30` multiplications and `75` additions;
+* `2x3x9`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x9_m45_cr107_cn237_ZT_reduced.json) with `45` multiplications and `107` additions;
+* `2x3x10`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x10_m50_cr122_cn242_ZT_reduced.json) with `50` multiplications and `122` additions;
+* `2x3x15`: discovered [scheme](schemes/results/addition_reduced_ZT/2x3x15_m75_cr171_cn395_ZT_reduced.json) with `75` multiplications and `171` additions;
 * `2x5x8`: discovered [scheme](schemes/results/addition_reduced_ZT/2x5x8_m63_cr241_cn570_ZT_reduced.json) with `63` multiplications and `241` additions;
 * `2x7x7`: discovered [scheme](schemes/results/addition_reduced_ZT/2x7x7_m76_cr343_cn1209_ZT_reduced.json) with `76` multiplications and `343` additions;
+* `4x4x8`: discovered [scheme](schemes/results/addition_reduced_ZT/4x4x8_m96_cr335_cn962_ZT_reduced.json) with `96` multiplications and `335` additions;
 
 
 ## 25/10/2026
