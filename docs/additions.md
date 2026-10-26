@@ -51,7 +51,7 @@ the additions in the factor matrices, `ω` is the exponent of the recursive algo
 |  `2x5x5`   |  40  | `ZT` |    [139](../schemes/results/addition_reduced_ZT/2x5x5_m40_cr139_cn295_ZT_reduced.json)    |  295  |   31 / 48 / 60    |   2.829   |     7.23     |
 |  `2x5x6`   |  47  | `ZT` |    [173](../schemes/results/addition_reduced_ZT/2x5x6_m47_cr173_cn431_ZT_reduced.json)    |  431  |   37 / 63 / 73    |   2.821   |     7.79     |
 |  `2x5x7`   |  55  | `ZT` |    [211](../schemes/results/addition_reduced_ZT/2x5x7_m55_cr211_cn515_ZT_reduced.json)    |  515  |   41 / 81 / 89    |   2.830   |     8.13     |
-|  `2x5x8`   |  63  | `ZT` |    [242](../schemes/results/addition_reduced_ZT/2x5x8_m63_cr242_cn570_ZT_reduced.json)    |  570  |   44 / 94 / 104   |   2.836   |     8.13     |
+|  `2x5x8`   |  63  | `ZT` |    [241](../schemes/results/addition_reduced_ZT/2x5x8_m63_cr241_cn570_ZT_reduced.json)    |  570  |   44 / 93 / 104   |   2.836   |     8.09     |
 |  `2x5x9`   |  72  | `ZT` |    [241](../schemes/results/addition_reduced_ZT/2x5x9_m72_cr241_cn546_ZT_reduced.json)    |  546  |   50 / 84 / 107   |   2.851   |     6.90     |
 |  `2x5x11`  |  87  | `ZT` |   [321](../schemes/results/addition_reduced_ZT/2x5x11_m87_cr321_cn540_ZT_reduced.json)    |  540  |  62 / 119 / 140   |   2.850   |     7.68     |
 |  `2x5x12`  |  94  | `ZT` |   [320](../schemes/results/addition_reduced_ZT/2x5x12_m94_cr320_cn664_ZT_reduced.json)    |  664  |  38 / 130 / 152   |   2.847   |     7.45     |
@@ -60,7 +60,7 @@ the additions in the factor matrices, `ω` is the exponent of the recursive algo
 |  `2x6x8`   |  75  | `ZT` |    [309](../schemes/results/addition_reduced_ZT/2x6x8_m75_cr309_cn938_ZT_reduced.json)    |  938  |  60 / 128 / 121   |   2.838   |     8.74     |
 |  `2x6x9`   |  86  | `ZT` |    [291](../schemes/results/addition_reduced_ZT/2x6x9_m86_cr291_cn548_ZT_reduced.json)    |  548  |  42 / 114 / 135   |   2.854   |     7.12     |
 |  `2x6x10`  |  94  | `ZT` |   [321](../schemes/results/addition_reduced_ZT/2x6x10_m94_cr321_cn668_ZT_reduced.json)    |  668  |  41 / 130 / 150   |   2.847   |     7.35     |
-|  `2x7x7`   |  76  | `ZT` |   [348](../schemes/results/addition_reduced_ZT/2x7x7_m76_cr348_cn1212_ZT_reduced.json)    | 1212  |  67 / 151 / 130   |   2.834   |     9.77     |
+|  `2x7x7`   |  76  | `ZT` |   [343](../schemes/results/addition_reduced_ZT/2x7x7_m76_cr343_cn1209_ZT_reduced.json)    | 1209  |  66 / 147 / 130   |   2.834   |     9.61     |
 |  `2x7x8`   |  88  | `ZT` |    [392](../schemes/results/addition_reduced_ZT/2x7x8_m88_cr392_cn745_ZT_reduced.json)    |  745  |  83 / 157 / 152   |   2.847   |     9.14     |
 |  `2x8x8`   | 100  | `ZT` |   [416](../schemes/results/addition_reduced_ZT/2x8x8_m100_cr416_cn608_ZT_reduced.json)    |  608  |  90 / 152 / 174   |   2.847   |     8.37     |
 |  `3x3x3`   |  23  | `ZT` |     [55](../schemes/results/addition_reduced_ZT/3x3x3_m23_cr55_cn122_ZT_reduced.json)     |  122  |   13 / 14 / 28    |   2.854   |     4.93     |
