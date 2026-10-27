@@ -43,10 +43,10 @@ the additions in the factor matrices, `ω` is the exponent of the recursive algo
 |  `2x4x9`   |  58  | `ZT` |    [199](../schemes/results/addition_reduced_ZT/2x4x9_m58_cr199_cn439_ZT_reduced.json)    |  439  |   35 / 75 / 89    |   2.848   |     7.33     |
 |  `2x4x10`  |  64  | `ZT` |   [211](../schemes/results/addition_reduced_ZT/2x4x10_m64_cr211_cn450_ZT_reduced.json)    |  450  |   36 / 78 / 97    |   2.847   |     7.10     |
 |  `2x4x11`  |  70  | `ZT` |   [251](../schemes/results/addition_reduced_ZT/2x4x11_m70_cr251_cn599_ZT_reduced.json)    |  599  |  26 / 109 / 116   |   2.847   |     8.03     |
-|  `2x4x12`  |  77  | `ZT` |   [259](../schemes/results/addition_reduced_ZT/2x4x12_m77_cr259_cn594_ZT_reduced.json)    |  594  |   53 / 91 / 115   |   2.855   |     7.08     |
+|  `2x4x12`  |  77  | `ZT` |   [258](../schemes/results/addition_reduced_ZT/2x4x12_m77_cr258_cn494_ZT_reduced.json)    |  494  |   50 / 95 / 113   |   2.855   |     7.13     |
 |  `2x4x13`  |  83  | `ZT` |   [301](../schemes/results/addition_reduced_ZT/2x4x13_m83_cr301_cn599_ZT_reduced.json)    |  599  |  51 / 118 / 132   |   2.854   |     7.80     |
 |  `2x4x14`  |  90  | `ZT` |   [274](../schemes/results/addition_reduced_ZT/2x4x14_m90_cr274_cn686_ZT_reduced.json)    |  686  |  26 / 110 / 138   |   2.861   |     6.78     |
-|  `2x4x15`  |  96  | `ZT` |   [328](../schemes/results/addition_reduced_ZT/2x4x15_m96_cr328_cn779_ZT_reduced.json)    |  779  |  61 / 119 / 148   |   2.860   |     7.24     |
+|  `2x4x15`  |  96  | `ZT` |   [323](../schemes/results/addition_reduced_ZT/2x4x15_m96_cr323_cn697_ZT_reduced.json)    |  697  |  55 / 122 / 146   |   2.860   |     7.23     |
 |  `2x4x16`  | 102  | `ZT` |   [323](../schemes/results/addition_reduced_ZT/2x4x16_m102_cr323_cn872_ZT_reduced.json)   |  872  |  37 / 128 / 158   |   2.860   |     7.02     |
 |  `2x5x5`   |  40  | `ZT` |    [139](../schemes/results/addition_reduced_ZT/2x5x5_m40_cr139_cn295_ZT_reduced.json)    |  295  |   31 / 48 / 60    |   2.829   |     7.23     |
 |  `2x5x6`   |  47  | `ZT` |    [173](../schemes/results/addition_reduced_ZT/2x5x6_m47_cr173_cn431_ZT_reduced.json)    |  431  |   37 / 63 / 73    |   2.821   |     7.79     |

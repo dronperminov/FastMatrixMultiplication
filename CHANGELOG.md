@@ -2,6 +2,8 @@
 
 ## 27/10/2026
 ### Additions reducing
+* `2x4x12`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x12_m77_cr258_cn494_ZT_reduced.json) with `77` multiplications and `258` additions;
+* `2x4x15`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x15_m96_cr323_cn697_ZT_reduced.json) with `96` multiplications and `323` additions;
 * `3x7x8`: discovered [scheme](schemes/results/addition_reduced_ZT/3x7x8_m128_cr416_cn872_ZT_reduced.json) with `128` multiplications and `416` additions;
 
 
