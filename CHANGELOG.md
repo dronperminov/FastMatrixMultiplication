@@ -1,5 +1,10 @@
 # Changelog
 
+## 27/10/2026
+### Additions reducing
+* `3x7x8`: discovered [scheme](schemes/results/addition_reduced_ZT/3x7x8_m128_cr416_cn872_ZT_reduced.json) with `128` multiplications and `416` additions;
+
+
 ## 26/10/2026
 ### Additions reducing
 * `2x2x15`: discovered [scheme](schemes/results/addition_reduced_ZT/2x2x15_m53_cr84_cn168_ZT_reduced.json) with `53` multiplications and `84` additions;
