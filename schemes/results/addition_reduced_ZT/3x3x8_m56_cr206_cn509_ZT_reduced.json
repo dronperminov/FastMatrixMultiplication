@@ -179,7 +179,7 @@
         [{"index": 33, "value": 1}, {"index": 19, "value": -1}],
         [{"index": 2, "value": 1}, {"index": 18, "value": 1}],
         [{"index": 35, "value": 1}],
-        [{"index": 57, "value": 2}, {"index": 64, "value": -1}],
+        [{"index": 57, "value": 1}, {"index": 57, "value": 1}, {"index": 64, "value": -1}],
         [{"index": 27, "value": 1}],
         [{"index": 64, "value": 1}],
         [{"index": 61, "value": 1}],
@@ -238,7 +238,7 @@
     ],
     "w": [
         [{"index": 27, "value": 1}, {"index": 67, "value": -1}, {"index": 92, "value": 1}],
-        [{"index": 9, "value": 2}, {"index": 48, "value": 1}, {"index": 49, "value": 1}, {"index": 79, "value": 1}, {"index": 81, "value": -1}, {"index": 89, "value": 1}],
+        [{"index": 9, "value": 1}, {"index": 9, "value": 1}, {"index": 48, "value": 1}, {"index": 49, "value": 1}, {"index": 79, "value": 1}, {"index": 81, "value": -1}, {"index": 89, "value": 1}],
         [{"index": 27, "value": 1}, {"index": 8, "value": -1}, {"index": 29, "value": 1}, {"index": 32, "value": 1}, {"index": 46, "value": 1}, {"index": 72, "value": -1}, {"index": 85, "value": 1}],
         [{"index": 8, "value": 1}, {"index": 33, "value": 1}, {"index": 38, "value": 1}, {"index": 66, "value": -1}, {"index": 92, "value": 1}],
         [{"index": 41, "value": 1}, {"index": 76, "value": 1}, {"index": 84, "value": -1}],

@@ -701,7 +701,7 @@
         [{"index": 218, "value": 1}],
         [{"index": 8, "value": 1}, {"index": 66, "value": 1}],
         [{"index": 27, "value": 1}],
-        [{"index": 217, "value": 1}, {"index": 201, "value": -1}, {"index": 41, "value": -2}],
+        [{"index": 217, "value": 1}, {"index": 201, "value": -1}, {"index": 41, "value": -1}, {"index": 41, "value": -1}],
         [{"index": 196, "value": 1}],
         [{"index": 88, "value": 1}],
         [{"index": 151, "value": 1}],

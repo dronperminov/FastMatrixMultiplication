@@ -87,14 +87,17 @@ def get_additions(path: str) -> Tuple[int, float, int, Tuple[int, int, int], str
 
     n1, n2, n3 = data["n"]
     rank = data["m"]
+    reduced = data["complexity"]["reduced"]
 
     au = sum(len(expression) - 1 for expression in data["u_fresh"] + data["u"])
     av = sum(len(expression) - 1 for expression in data["v_fresh"] + data["v"])
     aw = sum(len(expression) - 1 for expression in data["w_fresh"] + data["w"])
 
-    c = 1 + au / (rank - n1 * n2) + av / (rank - n2 * n3) + aw / (rank - n3 * n1)
+    if au + av + aw != reduced:
+        print(f'"{path}" is WRONG: {reduced} != {au+av+aw} ({au}+{av}+{aw})')
 
-    return data["complexity"]["reduced"], c, data["complexity"]["naive"], (au, av, aw), path
+    c = 1 + au / (rank - n1 * n2) + av / (rank - n2 * n3) + aw / (rank - n3 * n1)
+    return reduced, c, data["complexity"]["naive"], (au, av, aw), path
 
 
 def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ring2equal_rings: Dict[str, List[str]]) -> dict:

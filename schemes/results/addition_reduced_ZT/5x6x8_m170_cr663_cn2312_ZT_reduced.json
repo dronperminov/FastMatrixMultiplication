@@ -502,7 +502,7 @@
         [{"index": 156, "value": 1}, {"index": 143, "value": -1}],
         [{"index": 14, "value": 1}, {"index": 179, "value": -1}],
         [{"index": 6, "value": 1}, {"index": 144, "value": 1}],
-        [{"index": 106, "value": 2}, {"index": 145, "value": -1}, {"index": 172, "value": -1}],
+        [{"index": 106, "value": 1}, {"index": 106, "value": 1}, {"index": 145, "value": -1}, {"index": 172, "value": -1}],
         [{"index": 87, "value": 1}],
         [{"index": 107, "value": 1}],
         [{"index": 67, "value": 1}],
