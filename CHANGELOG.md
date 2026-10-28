@@ -1,5 +1,13 @@
 # Changelog
 
+## 28/10/2026
+### Additions reducing
+* `3x8x8`: discovered [scheme](schemes/results/addition_reduced_ZT/3x8x8_m146_cr522_cn2034_ZT_reduced.json) with `146` multiplications and `522` additions;
+
+### New known schemes
+* add near optimal `ZT` schemes from [@mizopl](https://github.com/mizopl);
+
+
 ## 27/10/2026
 ### Additions reducing
 * `2x4x12`: discovered [scheme](schemes/results/addition_reduced_ZT/2x4x12_m77_cr258_cn494_ZT_reduced.json) with `77` multiplications and `258` additions;

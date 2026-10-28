@@ -117,7 +117,7 @@ previously known.
 | `6x11x15`  |   661 (`Z`)   |    [653](../schemes/results/ZT/6x11x15_m653_ZT.json) (`ZT`)    |   2.819014665   |
 | `6x11x16`  |   695 (`Q`)   |   [684](../schemes/results/ZT/6x11x16_m684_ZT.json) (`ZT/Q`)   |   2.812868273   |
 | `6x12x13`  |   616 (`Q`)   |    [615](../schemes/results/ZT/6x12x13_m615_ZT.json) (`ZT`)    |   2.815835948   |
-| `6x12x14`  |   658 (`Q`)   |     [645](../schemes/results/Q/6x12x14_m645_Q.json) (`Q`)      | **2.806322591** |
+| `6x12x14`  |  654 (`ZT`)   |     [645](../schemes/results/Q/6x12x14_m645_Q.json) (`Q`)      | **2.806322591** |
 | `6x12x15`  |   705 (`Z`)   |     [686](../schemes/results/Q/6x12x15_m686_Q.json) (`Q`)      | **2.805072101** |
 | `6x12x16`  |   746 (`Q`)   |   [736](../schemes/results/ZT/6x12x16_m736_ZT.json) (`ZT/Z`)   |   2.809331029   |
 | `6x13x13`  |   680 (`Q`)   |     [678](../schemes/results/Q/6x13x13_m678_Q.json) (`Q`)      |   2.825542860   |
@@ -190,10 +190,10 @@ previously known.
 | `9x10x10`  |   600 (`Z`)   |    [597](../schemes/results/ZT/9x10x10_m597_ZT.json) (`ZT`)    |   2.818970672   |
 | `9x10x11`  |   651 (`Q`)   |     [644](../schemes/results/Q/9x10x11_m644_Q.json) (`Q`)      |   2.812978569   |
 | `9x10x12`  |   684 (`Q`)   |     [668](../schemes/results/Q/9x10x12_m668_Q.json) (`Q`)      | **2.793651686** |
-| `9x10x13`  |   772 (`Z`)   |     [758](../schemes/results/Q/9x10x13_m758_Q.json) (`Q`)      |   2.815672846   |
+| `9x10x13`  |  763 (`ZT`)   |     [758](../schemes/results/Q/9x10x13_m758_Q.json) (`Q`)      |   2.815672846   |
 | `9x10x14`  |   820 (`Z`)   |     [808](../schemes/results/Q/9x10x14_m808_Q.json) (`Q`)      |   2.813287623   |
 | `9x10x15`  |  870 (`ZT`)   |     [861](../schemes/results/Q/9x10x15_m861_Q.json) (`Q`)      |   2.812802118   |
-| `9x10x16`  |   939 (`Q`)   |     [916](../schemes/results/Q/9x10x16_m916_Q.json) (`Q`)      |   2.813383975   |
+| `9x10x16`  |  920 (`ZT`)   |     [916](../schemes/results/Q/9x10x16_m916_Q.json) (`Q`)      |   2.813383975   |
 | `9x11x12`  |   760 (`Q`)   |     [738](../schemes/results/Q/9x11x12_m738_Q.json) (`Q`)      | **2.798270808** |
 | `9x11x14`  |   904 (`Z`)   |     [882](../schemes/results/Q/9x11x14_m882_Q.json) (`Q`)      |   2.812562599   |
 | `9x11x15`  |   981 (`Q`)   |    [956](../schemes/results/ZT/9x11x15_m956_ZT.json) (`ZT`)    |   2.819087272   |
@@ -225,7 +225,7 @@ previously known.
 | `10x14x15` |  1327 (`Z`)   | [1314](../schemes/results/ZT/10x14x15_m1314_ZT.json) (`ZT/Z`)  |   2.816125387   |
 | `10x14x16` |  1416 (`ZT`)  |    [1398](../schemes/results/Q/10x14x16_m1398_Q.json) (`Q`)    |   2.816663561   |
 | `10x15x15` |  1389 (`ZT`)  |    [1385](../schemes/results/Q/10x15x15_m1385_Q.json) (`Q`)    |   2.811406977   |
-| `10x15x16` |  1497 (`Z`)   |    [1482](../schemes/results/Q/10x15x16_m1482_Q.json) (`Q`)    |   2.814186431   |
+| `10x15x16` |  1484 (`ZT`)  |    [1482](../schemes/results/Q/10x15x16_m1482_Q.json) (`Q`)    |   2.814186431   |
 | `10x16x16` |  1586 (`ZT`)  |    [1560](../schemes/results/Q/10x16x16_m1560_Q.json) (`Q`)    |   2.810651214   |
 | `11x11x12` |   936 (`Z`)   |     [922](../schemes/results/Q/11x11x12_m922_Q.json) (`Q`)     |   2.812867384   |
 | `11x11x15` |  1181 (`Z`)   |  [1169](../schemes/results/ZT/11x11x15_m1169_ZT.json) (`ZT`)   |   2.824115356   |
@@ -240,7 +240,7 @@ previously known.
 | `11x13x16` |  1472 (`Z`)   |    [1446](../schemes/results/Q/11x13x16_m1446_Q.json) (`Q`)    |   2.822035717   |
 | `11x14x15` |  1471 (`Z`)   | [1432](../schemes/results/ZT/11x14x15_m1432_ZT.json) (`ZT/Z`)  |   2.814780394   |
 | `11x14x16` |  1571 (`Q`)   |    [1520](../schemes/results/Q/11x14x16_m1520_Q.json) (`Q`)    |   2.814428649   |
-| `11x15x16` |  1641 (`ZT`)  |    [1605](../schemes/results/Q/11x15x16_m1605_Q.json) (`Q`)    |   2.810502126   |
+| `11x15x16` |  1629 (`ZT`)  |    [1605](../schemes/results/Q/11x15x16_m1605_Q.json) (`Q`)    |   2.810502126   |
 | `12x12x13` |  1152 (`Q`)   |    [1144](../schemes/results/Q/12x12x13_m1144_Q.json) (`Q`)    | **2.803918249** |
 | `12x12x14` |  1250 (`Q`)   |    [1232](../schemes/results/Q/12x12x14_m1232_Q.json) (`Q`)    | **2.805828023** |
 | `12x12x16` |  1392 (`Q`)   | [1380](../schemes/results/ZT/12x12x16_m1380_ZT.json) (`ZT/Z`)  | **2.801393711** |
