@@ -7,7 +7,7 @@ import re
 from collections import defaultdict
 from fractions import Fraction
 from itertools import permutations
-from typing import Dict, List, Tuple, Union, Optional
+from typing import Dict, List, Optional, Tuple, Union
 
 import numpy as np
 
@@ -389,7 +389,7 @@ class Scheme:
             if transpose:
                 rows, cols = cols, rows
 
-            matrix = [[Fraction(0) for _ in range(cols)] for _ in range(rows)]
+            matrix = [[0 for _ in range(cols)] for _ in range(rows)]
 
             for line in f:
                 line = line.strip()
@@ -401,7 +401,7 @@ class Scheme:
 
                 i, j, value = line.split(" ")
                 i, j = int(i) - 1, int(j) - 1
-                value = Fraction(value)
+                value = Scheme.__parse_value(Fraction(value))
 
                 if transpose:
                     i, j = j, i
@@ -494,48 +494,80 @@ class Scheme:
         invariant = [f"{component}:{component2count[component]}" for component in sorted(component2count)]
         return ", ".join(invariant)
 
+    def rank_invariants(self) -> dict:
+        ranks = self.get_ranks()
+
+        patterns = [[] for _ in range(6)]
+        ranks2f = defaultdict(int)
+        ranks2type = defaultdict(int)
+
+        for rank_a, rank_b, rank_c in ranks:
+            ranks2type[(rank_a, rank_b, rank_c)] += 1
+
+            for i, (a, b, c) in enumerate(permutations([rank_a, rank_b, rank_c], r=3)):
+                patterns[i].append((a, b, c))
+                ranks2f[(a, b, c)] += 1
+
+        ranks2g = defaultdict(int)
+        ranks2g[sum(a for a, _, _ in ranks)] += 1
+        ranks2g[sum(b for _, b, _ in ranks)] += 1
+        ranks2g[sum(c for _, _, c in ranks)] += 1
+
+        rank_pattern = list(min(tuple(sorted(pattern)) for pattern in patterns))
+        sorted_ranks_f = sorted(ranks2f.items(), key=lambda v: (sum(v[0]), sum(v[0][:2]), v[0]), reverse=True)
+        invariant_f = " + ".join(f'{self.__pc(count)}{self.__pp("x", x)}{self.__pp("y", y)}{self.__pp("z", z)}' for (x, y, z), count in sorted_ranks_f)
+
+        sorted_ranks_g = sorted(ranks2g.items(), key=lambda v: v[0], reverse=True)
+        invariant_g = " + ".join(f'{self.__pc(count)}{self.__pp("w", rank)}' for rank, count in sorted_ranks_g)
+
+        sorted_ranks_type = sorted(ranks2type.items(), key=lambda v: (sum(v[0]), sum(v[0][:2]), v[0]), reverse=True)
+        invariant_type = " + ".join(f'{self.__pc(count)}{self.__pp("X", x)}{self.__pp("Y", y)}{self.__pp("Z", z)}' for (x, y, z), count in sorted_ranks_type)
+
+        return {
+            "f": invariant_f,
+            "g": invariant_g,
+            "type": invariant_type,
+            "rank_pattern": rank_pattern
+        }
+
+    def rank_pattern(self) -> List[Tuple[int, int, int]]:
+        patterns = [[] for _ in range(6)]
+
+        for rank_a, rank_b, rank_c in self.get_ranks():
+            for i, (a, b, c) in enumerate(permutations([rank_a, rank_b, rank_c], r=3)):
+                patterns[i].append((a, b, c))
+
+        return list(min(tuple(sorted(pattern)) for pattern in patterns))
+
     def invariant_f(self) -> str:
         ranks: Dict[tuple, int] = defaultdict(int)
 
-        for index in range(self.m):
-            rank_a = self.__get_rank(self.u[index], self.n[0], self.n[1])
-            rank_b = self.__get_rank(self.v[index], self.n[1], self.n[2])
-            rank_c = self.__get_rank(self.w[index], self.n[2], self.n[0])
-
+        for rank_a, rank_b, rank_c in self.get_ranks():
             for (a, b, c) in permutations([rank_a, rank_b, rank_c], r=3):
                 ranks[(a, b, c)] += 1
 
         sorted_ranks = sorted(ranks.items(), key=lambda v: (sum(v[0]), sum(v[0][:2]), v[0]), reverse=True)
-        coefficients = [f'{self.__pc(count)}{self.__pp("x", rank_a)}{self.__pp("y", rank_b)}{self.__pp("z", rank_c)}' for (rank_a, rank_b, rank_c), count in sorted_ranks]
-        return " + ".join(coefficients)
+        return " + ".join(f'{self.__pc(count)}{self.__pp("x", x)}{self.__pp("y", y)}{self.__pp("z", z)}' for (x, y, z), count in sorted_ranks)
 
     def invariant_g(self) -> str:
-        ranks: Dict[int, int] = defaultdict(int)
+        ranks = self.get_ranks()
 
-        ranks[sum(self.__get_rank(self.u[index], self.n[0], self.n[1]) for index in range(self.m))] += 1
-        ranks[sum(self.__get_rank(self.v[index], self.n[1], self.n[2]) for index in range(self.m))] += 1
-        ranks[sum(self.__get_rank(self.w[index], self.n[2], self.n[0]) for index in range(self.m))] += 1
+        sum2count: Dict[int, int] = defaultdict(int)
+        sum2count[sum(a for a, _, _ in ranks)] += 1
+        sum2count[sum(b for _, b, _ in ranks)] += 1
+        sum2count[sum(c for _, _, c in ranks)] += 1
 
-        sorted_ranks = sorted(ranks.items(), key=lambda v: v[0], reverse=True)
-        coefficients = [f'{self.__pc(count)}{self.__pp("w", rank)}' for rank, count in sorted_ranks]
-        return " + ".join(coefficients)
+        sorted_ranks = sorted(sum2count.items(), key=lambda v: v[0], reverse=True)
+        return " + ".join(f'{self.__pc(count)}{self.__pp("w", rank)}' for rank, count in sorted_ranks)
 
     def invariant_type(self) -> str:
-        ranks = []
-
-        for index in range(self.m):
-            u = self.__get_rank(self.u[index], self.n[0], self.n[1])
-            v = self.__get_rank(self.v[index], self.n[1], self.n[2])
-            w = self.__get_rank(self.w[index], self.n[2], self.n[0])
-            ranks.append((u, v, w))
-
         powers: Dict[tuple, int] = defaultdict(int)
 
-        for a, b, c in sorted(ranks):
+        for a, b, c in sorted(self.get_ranks()):
             powers[(a, b, c)] += 1
 
         sorted_ranks = sorted(powers.items(), key=lambda v: (sum(v[0]), sum(v[0][:2]), v[0]), reverse=True)
-        coefficients = [f'{self.__pc(count)}{self.__pp("X", rank_a)}{self.__pp("Y", rank_b)}{self.__pp("Z", rank_c)}' for (rank_a, rank_b, rank_c), count in sorted_ranks]
+        coefficients = [f'{self.__pc(count)}{self.__pp("X", x)}{self.__pp("Y", y)}{self.__pp("Z", z)}' for (x, y, z), count in sorted_ranks]
         return " + ".join(coefficients)
 
     def omega(self) -> float:
@@ -550,6 +582,17 @@ class Scheme:
     def hash_filename(self) -> str:
         n1, n2, n3 = self.n
         return f"{n1}x{n2}x{n3}_m{self.m}_{self.get_hash()}_{self.get_ring()}"
+
+    def get_ranks(self) -> List[Tuple[int, int, int]]:
+        ranks = []
+
+        for index in range(self.m):
+            rank_a = self.__get_rank(self.u[index], self.n[0], self.n[1])
+            rank_b = self.__get_rank(self.v[index], self.n[1], self.n[2])
+            rank_c = self.__get_rank(self.w[index], self.n[2], self.n[0])
+            ranks.append((rank_a, rank_b, rank_c))
+
+        return ranks
 
     def get_hash(self) -> str:
         uvw_rows = ["".join(str(value) for value in self.u[index] + self.v[index] + self.w[index]) for index in range(self.m)]
@@ -1030,8 +1073,8 @@ class Scheme:
         return k
 
     @staticmethod
-    def __parse_value(value: Union[str, int]) -> Union[int, Fraction]:
-        if isinstance(value, str):
+    def __parse_value(value: Union[str, int, Fraction]) -> Union[int, Fraction]:
+        if isinstance(value, (str, Fraction)):
             value = Fraction(value)
             if value.denominator == 1:
                 value = int(value)
