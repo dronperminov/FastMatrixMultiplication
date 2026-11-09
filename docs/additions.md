@@ -93,7 +93,7 @@ the additions in the factor matrices, `ω` is the exponent of the recursive algo
 |  `4x5x5`   |  76  | `ZT` |    [268](../schemes/results/addition_reduced_ZT/4x5x5_m76_cr268_cn727_ZT_reduced.json)    |  727  |   67 / 78 / 123   |   2.821   |     5.92     |
 |  `4x5x6`   |  90  | `ZT` |    [317](../schemes/results/addition_reduced_ZT/4x5x6_m90_cr317_cn767_ZT_reduced.json)    |  767  |   74 / 89 / 154   |   2.820   |     5.87     |
 |  `4x5x7`   | 104  | `ZT` |   [374](../schemes/results/addition_reduced_ZT/4x5x7_m104_cr374_cn908_ZT_reduced.json)    |  908  |  90 / 109 / 175   |   2.820   |     5.95     |
-|  `4x5x8`   | 118  | `ZT` |   [428](../schemes/results/addition_reduced_ZT/4x5x8_m118_cr428_cn1042_ZT_reduced.json)   | 1042  |  100 / 130 / 198  |   2.820   |     5.99     |
+|  `4x5x8`   | 118  | `ZT` |   [424](../schemes/results/addition_reduced_ZT/4x5x8_m118_cr424_cn1068_ZT_reduced.json)   | 1068  |  99 / 126 / 199   |   2.820   |     5.94     |
 |  `4x6x6`   | 105  | `ZT` |   [373](../schemes/results/addition_reduced_ZT/4x6x6_m105_cr373_cn1348_ZT_reduced.json)   | 1348  |  91 / 106 / 176   |   2.809   |     5.83     |
 |  `4x6x7`   | 123  | `ZT` |   [463](../schemes/results/addition_reduced_ZT/4x6x7_m123_cr463_cn1562_ZT_reduced.json)   | 1562  |  112 / 137 / 214  |   2.817   |     6.08     |
 |  `4x6x8`   | 140  | `ZT` |   [476](../schemes/results/addition_reduced_ZT/4x6x8_m140_cr476_cn1620_ZT_reduced.json)   | 1620  |  108 / 136 / 232  |   2.820   |     5.56     |
