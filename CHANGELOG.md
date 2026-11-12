@@ -3,6 +3,9 @@
 ## 12/11/2026
 ### Additions reducing
 * Added reduced `ZT` schemes by  [Joshua Stapleton](https://github.com/Joshua-Stapleton/);
+* `3x7x8`: discovered [scheme](schemes/results/addition_reduced_ZT/3x7x8_m128_cr411_cn812_ZT_reduced.json) with `128` multiplications and `411` additions;
+* `4x4x8`: discovered [scheme](schemes/results/addition_reduced_ZT/4x4x8_m96_cr330_cn906_ZT_reduced.json) with `96` multiplications and `330` additions;
+* `5x5x8`: discovered [scheme](schemes/results/addition_reduced_ZT/5x5x8_m144_cr514_cn1670_ZT_reduced.json) with `144` multiplications and `514` additions;
 
 
 ## 09/11/2026

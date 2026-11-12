@@ -82,13 +82,13 @@ the additions in the factor matrices, `ω` is the exponent of the recursive algo
 |  `3x6x7`   |  96  | `ZT` |   [339](../schemes/known/stapleton/additions_reduced_ZT/3x6x7_m96_cr339_cn694_ZT_reduced.json)    |  694  |   87 / 98 / 154   |   2.831   |     5.98     |
 |  `3x6x8`   | 108  | `ZT` |   [347](../schemes/known/stapleton/additions_reduced_ZT/3x6x8_m108_cr347_cn792_ZT_reduced.json)   |  792  |  51 / 120 / 176   |   2.826   |     5.66     |
 |  `3x7x7`   | 111  | `ZT` |   [395](../schemes/known/stapleton/additions_reduced_ZT/3x7x7_m111_cr395_cn790_ZT_reduced.json)   |  790  |  90 / 135 / 170   |   2.831   |     6.07     |
-|  `3x7x8`   | 128  | `ZT` |   [412](../schemes/known/stapleton/additions_reduced_ZT/3x7x8_m128_cr412_cn812_ZT_reduced.json)   |  812  |  68 / 146 / 198   |   2.841   |     5.57     |
+|  `3x7x8`   | 128  | `ZT` |       [411](../schemes/results/addition_reduced_ZT/3x7x8_m128_cr411_cn812_ZT_reduced.json)        |  812  |  68 / 145 / 198   |   2.841   |     5.55     |
 |  `3x8x8`   | 146  | `ZT` |  [501](../schemes/known/stapleton/additions_reduced_ZT/3x8x8_m146_cr501_cn2134_ZT_reduced.json)   | 2134  |  115 / 181 / 205  |   2.844   |     5.83     |
 |  `4x4x4`   |  49  | `ZT` |        [156](../schemes/results/addition_reduced_ZT/4x4x4_m49_cr156_cn474_ZT_reduced.json)        |  474  |   41 / 41 / 74    |   2.807   |     5.73     |
 |  `4x4x5`   |  61  | `ZT` |        [214](../schemes/results/addition_reduced_ZT/4x4x5_m61_cr214_cn573_ZT_reduced.json)        |  573  |   58 / 55 / 101   |   2.814   |     6.09     |
 |  `4x4x6`   |  73  | `ZT` |   [243](../schemes/known/stapleton/additions_reduced_ZT/4x4x6_m73_cr243_cn601_ZT_reduced.json)    |  601  |   58 / 66 / 119   |   2.820   |     5.79     |
 |  `4x4x7`   |  85  | `ZT` |   [281](../schemes/known/stapleton/additions_reduced_ZT/4x4x7_m85_cr281_cn690_ZT_reduced.json)    |  690  |   64 / 80 / 137   |   2.825   |     5.73     |
-|  `4x4x8`   |  96  | `ZT` |   [331](../schemes/known/stapleton/additions_reduced_ZT/4x4x8_m96_cr331_cn906_ZT_reduced.json)    |  906  |   74 / 98 / 159   |   2.822   |     5.94     |
+|  `4x4x8`   |  96  | `ZT` |        [330](../schemes/results/addition_reduced_ZT/4x4x8_m96_cr330_cn906_ZT_reduced.json)        |  906  |   74 / 98 / 158   |   2.822   |     5.92     |
 |  `4x4x10`  | 115  | `ZT` |  [418](../schemes/known/stapleton/additions_reduced_ZT/4x4x10_m115_cr418_cn1038_ZT_reduced.json)  | 1038  |  91 / 126 / 201   | **2.805** |     6.28     |
 |  `4x5x5`   |  76  | `ZT` |        [268](../schemes/results/addition_reduced_ZT/4x5x5_m76_cr268_cn727_ZT_reduced.json)        |  727  |   67 / 78 / 123   |   2.821   |     5.92     |
 |  `4x5x6`   |  90  | `ZT` |   [313](../schemes/known/stapleton/additions_reduced_ZT/4x5x6_m90_cr313_cn796_ZT_reduced.json)    |  796  |   76 / 89 / 148   |   2.820   |     5.81     |
@@ -105,7 +105,7 @@ the additions in the factor matrices, `ω` is the exponent of the recursive algo
 |  `5x5x5`   |  93  | `ZT` |   [315](../schemes/known/stapleton/additions_reduced_ZT/5x5x5_m93_cr315_cn976_ZT_reduced.json)    |  976  |   82 / 81 / 152   |   2.816   |     5.63     |
 |  `5x5x6`   | 110  | `ZT` |  [381](../schemes/known/stapleton/additions_reduced_ZT/5x5x6_m110_cr381_cn1092_ZT_reduced.json)   | 1092  |  98 / 101 / 182   |   2.814   |     5.69     |
 |  `5x5x7`   | 127  | `ZT` |  [451](../schemes/known/stapleton/additions_reduced_ZT/5x5x7_m127_cr451_cn1282_ZT_reduced.json)   | 1282  |  109 / 126 / 216  |   2.814   |     5.79     |
-|  `5x5x8`   | 144  | `ZT` |  [516](../schemes/known/stapleton/additions_reduced_ZT/5x5x8_m144_cr516_cn1670_ZT_reduced.json)   | 1670  |  125 / 143 / 248  |   2.814   |     5.81     |
+|  `5x5x8`   | 144  | `ZT` |       [514](../schemes/results/addition_reduced_ZT/5x5x8_m144_cr514_cn1670_ZT_reduced.json)       | 1670  |  125 / 143 / 246  |   2.814   |     5.79     |
 |  `5x5x12`  | 204  | `ZT` |      [805](../schemes/results/addition_reduced_ZT/5x5x12_m204_cr805_cn2326_ZT_reduced.json)       | 2326  |  180 / 240 / 385  | **2.797** |     6.35     |
 |  `5x6x6`   | 130  | `ZT` |  [462](../schemes/known/stapleton/additions_reduced_ZT/5x6x6_m130_cr462_cn1427_ZT_reduced.json)   | 1427  |  117 / 127 / 218  |   2.812   |     5.70     |
 |  `5x6x7`   | 150  | `ZT` |  [535](../schemes/known/stapleton/additions_reduced_ZT/5x6x7_m150_cr535_cn1742_ZT_reduced.json)   | 1742  |  129 / 145 / 261  |   2.811   |     5.69     |
