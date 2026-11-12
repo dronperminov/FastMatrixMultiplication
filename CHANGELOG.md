@@ -1,5 +1,10 @@
 # Changelog
 
+## 12/11/2026
+### Additions reducing
+* Added reduced `ZT` schemes by  [Joshua Stapleton](https://github.com/Joshua-Stapleton/);
+
+
 ## 09/11/2026
 ### Additions reducing
 * `4x5x8`: discovered [scheme](schemes/results/addition_reduced_ZT/4x5x8_m118_cr424_cn1068_ZT_reduced.json) with `118` multiplications and `424` additions;

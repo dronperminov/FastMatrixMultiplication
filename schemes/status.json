@@ -2619,6 +2619,15 @@
           "path": "schemes/status/ZT/2x4x7_m45_ZT_v5.json"
         },
         {
+          "rank": 45,
+          "omega": 2.8370160787678476,
+          "complexity": 416,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 14, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x4x7_m45_cr144_cn416_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x7_m45_ZT_v7.json"
+        },
+        {
           "rank": 46,
           "omega": 2.8533964413354433,
           "complexity": 376,
@@ -2734,6 +2743,15 @@
         {
           "rank": 51,
           "omega": 2.836212670985748,
+          "complexity": 415,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 8, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x4x8_m51_cr168_cn415_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x8_m51_ZT_v6.json"
+        },
+        {
+          "rank": 51,
+          "omega": 2.836212670985748,
           "complexity": 436,
           "values": [-1, 0, 1],
           "buds_count": {"u": 8, "v": 0, "w": 0},
@@ -2797,6 +2815,15 @@
           "source": "schemes/results/ZT/2x4x9_m58_ZT.json",
           "path": "schemes/status/ZT/2x4x9_m58_ZT.json",
           "duplicates": ["schemes/results/ZT/2x4x9_m58_ZT.m", "schemes/results/addition_reduced_ZT/2x4x9_m58_cr199_cn439_ZT_reduced.json"]
+        },
+        {
+          "rank": 58,
+          "omega": 2.8483235989537223,
+          "complexity": 481,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 21, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x4x9_m58_cr193_cn481_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x9_m58_ZT_v5.json"
         },
         {
           "rank": 58,
@@ -2894,6 +2921,15 @@
           "duplicates": ["schemes/results/ZT/2x4x10_m64_ZT.m", "schemes/results/addition_reduced_ZT/2x4x10_m64_cr211_cn450_ZT_reduced.json"]
         },
         {
+          "rank": 64,
+          "omega": 2.8472326369160808,
+          "complexity": 489,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 28, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x4x10_m64_cr207_cn489_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x10_m64_ZT_v2.json"
+        },
+        {
           "rank": 65,
           "omega": 2.8578470314612563,
           "complexity": 340,
@@ -2984,6 +3020,15 @@
           "source": "schemes/results/ZT/2x4x11_m70_ZT.json",
           "path": "schemes/status/ZT/2x4x11_m70_ZT.json",
           "duplicates": ["schemes/results/ZT/2x4x11_m70_ZT.m", "schemes/results/addition_reduced_ZT/2x4x11_m70_cr251_cn599_ZT_reduced.json"]
+        },
+        {
+          "rank": 70,
+          "omega": 2.846666724945385,
+          "complexity": 677,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 52, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x4x11_m70_cr242_cn677_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x11_m70_ZT_v3.json"
         },
         {
           "rank": 70,
@@ -3099,6 +3144,15 @@
         {
           "rank": 77,
           "omega": 2.855044295244775,
+          "complexity": 513,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 25, "v": 0, "w": 2},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x4x12_m77_cr249_cn513_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x12_m77_ZT_v5.json"
+        },
+        {
+          "rank": 77,
+          "omega": 2.855044295244775,
           "complexity": 527,
           "values": [-1, 0, 1],
           "buds_count": {"u": 22, "v": 0, "w": 0},
@@ -3151,6 +3205,15 @@
           "source": "schemes/results/ZT/2x4x13_m83_ZT.json",
           "path": "schemes/status/ZT/2x4x13_m83_ZT.json",
           "duplicates": ["schemes/results/ZT/2x4x13_m83_ZT.m", "schemes/results/addition_reduced_ZT/2x4x13_m83_cr301_cn599_ZT_reduced.json"]
+        },
+        {
+          "rank": 83,
+          "omega": 2.8543079407550693,
+          "complexity": 702,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 25, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x4x13_m83_cr272_cn702_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x13_m83_ZT_v2.json"
         },
         {
           "rank": 84,
@@ -3282,6 +3345,15 @@
           "path": "schemes/status/ZT/2x4x14_m90_ZT_v3.json"
         },
         {
+          "rank": 90,
+          "omega": 2.8609584063089084,
+          "complexity": 719,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 101, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x4x14_m90_cr268_cn719_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x14_m90_ZT_v4.json"
+        },
+        {
           "rank": 91,
           "omega": 2.867983841614492,
           "complexity": 1071,
@@ -3368,6 +3440,15 @@
         {
           "rank": 96,
           "omega": 2.860170901610032,
+          "complexity": 757,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 53, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x4x15_m96_cr314_cn757_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x15_m96_ZT_v6.json"
+        },
+        {
+          "rank": 96,
+          "omega": 2.860170901610032,
           "complexity": 779,
           "values": [-1, 0, 1],
           "buds_count": {"u": 37, "v": 0, "w": 0},
@@ -3408,6 +3489,15 @@
           "source": "schemes/results/addition_reduced_ZT/2x4x16_m102_cr338_fv130_cn708_ZT_reduced.json",
           "path": "schemes/status/ZT/2x4x16_m102_ZT_v2.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/2x4x16_m102_cr325_cn708_ZT_reduced.json"]
+        },
+        {
+          "rank": 102,
+          "omega": 2.859610860844927,
+          "complexity": 853,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 83, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x4x16_m102_cr302_cn853_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x4x16_m102_ZT_v4.json"
         },
         {
           "rank": 102,
@@ -3770,6 +3860,15 @@
         {
           "rank": 55,
           "omega": 2.829707666071982,
+          "complexity": 449,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 7, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x5x7_m55_cr193_cn449_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x5x7_m55_ZT_v3.json"
+        },
+        {
+          "rank": 55,
+          "omega": 2.829707666071982,
           "complexity": 515,
           "values": [-1, 0, 1],
           "buds_count": {"u": 7, "v": 0, "w": 0},
@@ -3805,6 +3904,15 @@
           "source": "schemes/results/addition_reduced_ZT/2x5x7_m57_cr189_fv64_cn340_ZT_reduced.json",
           "path": "schemes/status/ZT/2x5x7_m57_ZT.json",
           "duplicates": ["schemes/results/ZT/2x5x7_m57_ZT.json", "schemes/results/ZT/2x5x7_m57_ZT.m", "schemes/results/addition_reduced_ZT/2x5x7_m57_cr187_cn340_ZT_reduced.json"]
+        },
+        {
+          "rank": 57,
+          "omega": 2.8549293602722443,
+          "complexity": 405,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 10, "v": 5, "w": 14},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x5x7_m57_cr184_cn405_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x5x7_m57_ZT_v2.json"
         }
       ],
       "Z": [
@@ -3901,6 +4009,15 @@
           "path": "schemes/status/ZT/2x5x8_m63_ZT_v2.json"
         },
         {
+          "rank": 63,
+          "omega": 2.8364510796953697,
+          "complexity": 676,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 15, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x5x8_m63_cr234_cn676_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x5x8_m63_ZT_v4.json"
+        },
+        {
           "rank": 64,
           "omega": 2.8472326369160808,
           "complexity": 609,
@@ -3928,6 +4045,15 @@
           "source": "schemes/results/ZT/2x5x8_m65_ZT.json",
           "path": "schemes/status/ZT/2x5x8_m65_ZT_v2.json",
           "duplicates": ["schemes/results/ZT/2x5x8_m65_ZT.m"]
+        },
+        {
+          "rank": 65,
+          "omega": 2.8578470314612563,
+          "complexity": 460,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 14, "v": 1, "w": 15},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x5x8_m65_cr206_cn460_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x5x8_m65_ZT_v3.json"
         }
       ],
       "Z": [
@@ -3996,6 +4122,15 @@
           "buds_count": {"u": 13, "v": 0, "w": 4},
           "source": "schemes/results/addition_reduced_ZT/2x5x9_m72_cr241_cn546_ZT_reduced.json",
           "path": "schemes/status/ZT/2x5x9_m72_ZT_v3.json"
+        },
+        {
+          "rank": 72,
+          "omega": 2.851231340214997,
+          "complexity": 550,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 15, "v": 0, "w": 4},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x5x9_m72_cr239_cn550_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x5x9_m72_ZT_v4.json"
         },
         {
           "rank": 73,
@@ -4126,6 +4261,15 @@
           "duplicates": ["schemes/results/addition_reduced_ZT/2x5x11_m87_cr321_cn540_ZT_reduced.json"]
         },
         {
+          "rank": 87,
+          "omega": 2.850288335095542,
+          "complexity": 640,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 16, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x5x11_m87_cr314_cn640_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x5x11_m87_ZT_v3.json"
+        },
+        {
           "rank": 88,
           "omega": 2.8575825018195187,
           "complexity": 768,
@@ -4186,6 +4330,15 @@
           "source": "schemes/results/addition_reduced_ZT/2x5x12_m94_cr322_fv137_cn664_ZT_reduced.json",
           "path": "schemes/status/ZT/2x5x12_m94_ZT_v2.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/2x5x12_m94_cr320_cn664_ZT_reduced.json"]
+        },
+        {
+          "rank": 94,
+          "omega": 2.846978142021732,
+          "complexity": 774,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 51, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x5x12_m94_cr315_cn774_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x5x12_m94_ZT_v3.json"
         }
       ]
     }
@@ -4500,6 +4653,15 @@
           "buds_count": {"u": 2, "v": 0, "w": 1},
           "source": "schemes/results/addition_reduced_ZT/2x6x6_m56_cr219_cn549_ZT_reduced.json",
           "path": "schemes/status/ZT/2x6x6_m56_ZT_v3.json"
+        },
+        {
+          "rank": 56,
+          "omega": 2.8237077050531645,
+          "complexity": 572,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 2, "v": 0, "w": 1},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x6x6_m56_cr214_cn572_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x6x6_m56_ZT_v4.json"
         },
         {
           "rank": 57,
@@ -5101,6 +5263,15 @@
         {
           "rank": 66,
           "omega": 2.836714943700779,
+          "complexity": 729,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 5, "v": 0, "w": 4},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x6x7_m66_cr257_cn729_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x6x7_m66_ZT_v3.json"
+        },
+        {
+          "rank": 66,
+          "omega": 2.836714943700779,
           "complexity": 791,
           "values": [-1, 0, 1],
           "buds_count": {"u": 5, "v": 0, "w": 4},
@@ -5146,6 +5317,15 @@
           "source": "schemes/results/ZT/2x6x7_m68_ZT.json",
           "path": "schemes/status/ZT/2x6x7_m68_ZT_v2.json",
           "duplicates": ["schemes/results/ZT/2x6x7_m68_ZT.m"]
+        },
+        {
+          "rank": 68,
+          "omega": 2.856927670499239,
+          "complexity": 465,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 14, "v": 0, "w": 22},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x6x7_m68_cr215_cn465_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x6x7_m68_ZT_v3.json"
         }
       ]
     }
@@ -5239,6 +5419,15 @@
           "path": "schemes/status/ZT/2x6x8_m75_ZT_v2.json"
         },
         {
+          "rank": 75,
+          "omega": 2.837746770682625,
+          "complexity": 942,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 9, "v": 0, "w": 2},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x6x8_m75_cr308_cn942_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x6x8_m75_ZT_v3.json"
+        },
+        {
           "rank": 76,
           "omega": 2.846452434357526,
           "complexity": 864,
@@ -5267,6 +5456,15 @@
           "source": "schemes/results/ZT/2x6x8_m77_ZT.json",
           "path": "schemes/status/ZT/2x6x8_m77_ZT_v2.json",
           "duplicates": ["schemes/results/ZT/2x6x8_m77_ZT.m"]
+        },
+        {
+          "rank": 77,
+          "omega": 2.855044295244775,
+          "complexity": 539,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 10, "v": 0, "w": 16},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x6x8_m77_cr260_cn539_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x6x8_m77_ZT_v3.json"
         }
       ],
       "Z": [
@@ -5330,6 +5528,15 @@
         {
           "rank": 86,
           "omega": 2.854051123417176,
+          "complexity": 590,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 39, "v": 0, "w": 5},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x6x9_m86_cr281_cn590_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x6x9_m86_ZT_v4.json"
+        },
+        {
+          "rank": 86,
+          "omega": 2.854051123417176,
           "complexity": 711,
           "values": [-1, 0, 1],
           "buds_count": {"u": 39, "v": 0, "w": 2},
@@ -5370,6 +5577,15 @@
           "source": "schemes/results/addition_reduced_ZT/2x6x10_m94_cr325_fv153_cn668_ZT_reduced.json",
           "path": "schemes/status/ZT/2x6x10_m94_ZT_v2.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/2x6x10_m94_cr321_cn668_ZT_reduced.json"]
+        },
+        {
+          "rank": 94,
+          "omega": 2.846978142021732,
+          "complexity": 747,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 47, "v": 0, "w": 2},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x6x10_m94_cr314_cn747_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x6x10_m94_ZT_v3.json"
         }
       ]
     }
@@ -5843,6 +6059,15 @@
         {
           "rank": 76,
           "omega": 2.833651510354034,
+          "complexity": 1260,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 1, "v": 0, "w": 1},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x7x7_m76_cr316_cn1260_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x7x7_m76_ZT_v4.json"
+        },
+        {
+          "rank": 76,
+          "omega": 2.833651510354034,
           "complexity": 1267,
           "values": [-1, 0, 1],
           "buds_count": {"u": 1, "v": 0, "w": 2},
@@ -5908,6 +6133,15 @@
           "source": "schemes/results/ZT/2x7x8_m88_ZT.json",
           "path": "schemes/status/ZT/2x7x8_m88_ZT.json",
           "duplicates": ["schemes/results/ZT/2x7x8_m88_ZT.m", "schemes/results/addition_reduced_ZT/2x7x8_m88_cr392_cn745_ZT_reduced.json", "schemes/results/addition_reduced_ZT/2x7x8_m88_cr391_cn745_ZT_reduced.json"]
+        },
+        {
+          "rank": 88,
+          "omega": 2.846670267348801,
+          "complexity": 885,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x7x8_m88_cr373_cn885_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x7x8_m88_ZT_v2.json"
         },
         {
           "rank": 90,
@@ -6469,6 +6703,15 @@
           "buds_count": {"u": 0, "v": 0, "w": 0},
           "source": "schemes/results/addition_reduced_ZT/2x8x8_m100_cr416_cn608_ZT_reduced.json",
           "path": "schemes/status/ZT/2x8x8_m100_ZT_v3.json"
+        },
+        {
+          "rank": 100,
+          "omega": 2.8473669384748823,
+          "complexity": 628,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/2x8x8_m100_cr413_cn628_ZT_reduced.json",
+          "path": "schemes/status/ZT/2x8x8_m100_ZT_v4.json"
         }
       ]
     }
@@ -9354,6 +9597,15 @@
         {
           "rank": 42,
           "omega": 2.810993657522373,
+          "complexity": 300,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 4, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x3x6_m42_cr137_cn300_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x3x6_m42_ZT_v5.json"
+        },
+        {
+          "rank": 42,
+          "omega": 2.810993657522373,
           "complexity": 335,
           "values": [-1, 0, 1],
           "buds_count": {"u": 4, "v": 0, "w": 0},
@@ -9429,6 +9681,15 @@
         {
           "rank": 49,
           "omega": 2.8180258826631577,
+          "complexity": 316,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 10, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x3x7_m49_cr157_cn316_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x3x7_m49_ZT_v3.json"
+        },
+        {
+          "rank": 49,
+          "omega": 2.8180258826631577,
           "complexity": 404,
           "values": [-1, 0, 1],
           "buds_count": {"u": 10, "v": 0, "w": 0},
@@ -9464,6 +9725,15 @@
           "source": "schemes/results/addition_reduced_ZT/3x3x7_m51_cr154_cn279_ZT_reduced.json",
           "path": "schemes/status/ZT/3x3x7_m51_ZT.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/3x3x7_m51_cr146_cn279_ZT_reduced.json"]
+        },
+        {
+          "rank": 51,
+          "omega": 2.846993321997583,
+          "complexity": 331,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 14, "v": 4, "w": 5},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x3x7_m51_cr142_cn331_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x3x7_m51_ZT_v3.json"
         },
         {
           "rank": 52,
@@ -9525,6 +9795,15 @@
         {
           "rank": 56,
           "omega": 2.8237077050531645,
+          "complexity": 358,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 16, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x3x8_m56_cr179_cn358_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x3x8_m56_ZT_v4.json"
+        },
+        {
+          "rank": 56,
+          "omega": 2.8237077050531645,
           "complexity": 455,
           "values": [-1, 0, 1],
           "buds_count": {"u": 14, "v": 1, "w": 0},
@@ -9580,6 +9859,15 @@
           "source": "schemes/results/ZT/3x3x8_m58_ZT.json",
           "path": "schemes/status/ZT/3x3x8_m58_ZT_v2.json",
           "duplicates": ["schemes/results/ZT/3x3x8_m58_ZT.m"]
+        },
+        {
+          "rank": 58,
+          "omega": 2.8483235989537223,
+          "complexity": 288,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 41, "v": 3, "w": 3},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x3x8_m58_cr155_cn288_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x3x8_m58_ZT_v3.json"
         }
       ],
       "Z": [
@@ -10790,6 +11078,15 @@
         {
           "rank": 54,
           "omega": 2.798196493872216,
+          "complexity": 392,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x4x6_m54_cr192_cn392_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x4x6_m54_ZT_v3.json"
+        },
+        {
+          "rank": 54,
+          "omega": 2.798196493872216,
           "complexity": 700,
           "values": [-1, 0, 1],
           "buds_count": {"u": 0, "v": 0, "w": 0},
@@ -10975,6 +11272,15 @@
           "duplicates": ["schemes/results/ZT/3x4x7_m64_ZT.m"]
         },
         {
+          "rank": 64,
+          "omega": 2.8158801901572876,
+          "complexity": 496,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 6, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x4x7_m64_cr229_cn496_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x4x7_m64_ZT_v4.json"
+        },
+        {
           "rank": 67,
           "omega": 2.8468967305228836,
           "complexity": 644,
@@ -11071,6 +11377,24 @@
           "buds_count": {"u": 9, "v": 2, "w": 0},
           "source": "schemes/results/addition_reduced_ZT/3x4x8_m73_cr293_cn1005_ZT_reduced.json",
           "path": "schemes/status/ZT/3x4x8_m73_ZT_v3.json"
+        },
+        {
+          "rank": 73,
+          "omega": 2.819981689281663,
+          "complexity": 1027,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 9, "v": 1, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x4x8_m73_cr273_cn1027_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x4x8_m73_ZT_v4.json"
+        },
+        {
+          "rank": 74,
+          "omega": 2.8289242489758686,
+          "complexity": 456,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 13, "v": 3, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x4x8_m74_cr254_cn456_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x4x8_m74_ZT_v4.json"
         },
         {
           "rank": 74,
@@ -12255,6 +12579,15 @@
         {
           "rank": 79,
           "omega": 2.8165997497072324,
+          "complexity": 586,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 6, "v": 4, "w": 3},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x5x7_m79_cr292_cn586_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x5x7_m79_ZT_v5.json"
+        },
+        {
+          "rank": 79,
+          "omega": 2.8165997497072324,
           "complexity": 617,
           "values": [-1, 0, 1],
           "buds_count": {"u": 6, "v": 1, "w": 3},
@@ -12327,6 +12660,15 @@
           "source": "schemes/results/ZT/3x5x7_m83_ZT.json",
           "path": "schemes/status/ZT/3x5x7_m83_ZT_v2.json",
           "duplicates": ["schemes/results/ZT/3x5x7_m83_ZT.m"]
+        },
+        {
+          "rank": 83,
+          "omega": 2.8484389264169603,
+          "complexity": 526,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 8, "v": 2, "w": 4},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x5x7_m83_cr288_cn526_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x5x7_m83_ZT_v3.json"
         }
       ]
     }
@@ -12680,6 +13022,15 @@
           "buds_count": {"u": 5, "v": 2, "w": 2},
           "source": "schemes/results/addition_reduced_ZT/3x5x8_m90_cr343_cn698_ZT_reduced.json",
           "path": "schemes/status/ZT/3x5x8_m90_ZT_v3.json"
+        },
+        {
+          "rank": 90,
+          "omega": 2.8197289387169113,
+          "complexity": 700,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 6, "v": 2, "w": 2},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x5x8_m90_cr338_cn700_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x5x8_m90_ZT_v4.json"
         },
         {
           "rank": 90,
@@ -13356,6 +13707,15 @@
           "duplicates": ["schemes/results/ZT/3x6x6_m82_ZT.m", "schemes/results/addition_reduced_ZT/3x6x6_m82_cr326_cn1028_ZT_reduced.json", "schemes/results/addition_reduced_ZT/3x6x6_m82_cr325_cn1028_ZT_reduced.json"]
         },
         {
+          "rank": 82,
+          "omega": 2.8235342198882845,
+          "complexity": 1046,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 6, "v": 4, "w": 4},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x6x6_m82_cr310_cn1046_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x6x6_m82_ZT_v2.json"
+        },
+        {
           "rank": 83,
           "omega": 2.8313007859739105,
           "complexity": 912,
@@ -13420,6 +13780,15 @@
           "buds_count": {"u": 12, "v": 0, "w": 4},
           "source": "schemes/results/addition_reduced_ZT/3x6x7_m96_cr343_cn670_ZT_reduced.json",
           "path": "schemes/status/ZT/3x6x7_m96_ZT_v3.json"
+        },
+        {
+          "rank": 96,
+          "omega": 2.831316461251292,
+          "complexity": 694,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 12, "v": 0, "w": 4},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x6x7_m96_cr339_cn694_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x6x7_m96_ZT_v4.json"
         },
         {
           "rank": 96,
@@ -13574,6 +13943,15 @@
           "buds_count": {"u": 54, "v": 0, "w": 0},
           "source": "schemes/results/addition_reduced_ZT/3x6x8_m108_cr357_cn750_ZT_reduced.json",
           "path": "schemes/status/ZT/3x6x8_m108_ZT_v2.json"
+        },
+        {
+          "rank": 108,
+          "omega": 2.8263423260932212,
+          "complexity": 792,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 54, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x6x8_m108_cr347_cn792_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x6x8_m108_ZT_v4.json"
         },
         {
           "rank": 108,
@@ -14171,6 +14549,15 @@
         {
           "rank": 111,
           "omega": 2.8311354493332286,
+          "complexity": 790,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 15, "v": 0, "w": 30},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x7x7_m111_cr395_cn790_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x7x7_m111_ZT_v4.json"
+        },
+        {
+          "rank": 111,
+          "omega": 2.8311354493332286,
           "complexity": 869,
           "values": [-1, 0, 1],
           "buds_count": {"u": 9, "v": 0, "w": 23},
@@ -14275,6 +14662,15 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 128,
+          "omega": 2.840787103552993,
+          "complexity": 812,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 64, "v": 0, "w": 12},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x7x8_m128_cr412_cn812_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x7x8_m128_ZT_v5.json"
+        },
         {
           "rank": 128,
           "omega": 2.840787103552993,
@@ -14992,6 +15388,15 @@
           "buds_count": {"u": 18, "v": 4, "w": 73},
           "source": "schemes/results/addition_reduced_ZT/3x8x8_m146_cr522_cn2034_ZT_reduced.json",
           "path": "schemes/status/ZT/3x8x8_m146_ZT_v2.json"
+        },
+        {
+          "rank": 146,
+          "omega": 2.8437152688084204,
+          "complexity": 2134,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 18, "v": 4, "w": 71},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/3x8x8_m146_cr501_cn2134_ZT_reduced.json",
+          "path": "schemes/status/ZT/3x8x8_m146_ZT_v3.json"
         },
         {
           "rank": 148,
@@ -18794,6 +19199,15 @@
           "buds_count": {"u": 8, "v": 2, "w": 2},
           "source": "schemes/results/addition_reduced_ZT/4x4x6_m73_cr248_cn576_ZT_reduced.json",
           "path": "schemes/status/ZT/4x4x6_m73_ZT_v4.json"
+        },
+        {
+          "rank": 73,
+          "omega": 2.819981689281663,
+          "complexity": 601,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 8, "v": 2, "w": 2},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x4x6_m73_cr243_cn601_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x4x6_m73_ZT_v5.json"
         }
       ]
     }
@@ -18830,6 +19244,15 @@
           "source": "schemes/results/addition_reduced_ZT/4x4x7_m85_cr319_fv119_cn631_ZT_reduced.json",
           "path": "schemes/status/ZT/4x4x7_m85_ZT_v2.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/4x4x7_m85_cr293_cn631_ZT_reduced.json"]
+        },
+        {
+          "rank": 85,
+          "omega": 2.824617348231516,
+          "complexity": 690,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 12, "v": 3, "w": 3},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x4x7_m85_cr281_cn690_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x4x7_m85_ZT_v5.json"
         },
         {
           "rank": 85,
@@ -18897,6 +19320,15 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 96,
+          "omega": 2.8221267860233525,
+          "complexity": 906,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 13, "v": 2, "w": 2},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x4x8_m96_cr331_cn906_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x4x8_m96_ZT_v5.json"
+        },
         {
           "rank": 96,
           "omega": 2.8221267860233525,
@@ -19020,6 +19452,15 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 115,
+          "omega": 2.804789925098145,
+          "complexity": 1038,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 15, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x4x10_m115_cr418_cn1038_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x4x10_m115_ZT_v3.json"
+        },
         {
           "rank": 115,
           "omega": 2.804789925098145,
@@ -19740,6 +20181,15 @@
         {
           "rank": 90,
           "omega": 2.8197289387169113,
+          "complexity": 796,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 10, "v": 3, "w": 5},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x5x6_m90_cr313_cn796_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x5x6_m90_ZT_v7.json"
+        },
+        {
+          "rank": 90,
+          "omega": 2.8197289387169113,
           "complexity": 967,
           "values": [-1, 0, 1],
           "buds_count": {"u": 9, "v": 0, "w": 4},
@@ -20422,6 +20872,15 @@
         {
           "rank": 104,
           "omega": 2.819542877824631,
+          "complexity": 1013,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 14, "v": 2, "w": 6},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x5x7_m104_cr358_cn1013_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x5x7_m104_ZT_v11.json"
+        },
+        {
+          "rank": 104,
+          "omega": 2.819542877824631,
           "complexity": 1016,
           "values": [-1, 0, 1],
           "buds_count": {"u": 15, "v": 2, "w": 3},
@@ -20807,6 +21266,15 @@
           "buds_count": {"u": 13, "v": 3, "w": 5},
           "source": "schemes/results/addition_reduced_ZT/4x5x8_m118_cr424_cn1068_ZT_reduced.json",
           "path": "schemes/status/ZT/4x5x8_m118_ZT_v6.json"
+        },
+        {
+          "rank": 118,
+          "omega": 2.8200125541390153,
+          "complexity": 1128,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 15, "v": 3, "w": 5},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x5x8_m118_cr413_cn1128_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x5x8_m118_ZT_v7.json"
         },
         {
           "rank": 118,
@@ -22165,6 +22633,15 @@
         {
           "rank": 123,
           "omega": 2.8174579532853286,
+          "complexity": 1427,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 11, "v": 3, "w": 5},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x6x7_m123_cr439_cn1427_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x6x7_m123_ZT_v4.json"
+        },
+        {
+          "rank": 123,
+          "omega": 2.8174579532853286,
           "complexity": 1562,
           "values": [-1, 0, 1],
           "buds_count": {"u": 8, "v": 2, "w": 4},
@@ -22234,6 +22711,15 @@
           "buds_count": {"u": 14, "v": 0, "w": 0},
           "source": "schemes/results/addition_reduced_ZT/4x6x8_m140_cr476_cn1620_ZT_reduced.json",
           "path": "schemes/status/ZT/4x6x8_m140_ZT_v4.json"
+        },
+        {
+          "rank": 140,
+          "omega": 2.8197699130089835,
+          "complexity": 1670,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 28, "v": 0, "w": 1},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x6x8_m140_cr472_cn1670_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x6x8_m140_ZT_v5.json"
         },
         {
           "rank": 140,
@@ -22337,6 +22823,15 @@
           "source": "schemes/results/addition_reduced_ZT/4x6x10_m175_cr715_fv423_cn1878_ZT_reduced.json",
           "path": "schemes/status/ZT/4x6x10_m175_ZT.json",
           "duplicates": ["schemes/results/ZT/4x6x10_m175_ZT.json", "schemes/results/ZT/4x6x10_m175_ZT.m", "schemes/results/addition_reduced_ZT/4x6x10_m175_cr677_cn1878_ZT_reduced.json"]
+        },
+        {
+          "rank": 175,
+          "omega": 2.827107959216254,
+          "complexity": 2271,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 14, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x6x10_m175_cr615_cn2271_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x6x10_m175_ZT_v2.json"
         }
       ]
     }
@@ -22944,6 +23439,15 @@
         {
           "rank": 144,
           "omega": 2.8247662018205593,
+          "complexity": 1637,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 6, "v": 5, "w": 18},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x7x7_m144_cr545_cn1637_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x7x7_m144_ZT_v3.json"
+        },
+        {
+          "rank": 144,
+          "omega": 2.8247662018205593,
           "complexity": 1983,
           "values": [-1, 0, 1],
           "buds_count": {"u": 8, "v": 3, "w": 15},
@@ -22996,6 +23500,15 @@
     },
     "schemes": {
       "ZT": [
+        {
+          "rank": 161,
+          "omega": 2.8169272248926696,
+          "complexity": 2174,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 4, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x7x8_m161_cr603_cn2174_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x7x8_m161_ZT_v3.json"
+        },
         {
           "rank": 161,
           "omega": 2.8169272248926696,
@@ -23053,6 +23566,15 @@
           "buds_count": {"u": 14, "v": 2, "w": 0},
           "source": "schemes/known/tensor/4x7x8_tensor.mpl",
           "path": "schemes/status/ZT/4x7x8_m164_ZT.json"
+        },
+        {
+          "rank": 164,
+          "omega": 2.8271618536892484,
+          "complexity": 1714,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 16, "v": 4, "w": 3},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x7x8_m164_cr641_cn1714_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x7x8_m164_ZT_v3.json"
         }
       ],
       "Z": [
@@ -23103,6 +23625,15 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 187,
+          "omega": 2.838145783623152,
+          "complexity": 1977,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 14, "v": 3, "w": 14},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x7x9_m187_cr689_cn1977_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x7x9_m187_ZT_v4.json"
+        },
         {
           "rank": 187,
           "omega": 2.838145783623152,
@@ -23551,6 +24082,15 @@
           "source": "schemes/results/ZT/4x8x8_m180_ZT.json",
           "path": "schemes/status/ZT/4x8x8_m180_ZT.json",
           "duplicates": ["schemes/results/ZT/4x8x8_m180_ZT.m", "schemes/results/addition_reduced_ZT/4x8x8_m180_cr733_cn2888_ZT_reduced.json"]
+        },
+        {
+          "rank": 180,
+          "omega": 2.809444911123628,
+          "complexity": 3134,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 6, "w": 4},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/4x8x8_m180_cr707_cn3134_ZT_reduced.json",
+          "path": "schemes/status/ZT/4x8x8_m180_ZT_v2.json"
         },
         {
           "rank": 182,
@@ -26059,6 +26599,15 @@
         {
           "rank": 93,
           "omega": 2.8162624094633077,
+          "complexity": 976,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 7, "v": 7, "w": 7},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/5x5x5_m93_cr315_cn976_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x5x5_m93_ZT_v10.json"
+        },
+        {
+          "rank": 93,
+          "omega": 2.8162624094633077,
           "complexity": 1013,
           "values": [-1, 0, 1],
           "buds_count": {"u": 3, "v": 3, "w": 4},
@@ -27713,6 +28262,15 @@
         {
           "rank": 110,
           "omega": 2.8143020335150255,
+          "complexity": 1092,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 9, "v": 8, "w": 6},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/5x5x6_m110_cr381_cn1092_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x5x6_m110_ZT_v10.json"
+        },
+        {
+          "rank": 110,
+          "omega": 2.8143020335150255,
           "complexity": 1192,
           "values": [-1, 0, 1],
           "buds_count": {"u": 7, "v": 6, "w": 5},
@@ -27809,6 +28367,15 @@
     },
     "schemes": {
       "ZT": [
+        {
+          "rank": 127,
+          "omega": 2.813778021538398,
+          "complexity": 1282,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 13, "v": 5, "w": 3},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/5x5x7_m127_cr451_cn1282_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x5x7_m127_ZT_v6.json"
+        },
         {
           "rank": 127,
           "omega": 2.813778021538398,
@@ -28852,6 +29419,15 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 144,
+          "omega": 2.8139952492958744,
+          "complexity": 1670,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 11, "v": 5, "w": 6},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/5x5x8_m144_cr516_cn1670_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x5x8_m144_ZT_v7.json"
+        },
         {
           "rank": 144,
           "omega": 2.8139952492958744,
@@ -30486,6 +31062,15 @@
         {
           "rank": 130,
           "omega": 2.8120016727779036,
+          "complexity": 1427,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 9, "v": 8, "w": 9},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/5x6x6_m130_cr462_cn1427_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x6x6_m130_ZT_v6.json"
+        },
+        {
+          "rank": 130,
+          "omega": 2.8120016727779036,
           "complexity": 1662,
           "values": [-1, 0, 1],
           "buds_count": {"u": 7, "v": 4, "w": 9},
@@ -30941,6 +31526,15 @@
         {
           "rank": 150,
           "omega": 2.811221916884062,
+          "complexity": 1742,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 11, "v": 4, "w": 8},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/5x6x7_m150_cr535_cn1742_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x6x7_m150_ZT_v6.json"
+        },
+        {
+          "rank": 150,
+          "omega": 2.811221916884062,
           "complexity": 1994,
           "values": [-1, 0, 1],
           "buds_count": {"u": 8, "v": 5, "w": 5},
@@ -31095,6 +31689,15 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 170,
+          "omega": 2.811240719677925,
+          "complexity": 2037,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 15, "v": 5, "w": 6},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/5x6x8_m170_cr624_cn2037_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x6x8_m170_ZT_v7.json"
+        },
         {
           "rank": 170,
           "omega": 2.811240719677925,
@@ -31827,6 +32430,15 @@
         {
           "rank": 176,
           "omega": 2.819618965599968,
+          "complexity": 2193,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 11, "v": 13, "w": 9},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/5x7x7_m176_cr644_cn2193_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x7x7_m176_ZT_v10.json"
+        },
+        {
+          "rank": 176,
+          "omega": 2.819618965599968,
           "complexity": 2535,
           "values": [-1, 0, 1],
           "buds_count": {"u": 14, "v": 10, "w": 8},
@@ -31936,6 +32548,15 @@
         }
       ],
       "ZT": [
+        {
+          "rank": 204,
+          "omega": 2.8314029635745808,
+          "complexity": 2541,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 23, "v": 3, "w": 12},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/5x7x8_m204_cr801_cn2541_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x7x8_m204_ZT_v3.json"
+        },
         {
           "rank": 204,
           "omega": 2.8314029635745808,
@@ -32493,6 +33114,15 @@
           "buds_count": {"u": 16, "v": 0, "w": 20},
           "source": "schemes/known/tensor/5x8x8_tensor.mpl",
           "path": "schemes/status/ZT/5x8x8_m230_ZT.json"
+        },
+        {
+          "rank": 230,
+          "omega": 2.8282472384365986,
+          "complexity": 2875,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 21, "v": 3, "w": 24},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/5x8x8_m230_cr914_cn2875_ZT_reduced.json",
+          "path": "schemes/status/ZT/5x8x8_m230_ZT_v5.json"
         }
       ]
     }
@@ -35427,6 +36057,15 @@
         {
           "rank": 153,
           "omega": 2.807540860135486,
+          "complexity": 1873,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 8, "v": 8, "w": 8},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/6x6x6_m153_cr551_cn1873_ZT_reduced.json",
+          "path": "schemes/status/ZT/6x6x6_m153_ZT_v5.json"
+        },
+        {
+          "rank": 153,
+          "omega": 2.807540860135486,
           "complexity": 2171,
           "values": [-1, 0, 1],
           "buds_count": {"u": 8, "v": 8, "w": 8},
@@ -35575,6 +36214,15 @@
         {
           "rank": 183,
           "omega": 2.8264144835173233,
+          "complexity": 2175,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 15, "v": 24, "w": 16},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/6x6x7_m183_cr665_cn2175_ZT_reduced.json",
+          "path": "schemes/status/ZT/6x6x7_m183_ZT_v3.json"
+        },
+        {
+          "rank": 183,
+          "omega": 2.8264144835173233,
           "complexity": 2493,
           "values": [-1, 0, 1],
           "buds_count": {"u": 14, "v": 29, "w": 18},
@@ -35680,6 +36328,15 @@
           "source": "schemes/results/addition_reduced_ZT/6x6x9_m225_cr923_fv503_cn2440_ZT_reduced.json",
           "path": "schemes/status/ZT/6x6x9_m225_ZT_v2.json",
           "duplicates": ["schemes/results/addition_reduced_ZT/6x6x9_m225_cr870_cn2440_ZT_reduced.json"]
+        },
+        {
+          "rank": 225,
+          "omega": 2.810763211034145,
+          "complexity": 3804,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/6x6x9_m225_cr852_cn3804_ZT_reduced.json",
+          "path": "schemes/status/ZT/6x6x9_m225_ZT_v3.json"
         }
       ]
     }
@@ -36060,6 +36717,15 @@
           "duplicates": ["schemes/results/ZT/6x7x7_m212_ZT.m", "schemes/results/addition_reduced_ZT/6x7x7_m212_cr852_cn2320_ZT_reduced.json"]
         },
         {
+          "rank": 212,
+          "omega": 2.8274009483182905,
+          "complexity": 2486,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 12, "v": 18, "w": 13},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/6x7x7_m212_cr794_cn2486_ZT_reduced.json",
+          "path": "schemes/status/ZT/6x7x7_m212_ZT_v2.json"
+        },
+        {
           "rank": 213,
           "omega": 2.8298848886675345,
           "complexity": 2378,
@@ -36113,6 +36779,15 @@
           "source": "schemes/results/ZT/6x7x8_m238_ZT.json",
           "path": "schemes/status/ZT/6x7x8_m238_ZT.json",
           "duplicates": ["schemes/results/ZT/6x7x8_m238_ZT.m", "schemes/results/addition_reduced_ZT/6x7x8_m238_cr983_cn2644_ZT_reduced.json"]
+        },
+        {
+          "rank": 238,
+          "omega": 2.822158898046272,
+          "complexity": 3019,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 16, "v": 9, "w": 10},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/6x7x8_m238_cr922_cn3019_ZT_reduced.json",
+          "path": "schemes/status/ZT/6x7x8_m238_ZT_v2.json"
         },
         {
           "rank": 239,
@@ -36666,6 +37341,15 @@
           "buds_count": {"u": 0, "v": 0, "w": 14},
           "source": "schemes/results/addition_reduced_ZT/6x8x8_m266_cr982_cn4936_ZT_reduced.json",
           "path": "schemes/status/ZT/6x8x8_m266_ZT_v3.json"
+        },
+        {
+          "rank": 266,
+          "omega": 2.8149042356881098,
+          "complexity": 5628,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 8, "v": 0, "w": 14},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/6x8x8_m266_cr978_cn5628_ZT_reduced.json",
+          "path": "schemes/status/ZT/6x8x8_m266_ZT_v4.json"
         }
       ]
     }
@@ -39719,6 +40403,15 @@
           "source": "schemes/results/ZT/7x7x7_m250_ZT.json",
           "path": "schemes/status/ZT/7x7x7_m250_ZT_v2.json",
           "duplicates": ["schemes/results/ZT/7x7x7_m250_ZT.m"]
+        },
+        {
+          "rank": 250,
+          "omega": 2.8374696131487704,
+          "complexity": 2921,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 13, "v": 13, "w": 13},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/7x7x7_m250_cr982_cn2921_ZT_reduced.json",
+          "path": "schemes/status/ZT/7x7x7_m250_ZT_v3.json"
         }
       ]
     }
@@ -39756,6 +40449,15 @@
           "source": "schemes/results/ZT/7x7x8_m278_ZT.json",
           "path": "schemes/status/ZT/7x7x8_m278_ZT.json",
           "duplicates": ["schemes/results/ZT/7x7x8_m278_ZT.m", "schemes/results/addition_reduced_ZT/7x7x8_m278_cr1144_cn3229_ZT_reduced.json"]
+        },
+        {
+          "rank": 278,
+          "omega": 2.8273527093670956,
+          "complexity": 3652,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 18, "v": 8, "w": 9},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/7x7x8_m278_cr1092_cn3652_ZT_reduced.json",
+          "path": "schemes/status/ZT/7x7x8_m278_ZT_v2.json"
         },
         {
           "rank": 279,
@@ -40296,6 +40998,15 @@
           "source": "schemes/results/ZT/7x8x8_m310_ZT.json",
           "path": "schemes/status/ZT/7x8x8_m310_ZT_v2.json",
           "duplicates": ["schemes/results/ZT/7x8x8_m310_ZT.m"]
+        },
+        {
+          "rank": 310,
+          "omega": 2.81904992310929,
+          "complexity": 4235,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 17, "v": 2, "w": 13},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/7x8x8_m310_cr1259_cn4235_ZT_reduced.json",
+          "path": "schemes/status/ZT/7x8x8_m310_ZT_v3.json"
         }
       ]
     }
@@ -43360,6 +44071,15 @@
           "source": "schemes/results/ZT/8x8x8_m343_ZT.json",
           "path": "schemes/status/ZT/8x8x8_m343_ZT_v2.json",
           "duplicates": ["schemes/results/ZT/8x8x8_m343_ZT.m"]
+        },
+        {
+          "rank": 343,
+          "omega": 2.807354922057604,
+          "complexity": 6866,
+          "values": [-1, 0, 1],
+          "buds_count": {"u": 0, "v": 0, "w": 0},
+          "source": "schemes/known/stapleton/additions_reduced_ZT/8x8x8_m343_cr1305_cn6866_ZT_reduced.json",
+          "path": "schemes/status/ZT/8x8x8_m343_ZT_v3.json"
         }
       ]
     }
