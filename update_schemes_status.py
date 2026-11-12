@@ -193,10 +193,6 @@ def analyze_schemes(input_dirs: List[str], n_max: int, extensions: List[str], ri
     return status
 
 
-def format_value(ring2value: Dict[str, int], ring: str, min_value: int, unique_value: bool) -> str:
-    return "?" if ring not in ring2value else f"{ring2value[ring]}"
-
-
 def format_size(size: str) -> str:
     n1, n2, n3 = map(int, size.split("x"))
     return f"`{n1}x{n2}x{n3}`"
@@ -361,8 +357,8 @@ def update_additions_table(status: Dict[str, dict]) -> None:
         "for the scheme with the given rank in the given ring (linked to the scheme), `Naive` is the straightforward-evaluation count, `U / V / W` are",
         "the additions in the factor matrices, `ω` is the exponent of the recursive algorithm, and `Leading coef` is its leading constant.",
         "",
-        "|   Format   | Rank | Ring |                                     Reduced additions                                     | Naive |     U / V / W     |     ω     | Leading coef |",
-        "|:----------:|:----:|:----:|:-----------------------------------------------------------------------------------------:|:-----:|:-----------------:|:---------:|:------------:|"
+        "|   Format   | Rank | Ring |                                         Reduced additions                                         | Naive |     U / V / W     |     ω     | Leading coef |",
+        "|:----------:|:----:|:----:|:-------------------------------------------------------------------------------------------------:|:-----:|:-----------------:|:---------:|:------------:|"
     ]
 
     for size, data in status.items():
@@ -391,56 +387,34 @@ def update_additions_table(status: Dict[str, dict]) -> None:
             omega = 3 * math.log(rank) / math.log(n1*n2*n3)
             bold = "**" if omega < math.log(7, 2) else "  "
 
-            lines.append(f"| {format_size(size):^10} | {rank:^4} | {ring:^4} | {reduced:^89} | {naive:^5} | {uvw:^17} | {bold}{omega:.3f}{bold} | {c:^12.2f} |")
+            lines.append(f"| {format_size(size):^10} | {rank:^4} | {ring:^4} | {reduced:^97} | {naive:^5} | {uvw:^17} | {bold}{omega:.3f}{bold} | {c:^12.2f} |")
 
         with open("docs/additions.md", "w", encoding="utf-8") as f:
             for line in lines:
                 f.write(f"{line}\n")
 
 
-def update_ranks_table(status: Dict[str, dict], ring2equal_rings: Dict[str, List[str]]) -> None:
+def update_ranks_table(status: Dict[str, dict]) -> None:
     print("- docs/ranks.md updating")
 
     lines = [
         "# Rank comparison",
         "",
         "The table below summarizes the current state of researched matrix multiplication schemes. It highlights where ternary",
-        "schemes (`ZT`) match or approximate the known minimal ranks from other fields. The best ranks of previously known schemes",
-        "are given in brackets.",
+        "schemes (`ZT`) match or approximate the known minimal ranks from other fields.",
         "",
-        "|   Format   |  `ZT` rank  |   `Z` rank   |   `Q` rank   |        ω        |",
-        "|:----------:|:-----------:|:------------:|:------------:|:---------------:|"
+        "|   Format   | `ZT` rank | `Z` rank | `Q` rank |        ω        |",
+        "|:----------:|:---------:|:--------:|:--------:|:---------------:|"
     ]
 
     for size, data in status.items():
-        known_ranks = {}
-
-        for ring, schemes in data["schemes"].items():
-            known_schemes = sorted([scheme for scheme in schemes if "known" in scheme["source"]], key=lambda s: (s["rank"], s["complexity"]))
-            if not known_schemes:
-                continue
-
-            rank = known_schemes[0]["rank"]
-
-            for equal_ring in ring2equal_rings[ring]:
-                if equal_ring not in known_ranks or rank < known_ranks[equal_ring]:
-                    known_ranks[equal_ring] = rank
-
-        current_ranks = data["ranks"]
-        min_rank = min([current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks], default=None)
-        unique_ranks = len(set(current_ranks[ring] for ring in ["Q", "Z", "ZT"] if ring in current_ranks)) == 1
-        diff_rank = {}
-
-        for ring in ring2equal_rings:
-            rank_curr = format_value(current_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
-            rank_known = format_value(known_ranks, ring=ring, min_value=min_rank, unique_value=unique_ranks)
-            diff_rank[ring] = rank_curr if rank_curr == rank_known else f"{rank_curr} ({rank_known})"
+        ranks = data["ranks"]
 
         n1, n2, n3 = map(int, size.split("x"))
-        omega = 3 * math.log(min_rank, n1 * n2 * n3)
+        omega = 3 * math.log(ranks["Q"], n1 * n2 * n3)
         bold = "**" if omega < math.log(7, 2) else "  "
 
-        lines.append(f'| {format_size(size):^10} | {diff_rank["ZT"]:^11} | {diff_rank["Z"]:^12} | {diff_rank["Q"]:^12} | {bold}{omega:.9f}{bold} |')
+        lines.append(f'| {format_size(size):^10} | {ranks["ZT"]:^9} | {ranks["Z"]:^8} | {ranks["Q"]:^8} | {bold}{omega:.9f}{bold} |')
 
     ring2count, better_strassen = get_coefficients_status(status=status)
     total = sum(ring2count.values())
@@ -472,7 +446,7 @@ def main():
     print("\nUpdate docs")
     update_results(status)
     update_additions_table(status)
-    update_ranks_table(status, ring2equal_rings=ring2equal_rings)
+    update_ranks_table(status)
 
 
 if __name__ == '__main__':
