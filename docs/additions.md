@@ -114,13 +114,13 @@ the additions in the factor matrices, `ω` is the exponent of the recursive algo
 |  `5x7x8`   | 204  | `ZT` |  [801](../schemes/known/stapleton/additions_reduced_ZT/5x7x8_m204_cr801_cn2541_ZT_reduced.json)   | 2541  |  181 / 268 / 352  |   2.831   |     6.03     |
 |  `5x8x8`   | 230  | `ZT` |  [914](../schemes/known/stapleton/additions_reduced_ZT/5x8x8_m230_cr914_cn2875_ZT_reduced.json)   | 2875  |  201 / 319 / 394  |   2.828   |     6.05     |
 |  `6x6x6`   | 153  | `ZT` |  [551](../schemes/known/stapleton/additions_reduced_ZT/6x6x6_m153_cr551_cn1873_ZT_reduced.json)   | 1873  |  143 / 146 / 262  |   2.808   |     5.71     |
-|  `6x6x7`   | 183  | `ZT` |  [665](../schemes/known/stapleton/additions_reduced_ZT/6x6x7_m183_cr665_cn2175_ZT_reduced.json)   | 2175  |  179 / 166 / 320  |   2.826   |     5.66     |
+|  `6x6x7`   | 183  | `ZT` |       [664](../schemes/results/addition_reduced_ZT/6x6x7_m183_cr664_cn2175_ZT_reduced.json)       | 2175  |  179 / 165 / 320  |   2.826   |     5.66     |
 |  `6x6x8`   | 203  | `ZT` |       [717](../schemes/results/addition_reduced_ZT/6x6x8_m203_cr717_cn2822_ZT_reduced.json)       | 2822  |  174 / 189 / 354  |   2.815   |     5.55     |
 |  `6x6x9`   | 225  | `ZT` |  [852](../schemes/known/stapleton/additions_reduced_ZT/6x6x9_m225_cr852_cn3804_ZT_reduced.json)   | 3804  |  210 / 234 / 408  |   2.811   |     5.87     |
 |  `6x7x7`   | 212  | `ZT` |  [794](../schemes/known/stapleton/additions_reduced_ZT/6x7x7_m212_cr794_cn2486_ZT_reduced.json)   | 2486  |  205 / 219 / 370  |   2.827   |     5.73     |
 |  `6x7x8`   | 238  | `ZT` |  [922](../schemes/known/stapleton/additions_reduced_ZT/6x7x8_m238_cr922_cn3019_ZT_reduced.json)   | 3019  |  222 / 268 / 432  |   2.822   |     5.88     |
 |  `6x8x8`   | 266  | `ZT` |  [978](../schemes/known/stapleton/additions_reduced_ZT/6x8x8_m266_cr978_cn5628_ZT_reduced.json)   | 5628  |  232 / 279 / 467  |   2.815   |     5.59     |
 |  `7x7x7`   | 250  | `ZT` |  [982](../schemes/known/stapleton/additions_reduced_ZT/7x7x7_m250_cr982_cn2921_ZT_reduced.json)   | 2921  |  257 / 263 / 462  |   2.837   |     5.89     |
-|  `7x7x8`   | 278  | `ZT` | [1092](../schemes/known/stapleton/additions_reduced_ZT/7x7x8_m278_cr1092_cn3652_ZT_reduced.json)  | 3652  |  261 / 315 / 516  |   2.827   |     5.88     |
+|  `7x7x8`   | 278  | `ZT` |      [1091](../schemes/results/addition_reduced_ZT/7x7x8_m278_cr1091_cn3652_ZT_reduced.json)      | 3652  |  261 / 315 / 515  |   2.827   |     5.88     |
 |  `7x8x8`   | 310  | `ZT` | [1259](../schemes/known/stapleton/additions_reduced_ZT/7x8x8_m310_cr1259_cn4235_ZT_reduced.json)  | 4235  |  313 / 377 / 569  |   2.819   |     6.00     |
-|  `8x8x8`   | 343  | `ZT` | [1305](../schemes/known/stapleton/additions_reduced_ZT/8x8x8_m343_cr1305_cn6866_ZT_reduced.json)  | 6866  |  351 / 335 / 619  |   2.807   |     5.68     |
+|  `8x8x8`   | 343  | `ZT` |      [1304](../schemes/results/addition_reduced_ZT/8x8x8_m343_cr1304_cn6866_ZT_reduced.json)      | 6866  |  351 / 335 / 618  |   2.807   |     5.67     |

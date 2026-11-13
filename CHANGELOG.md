@@ -1,5 +1,12 @@
 # Changelog
 
+## 13/11/2026
+### Additions reducing
+* `6x6x7`: discovered [scheme](schemes/results/addition_reduced_ZT/6x6x7_m183_cr664_cn2175_ZT_reduced.json) with `183` multiplications and `664` additions;
+* `7x7x8`: discovered [scheme](schemes/results/addition_reduced_ZT/7x7x8_m278_cr1091_cn3652_ZT_reduced.json) with `278` multiplications and `1091` additions;
+* `8x8x8`: discovered [scheme](schemes/results/addition_reduced_ZT/8x8x8_m343_cr1304_cn6866_ZT_reduced.json) with `343` multiplications and `1304` additions;
+
+
 ## 12/11/2026
 ### Additions reducing
 * Added reduced `ZT` schemes by  [Joshua Stapleton](https://github.com/Joshua-Stapleton/);
