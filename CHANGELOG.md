@@ -1,5 +1,11 @@
 # Changelog
 
+## 16/11/2026
+* Add new [@khoruzhii](https://github.com/khoruzhii) schemes from [lita](https://github.com/khoruzhii/lita);
+* Add new [@gsidebottom](https://github.com/gsidebottom) schemes from [mat_mul](https://github.com/gsidebottom/mat_mul);
+* Add new [@arhancanli](https://github.com/arhancanli) schemes from [quantavane-fmm-records](https://github.com/arhancanli/quantavane-fmm-records);
+
+
 ## 13/11/2026
 ### Additions reducing
 * `6x6x7`: discovered [scheme](schemes/results/addition_reduced_ZT/6x6x7_m183_cr664_cn2175_ZT_reduced.json) with `183` multiplications and `664` additions;

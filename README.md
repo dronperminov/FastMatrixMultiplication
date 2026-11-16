@@ -93,7 +93,10 @@ This research consolidates and analyzes schemes from several leading sources in 
 | fmm_schemes                         | New fast matrix multiplication schemes by [@MerlijnW70](https://github.com/MerlijnW70) ([fmm_schemes](https://github.com/MerlijnW70/fmm-schemes)).                                               |
 | cloudroom-math                      | Cloudroom Math: new matrix multiplication algorithms found by AI agents by [@matyasstoch](https://github.com/matyasstoch) ([cloudroom-math](https://github.com/matyasstoch/cloudroom-math))      |
 | mizopl                              | Near optimal ternary schemes from [@mizopl](https://github.com/mizopl)                                                                                                                           |
-| stapleton                           | Schemes from [@Joshua Stapleton](https://github.com/Joshua-Stapleton/)                                                                                                                           |
+| stapleton                           | Schemes from [@Joshua Stapleton](https://github.com/Joshua-Stapleton)                                                                                                                            |
+| arhancanli                          | Schemes from [quantavane-fmm-records](https://github.com/arhancanli/quantavane-fmm-records) discovered by [@Arhan Canli](https://github.com/arhancanli)                                          |
+| gsidebottom                         | Schemes from [mat_mul](https://github.com/gsidebottom/mat_mul) discovered by [@Greg Sidebottom](https://github.com/gsidebottom)                                                                  |
+
 
 ## Scheme File Formats
 This repository uses two JSON formats for storing matrix-multiplication schemes:
